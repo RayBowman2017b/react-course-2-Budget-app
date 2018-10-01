@@ -35,8 +35,25 @@ import React from "react";
 
 //  SEC_011 --- 106. Setting up a Date Picker 21:34
 
-import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
+//import moment from 'moment';
+//const moment = require ('moment');
+
+import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
+//  [S07251674|Loadable_Handlers.jsx::MPT2: MP_common_loading_handler <1>^B]
+
+const moment = Loadable({
+  loader: () => import('moment'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
+
+//import { SingleDatePicker } from 'react-dates';
+
+const SingleDatePicker = Loadable({
+  loader: () => import('react-dates'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
 
 //  SEC_012 --- 121. Mocking Libraries with Jest 11:51
 //  MOVED to sec12a_app.jsx

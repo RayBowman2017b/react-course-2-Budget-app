@@ -4,10 +4,13 @@
     "\\A01_Course_Notes",
     "\\A01_MISC",
     "\\A01_Upper_Level_Files",
+    "\\dist",
     "\\public",
     "\\src",
-    "\\zzz_playground"
+    "\\src\\sec009a_components",
+    "\\src\\sec009a_routers",
+    "\\src\\Utilities_01"
   ],
-  "SelectedNode": "\\webpack.config.js",
+  "SelectedNode": "\\src\\sec009a_components\\sec009a_SFC_expense_dashboard_page.jsx",
   "PreviewInSolutionExplorer": false
 }

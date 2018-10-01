@@ -36,6 +36,7 @@
 ...................................................................................................
 
 
+//  [S07251665|index_02.html::DRC2: Budget App^B]
 //  [S07251663|index.html::DRC1: Budget App^B]
 
 
@@ -71,6 +72,11 @@ const L_store = createStore
 //  [S07251665|sec012a_app.jsx::MP_getVisibleExpenses drc1;^B]
 //  [S07251665|sec012a_app.jsx::add mock data to GC_store drc1;^B]
 //  [S07251665|sec012a_app.jsx::ReactDOM.render GC_provider_for_router^B]
+
+
+//  [S07251674|Loadable_Handlers.jsx::DRC1: MP_common_loading_handler <1>^B]
+
+
 
 ...................................................................................................
         [ APP ROUTER ref-drc-1;^B]

@@ -23,7 +23,8 @@ import MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_ex
  */
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
-import moment from 'moment';
+//import moment from 'moment';
+const moment = require ('moment');
 
 //=====================================================================
 

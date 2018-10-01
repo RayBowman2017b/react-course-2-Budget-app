@@ -15,7 +15,8 @@ sec012a_expense_list_filters.test.jsx
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import moment from 'moment';
+//import moment from 'moment';
+const moment = require ('moment');
 
 import { CLS_expense_list_filters } from "../../sec009a_components/sec011a_L103_expense_list_filters.jsx";
 

@@ -15,7 +15,8 @@ SEC_012_Testing_Your_Application\proj_02\Budget-app\src\sec012a_L112_tests\actio
 
 import { MP_expense_actions, MP_addExpense, MP_removeExpense, MP_editExpense } from "../../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
-import moment from 'moment';
+//import moment from 'moment';
+const moment = require ('moment');
 
 describe ('EXPENSE ACTION TESTS', () => {
     test ('should setup remove expense action object', () => {

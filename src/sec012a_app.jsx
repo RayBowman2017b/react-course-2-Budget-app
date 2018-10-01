@@ -62,18 +62,8 @@ const GC_store = MP_configure_store ();
    //  code to create test data removed
 
 //if (false)
-if (true)
             //[ if (false)  :end1;]
 {
-GC_store.subscribe ( () =>
-  {
-    const L_state = GC_store.getState ();
-    const L_visibleExpenses = MP_getVisibleExpenses (L_state.expenses, L_state.filters);
-                          //[ MP_getVisibleExpenses ref1;^B]
-    //[S07251664|A01_DIrectory_01.txt::MP_getVisibleExpenses drc1;^B]
-    //console.log (GC_store.getState());
-    console.log (L_visibleExpenses);
-  }                );
 
 const L_august_01_2018 = 1533142800000;
 const L_august_03_2018 = 1533315600000;
@@ -85,6 +75,17 @@ GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, cr
 GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: L_august_03_2018 }) );
 GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: L_sept_04_2018 }) );
                 //[ MP_addExpense exe1;^B]
+
+GC_store.subscribe ( () =>
+  {
+    const L_state = GC_store.getState ();
+    const L_visibleExpenses = MP_getVisibleExpenses (L_state.expenses, L_state.filters);
+                          //[ MP_getVisibleExpenses ref1;^B]
+    //[S07251664|A01_DIrectory_01.txt::MP_getVisibleExpenses drc1;^B]
+    //console.log (GC_store.getState());
+    console.log (L_visibleExpenses);
+  }                );
+
 }
             //[ if (false)  :end1;^B]
 

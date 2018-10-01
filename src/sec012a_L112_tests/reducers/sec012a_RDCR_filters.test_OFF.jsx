@@ -11,7 +11,8 @@ sec012a_RDCR_filters.test.jsx
 
  */
 
-import moment from "moment";
+//import moment from "moment";
+const moment = require ('moment');
 
 import MP_filtersReducer from "../../sec011a_L099_reducers/sec011a_L099_RDCR_filters.jsx";
 

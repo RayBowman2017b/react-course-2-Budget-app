@@ -36,7 +36,8 @@ import {
   MP_setEndDate
        } from "../../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
 
-import moment from 'moment';
+//import moment from 'moment';
+const moment = require ('moment');
 
 describe ("FILTER TESTS", () => {
 

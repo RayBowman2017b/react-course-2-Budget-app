@@ -41,7 +41,17 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { DateRangePicker } from 'react-dates';
+//  import { DateRangePicker } from 'react-dates';
+
+import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
+//[S07251674|Loadable_Handlers.jsx::MPT3: MP_common_loading_handler <1>^B]
+
+const DateRangePicker = Loadable({
+  loader: () => import('react-dates'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
+
 
 
 //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41

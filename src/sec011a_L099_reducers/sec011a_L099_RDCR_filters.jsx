@@ -24,7 +24,8 @@ import { MP_filter_and_sort_actions } from "../sec011a_L099_actions/sec011a_L099
             //[ MP_filter_and_sort_actions xxx]
                         //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref4;^B]
 
-import moment from "moment";
+//import moment from "moment";
+const moment = require ('moment');
 
 //  Filters reducer
 

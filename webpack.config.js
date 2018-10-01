@@ -111,6 +111,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const GC_mod_path = require ('path');
 const GC_path_public = GC_mod_path.join (__dirname, 'public');
 const GC_webpack = require ('webpack');
@@ -130,12 +133,14 @@ const GC_active_path =
             // GC_course_section_path[3],
             // GC_course_section_path[4],
 
-const GC_actual_path_public =
+const GC_actual_path_public = (P_root) =>
+{
+    return (
   //[ GC_actual_path_public module.exports-ref1;]
   //[ GC_actual_path_public module.exports-ref2;]
     GC_mod_path.join
         (
-            'K:/',
+            P_root,
             GC_course_section_path[0],
             GC_course_section_path[1],
             GC_course_section_path[2],
@@ -144,8 +149,11 @@ const GC_actual_path_public =
             GC_active_project_path[0],
             GC_active_project_path[1],
             'public'
+        )
         );
-console.log ( ' --- GC_actual_path_public is ', GC_actual_path_public);
+}
+
+console.log ( ' --- GC_actual_path_public(\'K:/\') is ', GC_actual_path_public('K:/'));
 
 
 //  entry point -> output
@@ -157,10 +165,13 @@ const xxxGC_actual_source_JSX = './' + GC_active_app_folder
                                   + GC_active_app_file;
  *******************************************************************/
 
-const GC_actual_path_dist =
+const GC_actual_path_dist = (P_root) =>
+{
+    return (
     GC_mod_path.join
         (
-            'K:/',
+            //'K:/',
+            P_root,
             GC_course_section_path[0],
             GC_course_section_path[1],
             GC_course_section_path[2],
@@ -168,8 +179,10 @@ const GC_actual_path_dist =
             GC_active_project_path[0],
             GC_active_project_path[1],
             'dist'
-        );
-console.log ( ' --- GC_actual_path_dist is ', GC_actual_path_dist);
+        )
+            );
+}
+console.log ( ' --- GC_actual_path_dist (\'/K/\') is ', GC_actual_path_dist('K:/'));
 
 const GC_actual_path_favicon =
     GC_mod_path.join
@@ -286,7 +299,7 @@ const GC_redux_playground_JSX =
         );
 
 //    entry: './SEC_006_Webpack/react-course-proj-01/Indecision-app-01/src/sec006b_app.js',
-//        path: GC_actual_path_public,
+//        path: GC_actual_path_public ('K:/'),
 
 
 //  SEC_006 --- 54. Setting up Babel with Webpack 9:27
@@ -298,7 +311,7 @@ console.log ( ' --- GC_actual_source_JSX is ', GC_mod_path.parse (GC_actual_sour
 //  SEC_009 --- 77. React-Router 101 20:13
 //    devServer:
 //    {
-//        contentBase: GC_actual_path_public,
+//        contentBase: GC_actual_path_public ('K:/'),
 //        historyApiFallback: true
 //    }
 
@@ -321,9 +334,17 @@ function GC_build_config (env)  {
     let L_config_obj = {
 
         entry: GC_actual_source_JSX,
+        // entry:
+        // {
+        //     app: [ GC_actual_source_JSX ],
+        //     // vendor: [
+        //     //     //'react', 'lodash', 'moment'
+        //     //     'moment'
+        //     // ],
+        // },
         output:
         {
-            //path: GC_actual_path_public,
+            //path: GC_actual_path_public('K:/'),
             //  filename: 'bundle.js'
             filename: '[name].[chunkhash].js'
         },
@@ -371,15 +392,23 @@ function GC_build_config (env)  {
                 }
             ]
         },
-        plugins: [
+          optimization: {
+            // minimizer: [new UglifyJsPlugin()]
+          },
+          plugins: [
+
             //  https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
             // load `moment/locale/ja.js` and `moment/locale/it.js`
             new GC_webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
 
+            // Ignore all locale files of moment.js
+            new GC_webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
     //  Maximilian Schwarzmuller lecture - 11:26 AM 9/22/2018
     //  K:\A01_Udemy\Z01_General_Notes\webpack_01.txt
     //  extractPlugin
-            new CleanWebpackPlugin('dist', {} ),
+            //new CleanWebpackPlugin('dist', {} ),
+            new CleanWebpackPlugin(GC_actual_path_dist ('K:/'), {} ),
             new MiniCssExtractPlugin({
                 filename: 'style.[contenthash].css',
             }),
@@ -408,7 +437,26 @@ function GC_build_config (env)  {
     {
         L_config_obj.devtool = 'source-map';
         L_config_obj.mode = "production";
-        L_config_obj.output.path = GC_actual_path_dist;
+        L_config_obj.output.path = GC_actual_path_dist ('K:/');
+
+        L_config_obj.optimization.splitChunks =
+        {
+              // include all types of chunks
+            chunks: 'all'
+        }
+
+ //  https://www.npmjs.com/package/webpack-bundle-analyzer
+
+        L_config_obj.plugins.push(new BundleAnalyzerPlugin());
+
+        // L_config_obj.plugins.push(new BundleAnalyzerPlugin(
+        // {
+        //     analyzerMode: "disabled",
+        //     generateStatsFile: true,
+        //     statsFilename: "BundleAnalyzer_01.json",
+        //     defaultSizes: "parsed"
+        // }
+        //     ) );
     }
     else
     if (env === 'development')
@@ -416,14 +464,24 @@ function GC_build_config (env)  {
         //L_config_obj.devtool = 'cheap-module-eval-source-map';
         L_config_obj.devtool = 'inline-source-map';
         L_config_obj.mode = "development";
-        L_config_obj.output.path = GC_actual_path_public;
+        L_config_obj.output.path = GC_actual_path_public('K:/');
+        //L_config_obj.output.path = GC_actual_path_dist('K:/');
+
+        //  NOTES in
+        //  K:\A01_Udemy\Z01_General_Notes\webpack_optimization_01.txt
 
         L_config_obj.devServer = {
             //contentBase: GC_dist_path,
-            contentBase: GC_actual_path_public,
+            contentBase: GC_actual_path_public('K:/'),
             host: "0.0.0.0",
             port: 9900,
-            historyApiFallback: true
+            historyApiFallback: true,
+
+            //  THIS DID NOT WORK - test data did not load
+            //  https://stackoverflow.com/questions/47477255/webpack-dev-server-failed-to-load-resource
+            //publicPath: "/dist/"
+            //publicPath: GC_actual_path_dist('/') + "/"
+            //publicPath: GC_actual_path_public('/') + "/"
         };
     }
     else

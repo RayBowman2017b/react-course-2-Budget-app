@@ -10,4 +10,4 @@ copy  .\webpack.config.js  ..\..\..\webpack.config.js
 copy  .\.babelrc  ..\..\..\.babelrc
 @rem yarn run webpack-dev-server --watch
 @rem 
-yarn run build:prod
+yarn run build:prod 
