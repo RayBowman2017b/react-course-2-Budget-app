@@ -10,19 +10,59 @@ const GC_express = require('express');
 const GC_app = GC_express();
 const GC_path = require('path');
 const GC_public_path = GC_path.join(__dirname, '..', 'public');
+const GC_dist_path = GC_path.join(__dirname, '..', 'dist');
 const GC_default_path = GC_path.join(GC_public_path, 'index.html');
-const GC_port = 3000;
+//const GC_default_path = GC_path.join(GC_dist_path, 'index.html');
+
+const GC_port = process.env.port || 3000;
+
+const webpack = require("webpack");
+
+//import webpackMiddleware from 'webpack-dev-middleware';
+//import webpackConfig from '../webpack.config.js';
+// const webpackMiddleware = require ('webpack-dev-middleware');
+// const webpackConfig = require ('../webpack.config.js');
+
+webpack({
+  // Configuration Object
+}, (err, stats) => {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    return;
+  }
+
+  const info = stats.toJson();
+
+  if (stats.hasErrors()) {
+    console.error(info.errors);
+  }
+
+  if (stats.hasWarnings()) {
+    console.warn(info.warnings);
+  }
+
+  // Log result...
+});
+
 
 //  use the middleware GC_express.static(GC_public_path)
-GC_app.use(GC_express.static(GC_public_path));
+//GC_app.use(GC_express.static(GC_public_path));
+GC_app.use(GC_express.static(GC_dist_path));
+//  GC_app.use(webpackMiddleware(webpack(webpackConfig('production'))));
 
-function unhandled_requests (req, res)
+
+function GF_unhandled_requests (req, res)
 {
     res.sendFile(GC_default_path);
 }
 
+            //  fall back to index.html whenever there is a 404 (unhandled route).
+
 //  match all unmatched routes --- *
-GC_app.get ('*', unhandled_requests);
+GC_app.get ('*', GF_unhandled_requests);
 //  path
 
 function listen_handler ()
@@ -31,3 +71,4 @@ function listen_handler ()
 }
 
 GC_app.listen(GC_port, listen_handler);
+  //[S07251664|A01_DIrectory_01.txt::GC_app.listen drc1;^B]

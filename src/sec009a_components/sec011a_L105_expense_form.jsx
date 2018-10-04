@@ -38,6 +38,8 @@ import React from "react";
 //import moment from 'moment';
 //const moment = require ('moment');
 
+import Loadable from 'react-loadable';
+
 import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 //  [S07251674|Loadable_Handlers.jsx::MPT2: MP_common_loading_handler <1>^B]
 

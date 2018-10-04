@@ -1,15 +1,39 @@
 
 //  webpack.config.js
 
-//  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\webpack.config.js
-
 //  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Budget-app\webpack.config.js
 
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\webpack.config.js
 
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_010_Redux\proj_02\Budget-app\webpack.config.js
+
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_009_React_Router\proj_02\Budget-app\webpack.config.js
+
+
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_007_3PCmpn\proj_01\Indecision-app\webpack.config.js
+
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_006_Webpack\react-course-proj-01\Indecision-app-01\sec006_webpack.config.js
+
+
+//   xxx NOT HERE >>> copy  .\webpack.config.js  ..\..\..\webpack.config.js
+//   xxx NOT HERE >>> copy  .\.babelrc  ..\..\..\.babelrc
 //  yarn run webpack --watch
 
 //  node  webpack.config.js
 
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_008_Styling_React\proj_01\Indecision-app\webpack.config.js
+
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
+//  SEC_007_Using_a_Third-Party_Component\react-course-proj-01\Indecision-app-01\webpack.config.js
+
+
+//  "K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\SEC_007_Using_a_Third-Party_Component\react-course-proj-01\Indecision-app-01\src\sec006c_components\sec006c_IndecisionApp.jsx"
+//  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\SEC_012_Testing_Your_Application\proj_02\Budget-app\webpack.config.js
 
 //  const GC_active_app_folder = "SEC_006_Webpack";
 //  const GC_active_app_folder = "SEC_007_3PCmpn";
@@ -19,6 +43,9 @@
 //  const GC_active_app_folder = "SEC_011_React_with_Redux";
 //  const GC_active_app_folder = "SEC_012_Testing_Your_Application";
 const GC_active_app_folder = "a01_final_projects";
+  //[ GC_active_app_folder ref2;]
+  //[ GC_active_app_folder ref3;]
+  //[ GC_active_app_folder ref4;]
   //[ GC_active_app_folder ref5;]
   //[ GC_active_app_folder xxx]
 //  const GC_active_app_file = "sec006c_app.jsx";
@@ -88,7 +115,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const GC_mod_path = require ('path');
 const GC_path_public = GC_mod_path.join (__dirname, 'public');
-const GC_path_dist = GC_mod_path.join (__dirname, 'dist');
 const GC_webpack = require ('webpack');
 
 
@@ -96,12 +122,33 @@ console.log (' --- path is ', __dirname);
 console.log ( ' --- public path is ', GC_path_public);
 
 
-const GC_actual_path_public = () =>
+
+const GC_actual_path_public = (P_root) =>
 {
-    return GC_path_public;
+    return (
+  //[ GC_actual_path_public module.exports-ref1;]
+  //[ GC_actual_path_public module.exports-ref2;]
+    GC_mod_path.join
+        (
+            P_root,
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            GC_active_app_folder,
+        //[ GC_active_app_folder ref2;^B]
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'public'
+        )
+        );
 }
 
-console.log ( ' --- GC_actual_path_public() is ', GC_actual_path_public());
+//const GC_actual_path_public = () =>
+//{
+//    return GC_path_public;
+//}
+
+console.log ( ' --- GC_actual_path_public(\'K:/\') is ', GC_actual_path_public('K:/'));
 
 
 //  entry point -> output
@@ -113,26 +160,93 @@ const xxxGC_actual_source_JSX = './' + GC_active_app_folder
                                   + GC_active_app_file;
  *******************************************************************/
 
-const GC_actual_path_dist = () =>
+const GC_actual_path_dist = (P_root) =>
 {
-    return GC_path_dist;
+    return (
+    GC_mod_path.join
+        (
+            //'K:/',
+            P_root,
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            GC_active_app_folder,
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'dist'
+        )
+            );
 }
-console.log ( ' --- GC_actual_path_dist () is ', GC_actual_path_dist());
+console.log ( ' --- GC_actual_path_dist (\'/K/\') is ', GC_actual_path_dist('K:/'));
 
-
-const GC_actual_path_favicon = GC_mod_path.join (__dirname, 'public','images');
+const GC_actual_path_favicon =
+    GC_mod_path.join
+        (
+            'K:/',
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            GC_active_app_folder,
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'public',
+            'images'
+            // 'favicon.png'
+        );
 console.log ( ' --- GC_actual_path_favicon is ', GC_actual_path_favicon);
 
 
-const GC_actual_path_styles = GC_mod_path.join (__dirname, 'src', 'styles');
+            // GC_course_section_path[3],
+            // GC_course_section_path[4],
+const GC_actual_source_JSX =
+  //[ GC_actual_source_JSX module.exports-ref1;]
+  //[ GC_actual_source_JSX xxx]
+    GC_mod_path.join
+        (
+            'K:/',
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            //  "./",
+            GC_active_app_folder,
+        //[ GC_active_app_folder ref3;^B]
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'src',
+            GC_active_app_file
+        //[ GC_active_app_file ref1;^B]
+        );
 
-const GC_actual_source_JSX = GC_mod_path.join
-                                (__dirname, 'src', GC_active_app_file);
-                                               //[ GC_active_app_file ref1;^B]
+const GC_actual_path_styles =
+    GC_mod_path.join
+        (
+            'K:/',
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            //  "./",
+            GC_active_app_folder,
+        //[ GC_active_app_folder ref4;^B]
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'src',
+            'styles'
+        );
 
-
-const GC_actual_source_index = GC_mod_path.join (__dirname, 'src', 'index_02.html');
-
+const GC_actual_source_index =
+    GC_mod_path.join
+        (
+            'K:/',
+            GC_course_section_path[0],
+            GC_course_section_path[1],
+            GC_course_section_path[2],
+            //  "./",
+            GC_active_app_folder,
+            GC_active_project_path[0],
+            GC_active_project_path[1],
+            'src',
+            'index_02.html'
+        );
 
 function GF_copy_webpack_plugin ()
 {
@@ -146,6 +260,18 @@ function GF_copy_webpack_plugin ()
         );
 }
 
+//=======================================================================
+
+//  Maximilian Schwarzmuller lecture - 11:26 AM 9/22/2018
+//  K:\A01_Udemy\Z01_General_Notes\webpack_01.txt
+//  npm install --save-dev extract-text-webpack-plugin@next
+
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var extractPlugin = new ExtractTextPlugin ( {
+    filename: 'main.css'
+} );
+//=======================================================================
 
 //  sec 10 L85
             // GC_course_section_path[3],
@@ -236,6 +362,13 @@ function GC_build_config (env)  {
             //     'sass-loader'
             // ]
 
+//  Maximilian Schwarzmuller lecture - 11:26 AM 9/22/2018
+//  K:\A01_Udemy\Z01_General_Notes\webpack_01.txt
+              //   use: extractPlugin.extract ( {
+              //       use: ['css-loader', 'sass-loader']
+              //   } )
+              // }
+
                 {
                     test: /\.s?css$/,
                     use:
@@ -266,6 +399,10 @@ function GC_build_config (env)  {
             // Ignore all locale files of moment.js
             new GC_webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
+    //  Maximilian Schwarzmuller lecture - 11:26 AM 9/22/2018
+    //  K:\A01_Udemy\Z01_General_Notes\webpack_01.txt
+    //  extractPlugin
+            //new CleanWebpackPlugin('dist', {} ),
             new CleanWebpackPlugin(GC_actual_path_dist ('K:/'), {} ),
             new MiniCssExtractPlugin({
                 filename: 'style.[contenthash].css',
@@ -305,7 +442,7 @@ function GC_build_config (env)  {
 
  //  https://www.npmjs.com/package/webpack-bundle-analyzer
 
-        // L_config_obj.plugins.push(new BundleAnalyzerPlugin());
+        L_config_obj.plugins.push(new BundleAnalyzerPlugin());
 
         // L_config_obj.plugins.push(new BundleAnalyzerPlugin(
         // {
