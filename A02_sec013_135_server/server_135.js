@@ -23,6 +23,7 @@ const webpack = require("webpack");
 // const webpackMiddleware = require ('webpack-dev-middleware');
 // const webpackConfig = require ('../webpack.config.js');
 
+/**********************************************************
 webpack({
   // Configuration Object
 }, (err, stats) => {
@@ -46,6 +47,8 @@ webpack({
 
   // Log result...
 });
+
+ **********************************************************/
 
 
 //  use the middleware GC_express.static(GC_public_path)
