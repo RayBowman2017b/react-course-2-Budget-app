@@ -23,7 +23,7 @@
     "dev-server": "webpack-dev-server  --env=development --watch",
     "test": "jest --config=jest.config.json",
     "start": "node A02_sec013_135_server/server_135.js",
-    "heroku-postbuild": "yarn run build:prod"
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
