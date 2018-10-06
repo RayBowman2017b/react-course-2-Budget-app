@@ -136,7 +136,9 @@ const GC_actual_path_dist = () =>
 console.log ( ' --- GC_actual_path_dist () is ', GC_actual_path_dist());
 
 
-const GC_path_favicon = GC_mod_path.join (__dirname, 'public','images');
+//const GC_path_favicon = GC_mod_path.join (__dirname, 'public','images');
+const GC_path_favicon = "src/images";
+const GC_path_favicon_dest = "images";
 console.log ( ' --- GC_path_favicon is ', GC_path_favicon);
 
 
@@ -212,7 +214,7 @@ function GC_build_config (env)  {
     const LF_copy_webpack_plugin = () =>
     {
         return new CopyWebpackPlugin (
-            [ { from: GC_path_favicon }], { copyUnmodified: true }
+            [ {from:'src/images', to:'images'} ], { copyUnmodified: true }
             );
     }
 
