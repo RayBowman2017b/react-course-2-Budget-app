@@ -41,18 +41,19 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-//  import { DateRangePicker } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
+//[S07251664|A01_DIrectory_01.txt::DateRangePicker drc1;^B]
 
-import Loadable from 'react-loadable';
+//import Loadable from 'react-loadable';
 
-import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
+//import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 //[S07251674|Loadable_Handlers.jsx::MPT3: MP_common_loading_handler <1>^B]
 
-const DateRangePicker = Loadable({
-  loader: () => import('react-dates'),
-  loading: MP_common_loading_handler,
-  timeout: 3000, // 3 seconds
-});
+//const DateRangePicker = Loadable({
+//  loader: () => import('react-dates'),
+//  loading: MP_common_loading_handler,
+//  timeout: 3000, // 3 seconds
+//});
 
 
 
@@ -79,6 +80,8 @@ import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_s
        //  [ CLS_expense_list_filters pp1;]
        //  [ CLS_expense_list_filters xxx]
 
+   //  [ END1: CLS_expense_list_filters <1>]
+
    //[ CLS1: CLS_expense_list_filters <1>^B]
 export class CLS_expense_list_filters extends React.Component
 {
@@ -98,6 +101,11 @@ export class CLS_expense_list_filters extends React.Component
   //[ calenderFocused a2;]
   //[ calenderFocused xxx]
     };
+
+    constructor(P_props)
+    {
+        super (P_props);
+    }
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
 
@@ -161,6 +169,8 @@ export class CLS_expense_list_filters extends React.Component
 
        //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_expense_list_filters.render <1>^B]
 
+    //  [ END1: CLS_expense_list_filters.render <1>]
+
        //[ DEF1: CLS_expense_list_filters.render <1>^B]
     render () {
       return (
@@ -213,7 +223,11 @@ export class CLS_expense_list_filters extends React.Component
       );
 
     };
+    //  [ END1: CLS_expense_list_filters.render <1>^B]
 }
+   //  [ END1: CLS_expense_list_filters <1>^B]
+//#######################################################################################
+//#######################################################################################
 
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: ELF.GC_map_state_to_props <1>^B]

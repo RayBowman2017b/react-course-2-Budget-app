@@ -124,7 +124,8 @@ const GC_provider_for_router = (
 
 //  sec011_app_01
 const GC_appRoot_01 = document.getElementById('sec011_app_01');
-      //[S07251663|index.html::getElementById('sec011_app_01'); ref1;^B]
+//[S07251665|index_template.html::getElementById('sec011_app_01'); ref1;^B]
+         //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
 
 //  [S07251664|A01_DIrectory_01.txt::ReactDOM.render GC_provider_for_router^B]
 

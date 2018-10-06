@@ -5,6 +5,13 @@
 
 //  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Budget-app\webpack.config.js
 
+   //  [ DEF1: GC_actual_path_public <1>]
+   //  [ DEF1: GC_actual_path_dist <1>]
+
+   //  [ DEF1: GC_build_config <1>]
+   //    [ if (env === 'production') top1;]
+   //    [ if (env === 'development') top1;]
+
 
 //  yarn run webpack --watch
 
@@ -52,7 +59,7 @@ const GC_active_app_folder = "a01_final_projects";
 //    entry: GC_redux_playground_JSX,
 
 //  sec010b_L88_destructuring.jsx
-console.log (' ******** GC_active_app_folder is ->' + GC_active_app_folder);
+//console.log (' ******** GC_active_app_folder is ->' + GC_active_app_folder);
 console.log (' ******** GC_active_app_file is ->' + GC_active_app_file);
 
 //  const GC_course_section_path =
@@ -62,7 +69,7 @@ console.log (' ******** GC_active_app_file is ->' + GC_active_app_file);
 //    [   "aaa_TransZ_DT201607", "Ralph", "Udemy", "C023_Complete_React_Web_Dev", "Sections"  ];
 //  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Budget-app\webpack.config.js
         ["A01_Udemy", "C023_Complete_React_Web_Dev", "Sections"];
-console.log (' ******** GC_course_section_path is ->', GC_course_section_path);
+//console.log (' ******** GC_course_section_path is ->', GC_course_section_path);
 
 
 //const GC_active_project_path = "\\react-course-proj-01\\Indecision-app-01";
@@ -74,7 +81,7 @@ const GC_active_project_path =
 //    [   "proj_02", "Budget-app"  ];
       [   "proj_02", "Budget-app", "zzz_playground" ];
       //  "K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\SEC_010_Redux\proj_02\Budget-app\zzz_playground"
-console.log (' ******** GC_active_project_path is -> ', GC_active_project_path);
+//console.log (' ******** GC_active_project_path is -> ', GC_active_project_path);
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -87,15 +94,21 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const GC_mod_path = require ('path');
+const GC_webpack = require ('webpack');
+
 const GC_path_public = GC_mod_path.join (__dirname, 'public');
 const GC_path_dist = GC_mod_path.join (__dirname, 'dist');
-const GC_webpack = require ('webpack');
 
 
 console.log (' --- path is ', __dirname);
 console.log ( ' --- public path is ', GC_path_public);
 
 
+       //    [ EXE1: GC_actual_path_public <1>]
+       //    [ EXE2: GC_actual_path_public <1>]
+       //    [ EXE3x: GC_actual_path_public <1>]
+
+//[ DEF1: GC_actual_path_public <1>^B]
 const GC_actual_path_public = () =>
 {
     return GC_path_public;
@@ -113,6 +126,9 @@ const xxxGC_actual_source_JSX = './' + GC_active_app_folder
                                   + GC_active_app_file;
  *******************************************************************/
 
+       //    [ EXE1: GC_actual_path_dist <1>]
+
+//[ DEF1: GC_actual_path_dist <1>^B]
 const GC_actual_path_dist = () =>
 {
     return GC_path_dist;
@@ -120,8 +136,8 @@ const GC_actual_path_dist = () =>
 console.log ( ' --- GC_actual_path_dist () is ', GC_actual_path_dist());
 
 
-const GC_actual_path_favicon = GC_mod_path.join (__dirname, 'public','images');
-console.log ( ' --- GC_actual_path_favicon is ', GC_actual_path_favicon);
+const GC_path_favicon = GC_mod_path.join (__dirname, 'public','images');
+console.log ( ' --- GC_path_favicon is ', GC_path_favicon);
 
 
 const GC_actual_path_styles = GC_mod_path.join (__dirname, 'src', 'styles');
@@ -131,20 +147,10 @@ const GC_actual_source_JSX = GC_mod_path.join
                                                //[ GC_active_app_file ref1;^B]
 
 
-const GC_actual_source_index = GC_mod_path.join (__dirname, 'src', 'index_02.html');
-
-
-function GF_copy_webpack_plugin ()
-{
-    // return new CopyWebpackPlugin (
-    //     [ ...patterns ], options
-    //     );
-     //new CopyWebpackPlugin([{ from: path.join(__dirname, '../resources')}], { copyUnmodified: true }),
-
-    return new CopyWebpackPlugin (
-        [ { from: GC_actual_path_favicon }], { copyUnmodified: true }
-        );
-}
+const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index_template.html');
+  //[ GC_index_html_template ref1;]
+  //[ GC_index_html_template xxx]
+console.log ( ' --- GC_index_html_template is ', GC_index_html_template);
 
 
 //  sec 10 L85
@@ -193,12 +199,32 @@ console.log ( ' --- GC_actual_source_JSX is ', GC_mod_path.parse (GC_actual_sour
 
 
 //module.exports = {
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: GC_build_config <1>]
+
+       //[ DEF1: GC_build_config <1>^B]
 function GC_build_config (env)  {
 
-    const L_loader_with_source_map = (P_loader) =>
+    const LF_loader_with_source_map = (P_loader) =>
     {
         return ( { loader: P_loader, options: { sourceMap: true } } );
     }
+
+    const LF_copy_webpack_plugin = () =>
+    {
+        return new CopyWebpackPlugin (
+            [ { from: GC_path_favicon }], { copyUnmodified: true }
+            );
+    }
+
+    const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+      //[ HtmlWebpackPluginConfig ref1;]
+      //[ HtmlWebpackPluginConfig xxx]
+                  inject: 'body',
+                  hash: true,
+                  template: GC_index_html_template,
+                        //[ GC_index_html_template ref1;^B]
+                  filename: 'index.html'
+            });
 
     let L_config_obj = {
 
@@ -213,7 +239,8 @@ function GC_build_config (env)  {
         // },
         output:
         {
-            //path: GC_actual_path_public('K:/'),
+            //path: GC_actual_path_public(),
+        //[ EXE3x: GC_actual_path_public <1>^B]
             //  filename: 'bundle.js'
             filename: '[name].[chunkhash].js'
         },
@@ -223,7 +250,7 @@ function GC_build_config (env)  {
             [
               {
                 loader: 'babel-loader',
-                test: /\.jsx$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/
               },
               // {
@@ -242,9 +269,9 @@ function GC_build_config (env)  {
                     [
                         'style-loader',
                         MiniCssExtractPlugin.loader,
-                        L_loader_with_source_map('css-loader'),
-                        L_loader_with_source_map('postcss-loader'),
-                        L_loader_with_source_map('sass-loader')
+                        LF_loader_with_source_map('css-loader'),
+                        LF_loader_with_source_map('postcss-loader'),
+                        LF_loader_with_source_map('sass-loader')
                     ]
                 },
                 {
@@ -270,17 +297,10 @@ function GC_build_config (env)  {
             new MiniCssExtractPlugin({
                 filename: 'style.[contenthash].css',
             }),
-            new HtmlWebpackPlugin({
-                inject: false,
-                hash: true,
-                //  template: './src/index_02.html',
-                //  template: './src/index_02.html',
-                template: GC_actual_source_index,
-              //  filename: 'index_dist.html'
-                filename: 'index.html'
-            }),
+            HtmlWebpackPluginConfig,
+        //[ HtmlWebpackPluginConfig ref1;^B]
             new WebpackMd5Hash(),
-            GF_copy_webpack_plugin ()
+            LF_copy_webpack_plugin ()
         ]
     };
 
@@ -291,11 +311,13 @@ function GC_build_config (env)  {
 //    mode: "production",
 //    mode: "none",
 
+//[ if (env === 'production') top1;^B]
     if (env === 'production')
     {
         L_config_obj.devtool = 'source-map';
         L_config_obj.mode = "production";
-        L_config_obj.output.path = GC_actual_path_dist ('K:/');
+        L_config_obj.output.path = GC_actual_path_dist ();
+                         //[ EXE1: GC_actual_path_dist <1>^B]
 
         L_config_obj.optimization.splitChunks =
         {
@@ -317,20 +339,23 @@ function GC_build_config (env)  {
         //     ) );
     }
     else
+//[ if (env === 'development') top1;^B]
     if (env === 'development')
     {
         //L_config_obj.devtool = 'cheap-module-eval-source-map';
         L_config_obj.devtool = 'inline-source-map';
         L_config_obj.mode = "development";
-        L_config_obj.output.path = GC_actual_path_public('K:/');
-        //L_config_obj.output.path = GC_actual_path_dist('K:/');
+        L_config_obj.output.path = GC_actual_path_public();
+        //L_config_obj.output.path = GC_actual_path_dist();
+                         //[ EXE1: GC_actual_path_public <1>^B]
 
         //  NOTES in
         //  K:\A01_Udemy\Z01_General_Notes\webpack_optimization_01.txt
 
         L_config_obj.devServer = {
             //contentBase: GC_dist_path,
-            contentBase: GC_actual_path_public('K:/'),
+            contentBase: GC_actual_path_public(),
+               //[ EXE2: GC_actual_path_public <1>^B]
             host: "0.0.0.0",
             port: 9900,
 

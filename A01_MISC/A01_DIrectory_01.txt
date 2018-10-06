@@ -36,11 +36,15 @@
 ...................................................................................................
 
 
-//  [S07251665|index_02.html::DRC2: Budget App^B]
-//  [S07251663|index.html::DRC1: Budget App^B]
+//  [S07251673|webpack.config.js::DRC1: GC_build_config <1>^B]
 
 
-//  [S07251663|index.html::script src="/bundle.js" drc1;^B]
+//  [S07251665|index_template.html::DRC2: Budget App^B]
+//           [S07251663|index.html::DRC2: Budget App^B]
+
+
+///  [S07251665|index_template.html::script src="/bundle.js" drc1;^B]
+///           [S07251663|index.html::script src="/bundle.js" drc1;^B]
 
 
 //  [S07251673|webpack.config.js::GC_active_app_file drc1;^B]
@@ -78,6 +82,10 @@ const L_store = createStore
 
 
 //  [S07251675|server_135.js::GC_app.listen drc1;^B]
+
+
+//  [S07251667|sec011a_L105_expense_form.jsx::SingleDatePicker drc1;^B]
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::DateRangePicker drc1;^B]
 
 
 ...................................................................................................

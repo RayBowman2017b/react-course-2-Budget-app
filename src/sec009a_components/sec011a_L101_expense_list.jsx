@@ -28,25 +28,9 @@ import { connect } from 'react-redux';
 
 import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
 
-import Loadable from 'react-loadable';
+//import Loadable from 'react-loadable';
 //import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 
-const Loading_02 = (P_props) =>
-{
-  if (P_props.error) {
-//    return <div>Error! <button onClick={ P_props.retry }>Retry</button></div>;
-    console.log (`P_props.error is ${P_props.error}`);
-    return <div>Error! </div>;
-  } else if (P_props.timedOut) {
-//    return <div>Taking a long time... <button onClick={ P_props.retry }>Retry</button></div>;
-    return <div>Taking a long time... </div>;
-  } else if (P_props.pastDelay) {
-    return <div>Loading...</div>;
-  } else {
-    return null;
-  }
-   <div>Loading...</div>;
-}
 
 import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
             //[ MP_SLCT_getVisibleExpenses import-1;]

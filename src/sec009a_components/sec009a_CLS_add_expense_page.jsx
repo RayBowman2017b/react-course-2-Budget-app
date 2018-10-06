@@ -52,6 +52,11 @@ export class CLS_add_expense_page extends React.Component
        /////////////////////////////////////////////////////////////////////
        /////////////////////////////////////////////////////////////////////
 
+    constructor(P_props)
+    {
+        super (P_props);
+    }
+
 
         //  [ ASN1: onExpenseSubmit <1>]
 

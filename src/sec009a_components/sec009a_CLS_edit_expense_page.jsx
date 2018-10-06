@@ -65,6 +65,12 @@ export class CLS_edit_expense_page extends React.Component
        /////////////////////////////////////////////////////////////////////
        /////////////////////////////////////////////////////////////////////
 
+    constructor(P_props)
+    {
+        super (P_props);
+    }
+
+
     log_props = (P_expense) =>  {
             console.log ('updated', P_expense);
             if (this.props.expense)
