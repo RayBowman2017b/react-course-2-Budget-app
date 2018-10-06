@@ -214,7 +214,9 @@ function GC_build_config (env)  {
     const LF_copy_webpack_plugin = () =>
     {
         return new CopyWebpackPlugin (
-            [ {from:'src/images', to:'images'} ], { copyUnmodified: true }
+                //[ {from:'src/images', to:'images'} ], { copyUnmodified: true }
+                [ {from: GC_path_favicon, to: GC_path_favicon_dest} ],
+                { copyUnmodified: true }
             );
     }
 
