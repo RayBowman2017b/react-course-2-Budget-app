@@ -16,7 +16,7 @@ const GC_default_path = GC_path.join(GC_public_path, 'index.html');
 
 //const GC_port = process.env.port || 3000;
 const GC_port = process.env.PORT || 3000;
-const port_set_from_env = !! process.env.PORT;
+const GC_port_set_from_env = !! process.env.PORT;
 
 const webpack = require("webpack");
 
@@ -83,7 +83,7 @@ GC_app.get ('*', GF_unhandled_requests);
 
 function listen_handler ()
 {
-    console.log (`server is up --- port is ${port} --- port_set_from_env ${port_set_from_env}`);
+    console.log (`server is up --- port is ${GC_port} --- port_set_from_env ${GC_port_set_from_env}`);
 }
 
 GC_app.listen(GC_port, listen_handler);
