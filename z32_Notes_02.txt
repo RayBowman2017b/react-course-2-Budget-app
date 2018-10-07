@@ -1,5 +1,7 @@
 z32_Notes_02.txt
 
+React Uncaught SyntaxError: Unexpected token <
+
 
 echo "# react-course-2-Budget-app_L136b" >> README.md
 git init
