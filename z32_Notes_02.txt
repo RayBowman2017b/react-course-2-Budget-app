@@ -1,5 +1,7 @@
 z32_Notes_02.txt
 
+https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpected-token
+
 React Uncaught SyntaxError: Unexpected token <
 
 I have this issue also when I deploy new version
