@@ -151,7 +151,8 @@ const GC_actual_source_JSX = GC_mod_path.join
                                                //[ GC_active_app_file ref1;^B]
 
 
-const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index_template.html');
+//const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index_template.html');
+const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index.html');
   //[ GC_index_html_template ref1;]
   //[ GC_index_html_template xxx]
 console.log ( ' --- GC_index_html_template is ', GC_index_html_template);
