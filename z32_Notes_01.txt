@@ -1,7 +1,14 @@
 
 
+heroku local web
+
+
 https://react-2018-09-budget.herokuapp.com/
 https://react-2018-09-budget-03.herokuapp.com/
+
+  run `npm audit fix` to fix them, or `npm audit` for details
+{ Error: Cannot find module 'webpack-cli'
+ Heroku Error: Cannot find module 'webpack-cli'
 
 
 Entry module not found: Error: Can't resolve './src' #8151
