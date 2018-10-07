@@ -257,11 +257,11 @@ function GC_build_config (env)  {
               {
                 loader: 'babel-loader',
                 test: /\.jsx?$/,
-                include: APP_DIR,
+                //include: APP_DIR,
                 exclude: /node_modules/,
-                query  : {
-                presets:['react','es2015']
-                  }
+                // query  : {
+                // presets:['react','es2015']
+                //   }
               },
               // {
               //   test: /\.s?css$/,
