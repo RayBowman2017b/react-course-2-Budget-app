@@ -35,6 +35,8 @@ const webpackConfig = require ('../webpack.config.js');
 //  https://webpack.js.org/api/node/
 //  https://webpack.js.org/api/node/#error-handling
 
+const config_obj =  webpackConfig ('production');
+
 webpack(
   // Configuration Object
   config_obj,

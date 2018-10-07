@@ -47,6 +47,7 @@ remote:        https://react-2018-09-budget-136b.herokuapp.com/ deployed to Hero
 remote:
 
 remote:        https://react-2018-09-budget-03.herokuapp.com/ deployed to Heroku
+remote:        https://react-2018-09-budget.herokuapp.com/ deployed to Heroku
 
 
 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/"
