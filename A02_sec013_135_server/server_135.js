@@ -14,7 +14,9 @@ const GC_dist_path = GC_path.join(__dirname, '..', 'dist');
 const GC_default_path = GC_path.join(GC_public_path, 'index.html');
 //const GC_default_path = GC_path.join(GC_dist_path, 'index.html');
 
-const GC_port = process.env.port || 3000;
+//const GC_port = process.env.port || 3000;
+const GC_port = process.env.PORT || 3000;
+const port_set_from_env = !! process.env.PORT;
 
 const webpack = require("webpack");
 
@@ -23,10 +25,20 @@ const webpack = require("webpack");
 // const webpackMiddleware = require ('webpack-dev-middleware');
 // const webpackConfig = require ('../webpack.config.js');
 
-/**********************************************************
-webpack({
+/**********************************************************/
+
+const webpackConfig = require ('../webpack.config.js');
+
+//------------------------------------------------------------------
+//    The following was lifted from the webpack node API docs
+
+//  https://webpack.js.org/api/node/
+//  https://webpack.js.org/api/node/#error-handling
+
+webpack(
   // Configuration Object
-}, (err, stats) => {
+  config_obj,
+ (err, stats) => {
   if (err) {
     console.error(err.stack || err);
     if (err.details) {
@@ -48,8 +60,7 @@ webpack({
   // Log result...
 });
 
- **********************************************************/
-
+/**********************************************************/
 
 //  use the middleware GC_express.static(GC_public_path)
 //GC_app.use(GC_express.static(GC_public_path));
@@ -70,7 +81,7 @@ GC_app.get ('*', GF_unhandled_requests);
 
 function listen_handler ()
 {
-    console.log ('server is up');
+    console.log (`server is up --- port is ${port} --- port_set_from_env ${port_set_from_env}`);
 }
 
 GC_app.listen(GC_port, listen_handler);

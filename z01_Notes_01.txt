@@ -5,6 +5,9 @@ Entry module not found: Error: Can't resolve './src' #8151
 https://github.com/webpack/webpack/issues/8151
 
 
+https://www.udemy.com/react-2nd-edition/learn/v4/questions/5295946
+
+
 env --- production
 clean-webpack-plugin: K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\dist has been removed.
 (node:12084) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead

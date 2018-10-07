@@ -1,0 +1,454 @@
+
+
+Entry module not found: Error: Can't resolve './src' #8151
+https://github.com/webpack/webpack/issues/8151
+
+https://www.udemy.com/react-2nd-edition/learn/v4/questions/5295946
+
+
+Refused to apply style from because its MIME type ('text/html') is not a supported
+
+
+Refused to apply style from
+ 'http://localhost:9900/edit/style.a23ca12b7b61a170c2b9.css?3a91e13b6a07f49905c5'
+  because its MIME type ('text/html') is not a supported stylesheet MIME type,
+  and strict MIME checking is enabled.
+sec009a_app_router.jsx:63 router called
+sec012a_app.js:10  sec012a_app.jsx is running!
+sec012a_app.js:61   --- GC_store.getState() {expenses: Array(3), filters: {…}}
+Loadable_Handlers.jsx:9 P_props.error is TypeError: Cannot call a class as a function
+
+
+Loadable_Handlers.jsx TypeError: Cannot call a class as a function
+
+
+https://github.com/RayBowman2017b/react-course-2-Budget-app_03b
+git@github.com:RayBowman2017b/react-course-2-Budget-app_03b.git
+
+
+https://github.com/RayBowman2017b/react-course-2-expensify-app
+https://github.com/RayBowman2017b/react-course-2-Budget-app_03b
+
+
+//  node A02_sec013_135_server\server_135.js
+//  node  babel-node A02_sec013_135_server\server_135.js  --ignore client
+//  node   A02_sec013_135_server\server_135.js  --ignore client
+
+
+https://dev.to/aurelkurtula/setting-up-a-minimal-node-environment-with-webpack-and-babel--1j04
+
+npm i --save-dev webpack-dev-middleware
+npm i --save-dev babel-node
+
+
+"scripts": {
+    "start-node": "nodemon --exec babel-node server.js  --ignore client"
+    "start-node": "node --exec babel-node server.js  --ignore client"
+  }
+
+................................................
+
+import express from 'express'; 
+import webpack from 'webpack';
+import webpackMiddleware from 'webpack-dev-middleware';
+import webpackConfig from './webpack.config.js';
+
+const app = express();
+app.use(webpackMiddleware(webpack(webpackConfig)));
+
+app.get('/api', (req, res) =>  )
+
+app.listen(4000, () => {
+  console.log('Listening');
+});
+
+................................................
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+repository:
+https://github.com/RayBowman2017b/react-course-2-expensify-app-pack-too-big
+
+> git push -u origin_02 master
+
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+ http://0.0.0.0:9900/
+
+            //  https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+            //  load `moment/locale/ja.js` and `moment/locale/it.js`
+            new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
+
+            //  MiniCssExtractPlugin is recommended over ExtractTextPlugin
+
+            new MiniCssExtractPlugin({
+                  filename: 'style.[contenthash].css',
+            }),
+
+
+--------------------------------------------------------------------------
+https://github.com/webpack/webpack/issues/6858
+--------------------------------------------------------------------------
+
+zifn4b commented on May 26
+This particular issue I believe has to do with when webpack resorts
+to its default configuration on Windows it tries to resolve ./src and can't.
+It would need to resolve .\src instead. That's probably a bug.
+--------------------------------------------------------------------------
+
+domainoverflow commented on May 27
+if for some reason you used utf-8, i.e.: accented characters ( IDN, ex: é )
+ will also lead to this problem even though the underlying OS ( in this case
+ centos 7 ) file system does not have a problem with it.
+If the IDN character is a domain name, you can bypass this bug by converting
+it to punycode
+(xn--...... . tld ).
+
+One thing is for sure, user mishap or not, closing this issue every other week
+will not make it go away.
+--------------------------------------------------------------------------
+
+SirajKakeh commented on Jul 4
+I double @zifn4b and @domainoverflow, I spent hours on Windows
+ trying to solve this but when tried the same project on
+ Ubuntu 16.04 it worked like magic!
+--------------------------------------------------------------------------
+
+
+
+Entry module not found: Error: Can't resolve './src'
+
+K:\A01_Udemy\Budget-app_03>node A02_sec013_135_server\server_135.js
+
+server is up
+
+[ 'Entry module not found: Error: Can't resolve './src'
+ in 'K:\\A01_Udemy\\Budget-app_03'
+
+ resolve './src' in 'K:\\A01_Udemy\\Budget-app_03'
+ using description file:
+ K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: .)
+ Field 'browser' doesn't contain a valid alias configuration
+ using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src)
+ no extension
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src is not a file
+ .wasm
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.wasm doesn't exist
+ .mjs
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.mjs doesn't exist
+ .js
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.js doesn't exist
+ .json
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.json doesn't exist
+ as directory
+ existing directory
+ using path: K:\\A01_Udemy\\Budget-app_03\\src\\index
+ using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src/index)
+ no extension
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index doesn't exist
+ .wasm
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.wasm doesn't exist
+ .mjs
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.mjs doesn't exist
+ .js
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.js doesn't exist
+ .json
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.json doesn't exist' ]
+
+[ 'configuration\nThe 'mode' option has not been set, webpack
+ will fallback to 'production' for this value. Set 'mode' option
+ to 'development' or 'production' to enable defaults for each environment.
+ You can also set it to 'none' to disable any default behavior.
+ Learn more: https://webpack.js.org/concepts/mode/' ]
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+K:\A01_Udemy\Budget-app_03>yarn run build:prod
+yarn run v1.7.0
+$ webpack -p --env=production
+ ******** GC_active_app_file is ->sec012a_app.jsx
+ --- path is  K:\A01_Udemy\Budget-app_03
+ --- public path is  K:\A01_Udemy\Budget-app_03\public
+ --- GC_actual_path_public() is  K:\A01_Udemy\Budget-app_03\public
+ --- GC_actual_path_dist () is  K:\A01_Udemy\Budget-app_03\dist
+ --- GC_actual_path_favicon is  K:\A01_Udemy\Budget-app_03\public\images
+ --- GC_actual_source_JSX is  K:\A01_Udemy\Budget-app_03\src\sec012a_app.jsx
+ --- GC_actual_source_JSX is  { root: 'K:\\',
+  dir: 'K:\\A01_Udemy\\Budget-app_03\\src',
+  base: 'sec012a_app.jsx',
+  ext: '.jsx',
+  name: 'sec012a_app' }
+env --- production
+clean-webpack-plugin: K:\A01_Udemy\Budget-app_03\dist has been removed.
+(node:13132) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+(node:13132) DeprecationWarning: Chunk.mapModules: Use Array.from(chunk.modulesIterable, fn) instead
+Hash: 4d6ba1d73b01ef8fc4de
+Version: webpack 4.20.2
+Time: 88416ms
+Built at: 2018-10-01 09:01:36
+                                   Asset       Size  Chunks             Chunk Names
+      style.4ffb36f14c740beb7ba1.css.map   1.97 KiB       1  [emitted]  main
+               0.60b6bdb40cdea917282a.js    211 KiB       0  [emitted]
+            main.7b1d0add1302509c7010.js   8.27 KiB       1  [emitted]  main
+               2.a903a1a6a60f386407cf.js   4.29 KiB       2  [emitted]
+               3.8ea6cffd1d2ac112a762.js   6.13 KiB       3  [emitted]
+               4.702290e317e4ca3430c2.js   6.83 KiB       4  [emitted]
+               5.45fc38f9266764909c52.js   7.91 KiB       5  [emitted]
+               6.5b3754d2472dcb72db14.js  265 bytes       6  [emitted]
+               7.e5817bb6ec1ceff80930.js   2.47 KiB       7  [emitted]
+        8.style.cf5b56ffbdf134a839fa.css   15.3 KiB       8  [emitted]  vendors~main
+    vendors~main.ccdd6e71a952a6a12292.js    237 KiB       8  [emitted]  vendors~main
+           0.60b6bdb40cdea917282a.js.map    733 KiB       0  [emitted]
+          style.4ffb36f14c740beb7ba1.css  262 bytes       1  [emitted]  main
+        main.7b1d0add1302509c7010.js.map   37.4 KiB       1  [emitted]  main
+           2.a903a1a6a60f386407cf.js.map   14.9 KiB       2  [emitted]
+           3.8ea6cffd1d2ac112a762.js.map   19.8 KiB       3  [emitted]
+           4.702290e317e4ca3430c2.js.map     24 KiB       4  [emitted]
+           5.45fc38f9266764909c52.js.map   36.7 KiB       5  [emitted]
+           6.5b3754d2472dcb72db14.js.map   1.04 KiB       6  [emitted]
+           7.e5817bb6ec1ceff80930.js.map   9.47 KiB       7  [emitted]
+    8.style.cf5b56ffbdf134a839fa.css.map   28.5 KiB       8  [emitted]  vendors~main
+vendors~main.ccdd6e71a952a6a12292.js.map    815 KiB       8  [emitted]  vendors~main
+                              index.html  577 bytes          [emitted]
+                             favicon.png   1.26 KiB          [emitted]
+Entrypoint main [big] = 8.style.cf5b56ffbdf134a839fa.css vendors~main.ccdd6e71a952a6a12292.js 8.style.cf5b56ffbdf134a839fa.css.map vendors~main.ccdd6e71a952a6a12292.js.map style.4ffb36f14c740beb7ba1.css main.7b1d0add1302509c7010.js style.4ffb36f14c740beb7ba1.css.map main.7b1d0add1302509c7010.js.map
+  [5] ./src/sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx 1.5 KiB {1} [built]
+  [6] ./src/Utilities_01/Loadable_Handlers.jsx 617 bytes {1} [built]
+ [19] ./node_modules/react-redux/es/index.js + 23 modules 43 KiB {8} [built]
+      |    24 modules
+ [35] ./src/sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx 886 bytes {1} [built]
+[100] ./src/styles/styles.scss 1.59 KiB {1} [built]
+[101] ./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader??ref--5-2!./node_modules/postcss-loader/src??ref--5-3!./node_modules/sass-loader/lib/loader.js??ref--5-4!./src/styles/styles.scss 39 bytes {1} [built]
+[130] ./src/sec012a_app.jsx + 4 modules 12.3 KiB {1} [built]
+      | ./src/sec012a_app.jsx 2.87 KiB [built]
+      | ./src/sec009a_routers/sec009a_app_router.jsx 5.34 KiB [built]
+      | ./src/sec011a_L099_store/sec011a_L099_STR_configure_store.jsx 529 bytes [built]
+      | ./src/sec011a_L099_reducers/sec011a_L099_RDCR_expenses.jsx 1.82 KiB [built]
+      | ./src/sec011a_L099_reducers/sec011a_L099_RDCR_filters.jsx 1.64 KiB [built]
+[205] ./src/sec009a_components/sec009a_SFC_header.jsx 1.23 KiB {2} [built]
+[206] ./src/sec009a_components/sec009a_CLS_add_expense_page.jsx 6.22 KiB {3} [built]
+[207] ./src/sec009a_components/sec009a_CLS_edit_expense_page.jsx 8.83 KiB {4} [built]
+[208] ./src/sec009a_components/sec009a_SFC_help_page.jsx 573 bytes {6} [built]
+[209] ./src/sec009a_components/sec009a_SFC_not_found_page.jsx 926 bytes {7} [built]
+[210] ./src/sec009a_components/sec009a_SFC_expense_dashboard_page.jsx + 3 modules 19 KiB {5} [built]
+      | ./src/sec009a_components/sec009a_SFC_expense_dashboard_page.jsx 1.03 KiB [built]
+      | ./src/sec009a_components/sec011a_L101_expense_list.jsx 4.19 KiB [built]
+      | ./src/sec009a_components/sec011a_L103_expense_list_filters.jsx 10.8 KiB [built]
+      | ./src/sec009a_components/sec011a_L102_expense_list_item.jsx 2.97 KiB [built]
+[211] ./node_modules/react-router-dom/es/BrowserRouter.js + 2 modules 6.23 KiB {8} [built]
+      |    3 modules
+[212] ./node_modules/react-router-dom/es/Switch.js + 1 modules 3.35 KiB {8} [built]
+      |    2 modules
+    + 212 hidden modules
+
+WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  main (261 KiB)
+      8.style.cf5b56ffbdf134a839fa.css
+      vendors~main.ccdd6e71a952a6a12292.js
+      style.4ffb36f14c740beb7ba1.css
+      main.7b1d0add1302509c7010.js
+
+Child html-webpack-plugin for "index.html":
+     1 asset
+    Entrypoint undefined = index.html
+    [0] ./node_modules/html-webpack-plugin/lib/loader.js!./src/index_02.html 890 bytes {0} [built]
+    [2] (webpack)/buildin/global.js 509 bytes {0} [built]
+    [3] (webpack)/buildin/module.js 519 bytes {0} [built]
+        + 1 hidden module
+Child mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-2!node_modules/postcss-loader/src/index.js??ref--5-3!node_modules/sass-loader/lib/loader.js??ref--5-4!node_modules/normalize.css/normalize.css:
+    Entrypoint mini-css-extract-plugin = *
+       2 modules
+Child mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-2!node_modules/postcss-loader/src/index.js??ref--5-3!node_modules/sass-loader/lib/loader.js??ref--5-4!node_modules/react-dates/lib/css/_datepicker.css:
+    Entrypoint mini-css-extract-plugin = *
+       2 modules
+Child mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-2!node_modules/postcss-loader/src/index.js??ref--5-3!node_modules/sass-loader/lib/loader.js??ref--5-4!src/styles/styles.scss:
+    Entrypoint mini-css-extract-plugin = *
+    [0] ./node_modules/css-loader??ref--5-2!./node_modules/postcss-loader/src??ref--5-3!./node_modules/sass-loader/lib/loader.js??ref--5-4!./src/styles/styles.scss 2.34 KiB {0} [built]
+        + 1 hidden module
+Webpack Bundle Analyzer is started at http://127.0.0.1:8888
+Use Ctrl+C to close it
+
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+Field 'browser' doesn't contain a valid alias configuration
+
+
+Entry module not found: Error: Can't resolve './src'
+
+Ralph  · 18 hours ago 
+
+
+Hi Adam,
+
+I changed it back (to the dist folder), and it still does not work.
+
+I've set up the indecision app with the server code to run with nodejs, and it worked.
+
+I've cloned the Budget app to another system, and it did not work with that system either.
+
+I'm completely baffled as to why it worked on your system, and not on either of mine.
+
+The computer gods are mocking me! <shakes fist at the air>
+
+This is exasperating.
+
+
+I've come across this page:
+
+https://webpack.js.org/api/node/
+
+
+
+I've added the code that they have there. My server_135.js now looks like this:
+
+
+//  server_135.js
+ 
+//  SEC_013 --- 135. A Production Web Server with Express 13:14
+
+ 
+const GC_express = require('express');
+const GC_app = GC_express();
+const GC_path = require('path');
+const GC_public_path = GC_path.join(__dirname, '..', 'public');
+const GC_dist_path = GC_path.join(__dirname, '..', 'dist');
+//const GC_default_path = GC_path.join(GC_public_path, 'index.html');
+const GC_default_path = GC_path.join(GC_dist_path, 'index.html');
+const GC_port = 3000;
+ 
+const webpack = require("webpack");
+ 
+webpack({
+  // Configuration Object
+}, (err, stats) => {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    return;
+  }
+ 
+  const info = stats.toJson();
+ 
+  if (stats.hasErrors()) {
+    console.error(info.errors);
+  }
+ 
+  if (stats.hasWarnings()) {
+    console.warn(info.warnings);
+  }
+ 
+  // Log result...
+});
+ 
+ 
+//  use the middleware GC_express.static(GC_public_path)
+//  GC_app.use(GC_express.static(GC_public_path));
+  GC_app.use(GC_express.static(GC_dist_path));
+ 
+function unhandled_requests (req, res)
+{
+    res.sendFile(GC_default_path);
+}
+ 
+//  match all unmatched routes --- *
+GC_app.get ('*', unhandled_requests);
+//  path
+ 
+function listen_handler ()
+{
+    console.log ('server is up');
+}
+ 
+GC_app.listen(GC_port, listen_handler);
+
+
+
+I am now getting error messages:
+
+
+
+Entry module not found: Error: Can't resolve './src'
+ 
+K:\A01_Udemy\Budget-app_03>node A02_sec013_135_server\server_135.js
+server is up
+[ 'Entry module not found: Error: Can\'t resolve \'./src\'
+ in \'K:\\A01_Udemy\\Budget-app_03\'
+ resolve \'./src\' in \'K:\\A01_Udemy\\Budget-app_03\'
+ using description file:
+ K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: .)
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src)
+ no extension
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src is not a file
+ .wasm
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.wasm doesn\'t exist
+ .mjs
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.mjs doesn\'t exist
+ .js
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src.js doesn\'t exist
+.json
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src.json doesn\'t exist
+as directory
+existing directory
+using path: K:\\A01_Udemy\\Budget-app_03\\src\\index
+using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src/index)
+no extension
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index doesn\'t exist
+.wasm
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.wasm doesn\'t exist
+.mjs
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.mjs doesn\'t exist
+.js
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.js doesn\'t exist
+.json
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.json doesn\'t exist' ]
+ 
+[ 'configuration\nThe \'mode\' option has not been set, webpack
+ will fallback to \'production\' for this value. Set \'mode\' option
+ to \'development\' or \'production\' to enable defaults for each environment.
+ You can also set it to \'none\' to disable any default behavior.
+ Learn more: https://webpack.js.org/concepts/mode/' ]
+ 
+
+
+.src DOES exist.
+
+I don't understand this.
+
+
+I googled on this: "Field 'browser' doesn't contain a valid alias configuration"
+
+I see a lot of developers having a similar issue with Angular and Typescript:
+
+https://github.com/angular/angular-cli/issues/8036
+
+
+If you have any ideas as to why I am having this problem,
+I would appreciate it if you'd share them with me.
+
+THANKS!
