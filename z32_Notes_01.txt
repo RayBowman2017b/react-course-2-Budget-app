@@ -1,7 +1,7 @@
 
 
 Entry module not found: Error: Can't resolve './src' #8151
-https://github.com/webpack/webpack/issues/8151
+TRASHED - https://github.com/webpack/webpack/issues/8151
 
 https://www.udemy.com/react-2nd-edition/learn/v4/questions/5295946
 

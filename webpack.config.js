@@ -90,8 +90,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+//  Turn these on as needed.
+//  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//  const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const GC_mod_path = require ('path');
 const GC_webpack = require ('webpack');
