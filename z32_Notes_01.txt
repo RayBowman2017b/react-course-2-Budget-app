@@ -1,6 +1,10 @@
 
+To open the browser:
+> heroku open
 
-heroku local web
+To run the local web server:
+> heroku local web
+https://localhost:<portnumber>
 
 
 https://react-2018-09-budget.herokuapp.com/
@@ -15,7 +19,11 @@ Entry module not found: Error: Can't resolve './src' #8151
 TRASHED - https://github.com/webpack/webpack/issues/8151
 
 https://www.udemy.com/react-2nd-edition/learn/v4/questions/5295946
-
+Link on Heroku:
+https://react-2018-09-budget-03.herokuapp.com/
+I've filed an issue:
+https://github.com/webpack/webpack/issues/8151
+DELETED
 
 Refused to apply style from because its MIME type ('text/html') is not a supported
 

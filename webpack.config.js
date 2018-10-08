@@ -375,6 +375,7 @@ function GC_build_config (env)  {
 
             //  THIS DID NOT WORK - test data did not load
             //  https://stackoverflow.com/questions/47477255/webpack-dev-server-failed-to-load-resource
+            //  publicPath: give the path from the folder "public".
             //publicPath: "/dist/"
             //publicPath: GC_actual_path_dist('/') + "/"
             //publicPath: GC_actual_path_public('/') + "/"
