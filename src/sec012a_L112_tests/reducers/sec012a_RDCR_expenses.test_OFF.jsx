@@ -29,8 +29,7 @@ import MP_expensesReducer from "../../sec011a_L099_reducers/sec011a_L099_RDCR_ex
 
 import MP_FXT_expenses from "../fixtures/sec012a_DATA_expenses.js";
 
-// import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 describe ('EXPENSES REDUCER TESTS', () => {
 

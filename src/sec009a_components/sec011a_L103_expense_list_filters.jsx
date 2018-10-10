@@ -61,12 +61,13 @@ import { DateRangePicker } from 'react-dates';
 //  import { MP_setTextFilter  } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
 //  SEC_011 --- 110. Filtering by Dates 19:44
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount  } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
+import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  }
      //[ MP_setTextFilter import-01;]
                        //[ MP_sortByDate import-01;]
                                       //[ MP_sortByAmount import-01;]
                                                        //[ MP_setStartDate import-01;]
                                                                         //[ MP_setEndDate import-01;]
+   from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
                     //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref1;^B]
 
 
@@ -96,10 +97,10 @@ export class CLS_expense_list_filters extends React.Component
        /////////////////////////////////////////////////////////////////////
 
     state = {
-      calenderFocused: null
-  //[ calenderFocused s1;]
-  //[ calenderFocused a2;]
-  //[ calenderFocused xxx]
+      calendarFocused: null
+  //[ calendarFocused s1;]
+  //[ calendarFocused a2;]
+  //[ calendarFocused xxx]
     };
 
     constructor(P_props)
@@ -131,11 +132,11 @@ export class CLS_expense_list_filters extends React.Component
     //  [S07251664|A01_DIrectory_01.txt::DRC1: onExpenseFocusChange <1>^B]
 
     //[ DEF1: onExpenseFocusChange <1>^B]
-    onExpenseFocusChange = (calenderFocused) => {
-      // console.log ("calenderFocused", calenderFocused);
-      // console.log ("typeof calenderFocused", typeof calenderFocused);
-      this.setState ( () => ( { calenderFocused } ) );
-                            //[ calenderFocused s1;^B]
+    onExpenseFocusChange = (calendarFocused) => {
+      // console.log ("calendarFocused", calendarFocused);
+      // console.log ("typeof calendarFocused", typeof calendarFocused);
+      this.setState ( () => ( { calendarFocused } ) );
+                            //[ calendarFocused s1;^B]
     };
 
     //  [ TXBX_filters_change evt1;]
@@ -158,9 +159,15 @@ export class CLS_expense_list_filters extends React.Component
 
     //[ DEF1: SLCT_sort_item_change <1>^B]
     SLCT_sort_item_change = (P_event) =>  {
-      this.props.MDTP_sortBy (P_event.target.value);
+      //this.props.MDTP_sortBy (P_event.target.value);
              //[ MDTP_sortBy exe1;]
+
+      if (P_event.target.value === 'date')
+        this.props.MDTP_sortByDate ();
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByDate <1>^B]
+      else
+      if (P_event.target.value === 'amount')
+        this.props.MDTP_sortByAmount ();
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByAmount <1>^B]
     };
 
@@ -208,8 +215,8 @@ export class CLS_expense_list_filters extends React.Component
   endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
   onDatesChange={ this.onExpenseDatesChange }
                    //[ onExpenseDatesChange evt1;^B]
-  focusedInput={this.state.calenderFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                       //[ calenderFocused a2;^B]
+  focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                       //[ calendarFocused a2;^B]
   onFocusChange={ this.onExpenseFocusChange } // PropTypes.func.isRequired,
                    //[ onExpenseFocusChange evt1;^B]
   showClearDates={true}
@@ -260,7 +267,9 @@ const mapDispatchToProps = (dispatch, props) =>  {
           : P_sort_by_item === 'amount' ? MP_sortByAmount ()
                                       //[ MP_sortByAmount import-01;]
             : undefined
-                          ),
+               ),
+    MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
+    MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
     MDTP_setStartDate: (P_start_date) =>
     //[ MDTP_setStartDate exe1;^B]
       dispatch (MP_setStartDate(P_start_date) ),

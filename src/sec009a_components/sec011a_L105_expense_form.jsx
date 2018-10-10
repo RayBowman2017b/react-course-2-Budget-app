@@ -36,7 +36,6 @@ import React from "react";
 //  SEC_011 --- 106. Setting up a Date Picker 21:34
 
 import moment from 'moment';
-//const moment = require ('moment');
 
 import Loadable from 'react-loadable';
 

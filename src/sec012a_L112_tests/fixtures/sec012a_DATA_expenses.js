@@ -14,8 +14,7 @@ import MP_FXT_expenses from "../fixtures/sec012a_DATA_expenses.js";
 
  */
 
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 const MP_expenses = [{
         id: '1',

@@ -13,8 +13,7 @@ import { default_filters, filters_01 } from './fixtures/sec012a_DATA_filters.js'
 
  */
 
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 const default_filters = {
     text: '',

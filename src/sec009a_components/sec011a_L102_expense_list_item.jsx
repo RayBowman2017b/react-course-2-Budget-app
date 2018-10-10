@@ -8,7 +8,6 @@ sec011a_L102_expense_list_item.jsx
        //  [ DEF1: SFC_expense_list_item <1>]
 
 
-
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_011_React_with_Redux\proj_02\Budget-app\src\sec009a_components\sec011a_L102_expense_list_item.jsx
 
@@ -30,6 +29,9 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
 //  import { MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
+
+//  SEC_013 --- 138. New Feature Workflow 12:32
+import moment from 'moment';
 
 // export default (P_props) => (
 //     <ul>
@@ -91,7 +93,13 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
       */}
           <h3>{`TO > ${description}`}</h3>
       </GC_link_with_children>
+  {/*  SEC_013 --- 138. New Feature Workflow 12:32
       <p> {amount} - {createdAt}</p>
+    */}
+      <p>
+        {amount} - {moment(createdAt).format ()}
+      </p>
+
 
   {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
       MOVED from here to sec009a_CLS_edit_expense_page.jsx

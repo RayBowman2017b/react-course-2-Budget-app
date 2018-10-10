@@ -15,8 +15,7 @@ sec012a_expense_list_filters.test.jsx
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 import { CLS_expense_list_filters } from "../../sec009a_components/sec011a_L103_expense_list_filters.jsx";
 
@@ -46,9 +45,9 @@ describe ("COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx", 
                       MDTP_setTextFilter={this.V_set_text_filter}
                       MDTP_setStartDate={this.V_set_start_date}
                       MDTP_setEndDate={this.V_set_end_date}
-                      sortByDate={this.V_sort_by_date}
-                      sortByAmount={this.V_sort_by_amount}
                       MDTP_sortBy={this.V_sort_by}
+                      MDTP_sortByDate={this.V_sort_by_date}
+                      MDTP_sortByAmount={this.V_sort_by_amount}
                     />);
         }
 
@@ -59,9 +58,9 @@ describe ("COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx", 
         get G_set_text_filter ()  { return this.V_set_text_filter; }
         get G_set_start_date ()  { return this.V_set_start_date; }
         get G_set_end_date ()  { return this.V_set_end_date; }
+        get G_sort_by ()  { return this.V_sort_by; }
         get G_sort_by_date ()  { return this.V_sort_by_date; }
         get G_sort_by_amount ()  { return this.V_sort_by_amount; }
-        get G_sort_by ()  { return this.V_sort_by; }
     }
 
     const GC_pram_default = new CLS_pram (default_filters);
@@ -98,14 +97,16 @@ describe ("COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx", 
         const L_pram_01 = new CLS_pram (filters_01);
         const value = 'date';
         L_pram_01.G_wrapper.find('select').simulate('change', { target: {value}});
-        expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
+        //expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
+        expect(L_pram_01.G_sort_by_date).toHaveBeenCalled();
     } );
 
     it ('should sort expenses by amount', () =>  {
         const L_pram_01 = new CLS_pram (filters_01);
         const value = 'amount';
         L_pram_01.G_wrapper.find('select').simulate('change', { target: {value} } );
-        expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
+        //expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
+        expect(L_pram_01.G_sort_by_amount).toHaveBeenCalled();
     } );
 
     it ('should handle date changes', () =>  {
