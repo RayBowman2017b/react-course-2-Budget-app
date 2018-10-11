@@ -8,26 +8,24 @@
    //  [ DEF1: GC_actual_path_public <1>]
    //  [ DEF1: GC_actual_path_dist <1>]
 
+  //  [ GC_actual_source_JSX top1;]
+
    //  [ DEF1: GC_build_config <1>]
    //    [ if (env === 'production') top1;]
    //    [ if (env === 'development') top1;]
 
+
+//  const GC_src_dir = "src";
+  const GC_src_dir = "src";
+//  const GC_src_dir = "zzz_playground";
+    //[ GC_src_dir ref1;]
+    //[ GC_src_dir ref2;]
 
 //  yarn run webpack --watch
 
 //  node  webpack.config.js
 
 
-//  const GC_active_app_folder = "SEC_006_Webpack";
-//  const GC_active_app_folder = "SEC_007_3PCmpn";
-//  const GC_active_app_folder = "SEC_008_Styling_React";
-//  const GC_active_app_folder = "SEC_009_React_Router";
-//  const GC_active_app_folder = "SEC_010_Redux";
-//  const GC_active_app_folder = "SEC_011_React_with_Redux";
-//  const GC_active_app_folder = "SEC_012_Testing_Your_Application";
-const GC_active_app_folder = "a01_final_projects";
-  //[ GC_active_app_folder ref5;]
-  //[ GC_active_app_folder xxx]
 //  const GC_active_app_file = "sec006c_app.jsx";
 //  const GC_active_app_file = "sec007a_app.jsx";
 //  const GC_active_app_file = "sec008a_app.jsx";
@@ -49,33 +47,23 @@ const GC_active_app_folder = "a01_final_projects";
 //  SEC_011 --- 100. The Higher Order Component 15:30
 //  const GC_active_app_file = "sec011b_L100_hoc.jsx";
 //  const GC_active_app_file = "sec011a_app.jsx";
+//  const GC_active_app_file = "sec012a_app.jsx";
   const GC_active_app_file = "sec012a_app.jsx";
+//  const GC_active_app_file = "sec010c_L91_Redux_expensify.jsx";
     //[ GC_active_app_file ref1;]
-    //[ GC_active_app_file ref2;]
     //[S07251664|A01_DIrectory_01.txt::GC_active_app_file drc1;]
     //[ GC_active_app_file xxx]
 
-//    entry: GC_actual_source_JSX,
-//    entry: GC_redux_playground_JSX,
 
 //  sec010b_L88_destructuring.jsx
-//console.log (' ******** GC_active_app_folder is ->' + GC_active_app_folder);
 console.log (' ******** GC_active_app_file is ->' + GC_active_app_file);
-
-//  const GC_course_section_path =
-//        "K:\\aaa_TransZ_DT201607\\Ralph\\Udemy\\C023_Complete_React_Web_Dev\\Sections\\";
-        // "/aaa_TransZ_DT201607/Ralph/Udemy/C023_Complete_React_Web_Dev/Sections/"
-  const GC_course_section_path =
-//    [   "aaa_TransZ_DT201607", "Ralph", "Udemy", "C023_Complete_React_Web_Dev", "Sections"  ];
-//  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Budget-app\webpack.config.js
-        ["A01_Udemy", "C023_Complete_React_Web_Dev", "Sections"];
-//console.log (' ******** GC_course_section_path is ->', GC_course_section_path);
 
 
 //const GC_active_project_path = "\\react-course-proj-01\\Indecision-app-01";
 //const GC_active_project_path = "/react-course-proj-01/Indecision-app-01";
 //  K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\SEC_007_3PCmpn\proj_01\Indecision-app\webpack.config.js
 const GC_active_project_path =
+                //[ GC_active_project_path ]
 //    [   "react-course-proj-01", "Indecision-app-01"   ];
 //    [   "proj_01", "Indecision-app"   ];
 //    [   "proj_02", "Budget-app"  ];
@@ -120,12 +108,6 @@ console.log ( ' --- GC_actual_path_public() is ', GC_actual_path_public());
 
 //  entry point -> output
 
-/*******************************************************************
-const xxxGC_actual_source_JSX = './' + GC_active_app_folder
-                                  + GC_active_project_path
-                                  + '/src/'
-                                  + GC_active_app_file;
- *******************************************************************/
 
        //    [ EXE1: GC_actual_path_dist <1>]
 
@@ -144,11 +126,17 @@ const GC_path_favicon_dest = GC_mod_path.join (__dirname, 'images');
 console.log ( ' --- GC_path_favicon is ', GC_path_favicon);
 
 
-const GC_actual_path_styles = GC_mod_path.join (__dirname, 'src', 'styles');
+const GC_actual_path_styles = GC_mod_path.join (__dirname, GC_src_dir, 'styles');
+                                                       //[ GC_src_dir ref1;^B]
 
 const GC_actual_source_JSX = GC_mod_path.join
-                                (__dirname, 'src', GC_active_app_file);
-                                               //[ GC_active_app_file ref1;^B]
+  //[ GC_actual_source_JSX top1;^B]
+  //[ GC_actual_source_JSX ref1;]
+                                (__dirname, GC_src_dir, GC_active_app_file);
+                                        //[ GC_src_dir ref2;^B]
+                                                    //[ GC_active_app_file ref1;^B]
+//  sec 10 L85
+//  sec 10 L91
 
 
 //const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index_template.html');
@@ -157,26 +145,6 @@ const GC_index_html_template = GC_mod_path.join (__dirname, 'src', 'index.html')
   //[ GC_index_html_template xxx]
 console.log ( ' --- GC_index_html_template is ', GC_index_html_template);
 
-
-//  sec 10 L85
-            // GC_course_section_path[3],
-            // GC_course_section_path[4],
-const GC_redux_playground_JSX =
-    GC_mod_path.join
-        (
-            'K:/',
-            GC_course_section_path[0],
-            GC_course_section_path[1],
-            GC_course_section_path[2],
-            //  "./",
-            GC_active_app_folder,
-        //[ GC_active_app_folder ref5;^B]
-            GC_active_project_path[0],
-            GC_active_project_path[1],
-            GC_active_project_path[2],
-            GC_active_app_file
-        //[ GC_active_app_file ref2;^B]
-        );
 
 //    entry: './SEC_006_Webpack/react-course-proj-01/Indecision-app-01/src/sec006b_app.js',
 //        path: GC_actual_path_public ('K:/'),
@@ -197,10 +165,6 @@ console.log ( ' --- GC_actual_source_JSX is ', GC_mod_path.parse (GC_actual_sour
 
 //  SEC_006 --- 56. Source Maps with Webpack 5:16
 //    devtool: 'cheap-module-eval-source-map'
-
-//  GC_redux_playground_JSX
-//    entry: GC_actual_source_JSX,
-//    entry: GC_redux_playground_JSX,
 
 
 //module.exports = {
@@ -236,6 +200,7 @@ function GC_build_config (env)  {
     let L_config_obj = {
 
         entry: GC_actual_source_JSX,
+           //[ GC_actual_source_JSX ref1;^B]
         // entry:
         // {
         //     app: [ GC_actual_source_JSX ],

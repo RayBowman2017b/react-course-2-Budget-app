@@ -294,8 +294,8 @@ export default class CLS_expense_form extends React.Component
                           {/*//[ EVT1: onNoteChange <1>^B]*/}
                       </textarea>
                       <button>
+                    {/*//[ expense form action :submit1;^B]*/}
                         {this.state.buttonLabel}
-                    {/*//[ expense form action :submit1;]*/}
                       </button>
                     </form>
                     {/*//[ expense form action :end1;^B]*/}

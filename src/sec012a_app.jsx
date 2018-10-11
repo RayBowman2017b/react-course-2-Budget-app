@@ -42,8 +42,10 @@ import 'react-dates/initialize';
 
 
 import { MP_addExpense, MP_removeExpense, MP_editExpense } from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+     //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF2: MP_expense_actions <1>^B]
      //[ MP_addExpense exe1;]
      //[ MP_addExpense xxx]
+
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
             //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref2;^B]
 import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
@@ -68,12 +70,15 @@ const GC_store = MP_configure_store ();
 const L_august_01_2018 = 1533142800000;
 const L_august_03_2018 = 1533315600000;
 const L_sept_04_2018 = 1536080400000;
+const GC_time_01 = moment.utc().valueOf();
+const GC_time_02 = moment.utc().add(3, 'days').valueOf();
+const GC_time_03 = moment.utc().add(33, 'days').valueOf();
 
 
 //  [S07251664|A01_DIrectory_01.txt::add mock data to GC_store drc1;^B]
-GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: L_august_01_2018 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: L_august_03_2018 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: L_sept_04_2018 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );
                 //[ MP_addExpense exe1;^B]
 
 GC_store.subscribe ( () =>

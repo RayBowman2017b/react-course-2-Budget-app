@@ -8,10 +8,16 @@ SEC_010_Redux\proj_02\Budget-app\zzz_playground\sec010c_L91_Redux_expensify.jsx
 
 //  SEC_010 --- 91. Reducers 12:05
 
+  const GC_src_dir = "zzz_playground";
+//  const GC_active_app_file = "sec010c_L91_Redux_expensify.jsx";
+
  */
 
-import { createStore, combineReducers } from 'redux';
-import uuid from 'uuid';
+//import { createStore, combineReducers } from 'redux';
+const redux = require ('redux');
+//import uuid from 'uuid';
+const uuid = require ('uuid');
+const moment = require ('moment');
 
 const GC_expense_actions =
 {
@@ -235,9 +241,9 @@ const GC_getVisibleExpenses = (P_expenses, { text, sortBy, startDate, endDate } 
 
 //  Store creation
 
-const GC_store = createStore
+const GC_store = redux.createStore
         (
-            combineReducers (
+            redux.combineReducers (
             {
                 expenses: GC_expensesReducer,
                 filters: GC_filtersReducer
@@ -344,6 +350,15 @@ const GC_user_edit_02 = { age: 29, ...GC_user, location: 'Philadelphia' };
 console.log ({...GC_user});
 console.log ({...GC_user_edit});
 console.log ({...GC_user_edit_02});
+
+const GC_time = moment.utc().valueOf();
+const GC_time_02 = moment.utc().add(7, 'days').valueOf();
+const GC_time_03 = moment.utc().add(33, 'days').valueOf();
+
+console.log (`   *** GC_time ${GC_time}`);
+console.log (`   *** GC_time 2 ${GC_time_02}`);
+console.log (`   *** GC_time 3 ${GC_time_03}`);
+
 
 //##########################################################################
 //##########################################################################
