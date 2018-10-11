@@ -191,7 +191,7 @@ export class CLS_expense_list_filters extends React.Component
             />
 
 {/*  //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41  */}
-            <select
+            <select id="SELECT_date_amount"
               value={this.props.filters.sortBy}
                       //[ props.filters a2;^B]
               onChange={this.SLCT_sort_item_change}

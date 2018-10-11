@@ -96,7 +96,8 @@ describe ("COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx", 
     it ('should sort expenses by date', () =>  {
         const L_pram_01 = new CLS_pram (filters_01);
         const value = 'date';
-        L_pram_01.G_wrapper.find('select').simulate('change', { target: {value}});
+        //L_pram_01.G_wrapper.find('select').simulate('change', { target: {value}});
+        L_pram_01.G_wrapper.find('#SELECT_date_amount').simulate('change', { target: {value}});
         //expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
         expect(L_pram_01.G_sort_by_date).toHaveBeenCalled();
     } );
@@ -104,7 +105,8 @@ describe ("COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx", 
     it ('should sort expenses by amount', () =>  {
         const L_pram_01 = new CLS_pram (filters_01);
         const value = 'amount';
-        L_pram_01.G_wrapper.find('select').simulate('change', { target: {value} } );
+        //L_pram_01.G_wrapper.find('select').simulate('change', { target: {value}});
+        L_pram_01.G_wrapper.find('#SELECT_date_amount').simulate('change', { target: {value} } );
         //expect(L_pram_01.G_sort_by).toHaveBeenLastCalledWith(value);
         expect(L_pram_01.G_sort_by_amount).toHaveBeenCalled();
     } );

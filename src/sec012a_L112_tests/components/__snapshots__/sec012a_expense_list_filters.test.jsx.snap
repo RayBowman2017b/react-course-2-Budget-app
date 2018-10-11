@@ -9,6 +9,7 @@ exports[`COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx shou
     value=""
   />
   <select
+    id="SELECT_date_amount"
     onChange={[Function]}
     value="date"
   >
@@ -130,6 +131,7 @@ exports[`COMPONENT TEST FOR FILTERS - sec011a_L103_expense_list_filters.jsx shou
     value="bills"
   />
   <select
+    id="SELECT_date_amount"
     onChange={[Function]}
     value="amount"
   >

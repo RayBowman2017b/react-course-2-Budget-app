@@ -249,7 +249,9 @@ export default class CLS_expense_form extends React.Component
                     }
 
                     <div>Expense Form</div>
+                    {/*//[ expense form action :end1;]*/}
                     <form action="" onSubmit={this.onExpenseSubmit}>
+                    {/*//[ expense form action :submit1;]*/}
                                       {/*//[ EVT1: onExpenseSubmit <1>^B]*/}
 
                       <input
@@ -293,8 +295,10 @@ export default class CLS_expense_form extends React.Component
                       </textarea>
                       <button>
                         {this.state.buttonLabel}
+                    {/*//[ expense form action :submit1;]*/}
                       </button>
                     </form>
+                    {/*//[ expense form action :end1;^B]*/}
                 </div>
         );
     };
