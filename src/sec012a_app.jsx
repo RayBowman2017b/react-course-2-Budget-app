@@ -26,6 +26,8 @@ import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
 
+import MP_moment from 'moment';
+
 
 //  SEC_008 --- 66. Reset That $#!* 4:58
 
@@ -70,9 +72,9 @@ const GC_store = MP_configure_store ();
 const L_august_01_2018 = 1533142800000;
 const L_august_03_2018 = 1533315600000;
 const L_sept_04_2018 = 1536080400000;
-const GC_time_01 = moment.utc().valueOf();
-const GC_time_02 = moment.utc().add(3, 'days').valueOf();
-const GC_time_03 = moment.utc().add(33, 'days').valueOf();
+const GC_time_01 = MP_moment.utc().valueOf();
+const GC_time_02 = MP_moment.utc().add(3, 'days').valueOf();
+const GC_time_03 = MP_moment.utc().add(33, 'days').valueOf();
 
 
 //  [S07251664|A01_DIrectory_01.txt::add mock data to GC_store drc1;^B]
