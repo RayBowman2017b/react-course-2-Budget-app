@@ -37,7 +37,7 @@ heroku -v
 
 heroku login
 
-wally__4@__.com
+wall__4@__.com
 R___/
 
 > heroku --version
