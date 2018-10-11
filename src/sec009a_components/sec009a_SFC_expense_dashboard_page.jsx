@@ -27,7 +27,7 @@ import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
 const GC_expense_dashboard_page = () =>
 (
   <div>
-    <div>This is Ralph's Crappy Webpage.</div>
+    <div>Ralph's Crappy Webpage.</div>
     <CLS_expense_list_filters />
     {/*//  [S07251667|sec011a_L103_expense_list_filters.jsx::TPL1: CLS_expense_list_filters <1>^B]
        //  [S07251667|sec011a_L103_expense_list_filters.jsx::CLS_expense_list_filters.render tpl1;^B]
