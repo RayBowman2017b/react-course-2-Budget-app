@@ -7,10 +7,10 @@
     "\\A02_sec013_135_server",
     "\\public",
     "\\src",
-    "\\src\\sec009a_routers",
-    "\\src\\sec011a_L099_actions",
-    "\\src\\Utilities_01"
+    "\\src\\sec012a_L112_tests",
+    "\\src\\sec012a_L112_tests\\components",
+    "\\src\\sec012a_L112_tests\\__mocks__"
   ],
-  "SelectedNode": "\\src\\sec011a_L099_actions\\sec011a_L099_ACTN_filters.jsx",
+  "SelectedNode": "\\webpack.config.js",
   "PreviewInSolutionExplorer": false
 }

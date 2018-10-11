@@ -34,6 +34,12 @@ import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
 //import { MP_editExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 import { MP_editExpense, MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_editExpense import1;]
+     //[ MP_editExpense pp1;]
+     //[ MP_editExpense xxx^B]
+                     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_removeExpense import1;]
+                     //[ MP_removeExpense pp1;]
+                     //[ MP_removeExpense xxx^B]
 
 const xxxGC_edit_expense_page = (P_props) =>
 (
@@ -214,8 +220,10 @@ const mapDispatchToProps = (dispatch) =>  {
   {
     edit_expense: (id, expense) => dispatch(MP_editExpense(id, expense)),
     //[ this.props.edit_expense ref1;^B]
+                                        //[ MP_editExpense pp1;^B]
     remove_expense: (expense_id_obj) => dispatch(MP_removeExpense(expense_id_obj))
     //[ this.props.remove_expense ref1;^B]
+                                             //[ MP_removeExpense pp1;^B]
   }      );
 };
 //export default connect() (GC_add_expense_page);

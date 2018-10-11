@@ -33,6 +33,11 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 //  SEC_013 --- 138. New Feature Workflow 12:32
 import moment from 'moment';
 
+//  SEC_013 --- 138. New Feature Workflow 12:32
+//var numeral = require('numeral');
+import numeral from 'numeral';
+
+
 // export default (P_props) => (
 //     <ul>
 //       <li>{P_props.expense_item.description + " | "}
@@ -97,7 +102,7 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
       <p> {amount} - {createdAt}</p>
     */}
       <p>
-        {amount} - {moment(createdAt).format ()}
+        {numeral(amount / 100).format("$0,0.00")} -x-x- {moment(createdAt).format ("MMMM Do, YYYY")}
       </p>
 
 
