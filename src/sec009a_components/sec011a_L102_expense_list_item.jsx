@@ -15,6 +15,7 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec009a_components\sec011a_L102_
 
 import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
 import { SFC_expense_list_item } from "../../sec009a_components/sec011a_L102_expense_list_item.jsx";
+//[S07251667|sec011a_L101_expense_list.jsx::sec011a_L102_expense_list_item import-1;^B]
 
 */
 
@@ -102,7 +103,7 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
       <p> {amount} - {createdAt}</p>
     */}
       <p>
-        {numeral(amount / 100).format("$0,0.00")} -x-x- {moment(createdAt).format ("MMMM Do, YYYY")}
+        {numeral(amount / 100).format("$0,0.00")} --- {moment(createdAt).format ("MMMM Do, YYYY")}
       </p>
 
 

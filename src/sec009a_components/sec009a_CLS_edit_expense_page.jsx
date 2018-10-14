@@ -30,16 +30,17 @@ import React from 'react';
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
 import { connect } from 'react-redux';
 import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
+//[S07251667|sec011a_L105_expense_form.jsx::sec011a_L105_expense_form import-2;^B]
+
 
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
 //import { MP_editExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 import { MP_editExpense, MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
-     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_editExpense import1;]
+                             //[S07251668|sec011a_L099_ACTN_expenses.jsx::sec011a_L099_ACTN_expenses import-2;^B]
+//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_editExpense import-1;]
      //[ MP_editExpense pp1;]
-     //[ MP_editExpense xxx^B]
-                     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_removeExpense import1;]
+                     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_removeExpense import-1;]
                      //[ MP_removeExpense pp1;]
-                     //[ MP_removeExpense xxx^B]
 
 const xxxGC_edit_expense_page = (P_props) =>
 (

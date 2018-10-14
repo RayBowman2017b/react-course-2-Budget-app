@@ -13,6 +13,7 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec011a_L099_reducers\sec011a_L0
 
 MP_filtersReducer
 import MP_filtersReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_filters.jsx";
+     //[S07251671|sec011a_L099_STR_configure_store.jsx::sec011a_L099_RDCR_filters import-1;^B]
 
 //  SEC_011 --- 99. Organizing Redux 14:50
 
@@ -20,9 +21,8 @@ import MP_filtersReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_filter
 
 
 import { MP_filter_and_sort_actions } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //[ MP_filter_and_sort_actions grp-01;]
-            //[ MP_filter_and_sort_actions xxx]
-                        //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref4;^B]
+     //[ MP_filter_and_sort_actions grp-01;]
+                        //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-1;^B]
 
 //import moment from "moment";
 const moment = require ('moment');
@@ -31,9 +31,16 @@ const moment = require ('moment');
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
 
+//  [S07251665|sec012a_app.jsx:: Add Mock Data to GC_store ref1;^B]
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx:: Set Filter Elements ref1;^B]
+
+//  [S07251670|sec011a_L099_SLCT_expenses.jsx:: Apply Filters ref1;^B]
+
 //  There is only one object of filter
 //  [S07251664|A01_DIrectory_01.txt::GC_filtersReducerDefaultState drc1;^B]
 
+            //[ GC_filtersReducerDefaultState xxx^B]
 
       //[ DEF1: GC_filtersReducerDefaultState <1>^B]
 const GC_filtersReducerDefaultState =

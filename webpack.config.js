@@ -214,7 +214,8 @@ function GC_build_config (env)  {
             //path: GC_actual_path_public(),
         //[ EXE3x: GC_actual_path_public <1>^B]
             //  filename: 'bundle.js'
-            filename: '[name].[chunkhash].js'
+            //filename: '[name].[chunkhash].js'
+            filename: '[name].[hash].js'
         },
         module:
         {

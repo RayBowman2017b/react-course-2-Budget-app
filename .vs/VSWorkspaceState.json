@@ -4,13 +4,15 @@
     "\\A01_Course_Notes",
     "\\A01_MISC",
     "\\A01_Upper_Level_Files",
-    "\\A02_sec013_135_server",
-    "\\public",
     "\\src",
+    "\\src\\sec009a_routers",
+    "\\src\\sec011a_L099_actions",
+    "\\src\\sec011a_L099_reducers",
+    "\\src\\sec011a_L099_selectors",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\components",
-    "\\src\\sec012a_L112_tests\\__mocks__"
+    "\\src\\sec012a_L112_tests\\fixtures",
+    "\\src\\sec012a_L112_tests\\selectors"
   ],
-  "SelectedNode": "\\webpack.config.js",
+  "SelectedNode": "\\src\\sec011a_L099_reducers\\sec011a_L099_RDCR_filters.jsx",
   "PreviewInSolutionExplorer": false
 }

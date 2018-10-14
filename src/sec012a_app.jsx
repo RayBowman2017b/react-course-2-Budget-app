@@ -49,8 +49,9 @@ import { MP_addExpense, MP_removeExpense, MP_editExpense } from "./sec011a_L099_
      //[ MP_addExpense xxx]
 
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref2;^B]
+            //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-3x;^B]
 import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
+              //  [S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-3;^B]
             //[ MP_getVisibleExpenses ref1;]
             //[ MP_getVisibleExpenses xxx]
 
@@ -77,7 +78,8 @@ const GC_time_02 = MP_moment.utc().add(3, 'days').valueOf();
 const GC_time_03 = MP_moment.utc().add(33, 'days').valueOf();
 
 
-//  [S07251664|A01_DIrectory_01.txt::add mock data to GC_store drc1;^B]
+   //  [S07251669|sec011a_L099_RDCR_filters.jsx::Add Mock Data to GC_store ref1;^B]
+
 GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
 GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
 GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );

@@ -20,7 +20,7 @@
     "xxxdev-server": "webpack-dev-server",
     "build:prod": "webpack -p --env=production",
     "build:dev": "webpack --env=development",
-    "dev-server": "webpack-dev-server  --env=development --watch",
+    "dev-server": "webpack-dev-server  --env=development --hot",
     "test": "jest --config=jest.config.json",
     "start": "node A02_sec013_135_server/server_135.js",
     "heroku-postbuild": "npm run build:prod"

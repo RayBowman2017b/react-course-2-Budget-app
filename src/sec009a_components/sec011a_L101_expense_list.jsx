@@ -17,6 +17,7 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec009a_components\sec011a_L101_
 import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 import { SFC_expense_list } from "./sec011a_L101_expense_list.jsx";
 import { SFC_expense_list } from "../../sec009a_components/sec011a_L101_expense_list.jsx";
+      //[S07251667|sec009a_SFC_expense_dashboard_page.jsx::sec011a_L101_expense_list import-1;^B]
 
  */
 
@@ -27,14 +28,15 @@ import { connect } from 'react-redux';
 //import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
 
 import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
+//[S07251667|sec011a_L102_expense_list_item.jsx::sec011a_L102_expense_list_item import-1;^B]
 
 //import Loadable from 'react-loadable';
 //import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 
 
 import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
-            //[ MP_SLCT_getVisibleExpenses import-1;]
-            //[ MP_SLCT_getVisibleExpenses xxx]
+                     //[S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-2;]
+   //[ MP_SLCT_getVisibleExpenses asn1;]
 
 
 //const MP_SLCT_getVisibleExpenses = Loadable({
@@ -74,8 +76,8 @@ export const SFC_expense_list = (P_props) => (
         <p>No Expenses</p>
     ) : (
         P_props.expenses.map ( (P_expense) => (
-    //[S07251670|sec011a_L099_SLCT_expenses.jsx::EXE1: MP_SLCT_getVisibleExpenses <1>^B]
     //[ P_props.expenses exe1;]
+    //[S07251670|sec011a_L099_SLCT_expenses.jsx::REF1: MP_SLCT_getVisibleExpenses <1>^B]
            <SFC_expense_list_item key={P_expense.id} {...P_expense} />
            //[S07251667|sec011a_L102_expense_list_item.jsx::EXE1: SFC_expense_list_item <1>^B]
                                               )
@@ -104,8 +106,9 @@ const xxx_GC_map_state_to_props = (P_state) =>  {
 const GC_map_state_to_props = (P_state) =>  {
     return {
             expenses: MP_SLCT_getVisibleExpenses
-    //[ P_props.expenses exe1;^B]
-                  //[ MP_SLCT_getVisibleExpenses import-1;^B]
+//[ P_props.expenses exe1;^B]
+    //[S07251670|sec011a_L099_SLCT_expenses.jsx::EXE1: MP_SLCT_getVisibleExpenses <1>^B]
+                  //[ MP_SLCT_getVisibleExpenses asn1;^B]
                          (P_state.expenses, P_state.filters)
     //[S07251671|sec011a_L099_STR_configure_store.jsx::(P_state.expenses, P_state.filters) xrf1;^B]
                     //[S07251664|A01_DIrectory_01.txt::(P_state.expenses, P_state.filters) drc1;^B]
@@ -114,4 +117,6 @@ const GC_map_state_to_props = (P_state) =>  {
 
 //  export default SFC_connected_expense_list;
 
-export default connect (GC_map_state_to_props)(SFC_expense_list);
+export default connect (GC_map_state_to_props) (SFC_expense_list);
+
+

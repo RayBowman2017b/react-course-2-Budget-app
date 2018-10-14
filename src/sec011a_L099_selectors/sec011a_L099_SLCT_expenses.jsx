@@ -1,5 +1,5 @@
 
-/*
+/************************************************************************
 
   sec011a_L099_SLCT_expenses.jsx
 
@@ -17,14 +17,17 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec011a_L099_selectors\sec011a_L
 
 MP_getVisibleExpenses
 import MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
+//  [S07251665|sec011a_app.jsx::sec011a_L099_SLCT_expenses import-1;^B]
+//  [S07251665|sec012a_app.jsx::sec011a_L099_SLCT_expenses import-3;^B]
+//  [S07251667|sec011a_L101_expense_list.jsx::sec011a_L099_SLCT_expenses import-2;^B]
 
 //  SEC_011 --- 99. Organizing Redux 14:50
 
- */
+ ************************************************************************/
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
+//const moment = require ('moment');
 
 //=====================================================================
 
@@ -41,7 +44,10 @@ const moment = require ('moment');
 // const GC_getVisibleExpenses = (P_expenses, { text, sortBy, startDate, endDate } ) =>
 
 
+//  [S07251667|sec011a_L101_expense_list.jsx::REF1: MP_SLCT_getVisibleExpenses <1>]
 //  [S07251667|sec011a_L101_expense_list.jsx::EXE1: MP_SLCT_getVisibleExpenses <1>]
+
+//  [S07251669|sec011a_L099_RDCR_filters.jsx:: Apply Filters ref1;^B]
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
 
@@ -57,6 +63,7 @@ export default (P_expenses, { text, sortBy, startDate, endDate } ) =>
     return P_expenses.filter ( (P_expense) =>
         {
             const L_createdAtMoment = moment(P_expense.createdAt);
+
             //const L_startDateMatch = typeof startDate !== 'number' || P_expense.createdAt >= startDate;
             const L_startDateMatch = startDate ? startDate.isSameOrBefore (L_createdAtMoment, 'day') : true;
             //const L_endDateMatch = typeof endDate !== 'number' || P_expense.createdAt <= endDate;

@@ -54,7 +54,7 @@ import Loadable from 'react-loadable';
 import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
      //[ MP_common_loading_handler grp-1;]
      //[ MP_common_loading_handler xxx]
-//[S07251674|Loadable_Handlers.jsx::MPT1: MP_common_loading_handler <1>^B]
+                       //[S07251674|Loadable_Handlers.jsx::Loadable_Handlers import-1;^B]
 
 //#########################################################
 

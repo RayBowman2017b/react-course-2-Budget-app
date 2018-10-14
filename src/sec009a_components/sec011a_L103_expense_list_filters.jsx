@@ -25,13 +25,12 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec009a_components\sec011a_L103_
 
 //  SEC_011 --- 103. Controlled Inputs for Filters 14:21
 
-import SFC_expense_list_filters from "./sec009a_components/sec011a_L103_expense_list_filters.jsx";
+import { CLS_expense_list_filters } from "../../sec009a_components/sec011a_L103_expense_list_filters.jsx";
 import CLS_expense_list_filters from "./sec009a_components/sec011a_L103_expense_list_filters.jsx";
+//[S07251667|sec009a_SFC_expense_dashboard_page.jsx::sec011a_L103_expense_list_filters import-2;^B]
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_009_React_Router\proj_02\Budget-app\src\styles\components_SEC009\sec009a_SFC_expense_dashboard_page.jsx
-
-import { CLS_expense_list_filters } from "../../sec009a_components/sec011a_L103_expense_list_filters.jsx";
 
 //    remove_expense: (expense_id_obj) => dispatch(MP_removeExpense(expense_id_obj))
 
@@ -47,7 +46,7 @@ import { DateRangePicker } from 'react-dates';
 //import Loadable from 'react-loadable';
 
 //import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
-//[S07251674|Loadable_Handlers.jsx::MPT3: MP_common_loading_handler <1>^B]
+//[S07251674|Loadable_Handlers.jsx::Loadable_Handlers import-3x;^B]
 
 //const DateRangePicker = Loadable({
 //  loader: () => import('react-dates'),
@@ -64,11 +63,13 @@ import { DateRangePicker } from 'react-dates';
 import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  }
      //[ MP_setTextFilter import-01;]
                        //[ MP_sortByDate import-01;]
+                       //[ MP_sortByDate import-02;]
                                       //[ MP_sortByAmount import-01;]
+                                      //[ MP_sortByAmount import-02;]
                                                        //[ MP_setStartDate import-01;]
                                                                         //[ MP_setEndDate import-01;]
    from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-                    //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters.jsx ref1;^B]
+                    //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-2;^B]
 
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
@@ -164,10 +165,12 @@ export class CLS_expense_list_filters extends React.Component
 
       if (P_event.target.value === 'date')
         this.props.MDTP_sortByDate ();
+         //[ props.MDTP_sortByDate exe1;]
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByDate <1>^B]
       else
       if (P_event.target.value === 'amount')
         this.props.MDTP_sortByAmount ();
+         //[ props.MDTP_sortByAmount exe1;]
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByAmount <1>^B]
     };
 
@@ -249,6 +252,8 @@ const GC_map_state_to_props = (P_state) => {
 
 //  SEC_012 --- 126. Testing ExpenseListFilters 14:50
 
+//  [S07251669|sec011a_L099_RDCR_filters.jsx:: Set Filter Elements ref1;^B]
+
 //  [S07251664|A01_DIrectory_01.txt::DRC1: ELF.mapDispatchToProps <1>^B]
 
        //[ DEF1: mapDispatchToProps <1>^B]
@@ -269,7 +274,11 @@ const mapDispatchToProps = (dispatch, props) =>  {
             : undefined
                ),
     MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
+    //[ props.MDTP_sortByDate exe1;^B]
+                                //[ MP_sortByDate import-02;]
     MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
+    //[ props.MDTP_sortByAmount exe1;^B]
+                                  //[ MP_sortByAmount import-02;]
     MDTP_setStartDate: (P_start_date) =>
     //[ MDTP_setStartDate exe1;^B]
       dispatch (MP_setStartDate(P_start_date) ),

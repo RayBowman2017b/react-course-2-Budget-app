@@ -13,28 +13,20 @@
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_011_React_with_Redux\proj_02\Budget-app\src\sec011a_L099_actions\sec011a_L099_ACTN_filters.jsx
 
-import MP_filter_and_sort_actions from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-import { MP_filter_and_sort_actions } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-
-import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
 
  MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate 
 
 //  SEC_011 --- 99. Organizing Redux 14:50
 
 
-sec011a_L103_expense_list_filters.jsx :>
-import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //  [S07251667|sec011a_L103_expense_list_filters.jsx::sec011a_L099_ACTN_filters.jsx ref1;^B]
-
-//  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //  [S07251665|sec012a_app.jsx::sec011a_L099_ACTN_filters.jsx ref2;^B]
-//  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //  [S07251665|sec011a_app.jsx::sec011a_L099_ACTN_filters.jsx ref3;^B]
-
-sec011a_L099_RDCR_filters.jsx :>
 import { MP_filter_and_sort_actions } from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //  [S07251669|sec011a_L099_RDCR_filters.jsx::sec011a_L099_ACTN_filters.jsx ref4;^B]
+                        //[S07251669|sec011a_L099_RDCR_filters.jsx::sec011a_L099_ACTN_filters import-1;^B]
+sec011a_L103_expense_list_filters.jsx :>
+import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  }
+from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
+            //[S07251667|sec011a_L103_expense_list_filters.jsx::sec011a_L099_ACTN_filters import-2;^B]
+                //[S07251665|sec011a_app.jsx::sec011a_L099_ACTN_filters import-4x;^B]
+                //[S07251665|sec012a_app.jsx::sec011a_L099_ACTN_filters import-3x;^B]
 
  */
 
