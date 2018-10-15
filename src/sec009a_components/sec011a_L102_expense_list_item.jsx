@@ -1,5 +1,5 @@
 
-/*
+/***************************************************************************
 
 sec011a_L102_expense_list_item.jsx
 
@@ -17,7 +17,7 @@ import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
 import { SFC_expense_list_item } from "../../sec009a_components/sec011a_L102_expense_list_item.jsx";
 //[S07251667|sec011a_L101_expense_list.jsx::sec011a_L102_expense_list_item import-1;^B]
 
-*/
+ ***************************************************************************/
 
 import React from 'react';
 
@@ -65,7 +65,7 @@ const out = (P_id) => console.log (P_id);
 
 //    [ EXE1: GC_link_with_children <1>]
 
-       //[ DEF1: GC_link_with_children <1>^B]
+//[ DEF1: GC_link_with_children <1>^B]
 const GC_link_with_children = (P_props) =>
 (
   <div>

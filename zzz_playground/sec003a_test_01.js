@@ -32,3 +32,16 @@ const mult_obj =
 }
 
 console.log (mult_obj.mult_op ());
+
+
+const user_02 = {
+    name: 'Andrew',
+    cities: ['Philadelphia', 'New York', 'Dublin'],
+    printPlaceslived() {
+        
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
+        });
+    }
+};
+user_02.printPlaceslived();

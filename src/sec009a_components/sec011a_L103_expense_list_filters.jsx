@@ -6,17 +6,17 @@
        //  [ CLS1: CLS_expense_list_filters <1>]
 
 
-       //  [ DEF1: GC_map_state_to_props <1>]
-       //  [ DEF1: mapDispatchToProps <1>]
+       //  [ DEF1: GF_map_state_to_props <1>]
+       //  [ DEF1: GF_map_dispatch_to_props <1>]
 
     props.filters
-        GC_map_state_to_props :>
-            //[ props.filters i1;]
-            //[ props.filters a1;]
-            //[ props.filters a2;]
-            //[ props.filters a3;]
-            //[ props.filters a4;]
-            //[ props.filters xxx]
+        GF_map_state_to_props :>
+            //[ this.props.filters i1;]
+            //[ this.props.filters a1;]
+            //[ this.props.filters a2;]
+            //[ this.props.filters a3;]
+            //[ this.props.filters a4;]
+            //[ this.props.filters xxx]
             //[ props.filters a;]
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
@@ -103,15 +103,17 @@ export class CLS_expense_list_filters extends React.Component
   //[ calendarFocused a2;]
   //[ calendarFocused xxx]
     };
+    //======================================================================
 
     constructor(P_props)
     {
         super (P_props);
     }
+    //======================================================================
 
 //  SEC_011 --- 110. Filtering by Dates 19:44
 
-    //  [ onExpenseDatesChange evt1;]
+    //  [ EVT1: onExpenseDatesChange <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: onExpenseDatesChange <1>^B]
 
@@ -119,16 +121,17 @@ export class CLS_expense_list_filters extends React.Component
     onExpenseDatesChange = ( { startDate, endDate } ) => {
       // this.props.dispatch (MP_setStartDate(startDate) );
       this.props.MDTP_setStartDate(startDate);
+  //[ this.props.MDTP_setStartDate exe1;]
       //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_setStartDate <1>^B]
-             //[ MDTP_setStartDate exe1;]
 
       // this.props.dispatch (MP_setEndDate(endDate) );
       this.props.MDTP_setEndDate (endDate);
+  //[ this.props.MDTP_setEndDate exe1;]
       //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_setEndDate <1>^B]
-             //[ MDTP_setEndDate exe1;]
     };
+    //======================================================================
 
-    //  [ onExpenseFocusChange evt1;]
+    //  [ EVT1: onExpenseFocusChange <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: onExpenseFocusChange <1>^B]
 
@@ -139,41 +142,45 @@ export class CLS_expense_list_filters extends React.Component
       this.setState ( () => ( { calendarFocused } ) );
                             //[ calendarFocused s1;^B]
     };
+    //======================================================================
 
-    //  [ TXBX_filters_change evt1;]
+    //  [ EVT1: TXBX_filters_change <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: TXBX_filters_change <1>^B]
+
 
     //[ DEF1: TXBX_filters_change <1>^B]
     TXBX_filters_change = (P_event) =>  {
       //this.props.dispatch ( MP_setTextFilter (P_event.target.value) );
       this.props.MDTP_setTextFilter (P_event.target.value);
+  //[ this.props.MDTP_setTextFilter exe1;]
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_setTextFilter <1>^B]
-             //[ MDTP_setTextFilter exe1;]
     };
+    //======================================================================
 
     //  Only "date" and "amount" are allowed values.
  
-    //[ SLCT_sort_item_change evt1;]
+    //  [ EVT1: SLCT_sort_item_change <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: SLCT_sort_item_change <1>^B]
 
     //[ DEF1: SLCT_sort_item_change <1>^B]
     SLCT_sort_item_change = (P_event) =>  {
+
       //this.props.MDTP_sortBy (P_event.target.value);
-             //[ MDTP_sortBy exe1;]
+               //[ MDTP_sortBy exe1;]
 
       if (P_event.target.value === 'date')
         this.props.MDTP_sortByDate ();
-         //[ props.MDTP_sortByDate exe1;]
+    //[ this.props.MDTP_sortByDate exe1;]
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByDate <1>^B]
       else
       if (P_event.target.value === 'amount')
         this.props.MDTP_sortByAmount ();
-         //[ props.MDTP_sortByAmount exe1;]
+    //[ this.props.MDTP_sortByAmount exe1;]
         //[S07251668|sec011a_L099_ACTN_filters.jsx::EXE1: MP_sortByAmount <1>^B]
     };
-
+    //======================================================================
 
        //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::CLS_expense_list_filters.render tpl1;^B]
 
@@ -184,21 +191,22 @@ export class CLS_expense_list_filters extends React.Component
        //[ DEF1: CLS_expense_list_filters.render <1>^B]
     render () {
       return (
-        <div>
+        <div id="DIV_main">
+   {/*[ <div id="DIV_main"> end1;]*/}
             <input  type="text"
                     id="TBX_filters"
                     value={this.props.filters.text}
-                            //[ props.filters a1;^B]
+                       //[ this.props.filters a1;^B]
                     onChange={this.TXBX_filters_change}
-                               //[ TXBX_filters_change evt1;^B]
+                         //[ EVT1: TXBX_filters_change <1>^B]
             />
 
 {/*  //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41  */}
             <select id="SELECT_date_amount"
               value={this.props.filters.sortBy}
-                      //[ props.filters a2;^B]
+                 //[ this.props.filters a2;^B]
               onChange={this.SLCT_sort_item_change}
-                         //[ SLCT_sort_item_change evt1;^B]
+                   //[ EVT1: SLCT_sort_item_change <1>^B]
             >
               <option value="date">Date</option>
               <option value="amount">Amount</option>
@@ -211,42 +219,44 @@ export class CLS_expense_list_filters extends React.Component
 
 <DateRangePicker
   startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
-              //[ props.filters a3;^B]
+         //[ this.props.filters a3;^B]
   startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
   endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
-            //[ props.filters a4;^B]
+       //[ this.props.filters a4;^B]
   endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
   onDatesChange={ this.onExpenseDatesChange }
-                   //[ onExpenseDatesChange evt1;^B]
+             //[ EVT1: onExpenseDatesChange <1>^B]
   focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                        //[ calendarFocused a2;^B]
   onFocusChange={ this.onExpenseFocusChange } // PropTypes.func.isRequired,
-                   //[ onExpenseFocusChange evt1;^B]
+             //[ EVT1: onExpenseFocusChange <1>^B]
   showClearDates={true}
   readOnly={false}
   numberOfMonths={1}
   isOutsideRange={ () => false }
-
 />
 
+   {/*[ <div id="DIV_main"> end1;^B]*/}
         </div>
       );
 
     };
     //  [ END1: CLS_expense_list_filters.render <1>^B]
+    //======================================================================
+    //======================================================================
 }
    //  [ END1: CLS_expense_list_filters <1>^B]
 //#######################################################################################
 //#######################################################################################
 
 
-//  [S07251664|A01_DIrectory_01.txt::DRC1: ELF.GC_map_state_to_props <1>^B]
+//  [S07251664|A01_DIrectory_01.txt::DRC1: XPNLISTFLTR.GF_map_state_to_props <1>^B]
 
-       //[ DEF1: GC_map_state_to_props <1>^B]
-const GC_map_state_to_props = (P_state) => {
+       //[ DEF1: GF_map_state_to_props <1>^B]
+const GF_map_state_to_props = (P_state) => {
     return {
         filters: P_state.filters
-        //[ props.filters i1;^B]
+        //[ this.props.filters i1;^B]
     };
 };
 
@@ -254,14 +264,14 @@ const GC_map_state_to_props = (P_state) => {
 
 //  [S07251669|sec011a_L099_RDCR_filters.jsx:: Set Filter Elements ref1;^B]
 
-//  [S07251664|A01_DIrectory_01.txt::DRC1: ELF.mapDispatchToProps <1>^B]
+//  [S07251664|A01_DIrectory_01.txt::DRC1: XPNLISTFLTR.GF_map_dispatch_to_props <1>^B]
 
-       //[ DEF1: mapDispatchToProps <1>^B]
-const mapDispatchToProps = (dispatch, props) =>  {
+       //[ DEF1: GF_map_dispatch_to_props <1>^B]
+const GF_map_dispatch_to_props = (dispatch, props) =>  {
   return (
   {
     MDTP_setTextFilter: (P_TBX_filter_text) =>
-    //[ MDTP_setTextFilter exe1;^B]
+    //[ this.props.MDTP_setTextFilter exe1;^B]
        dispatch(MP_setTextFilter(P_TBX_filter_text)),
             //[ MP_setTextFilter import-01;^B]
     MDTP_sortBy: (P_sort_by_item) =>
@@ -274,17 +284,17 @@ const mapDispatchToProps = (dispatch, props) =>  {
             : undefined
                ),
     MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
-    //[ props.MDTP_sortByDate exe1;^B]
+    //[ this.props.MDTP_sortByDate exe1;^B]
                                 //[ MP_sortByDate import-02;]
     MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
-    //[ props.MDTP_sortByAmount exe1;^B]
+    //[ this.props.MDTP_sortByAmount exe1;^B]
                                   //[ MP_sortByAmount import-02;]
     MDTP_setStartDate: (P_start_date) =>
-    //[ MDTP_setStartDate exe1;^B]
+    //[ this.props.MDTP_setStartDate exe1;^B]
       dispatch (MP_setStartDate(P_start_date) ),
             //[ MP_setStartDate import-01;]
     MDTP_setEndDate: (P_end_date) =>
-    //[ MDTP_setEndDate exe1;^B]
+    //[ this.props.MDTP_setEndDate exe1;^B]
       dispatch (MP_setEndDate(P_end_date) )
             //[ MP_setEndDate import-01;]
   }      );
@@ -293,6 +303,6 @@ const mapDispatchToProps = (dispatch, props) =>  {
 //export default SFC_expense_list_filters;
 //export default CLS_expense_list_filters;
 
-export default connect(GC_map_state_to_props, mapDispatchToProps)
+export default connect(GF_map_state_to_props, GF_map_dispatch_to_props)
                         (CLS_expense_list_filters);
                      //[ CLS_expense_list_filters pp1;^B]

@@ -71,10 +71,10 @@ const now = moment();
 // console.log (now.format("MMM Do, YYYY"));
 
 
-//  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_expense_form <1>^B]
-
 //  [S07251667|sec009a_CLS_add_expense_page.jsx::TPL1: CLS_expense_form <1>^B]
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::TPL2: CLS_expense_form <1>^B]
+
+//  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_expense_form <1>^B]
 
            //[ CLS1: CLS_expense_form <1>^B]
 export default class CLS_expense_form extends React.Component
@@ -93,7 +93,10 @@ export default class CLS_expense_form extends React.Component
 
        /////////////////////////////////////////////////////////////////////
        /////////////////////////////////////////////////////////////////////
+
  
+    //======================================================================
+    //======================================================================
 
     //  [S07251669|sec011a_L099_RDCR_expenses.jsx::CLS_expense_form constructor ref1;^B]
 
@@ -105,7 +108,7 @@ export default class CLS_expense_form extends React.Component
         //  values are passed in from the edit page.
         //  [S07251669|sec011a_L099_RDCR_expenses.jsx::EXPENSE OBJECT CREATION ref1;^B]
 
-        //  onExpenseSubmit :>
+        //  values sent to the REDUCER by the handler onExpenseSubmit :>
         //      [ this.state xrf1;]
 
         this.state = {
@@ -120,6 +123,7 @@ export default class CLS_expense_form extends React.Component
             buttonLabel: P_props.buttonLabel
         };
     }
+    //======================================================================
 
     //  [ EVT1: onDescriptionChange <1>]
 
@@ -128,6 +132,7 @@ export default class CLS_expense_form extends React.Component
         const description = e.target.value;
         this.setState ( () => ({ description }) );
     };
+    //======================================================================
 
     //  [ EVT1: onNoteChange <1>]
 
@@ -136,6 +141,7 @@ export default class CLS_expense_form extends React.Component
         const note = e.target.value;
         this.setState ( () => ({ note }) );
     };
+    //======================================================================
 
     //  [ EVT1: onAmountChange <1>^B]
 
@@ -145,6 +151,7 @@ export default class CLS_expense_form extends React.Component
         if ( ! amount || amount.match(/^\d+(\.\d{0,2})?$/) )
           this.setState ( () => ({ amount }) );
     };
+    //======================================================================
 
     //  [ EVT1: onDateChange <1>]
 
@@ -153,6 +160,7 @@ export default class CLS_expense_form extends React.Component
         if (createdAt)
             this.setState( () => ({ createdAt }) );
     };
+    //======================================================================
 
     //  [ EVT1: onFocusChange <1>]
 
@@ -160,6 +168,7 @@ export default class CLS_expense_form extends React.Component
     onFocusChange = ({ focused }) => {
         this.setState( () => ({ calenderFocused: focused }) );
     };
+    //======================================================================
 
 
     GC_errors =
@@ -181,7 +190,11 @@ export default class CLS_expense_form extends React.Component
         is_error()
         {  return ( this.descErrorMssg || this.amtErrorMssg );  }
     };
+    //======================================================================
+    //======================================================================
 
+
+    //  [ END1: onExpenseSubmit <1>]
 
     //  <form action="" onSubmit={this.onExpenseSubmit}>
     //  [ EVT1: onExpenseSubmit <1>]
@@ -231,6 +244,9 @@ export default class CLS_expense_form extends React.Component
                 note: this.state.note
             } );
     };
+    //  [ END1: onExpenseSubmit <1>^B]
+    //======================================================================
+    //======================================================================
 
 
 //  SEC_011 --- 106. Setting up a Date Picker 21:34
@@ -250,8 +266,8 @@ export default class CLS_expense_form extends React.Component
                          <div>{this.state.amountError}</div>
                     }
 
+                    {/*//[ expense form :end1;]*/}
                     <div>Expense Form</div>
-                    {/*//[ expense form action :end1;]*/}
                     <form action="" onSubmit={this.onExpenseSubmit}>
                     {/*//[ expense form action :submit1;]*/}
                                       {/*//[ EVT1: onExpenseSubmit <1>^B]*/}
@@ -300,7 +316,7 @@ export default class CLS_expense_form extends React.Component
                         {this.state.buttonLabel}
                       </button>
                     </form>
-                    {/*//[ expense form action :end1;^B]*/}
+                    {/*//[ expense form :end1;^B]*/}
                 </div>
         );
     };

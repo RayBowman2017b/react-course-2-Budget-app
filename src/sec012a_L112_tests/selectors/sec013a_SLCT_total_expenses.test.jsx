@@ -1,4 +1,13 @@
 
+/***************************************************************************
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\
+src\sec012a_L112_tests\selectors\sec013a_SLCT_total_expenses.test.jsx
+
+//  SEC_013 --- 139. Build It: Adding Total Selector 17:25
+
+ ***************************************************************************/
+
 
 import { MP_selectExpensesTotal } from "../../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
 import MP_FXT_expenses from "../fixtures/sec012a_DATA_expenses.js";

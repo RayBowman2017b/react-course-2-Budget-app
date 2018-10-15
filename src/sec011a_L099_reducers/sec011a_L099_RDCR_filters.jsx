@@ -40,6 +40,8 @@ const moment = require ('moment');
 //  There is only one object of filter
 //  [S07251664|A01_DIrectory_01.txt::GC_filtersReducerDefaultState drc1;^B]
 
+//  [ GC_filtersReducerDefaultState pp1;]
+
             //[ GC_filtersReducerDefaultState xxx^B]
 
       //[ DEF1: GC_filtersReducerDefaultState <1>^B]
@@ -62,6 +64,7 @@ const GC_filtersReducerDefaultState =
    //[ DEF1: MP_filtersReducer <1>^B]
 //  const GC_filtersReducer = (P_state = GC_filtersReducerDefaultState, P_action) =>
 export default (P_state = GC_filtersReducerDefaultState, P_action) =>
+                      //[ GC_filtersReducerDefaultState pp1;^B]
 {
     switch (P_action.type)
     {

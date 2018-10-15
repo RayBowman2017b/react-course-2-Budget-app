@@ -5,7 +5,7 @@ sec011a_L101_expense_list.jsx
 
 
        //  [ DEF1: SFC_expense_list <1>]
-       //  [ DEF1: GC_map_state_to_props <1>]
+       //  [ DEF1: GF_map_state_to_props <1>]
 
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
@@ -35,8 +35,8 @@ import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
 
 
 import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
-                     //[S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-2;]
    //[ MP_SLCT_getVisibleExpenses asn1;]
+                     //[S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-2;]
 
 
 //const MP_SLCT_getVisibleExpenses = Loadable({
@@ -88,7 +88,7 @@ export const SFC_expense_list = (P_props) => (
     );
 
 /***********************************************************************
-const xxx_GC_map_state_to_props = (P_state) =>  {
+const xxx_GF_map_state_to_props = (P_state) =>  {
     return {
             expenses: P_state.expenses,
             filters: P_state.filters
@@ -100,10 +100,10 @@ const xxx_GC_map_state_to_props = (P_state) =>  {
 //  SEC_011 --- 103. Controlled Inputs for Filters 14:21
 //  MP_SLCT_getVisibleExpenses
 
- //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNL.GC_map_state_to_props <1>^B]
+ //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNLIST.GF_map_state_to_props <1>^B]
 
-       //[ DEF1: GC_map_state_to_props <1>^B]
-const GC_map_state_to_props = (P_state) =>  {
+       //[ DEF1: GF_map_state_to_props <1>^B]
+const GF_map_state_to_props = (P_state) =>  {
     return {
             expenses: MP_SLCT_getVisibleExpenses
 //[ P_props.expenses exe1;^B]
@@ -117,6 +117,6 @@ const GC_map_state_to_props = (P_state) =>  {
 
 //  export default SFC_connected_expense_list;
 
-export default connect (GC_map_state_to_props) (SFC_expense_list);
+export default connect (GF_map_state_to_props) (SFC_expense_list);
 
 

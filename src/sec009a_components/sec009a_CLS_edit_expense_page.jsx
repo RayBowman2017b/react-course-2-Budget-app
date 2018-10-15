@@ -66,8 +66,8 @@ export class CLS_edit_expense_page extends React.Component
 
        //  [ DEF1: CLS_edit_expense_page.render <1>]
 
-       //  [ DEF1: EDIT_XPP.mapStateToProps <1>]
-       //  [ DEF1: EDIT_XPP.mapDispatchToProps <1>]
+       //  [ DEF1: EDIT_XPP.GF_map_state_to_props <1>]
+       //  [ DEF1: EDIT_XPP.GF_map_dispatch_to_props <1>]
 
        /////////////////////////////////////////////////////////////////////
        /////////////////////////////////////////////////////////////////////
@@ -101,8 +101,8 @@ export class CLS_edit_expense_page extends React.Component
         //this.log_props(P_expense);
 
         this.props.edit_expense (this.props.expense.id, P_expense);
+    //[ this.props.edit_expense ref1;]
     //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_editExpense <1>^B]
-        //[ this.props.edit_expense ref1;]
 
         this.props.history.push ('/');
     };
@@ -117,8 +117,8 @@ export class CLS_edit_expense_page extends React.Component
         //this.props.dispatch ( MP_removeExpense({ id: this.props.expense.id }) );
 
         this.props.remove_expense ({ id: this.props.expense.id });
+    //[ this.props.remove_expense ref1;]
     //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_removeExpense <1>^B]
-        //[ this.props.remove_expense ref1;]
 
         this.props.history.push ('/');
     };
@@ -136,13 +136,13 @@ export class CLS_edit_expense_page extends React.Component
     <br/>
     <div>Editing the expense with an id of {this.props.match.params.id}.</div>
     <br/>
-      {/* [S07251667|sec011a_L105_expense_form.jsx::TPL2: CLS_expense_form <1>^B] */}
     <CLS_expense_form
         expense={this.props.expense}
         onExpenseSubmit={this.onExpenseSubmit}
         buttonLabel={'EDIT EXPENSE'}
     />
                 {/*
+    [S07251667|sec011a_L105_expense_form.jsx::TPL2: CLS_expense_form <1>^B]
                 //[ this.props.expense pp1;]
                 //[ ASN1: onExpenseSubmit <1>^B]
                   */}
@@ -193,10 +193,10 @@ const match_props = (P_expense, P_props) =>  {
   return P_expense.id === P_props.match.params.id;
 }
 
-//  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.mapStateToProps <1>^B]
+//  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.GF_map_state_to_props <1>^B]
 
-//[ DEF1: EDIT_XPP.mapStateToProps <1>^B]
-const mapStateToProps = (state, props) =>  {
+//[ DEF1: EDIT_XPP.GF_map_state_to_props <1>^B]
+const GF_map_state_to_props = (state, props) =>  {
       return (
       {
           expense: state.expenses.find (
@@ -213,10 +213,10 @@ const mapStateToProps = (state, props) =>  {
 //export default GC_edit_expense_page;
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
 
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.mapDispatchToProps <1>]
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.GF_map_dispatch_to_props <1>]
 
-//[ DEF1: EDIT_XPP.mapDispatchToProps <1>^B]
-const mapDispatchToProps = (dispatch) =>  {
+//[ DEF1: EDIT_XPP.GF_map_dispatch_to_props <1>^B]
+const GF_map_dispatch_to_props = (dispatch) =>  {
   return (
   {
     edit_expense: (id, expense) => dispatch(MP_editExpense(id, expense)),
@@ -228,6 +228,6 @@ const mapDispatchToProps = (dispatch) =>  {
   }      );
 };
 //export default connect() (GC_add_expense_page);
-export default connect(mapStateToProps, mapDispatchToProps)
+export default connect(GF_map_state_to_props, GF_map_dispatch_to_props)
                  (CLS_edit_expense_page);
               //[ CLS_edit_expense_page oo1;^B]

@@ -18,6 +18,8 @@
         [ FILTER AND SORT REDUCER ref-drc-1;]
             GC_filtersReducerDefaultState
 
+        [ EXPENSE LIST SUMMARY ref-drc-1;]
+
         [ EXPENSE LIST ref-drc-1;]
             MP_SLCT_getVisibleExpenses
         [ EXPENSE LIST FILTERS ref-drc-1;]
@@ -61,15 +63,16 @@ const L_store = createStore
             }
 
 //  [S07251667|sec011a_L101_expense_list.jsx::(P_state.expenses, P_state.filters) drc1;^B]
+//  [S07251667|sec013a_L140_expenses_summary.jsx::(P_state.expenses, P_state.filters) drc2;^B]
 
 
-        //[ ELF.mapDispatchToProps xrf-drc1;]
-        //[ ADD_XPP.GC_mapDispatchToProps xrf-drc1;]
-        //[ EDIT_XPP.mapDispatchToProps xrf-drc1;]
+        //[ XPNLISTFLTR.GF_map_dispatch_to_props xrf-drc1;]
+        //[ ADD_XPP.GF_map_dispatch_to_props xrf-drc1;]
+        //[ EDIT_XPP.GF_map_dispatch_to_props xrf-drc1;]
 
-              //[ XPNL.GC_map_state_to_props xrf-drc1;]
-              //[ ELF.GC_map_state_to_props xrf-drc1;]
-              //[ EDIT_XPP.mapStateToProps xrf-drc1;]
+              //[ XPNLIST.GF_map_state_to_props xrf-drc1;]
+              //[ XPNLISTFLTR.GF_map_state_to_props xrf-drc1;]
+              //[ EDIT_XPP.GF_map_state_to_props xrf-drc1;]
 
 
 //  [S07251665|sec012a_app.jsx::sec012a_app GC_store.subscribe drc1;^B]
@@ -212,16 +215,25 @@ const GC_filtersReducerDefaultState =
             return P_state;
     }
 
+
+...................................................................................................
+        [ EXPENSE LIST SUMMARY ref-drc-1;^B]
+...................................................................................................
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::DRC1: SFC_expenses_summary <1>^B]
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::DRC1: XPNSMRY.GF_map_state_to_props <1>^B]
+
 ...................................................................................................
         [ EXPENSE LIST ref-drc-1;^B]
 ...................................................................................................
 
 //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: SFC_expense_list <1>^B]
                                                      //[ SFC_expense_list_item xrf-drc1;]
-    //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: XPNL.GC_map_state_to_props <1>^B]
-                                                    //[ XPNL.GC_map_state_to_props xrf-drc1;^B]
+    //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: XPNLIST.GF_map_state_to_props <1>^B]
+                                                    //[ XPNLIST.GF_map_state_to_props xrf-drc1;^B]
                                                  //[ MP_SLCT_getVisibleExpenses xrf-drc1;]
-const GC_map_state_to_props = (P_state) =>  {
+const GF_map_state_to_props = (P_state) =>  {
     return {
             expenses: MP_SLCT_getVisibleExpenses
                          (P_state.expenses, P_state.filters)
@@ -257,10 +269,10 @@ const GC_map_state_to_props = (P_state) =>  {
                                                             //[ MP_sortByDate xrf-drc1;^B]
                                                             //[ MP_sortByAmount xrf-drc1;^B]
     //  [S07251667|sec011a_L103_expense_list_filters.jsx::DRC1: CLS_expense_list_filters.render <1>^B]
-    //  [S07251667|sec011a_L103_expense_list_filters.jsx::DRC1: ELF.GC_map_state_to_props <1>^B]
-                                                            //[ ELF.GC_map_state_to_props xrf-drc1;^B]
-    //  [S07251667|sec011a_L103_expense_list_filters.jsx::DRC1: ELF.mapDispatchToProps <1>^B]
-                                                            //[ ELF.mapDispatchToProps xrf-drc1;^B]
+    //  [S07251667|sec011a_L103_expense_list_filters.jsx::DRC1: XPNLISTFLTR.GF_map_state_to_props <1>^B]
+                                                            //[ XPNLISTFLTR.GF_map_state_to_props xrf-drc1;^B]
+    //  [S07251667|sec011a_L103_expense_list_filters.jsx::DRC1: XPNLISTFLTR.GF_map_dispatch_to_props <1>^B]
+                                                            //[ XPNLISTFLTR.GF_map_dispatch_to_props xrf-drc1;^B]
                   evnet handlers call :>  //[ MP_filter_and_sort_actions xrf-drc1;^B]
 
 ...................................................................................................
@@ -275,9 +287,9 @@ const GC_map_state_to_props = (P_state) =>  {
                                                        //[ ADD_XPP.onExpenseSubmit xrf-drc1;]
                                            CALLS :> //[ MP_addExpense xrf-drc1;^B]
     //  [S07251667|sec009a_CLS_add_expense_page.jsx::DRC1: CLS_add_expense_page.render <1>^B]
-    //  [S07251667|sec009a_CLS_add_expense_page.jsx::DRC1: ADD_XPP.GC_mapDispatchToProps <1>^B]
-                                                       //[ ADD_XPP.GC_mapDispatchToProps xrf-drc1;^B]
-const GC_mapDispatchToProps = (P_dispatch) => ( {
+    //  [S07251667|sec009a_CLS_add_expense_page.jsx::DRC1: ADD_XPP.GF_map_dispatch_to_props <1>^B]
+                                                       //[ ADD_XPP.GF_map_dispatch_to_props xrf-drc1;^B]
+const GF_map_dispatch_to_props = (P_dispatch) => ( {
     add_expense: (P_expense) => P_dispatch(MP_addExpense(P_expense))
 } );
 
@@ -294,9 +306,9 @@ const GC_mapDispatchToProps = (P_dispatch) => ( {
     //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.onClickRemoveExpense <1>^B]
                                            CALLS :> //[ MP_removeExpense xrf-drc1;]
     //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: CLS_edit_expense_page.render <1>^B]
-    //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.mapStateToProps <1>^B]
-                                                        //[ EDIT_XPP.mapStateToProps xrf-drc1;^B]
-const mapStateToProps = (state, props) =>  {
+    //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.GF_map_state_to_props <1>^B]
+                                                        //[ EDIT_XPP.GF_map_state_to_props xrf-drc1;^B]
+const GF_map_state_to_props = (state, props) =>  {
       return (
       {
           expense: state.expenses.find (
@@ -304,9 +316,9 @@ const mapStateToProps = (state, props) =>  {
                    )
       }      );
     };
-    //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.mapDispatchToProps <1>^B]
-                                                        //[ EDIT_XPP.mapDispatchToProps xrf-drc1;^B]
-const mapDispatchToProps = (dispatch) =>  {
+    //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.GF_map_dispatch_to_props <1>^B]
+                                                        //[ EDIT_XPP.GF_map_dispatch_to_props xrf-drc1;^B]
+const GF_map_dispatch_to_props = (dispatch) =>  {
   return (
   {
     edit_expense: (id, expense) => dispatch(MP_editExpense(id, expense)),

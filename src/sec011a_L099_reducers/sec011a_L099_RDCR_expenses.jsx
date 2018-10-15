@@ -59,14 +59,11 @@ export default (P_state = GC_expensesReducerDefaultState, P_action) =>
         case MP_expense_actions.ACT_XP_EDIT_EXPENSE:
         //[S07251668|sec011a_L099_ACTN_expenses.jsx::type: MP_expense_actions.ACT_XP_EDIT_EXPENSE, ref1;^B]
                   //[S07251664|A01_DIrectory_01.txt::type: MP_expense_actions.ACT_XP_EDIT_EXPENSE, drc1;^B]
-            return P_state.map ( (expense) =>  {
-                if (expense.id === P_action.id)  {
-                    return {
-                        ...expense,
-                        ...P_action.updates
+            return P_state.map ( (expense) =>
+            {
+                if (expense.id === P_action.id)
+                    return { ...expense, ...P_action.updates };
                         //[S07251667|sec011a_L105_expense_form.jsx::this.state expense update ref1;^B]
-                    };
-                }
                 else
                     return expense;
             }

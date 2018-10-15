@@ -37,6 +37,7 @@ export default () => {
    //  [S07251664|A01_DIrectory_01.txt::create Store for reducers drc1;^B]
 
    //  [S07251667|sec011a_L101_expense_list.jsx::(P_state.expenses, P_state.filters) xrf1;^B]
+   //  [S07251667|sec013a_L140_expenses_summary.jsx::(P_state.expenses, P_state.filters) xrf2;^B]
 
 const L_store = createStore
         (
