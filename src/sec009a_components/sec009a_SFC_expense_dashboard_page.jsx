@@ -20,8 +20,8 @@ import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
 //[S07251667|sec011a_L103_expense_list_filters.jsx::sec011a_L103_expense_list_filters import-2;^B]
 
-import { SFC_expenses_summary } from '../../sec009a_components/sec013a_L140_expenses_summary.jsx';
-               //[S07251667|sec013a_L140_expenses_summary.jsx::sec013a_L140_expenses_summary import-1;^B]
+import SFC_expenses_summary from './sec013a_L140_expenses_summary.jsx';
+           //[S07251667|sec013a_L140_expenses_summary.jsx::sec013a_L140_expenses_summary import-1;^B]
 
 
     //  [S07251666|sec009a_app_router.jsx::GC_expense_dashboard_page rtr1;^B]
@@ -39,7 +39,9 @@ const GC_expense_dashboard_page = () =>
       */}
 
     <SFC_expenses_summary />
-            //  [S07251667|sec013a_L140_expenses_summary.jsx::TPL1: SFC_expenses_summary <1>^B]
+    {/*
+      //  [S07251667|sec013a_L140_expenses_summary.jsx::TPL1: SFC_expenses_summary <1>^B]
+      */}
     <SFC_expense_list />
     {/*  [S07251667|sec011a_L101_expense_list.jsx::TPL1: SFC_expense_list <1>^B] */}
   </div>

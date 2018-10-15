@@ -5,14 +5,13 @@
     "\\A01_MISC",
     "\\A01_Upper_Level_Files",
     "\\src",
+    "\\src\\sec009a_components",
     "\\src\\sec009a_routers",
-    "\\src\\sec011a_L099_actions",
-    "\\src\\sec011a_L099_reducers",
     "\\src\\sec011a_L099_selectors",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\fixtures",
+    "\\src\\sec012a_L112_tests\\components",
     "\\src\\sec012a_L112_tests\\selectors"
   ],
-  "SelectedNode": "\\src\\sec011a_L099_reducers\\sec011a_L099_RDCR_filters.jsx",
+  "SelectedNode": "\\src\\sec012a_L112_tests\\components\\sec013a_expenses_summary.test.js",
   "PreviewInSolutionExplorer": false
 }

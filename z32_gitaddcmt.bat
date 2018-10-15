@@ -1,7 +1,7 @@
 @rem z32_gitaddcmt.bat
 @rem 
 git add .
-git commit -m "2018-10-14 21-10 expenses summary"
+git commit -m "2018-10-14 22-42 expenses summary"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

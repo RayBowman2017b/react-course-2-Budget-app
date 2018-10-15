@@ -20,6 +20,7 @@ import MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_ex
 //  [S07251665|sec011a_app.jsx::sec011a_L099_SLCT_expenses import-1;^B]
 //  [S07251665|sec012a_app.jsx::sec011a_L099_SLCT_expenses import-3;^B]
 //  [S07251667|sec011a_L101_expense_list.jsx::sec011a_L099_SLCT_expenses import-2;^B]
+//  [S07251667|sec013a_L140_expenses_summary.jsx::sec011a_L099_SLCT_expenses import-4;^B]
 
 //  SEC_011 --- 99. Organizing Redux 14:50
 

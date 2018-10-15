@@ -1,5 +1,5 @@
 
-/*
+/***************************************************************************
 
 sec012a_ExpenseList.test.js
 
@@ -9,7 +9,7 @@ sec012a_ExpenseList.test.js
 
 //  SEC_012 --- 120. Snapshot Testing with Dynamic Components 15:42
 
- */
+ ***************************************************************************/
 
 import React from 'react';
 import { shallow } from 'enzyme';
