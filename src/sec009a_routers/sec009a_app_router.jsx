@@ -138,7 +138,7 @@ const SFC_not_found_page = Loadable({
        //[ DEF1: GC_app_router <1>^B]
 const GC_app_router = () => (
     <BrowserRouter>
-  <div>
+  <span>
     <SFC_header />
     {/* //  [S07251667|sec009a_SFC_header.jsx::SFC_header tpl1;^B] */}
 
@@ -147,16 +147,17 @@ const GC_app_router = () => (
  {/* [S07251667|sec009a_SFC_expense_dashboard_page.jsx::GC_expense_dashboard_page rtr1;^B] */}
          <Route path="/create" component={CLS_add_expense_page}  />
  {/* [S07251667|sec009a_CLS_add_expense_page.jsx::CLS_add_expense_page rtr1;^B] */}
-        <Route path="/edit/:id" component={CLS_edit_expense_page}  />
+        <Route path="/edit/:id/:description?" component={CLS_edit_expense_page}  />
  {/* [S07251667|sec009a_CLS_edit_expense_page.jsx::CLS_edit_expense_page rtr1;^B]
      [S07251667|sec009a_CLS_edit_expense_page.jsx::P_expense.id === props.match.params.id ref1;^B]
+     [S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} ref2;^B]
    */}
         <Route path="/help" component={SFC_help_page}  />
  {/* [S07251667|sec009a_SFC_help_page.jsx::GC_help_page rtr1;^B] */}
         <Route component={SFC_not_found_page}  />
  {/* [S07251667|sec009a_SFC_not_found_page.jsx::GC_not_found_page rtr1;^B] */}
     </Switch>
-  </div>
+  </span>
     </BrowserRouter>
   );
 

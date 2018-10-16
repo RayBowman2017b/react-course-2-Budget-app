@@ -18,16 +18,16 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 
-const GC_link = (P_props) =>
-(
-  <div>
+const GF_link=(P_props) =>
+    (
+    <button style={{ padding: 1 + "rem", margin: 1 + "rem" }}>
     <NavLink
       to={P_props.route}
       activeClassName="is-active"
       exact={true}
     >{P_props.message}
     </NavLink>
-  </div>
+  </button>
 );
 
    //  [S07251666|sec009a_app_router.jsx::SFC_header tpl1;^B]
@@ -38,14 +38,14 @@ const GC_header = () =>
 (
 <header>
   <h1>Expensify</h1>
-  <GC_link route="/" message="HOME" />
-  <GC_link route="/create" message="Create Expense" />
-  <GC_link route="/edit" message="Edit" />
+  <GF_link route="/" message="HOME" />
+  <GF_link route="/create" message="Create Expense" />
+  <GF_link route="/edit" message="Edit" />
 </header>
 );
 
 
 //  SEC_012 --- 118. Snapshot Testing 12:13
-//  <GC_link route="/help" message="Help" />
+//  <GF_link route="/help" message="Help" />
 
 export default GC_header;

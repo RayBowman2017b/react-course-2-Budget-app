@@ -17,19 +17,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const GC_info = (P_props) => (
-<div>
+<span>
   <h1>Info</h1>
   <p>The info is: {P_props.info}</p>
-</div>
+</span>
     );
 
 const GC_with_admin_warning = (P_wrapped_component) =>
 {
     return (P_props) => (
-<div>
+<span>
   { P_props.isAdmin && <p>This is private info. Please don't share!</p> }
   <P_wrapped_component {...P_props} />
-</div>
+</span>
     );
 };
 
@@ -39,11 +39,11 @@ const GC_admin_info = GC_with_admin_warning (GC_info);
 const GC_require_authentication = (P_wrapped_component) =>
 {
     return (P_props) => (
-        <div>
+        <span>
             { P_props.isAuthenticated ?
                  <P_wrapped_component {...P_props} />
                   : <p>Please log in to view the info.</p> }
-        </div>
+        </span>
     );
 };
 

@@ -16,12 +16,12 @@ export const MP_common_loading_handler = (P_props) =>
   if (P_props.error) {
 //    return <div>Error! <button onClick={ P_props.retry }>Retry</button></div>;
     console.log (`P_props.error is ${P_props.error}`);
-    return <div>Error! </div>;
+    return <span>Error! </span>;
   } else if (P_props.timedOut) {
 //    return <div>Taking a long time... <button onClick={ P_props.retry }>Retry</button></div>;
-    return <div>Taking a long time... </div>;
+    return <span>Taking a long time... </span>;
   } else if (P_props.pastDelay) {
-    return <div>Loading...</div>;
+    return <span>Loading...</span>;
   } else {
     return null;
   }

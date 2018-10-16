@@ -181,18 +181,18 @@ let ndx = 0;
 //      <div>... state --->>> {P_render_set.O_state}</div>
 
 const GC_SFC_messages = () => (
-    <div>
+    <span>
   {
     GC_messages.map ( (P_render_set) =>
     (
-      <div key={ndx++}>
-          <div>{" set " + ndx}</div>
-          <div>{JSON.stringify (P_render_set)}</div>
-      </div>
+      <span key={ndx++}>
+          <span>{" set " + ndx}</span>
+          <span>{JSON.stringify (P_render_set)}</span>
+      </span>
     )
                     )
   }
-    </div>
+    </span>
   );
 
 

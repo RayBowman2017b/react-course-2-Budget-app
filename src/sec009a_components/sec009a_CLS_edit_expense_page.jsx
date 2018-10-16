@@ -19,6 +19,8 @@ sec009a_CLS_edit_expense_page.jsx
 
 //  SEC_009 --- 80. Organizing Our Routes 12:30
 
+//  SEC_009 --- 81. Query Strings and URL Parameters 9:10
+
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
 
 import { CLS_edit_expense_page } from '../../sec009a_components/sec009a_CLS_edit_expense_page.jsx';
@@ -44,8 +46,12 @@ import { MP_editExpense, MP_removeExpense } from "../sec011a_L099_actions/sec011
 
 const xxxGC_edit_expense_page = (P_props) =>
 (
-  <div>This is from my edit expense component.</div>
+  <span>This is from my edit expense component.</span>
 );
+
+
+
+//  [ END1: CLS_edit_expense_page <1>]
 
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
 
@@ -72,10 +78,13 @@ export class CLS_edit_expense_page extends React.Component
        /////////////////////////////////////////////////////////////////////
        /////////////////////////////////////////////////////////////////////
 
+  //========================================================================
+
     constructor(P_props)
     {
         super (P_props);
     }
+  //========================================================================
 
 
     log_props = (P_expense) =>  {
@@ -106,6 +115,7 @@ export class CLS_edit_expense_page extends React.Component
 
         this.props.history.push ('/');
     };
+  //========================================================================
 
     //[ ASN1: EDIT_XPP.onClickRemoveExpense <1>]
 
@@ -122,19 +132,22 @@ export class CLS_edit_expense_page extends React.Component
 
         this.props.history.push ('/');
     };
-
+  //========================================================================
+  //========================================================================
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_edit_expense_page.render <1>^B]
 
     //[ DEF1: CLS_edit_expense_page.render <1>^B]
     render ()
     {
+        const L_descrptn = this.props.match.params.description;
 //    <div>Editing the expense with an id of {this.props.match.params.id}.</div>
 //    <div>Editing the expense with an id of {this.props.expense.id}.</div>
     return (
-  <div>
+  <span>
     <br/>
     <div>Editing the expense with an id of {this.props.match.params.id}.</div>
+    {L_descrptn && <div>Editing the expense with a description of {L_descrptn}.</div>}
     <br/>
     <CLS_expense_form
         expense={this.props.expense}
@@ -153,10 +166,17 @@ export class CLS_edit_expense_page extends React.Component
       >REMOVE</button>
                              {/* //[ ASN1: EDIT_XPP.onClickRemoveExpense <1>^B] */}
 
-  </div>
+  </span>
            );
     }
+  //========================================================================
+  //========================================================================
+
 }
+   //  [ END1: CLS_edit_expense_page <1>^B]
+//##########################################################################
+//##########################################################################
+
 
 /************************************************************
 const GC_edit_expense_page = (P_props) =>
@@ -201,6 +221,8 @@ const GF_map_state_to_props = (state, props) =>  {
       {
           expense: state.expenses.find (
           //[ this.props.expense pp1;^B]
+//  SEC_009 --- 81. Query Strings and URL Parameters 9:10
+//  props.match.params.id is provided within the URL
             (P_expense) => P_expense.id === props.match.params.id
       //[S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} ref1;^B]
       //[S07251666|sec009a_app_router.jsx::P_expense.id === props.match.params.id ref1;^B]

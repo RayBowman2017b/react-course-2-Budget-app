@@ -237,18 +237,18 @@ const GC_appRoot_01 = document.getElementById('sec008_app_01');
 let ndx = 0;
 
 const GC_SFC_messages = () => (
-    <div>
+    <span>
   {
     GC_messages.map ( (P_render_set) =>
     (
-      <div key={ndx++}>
-      <div>{P_render_set.O_message}</div>
-      <div> --->>> {P_render_set.O_state}</div>
-      </div>
+      <span key={ndx++}>
+      <span>{P_render_set.O_message}</span>
+      <span> --->>> {P_render_set.O_state}</span>
+      </span>
     )
                     )
   }
-    </div>
+    </span>
   );
 
 

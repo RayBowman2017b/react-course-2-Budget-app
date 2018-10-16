@@ -61,6 +61,14 @@ const out = (P_id) => console.log (P_id);
 //     </div>
 //     );
 
+
+const GC_button_style =
+{ padding: 0.2 + "rem", margin: 1 + "rem", float: "left", clear:"left" };
+
+const GC_message_style =
+{ padding: 0.2 + "rem", margin: 1 + "rem", top_margin: 7 + "rem", float: "left", clear:"right" };
+
+
 /*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06  */
 
 //    [ EXE1: GC_link_with_children <1>]
@@ -68,14 +76,14 @@ const out = (P_id) => console.log (P_id);
 //[ DEF1: GC_link_with_children <1>^B]
 const GC_link_with_children = (P_props) =>
 (
-  <div>
+    <button style={GC_button_style}>
     <NavLink
       to={P_props.route}
       activeClassName="is-active"
       exact={true}
     >{P_props.children}
     </NavLink>
-  </div>
+  </button>
 );
 //    >{P_props.message}
 
@@ -90,11 +98,20 @@ const GC_link_with_children = (P_props) =>
 
    //[ DEF1: SFC_expense_list_item <1>^B]
 export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
-    <div>
+    <span>
+    {/*
+//  SEC_009 --- 81. Query Strings and URL Parameters 9:10
+//  props.match.params.id is provided within the URL
+      */}
   {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06  */}
+  {/*
+      <GC_link_with_children route={"/edit/" + id}>
+      <GC_link_with_children route={"/edit/" + id + "/" + description}>
+    */}
       <GC_link_with_children route={"/edit/" + id}>
     {/*  //[ EXE1: GC_link_with_children <1>^B]
          //[S07251667|sec009a_CLS_edit_expense_page.jsx::route={"/edit/" + id} ref1;^B]
+                    //[S07251666|sec009a_app_router.jsx::route={"/edit/" + id} ref2;^B]
                       //[S07251664|A01_DIrectory_01.txt::route={"/edit/" + id} drc1;^B]
       */}
           <h3>{`TO > ${description}`}</h3>
@@ -102,7 +119,7 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
   {/*  SEC_013 --- 138. New Feature Workflow 12:32
       <p> {amount} - {createdAt}</p>
     */}
-      <p>
+      <p style={GC_message_style}>
         {numeral(amount / 100).format("$0,0.00")} --- {moment(createdAt).format ("MMMM Do, YYYY")}
       </p>
 
@@ -115,7 +132,7 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
       </button>
     */}
 
-    </div>
+    </span>
 );
 
 

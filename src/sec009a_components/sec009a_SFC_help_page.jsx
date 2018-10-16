@@ -19,7 +19,7 @@ import React from 'react';
 
 const GC_help_page = () =>
 (
-  <div>This is from my help component.</div>
+  <span>This is from my help component.</span>
 );
 
 export default GC_help_page;

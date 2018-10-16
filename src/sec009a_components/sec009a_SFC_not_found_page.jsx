@@ -31,9 +31,9 @@ import React from 'react';
 
 const GC_not_found_page = () =>
 (
-  <div>
+  <span>
     404 - <Link to="/">Go home</Link>
-  </div>
+  </span>
 );
 
 

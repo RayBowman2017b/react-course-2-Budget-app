@@ -91,8 +91,8 @@ export class CLS_add_expense_page extends React.Component
        //[ DEF1: CLS_add_expense_page.render <1>^B]
   render ()  {
     return (
-  <div>
-      <div>This is from my add expense component.</div>
+  <span>
+      <span>This is from my add expense component.</span>
       <h1>Add Expense</h1>
       <CLS_expense_form
         onExpenseSubmit={this.onExpenseSubmit}
@@ -100,7 +100,7 @@ export class CLS_add_expense_page extends React.Component
       />
       {/* [S07251667|sec011a_L105_expense_form.jsx::TPL1: CLS_expense_form <1>^B] */}
                 {/* //[ ASN1: onExpenseSubmit <1>^B] */}
-  </div>
+  </span>
       );
     }
 

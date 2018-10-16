@@ -20,7 +20,7 @@
     "xxxdev-server": "webpack-dev-server",
     "build:prod": "webpack -p --env=production",
     "build:dev": "webpack --env=development",
-    "dev-server": "webpack-dev-server  --env=development --hot",
+    "dev-server": "webpack-dev-server  --env=development --hot --inline",
     "test": "jest --config=jest.config.json",
     "start": "node A02_sec013_135_server/server_135.js",
     "heroku-postbuild": "npm run build:prod"
@@ -77,6 +77,7 @@
     "jest": "^23.4.2",
     "live-server": "^1.2.0",
     "react-test-renderer": "^16.4.2",
+    "redux-mock-store": "^1.5.3",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.0.8",

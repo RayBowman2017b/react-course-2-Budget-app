@@ -191,7 +191,7 @@ export class CLS_expense_list_filters extends React.Component
        //[ DEF1: CLS_expense_list_filters.render <1>^B]
     render () {
       return (
-        <div id="DIV_main">
+        <span id="DIV_main">
    {/*[ <div id="DIV_main"> end1;]*/}
             <input  type="text"
                     id="TBX_filters"
@@ -237,7 +237,7 @@ export class CLS_expense_list_filters extends React.Component
 />
 
    {/*[ <div id="DIV_main"> end1;^B]*/}
-        </div>
+        </span>
       );
 
     };

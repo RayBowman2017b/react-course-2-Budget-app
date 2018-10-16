@@ -28,11 +28,11 @@ import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_S
    //[ MP_SLCT_getVisibleExpenses asn1;]
                      //[S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-4;]
 
-//import MP_selectExpensesTotal from "../../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
-import { MP_selectExpensesTotal } from "../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
+import MP_selectExpensesTotal from "../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
+//import { MP_selectExpensesTotal } from "../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
    //[ MP_selectExpensesTotal import-1;]
    //[ MP_selectExpensesTotal xxx]
-              //[S07251670|sec013a_L139_SLCT_total_expenses.jsx::sec013a_L139_SLCT_total_expenses import-1;^B]
+               //[S07251670|sec013a_L139_SLCT_total_expenses.jsx::sec013a_L139_SLCT_total_expenses import-1;^B]
 
 
 //==========================================================================
@@ -43,19 +43,22 @@ import { MP_selectExpensesTotal } from "../sec011a_L099_selectors/sec013a_L139_S
    //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::TPL1: SFC_expenses_summary <1>]
 
 //[ DEF1: SFC_expenses_summary <1>^B]
-const SFC_expenses_summary = (P_props) => (
-    <div>
-  {
-    P_props.expenses.length === 0 ? (
-        <p>No Expenses</p>
-    ) :
-    P_props.expenses.length === 1 ? (
-        <p>Viewing 1 Expense totalling {P_props.total_expenses}</p>
-    ) : <p>Viewing {P_props.expenses.length} Expenses totalling {P_props.total_expenses}</p>
-  }
-    </div>
-);
-//                                 {/*//[ P_props.total_expenses exe1;]*/}
+const SFC_expenses_summary=({ total_expense_count, total_expense_amount }) => {
+
+    const expense_word = total_expense_count > 1 ? "expenses" : "expense";
+    const total_expense_amount_formatted = numeral(total_expense_amount / 100).format("$0,0.00");
+
+    return (
+        <span>
+          {
+            total_expense_count === 0 ? (
+                <h1>No Expenses Selected</h1>
+            ) : <h1>Viewing {total_expense_count} {expense_word} totalling {total_expense_amount_formatted}</h1>
+          }
+        </span>
+    )
+};
+//                                 {/*//[ P_props.total_expense_amount exe1;]*/}
 //             {/*//[ P_props.expenses exe1;]*/}
 
 
@@ -69,20 +72,20 @@ const GF_map_state_to_props = (P_state) =>
 {
     const expenses = MP_SLCT_getVisibleExpenses
                  //[ MP_SLCT_getVisibleExpenses asn1;^B]
-    //[S07251670|sec011a_L099_SLCT_expenses.jsx::EXE1: MP_SLCT_getVisibleExpenses <1>^B]
+    //[S07251670|sec011a_L099_SLCT_expenses.jsx::EXE2: MP_SLCT_getVisibleExpenses <1>^B]
                                            (P_state.expenses, P_state.filters);
     //[S07251671|sec011a_L099_STR_configure_store.jsx::(P_state.expenses, P_state.filters) xrf2;^B]
                     //[S07251664|A01_DIrectory_01.txt::(P_state.expenses, P_state.filters) drc2;^B]
 
-    const raw_total_expenses = MP_selectExpensesTotal (expenses);
-                           //[ MP_selectExpensesTotal import-1;^B]
+    const total_expense_amount = MP_selectExpensesTotal (expenses);
+                             //[ MP_selectExpensesTotal import-1;^B]
     //[S07251670|sec013a_L139_SLCT_total_expenses.jsx::EXE1: MP_selectExpensesTotal <1>^B]
 
-    const total_expenses = numeral(raw_total_expenses / 100).format("$0,0.00");
+    const total_expense_count = expenses.length;
 
-    return {  expenses, total_expenses };
+    return {  total_expense_count, total_expense_amount };
   //[ P_props.expenses exe1;^B]
-            //[ P_props.total_expenses exe1;^B]
+            //[ P_props.total_expense_amount exe1;^B]
 };
 
 export default connect (GF_map_state_to_props) (SFC_expenses_summary);

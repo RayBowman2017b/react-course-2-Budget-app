@@ -248,6 +248,9 @@ const GF_map_state_to_props = (P_state) =>  {
 
 //  [S07251667|sec011a_L102_expense_list_item.jsx::DRC1: SFC_expense_list_item <1>^B]
                                                      //[ SFC_expense_list_item xrf-drc1;^B]
+//  SEC_009 --- 81. Query Strings and URL Parameters 9:10
+//  props.match.params.id is provided within the URL
+https://stackoverflow.com/questions/35604617/react-router-with-optional-path-parameter/35604855
         //  [S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} drc1;^B]
         //[S07251667|sec009a_CLS_edit_expense_page.jsx::P_expense.id === props.match.params.id drc1;^B]
                                                     //[ P_expense.id === props.match.params.id xrf-drc1;]
@@ -298,6 +301,11 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
 ...................................................................................................
 
               //[ P_expense.id === props.match.params.id xrf-drc1;^B]
+
+//  SEC_009 --- 81. Query Strings and URL Parameters 9:10
+//  props.match.params.id is provided within the URL
+
+https://stackoverflow.com/questions/35604617/react-router-with-optional-path-parameter/35604855
 
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: CLS_edit_expense_page <1>^B]
     //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.onExpenseSubmit <1>^B]

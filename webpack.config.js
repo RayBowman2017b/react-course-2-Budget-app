@@ -336,6 +336,8 @@ function GC_build_config (env)  {
             host: "0.0.0.0",
             port: 9900,
 
+            watchContentBase: true,
+            hot: true,
             //  fall back to index.html whenever there is a 404 (unhandled route).
             historyApiFallback: true,
 

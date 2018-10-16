@@ -38,6 +38,7 @@ describe ("COMPONENT TEST FOR ADD EXPENSE PAGE - sec009a_CLS_add_expense_page.js
         get G_wrapper ()   { return this.V_wrapper; }
         get G_history ()   { return this.V_history; }
         get G_add_expense ()  { return this.V_add_expense; }
+        get G_test_expense ()  { return this.V_test_expense; }
     }
 
     const GC_pram = new CLS_pram ();

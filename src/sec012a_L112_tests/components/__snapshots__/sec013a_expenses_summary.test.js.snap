@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT TEST FOR EXPENSES SUMMARY should correctly render expense sunnary with 1 expense 1`] = `
+<Connect(SFC_expenses_summary)
+  total_expense_amount={321}
+  total_expense_count={1}
+/>
+`;
+
+exports[`COMPONENT TEST FOR EXPENSES SUMMARY should correctly render expense sunnary with multiple expenses 1`] = `
+<Connect(SFC_expenses_summary)
+  total_expense_amount={321123}
+  total_expense_count={11}
+/>
+`;

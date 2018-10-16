@@ -48,7 +48,7 @@
   {
     return  (
 
-    <div>
+    <span>
   {/*
       <h1>Name: {userinfo.name}</h1>
     */}
@@ -62,9 +62,9 @@
 
       <h1>VISIBILITY TOGGLE</h1>
       <button onClick={BTN_click_hide_show_toggle}>{ hidden ? "Show Text" : "Hide Text"}</button>
-      { (! hidden ) && <div><p>{content}</p></div> }
+      { (! hidden ) && <span><p>{content}</p></span> }
 
-    </div>
+    </span>
             );
   };
 
