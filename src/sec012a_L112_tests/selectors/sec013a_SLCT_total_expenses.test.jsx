@@ -20,7 +20,6 @@ describe("SELECTOR FOR TOTAL EXPENSES", () =>
 
     it("Should throw exception for null/undefined",() => {
         const sum=()=>MP_selectExpensesTotal();
-        //expect(sum).toEqual(0);
         expect(sum).toThrow();
     } );
     it ("Should return zero for empty array",() => {
@@ -28,13 +27,11 @@ describe("SELECTOR FOR TOTAL EXPENSES", () =>
             expect(sum).toEqual(0);
     } );
     it ("Should throw exception for a parameter that is not an array object",() => {
-        //const sum=MP_selectExpensesTotal('bad argument');
         const sum=()=>MP_selectExpensesTotal('bad argument');
         expect(sum).toThrow();
     } );
     it ("Should throw exception for a single object without the amount property",() => {
         const obj=[{ abc: 2}];
-        //const sum=MP_selectExpensesTotal(obj);
         const sum=()=>MP_selectExpensesTotal(obj);
         expect(sum).toThrow();
     } );

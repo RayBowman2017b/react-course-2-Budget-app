@@ -87,6 +87,8 @@ export default class CLS_expense_form extends React.Component
        //  [ DEF1: onDateChange <1>]
        //  [ DEF1: onFocusChange <1>]
 
+       //  [ DEF1: XPNF_check_errors <1>]
+
        //  [ DEF1: onExpenseSubmit <1>]
 
        //  [ DEF1: CLS_expense_form.render <1>]
@@ -118,49 +120,19 @@ export default class CLS_expense_form extends React.Component
             createdAt:  P_props.expense && P_props.expense.createdAt > 0 ? moment (P_props.expense.createdAt) : moment(),
             date: {},
             calenderFocused: false,
-            descriptionError: '',
-            amountError: '',
+            //descriptionError: '',
+            //amountError: '',
             buttonLabel: P_props.buttonLabel,
             error_conditions: {
-            //[ error_conditions a1;]
-            //[ error_conditions xxx]
+        //[ error_conditions a1;]
+        //[ error_conditions a2;]
+        //[ error_conditions xxx]
                 description_mssg: <div></div>,
                 amount_mssg: <div></div>,
-                //check_errors (P_outer_this, PF_submit) {
-                //    this.description_mssg = ( ! P_outer_this.description ) ?
-                //                            '   *** Please provide description' : '';
-                //    this.amount_mssg = ( ! P_outer_this.amount ) ?
-                //                       '   *** Please provide amount' : '';
-                //    if ( !this.description_mssg && !this.amount_mssg )
-                //        PF_submit ();
-                //},
-                //no_description() {
-                //    return this.description_mssg && <div>{this.description_mssg}</div>;
-                //},
-                //invalid_amount() {
-                //    return this.amount_mssg && <div>{this.amount_mssg}</div>;
-                //}
-
-                check_errors (P_outer_this, PF_submit) {
-
-                    this.description_mssg = ( ! P_outer_this.description ) ?
-                        <div>{'   *** Please provide description'}</div> : <div></div>;
-                    this.amount_mssg = ( ! P_outer_this.amount ) ?
-                        <div>{'   *** Please provide amount'}</div> : <div></div>;
-
-                    if ( P_outer_this.description && P_outer_this.amount )
-                        PF_submit ();
-                }
-                //no_description() {
-                //    return this.description_mssg && <div>{this.description_mssg}</div>;
-                //},
-                //invalid_amount() {
-                //    return this.amount_mssg && <div>{this.amount_mssg}</div>;
-                //}
-
             }
         }
     };
+
     //======================================================================
 
     //  [ EVT1: onDescriptionChange <1>]
@@ -207,27 +179,34 @@ export default class CLS_expense_form extends React.Component
         this.setState( () => ({ calenderFocused: focused }) );
     };
     //======================================================================
+    //======================================================================
 
+       //    [ EXE1: XPNF_check_errors <1>]
 
-    GC_errors =
+    //[ DEF1: XPNF_check_errors <1>^B]
+    XPNF_check_errors ()
     {
-        //  GC_errors.error_check(P_expense_form_obj)
-        error_check(P_expense_form_obj)
-        {
-            this.descErrorMssg = 
-                 P_expense_form_obj.state.description ? '' : 'Please provide description';
-            this.amtErrorMssg = 
-                 P_expense_form_obj.state.amount ? '' : 'Please provide amount';
-
-            P_expense_form_obj.setState ( () => ( {
-                    descriptionError : this.descErrorMssg,
-                    amountError : this.amtErrorMssg
-                } ) );
-        },
-
-        is_error()
-        {  return ( this.descErrorMssg || this.amtErrorMssg );  }
-    };
+        const description_mssg = ( ! this.state.description ) ?
+            <div>{'   *** Please provide description'}</div> : <div></div>;
+        const amount_mssg = ( ! this.state.amount ) ?
+            <div>{'   *** Please provide amount'}</div> : <div></div>;
+    
+        this.setState((prevState) =>
+            ( {
+                ...prevState,
+                error_conditions:
+            //[ error_conditions a1;^B]
+                {
+                    description_mssg,
+                    amount_mssg
+                }
+            } )
+        );
+    
+        //console.log ("P_outer_this.amount " + this.state.amount);
+    
+        return ( this.state.description && this.state.amount );
+    }
     //======================================================================
     //======================================================================
 
@@ -258,11 +237,6 @@ export default class CLS_expense_form extends React.Component
 
  ****************************************/
 
-        //this.setState ( () => ( { descriptionError : '' } ) );
-
-
-        //  does not work
-        //  GC_errors.error_check(this);
 
         //  [S07251669|sec011a_L099_RDCR_expenses.jsx::EXPENSE OBJECT CREATION ref2;^B]
                   //  [S07251664|A01_DIrectory_01.txt::EXPENSE OBJECT CREATION drc1;^B]
@@ -271,7 +245,8 @@ export default class CLS_expense_form extends React.Component
         //if ( ! L_descErrorMssg && ! L_amtErrorMssg )
         //if ( GC_errors.is_error () )
 
-        const LF_submit=() => {
+        if ( this.XPNF_check_errors (LF_submit) )
+        //[ EXE1: XPNF_check_errors <1>^B]
             this.props.onExpenseSubmit ( {
     //[S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: ADD_XPP.onExpenseSubmit <1>]
         //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF1: MP_addExpense <1>^B]
@@ -286,15 +261,7 @@ export default class CLS_expense_form extends React.Component
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             } );
-        };
 
-
-        this.setState ( () => ( 
-            this.state.error_conditions.check_errors (this.state, LF_submit)
-                   //[ error_conditions a1;^B]
-             ) );
-
-        this.setState ( () => ( { descriptionError : '' } ) );
     };
     //  [ END1: onExpenseSubmit <1>^B]
     //======================================================================
@@ -328,19 +295,10 @@ export default class CLS_expense_form extends React.Component
                        this.state.amountError &&
                          <span>{this.state.amountError}</span>
                     }
-                    {
-                       this.state.error_conditions.description_mssg &&
-                         <div>{this.state.error_conditions.description_mssg}</div>
-                    }
-                    {
-                       this.state.error_conditions.amount_mssg &&
-                         <div>{this.state.error_conditions.amount_mssg}</div>
-                    }
-                    {  this.state.error_conditions.no_description () }
-                    {  this.state.error_conditions.invalid_amount () }
                     */}
                     {  this.state.error_conditions.description_mssg }
                     {  this.state.error_conditions.amount_mssg }
+                    {/*//       [ error_conditions a2;^B]*/}
 
                     {/*//[ expense form :end1;]*/}
                     <span>Expense Form</span>

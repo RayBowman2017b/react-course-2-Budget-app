@@ -14,6 +14,8 @@ import GC_expense_dashboard_page from "../../sec009a_components/sec009a_SFC_expe
 
 import React from 'react';
 
+import moment from 'moment';
+
 import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 //[S07251667|sec011a_L101_expense_list.jsx::sec011a_L101_expense_list import-1;^B]
 
@@ -23,6 +25,9 @@ import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
 import SFC_expenses_summary from './sec013a_L140_expenses_summary.jsx';
            //[S07251667|sec013a_L140_expenses_summary.jsx::sec013a_L140_expenses_summary import-1;^B]
 
+const GC_style={
+    padding: 1 + "rem",
+    };
 
     //  [S07251666|sec009a_app_router.jsx::GC_expense_dashboard_page rtr1;^B]
 
@@ -31,7 +36,8 @@ import SFC_expenses_summary from './sec013a_L140_expenses_summary.jsx';
 const GC_expense_dashboard_page = () =>
 (
   <span>
-    <span style={{padding: 1 + "rem"}}>Ralph's Crappy Webpage.</span>
+    <span style={GC_style}>Ralph's Crappy Webpage.</span>
+    <div  style={GC_style}>{ moment().format('LLLL') }</div>
     <SFC_expenses_summary />
     {/*
       //  [S07251667|sec013a_L140_expenses_summary.jsx::TPL1: SFC_expenses_summary <1>^B]

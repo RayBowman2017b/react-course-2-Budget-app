@@ -24,7 +24,7 @@ export default (P_expenses) => {
         throw new Error ("   *** The object is not an array.");
     // Don't really need this one.
     // if ( P_expenses.length === 0 ) return 0;
-    if ( (P_expenses.length === 1) && (typeof P_expenses[0].amount === "undefined") )
+    if ( (P_expenses.length === 1) && (typeof P_expenses[0].amount !== "number") )
         throw new Error ("   *** There is no object with an expense element.");
 
     const LF_get_amount = (P_expense) => (typeof P_expense.amount === 'number') ? P_expense.amount : 0;
