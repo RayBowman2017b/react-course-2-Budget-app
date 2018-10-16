@@ -1,5 +1,5 @@
 
-/*
+/***************************************************************************
 
   sec012a_DATA_expenses.js
 
@@ -12,7 +12,7 @@ import MP_FXT_expenses from "../fixtures/sec012a_DATA_expenses.js";
 //  SEC_012 --- 117. Testing Expenses Reducer 15:10
 //  SEC_012 --- 120. Snapshot Testing with Dynamic Components 15:42
 
- */
+/***************************************************************************/
 
 import moment from 'moment';
 

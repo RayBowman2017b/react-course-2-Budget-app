@@ -32,7 +32,7 @@ import MP_selectExpensesTotal from "../sec011a_L099_selectors/sec013a_L139_SLCT_
 //import { MP_selectExpensesTotal } from "../sec011a_L099_selectors/sec013a_L139_SLCT_total_expenses.jsx";
    //[ MP_selectExpensesTotal import-1;]
    //[ MP_selectExpensesTotal xxx]
-               //[S07251670|sec013a_L139_SLCT_total_expenses.jsx::sec013a_L139_SLCT_total_expenses import-1;^B]
+           //[S07251670|sec013a_L139_SLCT_total_expenses.jsx::sec013a_L139_SLCT_total_expenses import-1;^B]
 
 
 //==========================================================================

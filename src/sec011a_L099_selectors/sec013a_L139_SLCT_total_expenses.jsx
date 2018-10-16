@@ -15,6 +15,8 @@ import MP_selectExpensesTotal from "../../sec011a_L099_selectors/sec013a_L139_SL
 
 //  [S07251667|sec013a_L140_expenses_summary.jsx::EXE1: MP_selectExpensesTotal <1>^B]
 
+//  [S07251664|A01_DIrectory_01.txt::DRC1: MP_selectExpensesTotal <1>^B]
+
 //export const MP_selectExpensesTotal = (P_expenses) => {
 export default (P_expenses) => {
     if ( ! P_expenses ) throw new Error ("   *** No obect passed.");
@@ -25,6 +27,7 @@ export default (P_expenses) => {
     if ( (P_expenses.length === 1) && (typeof P_expenses[0].amount === "undefined") )
         throw new Error ("   *** There is no object with an expense element.");
 
-    return P_expenses.reduce( (acum, item) => acum + item.amount, 0 );
+    const LF_get_amount = (P_expense) => (typeof P_expense.amount === 'number') ? P_expense.amount : 0;
+    return P_expenses.reduce( (acum, item) => acum + LF_get_amount(item), 0 );
     }
 

@@ -9,6 +9,12 @@ K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_012_Testing_Your_Application\proj_02\Budget-app\src\sec012a_L112_tests\
 sec012a_setupTests.js
 
+//  ONE WAY :>  [S07251673|package.json::--config=jest.config.json^B]
+
+//  ONE WAY :>  [S07251673|jest.config.json::"setupFiles"^B]
+
+//  [S07251664|A01_DIrectory_01.txt::set up tests drc1;^B]
+
 airbnb.io/enzyme/
 http://airbnb.io/enzyme/#installation
 

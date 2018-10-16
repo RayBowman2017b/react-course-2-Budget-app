@@ -7,7 +7,12 @@
 
         [ HIGH-LEVEL OPERATIONS ref-drc-1; ]
 
+        [ DATE PICKERS ref-drc-1;]
+        [ TEST CONFIG ref-drc-1;]
+
         [ APP ROUTER ref-drc-1;]
+
+        [ SELECTORS ref-drc-1;]
 
         [ EXPENSE DASHBOARD PAGE ref-drc-1;]
 
@@ -51,6 +56,16 @@
 
 //  [S07251673|webpack.config.js::GC_active_app_file drc1;^B]
 
+
+//  [S07251674|Loadable_Handlers.jsx::DRC1: MP_common_loading_handler <1>^B]
+
+//  [S07251675|server_135.js::GC_app.listen drc1;^B]
+
+...................................................................................................
+        [ STORE FOR REDUCERS ref-drc-1;^B]
+...................................................................................................
+
+
 //  [S07251665|sec012a_app.jsx::MP_configure_store drc1;^B]
 //  [S07251671|sec011a_L099_STR_configure_store.jsx::create Store for reducers drc1;^B]
 
@@ -62,9 +77,12 @@ const L_store = createStore
                 filters: MP_filtersReducer
             }
 
-//  [S07251667|sec011a_L101_expense_list.jsx::(P_state.expenses, P_state.filters) drc1;^B]
-//  [S07251667|sec013a_L140_expenses_summary.jsx::(P_state.expenses, P_state.filters) drc2;^B]
+//  [S07251665|sec012a_app.jsx::sec012a_app GC_store.subscribe drc1;^B]
+//  [S07251665|sec012a_app.jsx::MP_getVisibleExpenses drc1;^B]
+//  [S07251665|sec012a_app.jsx::add mock data to GC_store drc1;^B]
 
+//  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
+//  [S07251665|sec012a_app.jsx::ReactDOM.render GC_provider_for_router^B]
 
         //[ XPNLISTFLTR.GF_map_dispatch_to_props xrf-drc1;]
         //[ ADD_XPP.GF_map_dispatch_to_props xrf-drc1;]
@@ -75,21 +93,25 @@ const L_store = createStore
               //[ EDIT_XPP.GF_map_state_to_props xrf-drc1;]
 
 
-//  [S07251665|sec012a_app.jsx::sec012a_app GC_store.subscribe drc1;^B]
-//  [S07251665|sec012a_app.jsx::MP_getVisibleExpenses drc1;^B]
-//  [S07251665|sec012a_app.jsx::add mock data to GC_store drc1;^B]
-//  [S07251665|sec012a_app.jsx::ReactDOM.render GC_provider_for_router^B]
+
+//  [S07251667|sec011a_L101_expense_list.jsx::(P_state.expenses, P_state.filters) drc1;^B]
+//  [S07251667|sec013a_L140_expenses_summary.jsx::(P_state.expenses, P_state.filters) drc2;^B]
 
 
-//  [S07251674|Loadable_Handlers.jsx::DRC1: MP_common_loading_handler <1>^B]
-
-
-//  [S07251675|server_135.js::GC_app.listen drc1;^B]
-
+...................................................................................................
+        [ DATE PICKERS ref-drc-1;^B]
+...................................................................................................
 
 //  [S07251667|sec011a_L105_expense_form.jsx::SingleDatePicker drc1;^B]
 //  [S07251667|sec011a_L103_expense_list_filters.jsx::DateRangePicker drc1;^B]
 
+...................................................................................................
+        [ TEST CONFIG ref-drc-1;^B]
+...................................................................................................
+
+//  ONE WAY :>  [S07251673|package.json::--config=jest.config.json^B]
+//  ONE WAY :>  [S07251673|jest.config.json::"setupFiles"^B]
+//  [S07251676|sec012a_setupTests.js::set up tests drc1;^B]
 
 ...................................................................................................
         [ APP ROUTER ref-drc-1;^B]
@@ -105,6 +127,16 @@ const L_store = createStore
                                  CALLS :>
         //  [S07251667|sec009a_SFC_not_found_page.jsx::DRC1: GC_not_found_page <1>^B]
 
+
+...................................................................................................
+        [ SELECTORS ref-drc-1;^B]
+...................................................................................................
+
+//  [S07251670|sec011a_L099_SLCT_expenses.jsx::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
+                                                 //[ MP_SLCT_getVisibleExpenses xrf-drc1;]
+    //  [S07251670|sec011a_L099_SLCT_expenses.jsx::P_expenses.filter drc1;^B]
+
+//  [S07251670|sec013a_L139_SLCT_total_expenses.jsx::DRC1: MP_selectExpensesTotal <1>^B]
 
 ...................................................................................................
         [ EXPENSE DASHBOARD PAGE ref-drc-1;^B]
@@ -232,18 +264,15 @@ const GC_filtersReducerDefaultState =
                                                      //[ SFC_expense_list_item xrf-drc1;]
     //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: XPNLIST.GF_map_state_to_props <1>^B]
                                                     //[ XPNLIST.GF_map_state_to_props xrf-drc1;^B]
-                                                 //[ MP_SLCT_getVisibleExpenses xrf-drc1;]
+                                                 //[ MP_SLCT_getVisibleExpenses xrf-drc1;^B]
 const GF_map_state_to_props = (P_state) =>  {
     return {
             expenses: MP_SLCT_getVisibleExpenses
+                  //[ MP_SLCT_getVisibleExpenses xrf^B]
                          (P_state.expenses, P_state.filters)
            };
 };
 
-
-//  [S07251670|sec011a_L099_SLCT_expenses.jsx::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
-                                                 //[ MP_SLCT_getVisibleExpenses xrf-drc1;^B]
-    //  [S07251670|sec011a_L099_SLCT_expenses.jsx::P_expenses.filter drc1;^B]
 
 
 //  [S07251667|sec011a_L102_expense_list_item.jsx::DRC1: SFC_expense_list_item <1>^B]
