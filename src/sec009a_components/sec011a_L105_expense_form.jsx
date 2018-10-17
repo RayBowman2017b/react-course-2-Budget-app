@@ -183,6 +183,8 @@ export default class CLS_expense_form extends React.Component
 
        //    [ EXE1: XPNF_check_errors <1>]
 
+    //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNF_check_errors <1>^B]
+
     //[ DEF1: XPNF_check_errors <1>^B]
     XPNF_check_errors ()
     {

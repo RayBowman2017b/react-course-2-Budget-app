@@ -119,6 +119,10 @@ console.log ("  --- GC_store.getState()", GC_store.getState());
 
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 
+//  [ GC_provider_for_router exe1;]
+
+//  [S07251664|A01_DIrectory_01.txt::DRC1: GC_provider_for_router <1>^B]
+
 //[ DEF1: GC_provider_for_router <1>^B]
 const GC_provider_for_router = (
     <Provider store={GC_store}>
@@ -143,6 +147,7 @@ ReactDOM.render
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
       //(<SFC_app_router />,
       (GC_provider_for_router,
+   //[ GC_provider_for_router exe1;^B]
        GC_appRoot_01);
 
 //=====================================================================

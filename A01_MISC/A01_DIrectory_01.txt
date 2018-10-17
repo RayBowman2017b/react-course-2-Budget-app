@@ -5,33 +5,40 @@
 ##################################################################################################
 
 
-        [ HIGH-LEVEL OPERATIONS ref-drc-1; ]
+        [ HIGH-LEVEL OPERATIONS top-drc-1;]
 
-        [ DATE PICKERS ref-drc-1;]
-        [ TEST CONFIG ref-drc-1;]
+        [ POINTS OF INTEREST top-drc-1;]
 
-        [ APP ROUTER ref-drc-1;]
+        [ STORE FOR REDUCERS top-drc-1;]
 
-        [ SELECTORS ref-drc-1;]
+        [ DATE PICKERS top-drc-1;]
+        [ TEST CONFIG top-drc-1;]
 
-        [ EXPENSE DASHBOARD PAGE ref-drc-1;]
+        [ APP ROUTER top-drc-1;]
 
-        [ EXPENSE ACTIONS ref-drc-1;]
-        [ EXPENSE REDUCER ref-drc-1;]
+        [ SELECTORS top-drc-1;]
+
+        [ EXPENSE DASHBOARD PAGE top-drc-1;]
+
+        [ EXPENSE ACTIONS top-drc-1;]
+        [ EXPENSE REDUCER top-drc-1;]
             GC_expensesReducerDefaultState
-        [ FILTER AND SORT ACTIONS ref-drc-1;]
-        [ FILTER AND SORT REDUCER ref-drc-1;]
+        [ FILTER AND SORT ACTIONS top-drc-1;]
+        [ FILTER AND SORT REDUCER top-drc-1;]
             GC_filtersReducerDefaultState
 
-        [ EXPENSE LIST SUMMARY ref-drc-1;]
+        [ EXPENSE LIST SUMMARY top-drc-1;]
 
-        [ EXPENSE LIST ref-drc-1;]
+        [ EXPENSE LIST top-drc-1;]
             MP_SLCT_getVisibleExpenses
-        [ EXPENSE LIST FILTERS ref-drc-1;]
-        [ ADD EXPENSE PAGE ref-drc-1;]
-        [ EDIT EXPENSE PAGE ref-drc-1;]
+        [ EXPENSE LIST ITEM top-drc-1;]
 
-        [ EXPENSE FORM ref-drc-1;^B]
+        [ EXPENSE LIST FILTERS top-drc-1;]
+
+        [ ADD EXPENSE PAGE top-drc-1;]
+        [ EDIT EXPENSE PAGE top-drc-1;]
+
+        [ EXPENSE FORM top-drc-1;^B]
               [ ADD_EDIT_XPF.onExpenseSubmit xrf-drc1;]
 
 ...................................................................................................
@@ -39,10 +46,11 @@
 
 
 ...................................................................................................
-        [ HIGH-LEVEL OPERATIONS ref-drc-1; ^B]
+        [ HIGH-LEVEL OPERATIONS top-drc-1; ^B]
 ...................................................................................................
 
 
+//  [S07251673|webpack.config.js::GC_active_app_file drc1;^B]
 //  [S07251673|webpack.config.js::DRC1: GC_build_config <1>^B]
 
 
@@ -54,15 +62,21 @@
 ///           [S07251663|index.html::script src="/bundle.js" drc1;^B]
 
 
-//  [S07251673|webpack.config.js::GC_active_app_file drc1;^B]
+     //[ GC_provider_for_router ref-drc-1;]
+            [ APP ROUTER called-by-1;]
 
+...................................................................................................
+        [ POINTS OF INTEREST top-drc-1;^B]
+...................................................................................................
+
+//  [S07251667|sec011a_L105_expense_form.jsx::DRC1: XPNF_check_errors <1>^B]
 
 //  [S07251674|Loadable_Handlers.jsx::DRC1: MP_common_loading_handler <1>^B]
 
 //  [S07251675|server_135.js::GC_app.listen drc1;^B]
 
 ...................................................................................................
-        [ STORE FOR REDUCERS ref-drc-1;^B]
+        [ STORE FOR REDUCERS top-drc-1;^B]
 ...................................................................................................
 
 
@@ -83,6 +97,9 @@ const L_store = createStore
 
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 //  [S07251665|sec012a_app.jsx::ReactDOM.render GC_provider_for_router^B]
+//  [S07251665|sec012a_app.jsx::DRC1: GC_provider_for_router <1>^B]
+              //[ GC_provider_for_router ref-drc-1;^B]
+
 
         //[ XPNLISTFLTR.GF_map_dispatch_to_props xrf-drc1;]
         //[ ADD_XPP.GF_map_dispatch_to_props xrf-drc1;]
@@ -99,14 +116,14 @@ const L_store = createStore
 
 
 ...................................................................................................
-        [ DATE PICKERS ref-drc-1;^B]
+        [ DATE PICKERS top-drc-1;^B]
 ...................................................................................................
 
 //  [S07251667|sec011a_L105_expense_form.jsx::SingleDatePicker drc1;^B]
 //  [S07251667|sec011a_L103_expense_list_filters.jsx::DateRangePicker drc1;^B]
 
 ...................................................................................................
-        [ TEST CONFIG ref-drc-1;^B]
+        [ TEST CONFIG top-drc-1;^B]
 ...................................................................................................
 
 //  ONE WAY :>  [S07251673|package.json::--config=jest.config.json^B]
@@ -114,14 +131,16 @@ const L_store = createStore
 //  [S07251676|sec012a_setupTests.js::set up tests drc1;^B]
 
 ...................................................................................................
-        [ APP ROUTER ref-drc-1;^B]
+        [ APP ROUTER top-drc-1;^B]
+            [ APP ROUTER called-by-1;^B]  GC_provider_for_router
 ...................................................................................................
 
 //  [S07251666|sec009a_app_router.jsx::DRC1: GC_app_router <1>^B]
                                  CALLS :>
         //  [S07251667|sec009a_SFC_header.jsx::DRC1: MP_header <1>^B]
-                                 CALLS :> //[ GC_expense_dashboard_page xrf-drc1;]
-                                 CALLS :> //[ CLS_add_expense_page xrf-drc1;]
+                                 CALLS :> [ EXPENSE DASHBOARD PAGE called-by-1;]
+                                 CALLS :> [ ADD EXPENSE PAGE called-by-1;]
+                                 CALLS :> [ EDIT EXPENSE PAGE called-by-1;]
                                  CALLS :>
         //  [S07251667|sec009a_SFC_help_page.jsx::DRC1: GC_help_page <1>^B]
                                  CALLS :>
@@ -129,7 +148,7 @@ const L_store = createStore
 
 
 ...................................................................................................
-        [ SELECTORS ref-drc-1;^B]
+        [ SELECTORS top-drc-1;^B]
 ...................................................................................................
 
 //  [S07251670|sec011a_L099_SLCT_expenses.jsx::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
@@ -139,16 +158,17 @@ const L_store = createStore
 //  [S07251670|sec013a_L139_SLCT_total_expenses.jsx::DRC1: MP_selectExpensesTotal <1>^B]
 
 ...................................................................................................
-        [ EXPENSE DASHBOARD PAGE ref-drc-1;^B]
+        [ EXPENSE DASHBOARD PAGE top-drc-1;^B]
+            [ EXPENSE DASHBOARD PAGE called-by-1;^B]  APP ROUTER
 ...................................................................................................
 
 //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::DRC1: GC_expense_dashboard_page <1>^B]
-                                          //[ GC_expense_dashboard_page xrf-drc1;^B]
-                                              CALLS :> //[ CLS_expense_list_filters xrf-drc1;]
-
+                                              CALLS :> [ EXPENSE LIST SUMMARY called-by-1;]
+                                              CALLS :> [ EXPENSE LIST FILTERS called-by-1;]
+                                              CALLS :> [ EXPENSE LIST called-by-1;]
 
 ...................................................................................................
-        [ EXPENSE ACTIONS ref-drc-1;^B]
+        [ EXPENSE ACTIONS top-drc-1;^B]
 ...................................................................................................
 
 //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_expense_actions <1>^B]
@@ -163,7 +183,7 @@ const L_store = createStore
                                                  //[ MP_expense_actions.ACT_XP_EDIT_EXPENSE xrf-drc1;^B]
 
 ...................................................................................................
-        [ EXPENSE REDUCER ref-drc-1;^B]
+        [ EXPENSE REDUCER top-drc-1;^B]
 ...................................................................................................
 
 //  [S07251669|sec011a_L099_RDCR_expenses.jsx::GC_expensesReducerDefaultState drc1;^B]
@@ -183,7 +203,7 @@ const GC_expensesReducerDefaultState = [];
                                                  //[ MP_expense_actions.ACT_XP_EDIT_EXPENSE xrf-drc1;]
 
 ...................................................................................................
-        [ FILTER AND SORT ACTIONS ref-drc-1;^B]
+        [ FILTER AND SORT ACTIONS top-drc-1;^B]
 ...................................................................................................
 
 //  [S07251668|sec011a_L099_ACTN_filters.jsx::MP_filter_and_sort_actions drc1;^B]
@@ -205,7 +225,7 @@ const GC_expensesReducerDefaultState = [];
                                              //[ MP_filter_and_sort_actions.ACT_FS_SET_END_DATE xrf-drc1;]
 
 ...................................................................................................
-        [ FILTER AND SORT REDUCER ref-drc-1;^B]
+        [ FILTER AND SORT REDUCER top-drc-1;^B]
 ...................................................................................................
 
 //  There is only one object of filter
@@ -249,7 +269,8 @@ const GC_filtersReducerDefaultState =
 
 
 ...................................................................................................
-        [ EXPENSE LIST SUMMARY ref-drc-1;^B]
+        [ EXPENSE LIST SUMMARY top-drc-1;^B]
+            [ EXPENSE LIST SUMMARY called-by-1;^B]  EXPENSE DASHBOARD PAGE
 ...................................................................................................
 
 //  [S07251667|sec013a_L140_expenses_summary.jsx::DRC1: SFC_expenses_summary <1>^B]
@@ -257,11 +278,12 @@ const GC_filtersReducerDefaultState =
 //  [S07251667|sec013a_L140_expenses_summary.jsx::DRC1: XPNSMRY.GF_map_state_to_props <1>^B]
 
 ...................................................................................................
-        [ EXPENSE LIST ref-drc-1;^B]
+        [ EXPENSE LIST top-drc-1;^B]
+            [ EXPENSE LIST called-by-1;^B]  EXPENSE DASHBOARD PAGE
 ...................................................................................................
 
 //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: SFC_expense_list <1>^B]
-                                                     //[ SFC_expense_list_item xrf-drc1;]
+                                                     [ EXPENSE LIST ITEM called-by-1;]
     //  [S07251667|sec011a_L101_expense_list.jsx::DRC1: XPNLIST.GF_map_state_to_props <1>^B]
                                                     //[ XPNLIST.GF_map_state_to_props xrf-drc1;^B]
                                                  //[ MP_SLCT_getVisibleExpenses xrf-drc1;^B]
@@ -274,9 +296,12 @@ const GF_map_state_to_props = (P_state) =>  {
 };
 
 
+...................................................................................................
+        [ EXPENSE LIST ITEM top-drc-1;^B]
+            [ EXPENSE LIST ITEM called-by-1;^B]  EXPENSE LIST
+...................................................................................................
 
 //  [S07251667|sec011a_L102_expense_list_item.jsx::DRC1: SFC_expense_list_item <1>^B]
-                                                     //[ SFC_expense_list_item xrf-drc1;^B]
 //  SEC_009 --- 81. Query Strings and URL Parameters 9:10
 //  props.match.params.id is provided within the URL
 https://stackoverflow.com/questions/35604617/react-router-with-optional-path-parameter/35604855
@@ -285,7 +310,8 @@ https://stackoverflow.com/questions/35604617/react-router-with-optional-path-par
                                                     //[ P_expense.id === props.match.params.id xrf-drc1;]
 
 ...................................................................................................
-        [ EXPENSE LIST FILTERS ref-drc-1;^B]
+        [ EXPENSE LIST FILTERS top-drc-1;^B]
+            [ EXPENSE LIST FILTERS called-by-1;^B]  EXPENSE DASHBOARD PAGE
 ...................................................................................................
 
 
@@ -308,13 +334,14 @@ https://stackoverflow.com/questions/35604617/react-router-with-optional-path-par
                   evnet handlers call :>  //[ MP_filter_and_sort_actions xrf-drc1;^B]
 
 ...................................................................................................
-        [ ADD EXPENSE PAGE ref-drc-1;^B]
+        [ ADD EXPENSE PAGE top-drc-1;^B]
+            [ ADD EXPENSE PAGE called-by-1;^B]  APP ROUTER
 ...................................................................................................
 
         //  [S07251668|sec011a_L099_ACTN_expenses.jsx::id: uuid(), drc1;^B]
 
 //  [S07251667|sec009a_CLS_add_expense_page.jsx::DRC1: CLS_add_expense_page <1>^B]
-                                        ROUTER :>  //[ CLS_add_expense_page xrf-drc1;^B]
+                                 CALLS :> [ EXPENSE FORM called-by-1;]
     //  [S07251667|sec009a_CLS_add_expense_page.jsx::DRC1: ADD_XPP.onExpenseSubmit <1>^B]
                                                        //[ ADD_XPP.onExpenseSubmit xrf-drc1;]
                                            CALLS :> //[ MP_addExpense xrf-drc1;^B]
@@ -326,7 +353,8 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
 } );
 
 ...................................................................................................
-        [ EDIT EXPENSE PAGE ref-drc-1;^B]
+        [ EDIT EXPENSE PAGE top-drc-1;^B]
+            [ EDIT EXPENSE PAGE called-by-1;^B]  APP ROUTER
 ...................................................................................................
 
               //[ P_expense.id === props.match.params.id xrf-drc1;^B]
@@ -337,6 +365,7 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
 https://stackoverflow.com/questions/35604617/react-router-with-optional-path-parameter/35604855
 
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: CLS_edit_expense_page <1>^B]
+                                 CALLS :> [ EXPENSE FORM called-by-2;]
     //  [S07251667|sec009a_CLS_edit_expense_page.jsx::DRC1: EDIT_XPP.onExpenseSubmit <1>^B]
                                                         //[ EDIT_XPP.onExpenseSubmit xrf-drc1;]
                                            CALLS :> //[ MP_editExpense xrf-drc1;]
@@ -364,7 +393,9 @@ const GF_map_dispatch_to_props = (dispatch) =>  {
 };
 
 ...................................................................................................
-        [ EXPENSE FORM ref-drc-1;^B]
+        [ EXPENSE FORM top-drc-1;^B]
+            [ EXPENSE FORM called-by-1;^B]  ADD EXPENSE PAGE
+            [ EXPENSE FORM called-by-2;^B]  EDIT EXPENSE PAGE
 ...................................................................................................
 
 
@@ -374,8 +405,8 @@ const GF_map_dispatch_to_props = (dispatch) =>  {
                                                     //[ ADD_EDIT_XPF.onExpenseSubmit xrf-drc1;^B]
                                               CALLS :> //[ ADD_XPP.onExpenseSubmit xrf-drc1;^B]
                                            OR CALLS :> //[ EDIT_XPP.onExpenseSubmit xrf-drc1;^B]
-    //  [S07251667|sec011a_L105_expense_form.jsx::DRC1: CLS_expense_form.render <1>^B]
 
+    //  [S07251667|sec011a_L105_expense_form.jsx::DRC1: CLS_expense_form.render <1>^B]
 
 
 ##################################################################################################
