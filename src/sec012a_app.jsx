@@ -57,6 +57,12 @@ import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_e
 
 //=====================================================================
 
+//  SEC_014 --- 142. Getting Firebase 11:40
+
+import  './sec014a_firebase/sec014_L142_firebase.js';
+
+//=====================================================================
+
 const GC_store = MP_configure_store ();
 //[S07251671|sec011a_L099_STR_configure_store.jsx::EXE1: MP_configure_store <1>^B]
                       //[S07251664|A01_DIrectory_01.txt::MP_configure_store drc1;^B]
