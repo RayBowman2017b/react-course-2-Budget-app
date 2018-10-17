@@ -247,7 +247,7 @@ export default class CLS_expense_form extends React.Component
         //if ( ! L_descErrorMssg && ! L_amtErrorMssg )
         //if ( GC_errors.is_error () )
 
-        if ( this.XPNF_check_errors (LF_submit) )
+        if ( this.XPNF_check_errors () )
         //[ EXE1: XPNF_check_errors <1>^B]
             this.props.onExpenseSubmit ( {
     //[S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: ADD_XPP.onExpenseSubmit <1>]
