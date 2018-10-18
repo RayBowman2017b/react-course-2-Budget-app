@@ -32,7 +32,7 @@ import CLS_expense_list_filters from "./sec009a_components/sec011a_L103_expense_
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_009_React_Router\proj_02\Budget-app\src\styles\components_SEC009\sec009a_SFC_expense_dashboard_page.jsx
 
-//    remove_expense: (expense_id_obj) => dispatch(MP_removeExpense(expense_id_obj))
+//    remove_expense: (expense_id_obj) => dispatch(MP_startRemoveExpense(expense_id_obj))
 
  */
 

@@ -251,10 +251,10 @@ export default class CLS_expense_form extends React.Component
         //[ EXE1: XPNF_check_errors <1>^B]
             this.props.onExpenseSubmit ( {
     //[S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: ADD_XPP.onExpenseSubmit <1>]
-        //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF1: MP_addExpense <1>^B]
+        //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF1: MP_startAddExpense <1>^B]
         //[S07251669|sec011a_L099_RDCR_expenses.jsx::this.state expense add ref1;^B]
     //[S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: EDIT_XPP.onExpenseSubmit <1>]
-        //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF1: MP_editExpense <1>^B]
+        //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF1: MP_startEditExpense <1>^B]
         //[S07251669|sec011a_L099_RDCR_expenses.jsx::this.state expense update ref1;^B]
                          //[ this.state xrf1;^B]
                 description: this.state.description,

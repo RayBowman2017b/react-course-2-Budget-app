@@ -1,5 +1,6 @@
 @rem z32_gitaddcmt.bat
 @rem 
+@rem git rm -r -f "K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\sec014a_firebase"
 git add .
 @rem git commit -m "2018-10-16 18-30 END SEC 013 Directory update"
 git commit -m "2018-10-16 23-30 SEC 014"

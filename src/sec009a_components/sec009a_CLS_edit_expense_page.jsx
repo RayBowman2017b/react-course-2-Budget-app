@@ -36,13 +36,13 @@ import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
 
 
 //  SEC_012 --- 125. Testing EditExpensePage 19:00
-//import { MP_editExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
-import { MP_editExpense, MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+//import { MP_startEditExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+import { MP_startEditExpense, MP_startRemoveExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
                              //[S07251668|sec011a_L099_ACTN_expenses.jsx::sec011a_L099_ACTN_expenses import-2;^B]
-//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_editExpense import-1;]
-     //[ MP_editExpense pp1;]
-                     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_removeExpense import-1;]
-                     //[ MP_removeExpense pp1;]
+//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startEditExpense import-1;]
+     //[ MP_startEditExpense pp1;]
+                     //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startRemoveExpense import-1;]
+                     //[ MP_startRemoveExpense pp1;]
 
 const xxxGC_edit_expense_page = (P_props) =>
 (
@@ -111,7 +111,7 @@ export class CLS_edit_expense_page extends React.Component
 
         this.props.edit_expense (this.props.expense.id, P_expense);
     //[ this.props.edit_expense ref1;]
-    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_editExpense <1>^B]
+    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startEditExpense <1>^B]
 
         this.props.history.push ('/');
     };
@@ -124,11 +124,11 @@ export class CLS_edit_expense_page extends React.Component
     //[ DEF1: EDIT_XPP.onClickRemoveExpense <1>^B]
     onClickRemoveExpense = (e) =>  {
 
-        //this.props.dispatch ( MP_removeExpense({ id: this.props.expense.id }) );
+        //this.props.dispatch ( MP_startRemoveExpense({ id: this.props.expense.id }) );
 
         this.props.remove_expense ({ id: this.props.expense.id });
     //[ this.props.remove_expense ref1;]
-    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_removeExpense <1>^B]
+    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startRemoveExpense <1>^B]
 
         this.props.history.push ('/');
     };
@@ -190,7 +190,7 @@ const GC_edit_expense_page = (P_props) =>
         expense={P_props.expense}
         onExpenseSubmit={ (P_expense) => {
             console.log ('updated', P_expense);
-            P_props.dispatch ( MP_editExpense(P_props.expense.id, P_expense) );
+            P_props.dispatch ( MP_startEditExpense(P_props.expense.id, P_expense) );
             P_props.history.push ('/');
         } }
     />
@@ -198,7 +198,7 @@ const GC_edit_expense_page = (P_props) =>
   {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
         MOVED to here from  sec011a_L102_expense_list_item.jsx * }
       <button onClick={ (e) => {
-              P_props.dispatch ( MP_removeExpense({ id: P_props.expense.id }) );
+              P_props.dispatch ( MP_startRemoveExpense({ id: P_props.expense.id }) );
               P_props.history.push ('/');
                       }        }
       >REMOVE</button>
@@ -241,12 +241,12 @@ const GF_map_state_to_props = (state, props) =>  {
 const GF_map_dispatch_to_props = (dispatch) =>  {
   return (
   {
-    edit_expense: (id, expense) => dispatch(MP_editExpense(id, expense)),
+    edit_expense: (id, expense) => dispatch(MP_startEditExpense(id, expense)),
     //[ this.props.edit_expense ref1;^B]
-                                        //[ MP_editExpense pp1;^B]
-    remove_expense: (expense_id_obj) => dispatch(MP_removeExpense(expense_id_obj))
+                                        //[ MP_startEditExpense pp1;^B]
+    remove_expense: (expense_id_obj) => dispatch(MP_startRemoveExpense(expense_id_obj))
     //[ this.props.remove_expense ref1;^B]
-                                             //[ MP_removeExpense pp1;^B]
+                                             //[ MP_startRemoveExpense pp1;^B]
   }      );
 };
 //export default connect() (GC_add_expense_page);

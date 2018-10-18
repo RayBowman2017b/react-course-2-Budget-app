@@ -78,6 +78,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+
 //  Turn these on as needed.
 //  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 //  const UglifyJsPlugin = require('uglifyjs-webpack-plugin');

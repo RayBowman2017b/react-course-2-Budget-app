@@ -30,9 +30,11 @@ import { connect } from 'react-redux';
 import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
 //[S07251667|sec011a_L105_expense_form.jsx::sec011a_L105_expense_form import-1;^B]
 
-import { MP_addExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
-     //[ MP_addExpense pp1;]
-//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_addExpense import-1;]
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+//import { MP_startAddExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+import { MP_startAddExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+     //[ MP_startAddExpense pp1;]
+//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startAddExpense import-1;]
           //[S07251668|sec011a_L099_ACTN_expenses.jsx::sec011a_L099_ACTN_expenses import-1;]
 
 
@@ -74,11 +76,11 @@ export class CLS_add_expense_page extends React.Component
         onExpenseSubmit = (P_expense) => {
             //console.log ('GC_add_expense_page ', P_expense);
 //  SEC_012 --- 124. Testing AddExpensePage 14:39
-//            props.dispatch ( MP_addExpense(P_expense) );
+//            props.dispatch ( MP_startAddExpense(P_expense) );
 
             this.props.add_expense (P_expense);
         //[ this.props.add_expense ref1;]
-    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_addExpense <1>^B]
+    //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startAddExpense <1>^B]
 
             this.props.history.push ('/');
         };
@@ -120,7 +122,7 @@ const GC_add_expense_page = (props) => (
         onExpenseSubmit={ (expense) => {
             //console.log ('GC_add_expense_page ', expense);
 //  SEC_012 --- 124. Testing AddExpensePage 14:39
-//            props.dispatch ( MP_addExpense(expense) );
+//            props.dispatch ( MP_startAddExpense(expense) );
             props.add_expense (expense);
             props.history.push ('/');
         } } />
@@ -135,9 +137,11 @@ const GC_add_expense_page = (props) => (
 
        //[ DEF1: ADD_XPP.GF_map_dispatch_to_props <1>^B]
 const GF_map_dispatch_to_props = (P_dispatch) => ( {
-    add_expense: (P_expense) => P_dispatch(MP_addExpense(P_expense))
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+    //add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
+    add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
     //[ this.props.add_expense ref1;^B]
-                                       //[ MP_addExpense pp1;^B]
+                                       //[ MP_startAddExpense pp1;^B]
 } );
 //export default connect() (GC_add_expense_page);
 export default connect(undefined, GF_map_dispatch_to_props) (CLS_add_expense_page);

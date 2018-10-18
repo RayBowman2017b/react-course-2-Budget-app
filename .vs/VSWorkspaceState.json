@@ -9,8 +9,8 @@
     "\\src\\sec009a_routers",
     "\\src\\sec011a_L099_selectors",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\selectors"
+    "\\src\\sec012a_L112_tests\\fixtures"
   ],
-  "SelectedNode": "\\src\\sec009a_components\\sec009a_CLS_edit_expense_page.jsx",
+  "SelectedNode": "\\src\\sec009a_components\\sec013a_L140_expenses_summary.jsx",
   "PreviewInSolutionExplorer": false
 }

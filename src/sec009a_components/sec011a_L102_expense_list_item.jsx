@@ -28,7 +28,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
-//  import { MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+//  import { MP_startRemoveExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
 
 //  SEC_013 --- 138. New Feature Workflow 12:32
@@ -56,7 +56,7 @@ const out = (P_id) => console.log (P_id);
 //       <h3>{P_props.description}</h3>
 //       <p> {P_props.amount} - {P_props.createdAt}</p>
 //       <button onClick={ (e) => {
-//                  P_props.dispatch ( MP_removeExpense({id: P_props.id}) ) } }
+//                  P_props.dispatch ( MP_startRemoveExpense({id: P_props.id}) ) } }
 //       >REMOVE</button>
 //     </div>
 //     );
@@ -121,13 +121,17 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
     */}
       <p style={GC_message_style}>
         {numeral(amount / 100).format("$0,0.00")} --- {moment(createdAt).format ("MMMM Do, YYYY")}
+  {/*
+       //[S07251664|A01_DIrectory_01.txt::numeral(amount / 100).format drc1;^B]
+       //[S07251664|A01_DIrectory_01.txt::moment(createdAt).format drc1;^B]
+    */}
       </p>
 
 
   {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
       MOVED from here to sec009a_CLS_edit_expense_page.jsx
 
-      <button onClick={ (e) => { dispatch ( MP_removeExpense({id}) ) } }
+      <button onClick={ (e) => { dispatch ( MP_startRemoveExpense({id}) ) } }
       >REMOVE
       </button>
     */}

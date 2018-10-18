@@ -43,10 +43,14 @@ import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 
 
-import { MP_addExpense, MP_removeExpense, MP_editExpense } from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+import { MP_startAddExpense, MP_startRemoveExpense, MP_startEditExpense }
+     //[ MP_startAddExpense exe1;]
+from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
      //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF2: MP_expense_actions <1>^B]
-     //[ MP_addExpense exe1;]
-     //[ MP_addExpense xxx]
+
+import MP_database from './sec014a_firebase/sec014_L142_firebase.js';
+      //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-2;^B]
+
 
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
             //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-3x;^B]
@@ -72,7 +76,9 @@ const GC_store = MP_configure_store ();
    //  [S07251672|SEC_013.txt::SEC 013  L 131 notes-01;]
    //  code to create test data removed
 
-//if (false)
+
+
+if (false)
             //[ if (false)  :end1;]
 {
 
@@ -85,11 +91,13 @@ const GC_time_03 = MP_moment.utc().add(33, 'days').valueOf();
 
 
    //  [S07251669|sec011a_L099_RDCR_filters.jsx::Add Mock Data to GC_store ref1;^B]
+            //  [S07251664|A01_DIrectory_01.txt::add mock data to GC_store drc1;^B]
 
-GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );
-                //[ MP_addExpense exe1;^B]
+MP_database.ref('expenses').remove();
+GC_store.dispatch ( MP_startAddExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
+GC_store.dispatch ( MP_startAddExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
+GC_store.dispatch ( MP_startAddExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );
+                //[ MP_startAddExpense exe1;^B]
 
 GC_store.subscribe ( () =>
   {

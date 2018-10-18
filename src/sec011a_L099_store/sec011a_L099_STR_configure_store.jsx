@@ -12,13 +12,22 @@ import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_
 
  */
 
-import { createStore, combineReducers } from 'redux';
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+//import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 
 import MP_expensesReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_expenses.jsx";
             //[S07251669|sec011a_L099_RDCR_expenses.jsx::sec011a_L099_RDCR_expenses import-1;^B]
 
 import MP_filtersReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_filters.jsx";
             //[S07251669|sec011a_L099_RDCR_filters.jsx::sec011a_L099_RDCR_filters import-1;^B]
+
+//=====================================================================
+
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 //=====================================================================
 
@@ -48,9 +57,15 @@ const L_store = createStore
                 filters: MP_filtersReducer
 //[S07251669|sec011a_L099_RDCR_filters.jsx::combineReducers filters: MP_filtersReducer^B]
             }
+
                             ),
+
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+            composeEnhancers(applyMiddleware(thunk))
+
 //  SEC_011 --- 109. Redux Dev Tools 5:33
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+//  OUT :>          window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         );
 
     return L_store;
