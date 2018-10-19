@@ -8,6 +8,7 @@
         [ HIGH-LEVEL OPERATIONS top-drc-1;]
 
         [ POINTS OF INTEREST top-drc-1;]
+            [ setting environment variables top-drc-1;]
             numeral & moment
 
         [ STORE FOR REDUCERS top-drc-1;]
@@ -73,6 +74,16 @@
         [ POINTS OF INTEREST top-drc-1;^B]
             numeral & moment
 ...................................................................................................
+
+
+    //[ setting environment variables top-drc-1;^B]
+ONE WAY :> //  [S07251673|.env.test::FIREBASE_API_KEY^B]
+ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
+
+//  [S07251673|webpack.config.js::webpack.DefinePlugin drc1;^B]
+
+
+ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
 
 //  [S07251667|sec011a_L105_expense_form.jsx::DRC1: XPNF_check_errors <1>^B]
 

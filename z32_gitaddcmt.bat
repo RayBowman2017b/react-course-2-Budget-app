@@ -3,7 +3,7 @@
 @rem git rm -r -f "K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\sec014a_firebase"
 git add .
 @rem git commit -m "2018-10-16 18-30 END SEC 013 Directory update"
-git commit -m "2018-10-16 23-30 SEC 014"
+git commit -m "2018-10-18 19-11 SEC 015 L156"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

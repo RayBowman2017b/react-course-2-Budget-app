@@ -7,6 +7,11 @@ public/bundle.js.map
 public/styles.css
 public/styles.css.map
 
-sec014a_firebase
+sec014a_firebase/sec015_L155_firebase_TEST.js
+
+.env.development
+.env.test
+
+zzz_private/
 
 .babelrc_OLD1

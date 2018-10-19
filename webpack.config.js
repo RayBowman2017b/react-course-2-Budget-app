@@ -76,11 +76,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+const webpack = require('webpack');
 
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
+
+if (process.env.NODE_ENV = "test")
+  require('dotenv').config( { path: '.env.test' } );
+else if (process.env.NODE_ENV = "development")
+  require('dotenv').config( { path: '.env.development' } );
+
 
 //  Turn these on as needed.
 //  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -183,6 +191,7 @@ function GC_build_config (env)  {
     }
 
     const LF_copy_webpack_plugin = () =>
+      //[ LF_copy_webpack_plugin ref1;]
     {
         return new CopyWebpackPlugin (
                 //[ {from:'src/images', to:'images'} ], { copyUnmodified: true }
@@ -200,6 +209,22 @@ function GC_build_config (env)  {
                         //[ GC_index_html_template ref1;^B]
                   filename: 'index.html'
             });
+
+
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+    const LF_new_webpack_define_plugin = () => {
+      //[ LF_new_webpack_define_plugin ref1;]
+            //[S07251664|A01_DIrectory_01.txt::webpack.DefinePlugin drc1;^B]
+            return new webpack.DefinePlugin ( {
+                'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+                'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+                'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+                'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+                'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+                'process.env.FIREBASE_MESSING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSING_SENDER_ID)
+            } );
+    }
+
 
     let L_config_obj = {
 
@@ -281,7 +306,13 @@ function GC_build_config (env)  {
             HtmlWebpackPluginConfig,
         //[ HtmlWebpackPluginConfig ref1;^B]
             new WebpackMd5Hash(),
-            LF_copy_webpack_plugin ()
+
+            LF_copy_webpack_plugin (),
+        //[ LF_copy_webpack_plugin ref1;^B]
+
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+            LF_new_webpack_define_plugin ()
+        //[ LF_new_webpack_define_plugin ref1;^B]
         ]
     };
 

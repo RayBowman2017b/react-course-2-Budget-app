@@ -99,6 +99,8 @@ test('should add expense to database and store', async (done) => {
          .then ( () => {
         //expect(1).toBe(1);
 
+//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
+
         const L_action = store.getActions ();
         expect(L_action[0]).toEqual ( {
             type: MP_expense_actions.ACT_XP_ADD_EXPENSE,
@@ -116,6 +118,8 @@ test('should add expense to database and store', async (done) => {
         } )
        .catch ((err) => console.log(err));
 } );
+
+//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
 
 test('should add expense with defaults to database and store', (done) => {
     const store = GC_createMockStore ({});

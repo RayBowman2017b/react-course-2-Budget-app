@@ -26,6 +26,11 @@ https://jestjs.io/docs/en/configuration#setupfiles-array
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+//  require('dotenv').config( { path: '.env.test' } );
+  import DotEnv from 'dotenv';
+  DotEnv.config( { path: '.env.test' } );
+
 Enzyme.configure ( {
     adapter: new Adapter()
 } );
