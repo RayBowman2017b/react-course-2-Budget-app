@@ -12,6 +12,8 @@
        //  [ DEF1: MP_startRemoveExpense <1>]
        //  [ DEF1: MP_editExpense <1>]
        //  [ DEF1: MP_startEditExpense <1>]
+       //  [ DEF1: setExpenses <1>]
+       //  [ DEF1: startSetExpenses <1>]
 
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
@@ -144,19 +146,17 @@ export const MP_removeExpense = ( { id } = {} ) => (
 //=====================================================================
 
    //[ DEF1: MP_startRemoveExpense <1>^B]
-export const MP_startRemoveExpense = MP_removeExpense;
-
+export const startRemoveExpense = ({ id } = {}) => {
+  return (dispatch) => {
+    return MP_database.ref(`expenses/${id}`).remove().then(() => {
+      dispatch(removeExpense({ id }));
+    });
+  };
+};
 
 //=====================================================================
 
 //  EDIT_EXPENSE
-
-      //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startEditExpense import-1;^B]
-//  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startEditExpense <1>^B]
-
-    //  [S07251667|sec011a_L105_expense_form.jsx::REF1: MP_startEditExpense <1>^B]
-
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startEditExpense <1>^B]
 
    //[ DEF1: MP_editExpense <1>^B]
 export const MP_editExpense = ( id, updates ) => (
@@ -169,8 +169,57 @@ export const MP_editExpense = ( id, updates ) => (
                                           );
 //=====================================================================
 
+      //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startEditExpense import-1;^B]
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startEditExpense <1>^B]
+
+    //  [S07251667|sec011a_L105_expense_form.jsx::REF1: MP_startEditExpense <1>^B]
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startEditExpense <1>^B]
+
    //[ DEF1: MP_startEditExpense <1>^B]
-export const MP_startEditExpense = MP_editExpense;
+export const MP_startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return MP_database.ref(`expenses/${id}`).update(updates).then(() => {
+      dispatch(editExpense(id, updates));
+    });
+  };
+};
+
+//=====================================================================
+//=====================================================================
+
+// SET_EXPENSES
+
+   //[ DEF1: setExpenses <1>^B]
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses
+});
+//=====================================================================
+
+       //    [ EXE1: startSetExpenses <1>]
+
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: startSetExpenses <1>^B]
+
+
+   //[ DEF1: startSetExpenses <1>^B]
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return MP_database.ref('expenses').once('value').then((snapshot) => {
+      const expenses = [];
+
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+
+      dispatch(setExpenses(expenses));
+    });
+  };
+};
 
 //=====================================================================
 //=====================================================================
