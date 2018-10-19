@@ -92,12 +92,14 @@ export const MP_addExpense = (expense) => (
    //        [S07251667|sec009a_CLS_add_expense_page.jsx::MP_startAddExpense import-1;^B]
    //  [S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: MP_startAddExpense <1>^B]
 
+       //  [S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: MP_startAddExpense <1>^B]
+
    //  [S07251667|sec011a_L105_expense_form.jsx::REF1: MP_startAddExpense <1>^B]
 
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startAddExpense <1>^B]
 
-       //  [S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: MP_startAddExpense <1>^B]
 
+     //[ DEF1: MP_addExpense <1>^B]
      //[ DEF1: MP_startAddExpense <1>^B]
   export const MP_startAddExpense = (P_expenseData = {}) =>
   {
@@ -132,7 +134,6 @@ export const MP_addExpense = (expense) => (
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startRemoveExpense <1>^B]
 
    //[ DEF1: MP_removeExpense <1>^B]
-   //[ DEF1: MP_startRemoveExpense <1>^B]
 export const MP_removeExpense = ( { id } = {} ) => (
         {
             type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
@@ -140,6 +141,12 @@ export const MP_removeExpense = ( { id } = {} ) => (
             id
         }
                                    );
+//=====================================================================
+
+   //[ DEF1: MP_startRemoveExpense <1>^B]
+export const MP_startRemoveExpense = MP_removeExpense;
+
+
 //=====================================================================
 
 //  EDIT_EXPENSE
@@ -152,7 +159,6 @@ export const MP_removeExpense = ( { id } = {} ) => (
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startEditExpense <1>^B]
 
    //[ DEF1: MP_editExpense <1>^B]
-   //[ DEF1: MP_startEditExpense <1>^B]
 export const MP_editExpense = ( id, updates ) => (
         {
             type: MP_expense_actions.ACT_XP_EDIT_EXPENSE,
@@ -161,6 +167,11 @@ export const MP_editExpense = ( id, updates ) => (
             updates
         }
                                           );
+//=====================================================================
+
+   //[ DEF1: MP_startEditExpense <1>^B]
+export const MP_startEditExpense = MP_editExpense;
+
 //=====================================================================
 //=====================================================================
 
