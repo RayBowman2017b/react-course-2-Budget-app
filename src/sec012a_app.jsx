@@ -29,8 +29,6 @@ import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_
 import { MP_startSetExpenses }
 from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
-import './firebase/firebase';
-
 
 import MP_moment from 'moment';
 
