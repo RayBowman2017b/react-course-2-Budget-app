@@ -69,6 +69,8 @@ export default (P_state = GC_expensesReducerDefaultState, P_action) =>
             }
                                );
             
+        case MP_expense_actions.ACT_XP_SET_EXPENSES:
+            return P_action.expenses;
         default:
             return P_state;
     }

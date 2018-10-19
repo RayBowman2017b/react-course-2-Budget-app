@@ -26,6 +26,12 @@ import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
 
+import { MP_startSetExpenses }
+from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+
+import './firebase/firebase';
+
+
 import MP_moment from 'moment';
 
 
@@ -163,6 +169,15 @@ ReactDOM.render
       (GC_provider_for_router,
    //[ GC_provider_for_router exe1;^B]
        GC_appRoot_01);
+
+//ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
+
+//GC_store.dispatch(startSetExpenses()).then(() => {
+//  ReactDOM.render(jsx, document.getElementById('app'));
+GC_store.dispatch(MP_startSetExpenses()).then(() => {
+  ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
+});
 
 //=====================================================================
 //=====================================================================

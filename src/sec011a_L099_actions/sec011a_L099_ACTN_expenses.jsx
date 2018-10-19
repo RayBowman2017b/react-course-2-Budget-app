@@ -29,6 +29,9 @@ from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 //[S07251667|sec009a_CLS_edit_expense_page.jsx::sec011a_L099_ACTN_expenses import-2;^B]
    //[S07251669|sec011a_L099_RDCR_expenses.jsx::sec011a_L099_ACTN_expenses import-3;^B]
 
+import { MP_startSetExpenses }
+from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+
 //  SEC_011 --- 99. Organizing Redux 14:50
 
  */
@@ -51,7 +54,8 @@ export const MP_expense_actions =
 {
   ACT_XP_ADD_EXPENSE:      'ADD_EXPENSE',
   ACT_XP_REMOVE_EXPENSE:   'REMOVE_EXPENSE',
-  ACT_XP_EDIT_EXPENSE:     'EDIT_EXPENSE'
+  ACT_XP_EDIT_EXPENSE:     'EDIT_EXPENSE',
+  ACT_XP_SET_EXPENSEs:     'SET_EXPENSES'
 };
 
 
