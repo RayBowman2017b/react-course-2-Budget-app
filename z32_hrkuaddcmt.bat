@@ -9,4 +9,5 @@ git commit -m "2018-10-18 21-11 SEC 015 L156"
 git push origin master
 @rem git push heroku master
 git push heroku master
+echo https://react-2018-09-budget.herokuapp.com/
 pause
