@@ -84,10 +84,10 @@ const webpack = require('webpack');
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
-if (process.env.NODE_ENV = "test")
-  require('dotenv').config( { path: '.env.test' } );
-else if (process.env.NODE_ENV = "development")
-  require('dotenv').config( { path: '.env.development' } );
+// if (process.env.NODE_ENV = "test")
+//   require('dotenv').config( { path: '.env.test' } );
+// else if (process.env.NODE_ENV = "development")
+//   require('dotenv').config( { path: '.env.development' } );
 
 console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
 console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN = "${process.env.FIREBASE_AUTH_DOMAIN}"`);
