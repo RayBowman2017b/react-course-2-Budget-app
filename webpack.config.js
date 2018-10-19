@@ -89,6 +89,13 @@ if (process.env.NODE_ENV = "test")
 else if (process.env.NODE_ENV = "development")
   require('dotenv').config( { path: '.env.development' } );
 
+console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN = "${process.env.FIREBASE_AUTH_DOMAIN}"`);
+console.log (` ******** process.env.FIREBASE_DATABASE_URL = "${process.env.FIREBASE_DATABASE_URL}"`);
+console.log (` ******** process.env.FIREBASE_PROJECT_ID = "${process.env.FIREBASE_PROJECT_ID}"`);
+console.log (` ******** process.env.FIREBASE_STORAGE_BUCKET = "${process.env.FIREBASE_STORAGE_BUCKET}"`);
+console.log (` ******** process.env.FIREBASE_MESSAGING_SENDER_ID = "${process.env.FIREBASE_MESSAGING_SENDER_ID}"`);
+
 
 //  Turn these on as needed.
 //  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -221,7 +228,7 @@ function GC_build_config (env)  {
                 'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
                 'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
                 'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
-                'process.env.FIREBASE_MESSING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSING_SENDER_ID)
+                'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
             } );
     }
 
