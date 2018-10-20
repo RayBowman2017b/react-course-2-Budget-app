@@ -68,6 +68,8 @@ import  './sec014a_firebase/sec014_L142_firebase.js';
 //=====================================================================
 
 const GC_store = MP_configure_store ();
+  //[ GC_store a1;]
+  //[ GC_store xxx]
 //[S07251671|sec011a_L099_STR_configure_store.jsx::EXE1: MP_configure_store <1>^B]
                       //[S07251664|A01_DIrectory_01.txt::MP_configure_store drc1;^B]
 
@@ -169,6 +171,7 @@ ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
 //GC_store.dispatch(startSetExpenses()).then(() => {
 //  ReactDOM.render(jsx, document.getElementById('app'));
 GC_store.dispatch(MP_startSetExpenses()).then(() => {
+//[ GC_store a1;^B]
   //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
   ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
               //[ GC_provider_for_router exe1;^B]
