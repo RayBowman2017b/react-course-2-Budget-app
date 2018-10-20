@@ -38,9 +38,19 @@ const GC_createMockStore = configureMockStore([thunk]);
 
 describe ('EXPENSE ACTION TESTS', () => {
 
-beforeEach(() => {
+beforeEach((done) => {
     //jest.setTimeout(10000);
     jest.setTimeout(300000);
+
+    beforeEach((done) => {
+      const expensesData = {};
+      MP_FXT_expenses.forEach(({ id, description, note, amount, createdAt }) => {
+        expensesData[id] = { description, note, amount, createdAt };
+      });
+      MP_database.ref('expenses').set(expensesData).then(() => done());
+    });
+
+
   });
 
       test ('should setup remove expense action object', () => {
