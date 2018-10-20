@@ -156,13 +156,12 @@ const GC_appRoot_01 = document.getElementById('sec011_app_01');
 
 //  [S07251664|A01_DIrectory_01.txt::ReactDOM.render GC_provider_for_router^B]
 
-ReactDOM.render
-      //  (GC_routes,
-//  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
-      //(<SFC_app_router />,
-      (GC_provider_for_router,
-   //[ GC_provider_for_router exe1;^B]
-       GC_appRoot_01);
+//ReactDOM.render
+//      //  (GC_routes,
+////  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
+//      //(<SFC_app_router />,
+//      (GC_provider_for_router,
+//       GC_appRoot_01);
 
 //ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
@@ -170,7 +169,9 @@ ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
 //GC_store.dispatch(startSetExpenses()).then(() => {
 //  ReactDOM.render(jsx, document.getElementById('app'));
 GC_store.dispatch(MP_startSetExpenses()).then(() => {
+  //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
   ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
+              //[ GC_provider_for_router exe1;^B]
 });
 
 //=====================================================================
