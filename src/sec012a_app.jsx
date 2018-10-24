@@ -43,8 +43,13 @@ import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 
 
-import { MP_startAddExpense, MP_startRemoveExpense, MP_startEditExpense, MP_startSetExpenses }
+//  SEC_015 --- 158. Fetching Expenses: Part II 13:52
+
+import { MP_startAddExpense, MP_startSetExpenses }
+//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startAddExpense import-2;^B]
      //[ MP_startAddExpense exe1;]
+//[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startSetExpense import-2;^B]
+                         //[ MP_startSetExpenses exe1;]
 from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
      //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF2: MP_expense_actions <1>^B]
 
@@ -165,17 +170,22 @@ const GC_appRoot_01 = document.getElementById('sec011_app_01');
 //      (GC_provider_for_router,
 //       GC_appRoot_01);
 
+//  SEC_015 --- 158. Fetching Expenses: Part II 13:52
+
 //ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
 
 //GC_store.dispatch(startSetExpenses()).then(() => {
 //  ReactDOM.render(jsx, document.getElementById('app'));
-GC_store.dispatch(MP_startSetExpenses()).then(() => {
+GC_store.dispatch(MP_startSetExpenses())
 //[ GC_store a1;^B]
+              //[ MP_startSetExpenses exe1;^B]
   //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
-  ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
-              //[ GC_provider_for_router exe1;^B]
-});
+        .then ( () => {
+          ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
+                      //[ GC_provider_for_router exe1;^B]
+                     }
+              );
 
 //=====================================================================
 //=====================================================================

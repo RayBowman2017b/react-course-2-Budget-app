@@ -1,5 +1,8 @@
 z32_Notes_02.txt
 
+call heroku config:set FIREBASE_API_KEY=AIzaSyDso8xPTbJv5GoQQSrUyP7S5dxEJO9lrys
+
+
 https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpected-token
 
 React Uncaught SyntaxError: Unexpected token <

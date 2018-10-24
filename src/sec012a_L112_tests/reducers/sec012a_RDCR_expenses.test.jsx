@@ -112,4 +112,17 @@ describe ('EXPENSES REDUCER TESTS', () => {
         expect(L_state).toEqual (MP_FXT_expenses);
     } );
 
+
+//  SEC_015 --- 157. Fetching Expenses: Part I 12:38
+    test ('should set expenses', () => 
+    {
+        const L_action = {
+            type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+            expenses: [MP_FXT_expenses[1]]
+        }
+
+        const L_state = MP_expensesReducer(MP_FXT_expenses, L_action);
+        expect (L_state).toEqual([MP_FXT_expenses[1]]);
+    } );
+
 } );

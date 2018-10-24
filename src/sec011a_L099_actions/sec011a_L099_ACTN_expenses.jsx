@@ -57,6 +57,7 @@ export const MP_expense_actions =
   ACT_XP_EDIT_EXPENSE:     'EDIT_EXPENSE',
   ACT_XP_SET_EXPENSES:     'SET_EXPENSES'
 };
+//=====================================================================
 
 
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
@@ -79,6 +80,7 @@ export const xxxMP_addExpense = (
             }
         }
                     );
+//=====================================================================
 
 //  ADD_EXPENSE
 
@@ -92,13 +94,14 @@ export const MP_addExpense = (expense) => (
             expense
         }
             );
+//=====================================================================
 
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
 
    //        [S07251667|sec009a_CLS_add_expense_page.jsx::MP_startAddExpense import-1;^B]
    //  [S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: MP_startAddExpense <1>^B]
 
-       //  [S07251667|sec009a_CLS_add_expense_page.jsx::EXE1: MP_startAddExpense <1>^B]
+   //  [S07251665|sec012a_app.jsx::MP_startAddExpense import-2;^B]
 
    //  [S07251667|sec011a_L105_expense_form.jsx::REF1: MP_startAddExpense <1>^B]
 
@@ -130,6 +133,7 @@ export const MP_addExpense = (expense) => (
       } );
     };
   }
+//=====================================================================
 //=====================================================================
 
 //  REMOVE_EXPENSE
@@ -194,32 +198,41 @@ export const MP_startEditExpense = (id, updates) => {
 
 // SET_EXPENSES
 
+//  SEC_015 --- 157. Fetching Expenses: Part I 12:38
+
    //[ DEF1: MP_setExpenses <1>^B]
-export const MP_setExpenses = (expenses) => ({
-  type: 'SET_EXPENSES',
+export const MP_setExpenses = (expenses) =>
+( {
+  type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+//[S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_SET_EXPENSE, ref1;^B]
   expenses
-});
+} );
 //=====================================================================
 
-//  [S07251665|sec012a_app.jsx::EXE1: startSetExpenses <1>]
+   //  [S07251665|sec012a_app.jsx::MP_startSetExpense import-2;^B]
+   //  [S07251665|sec012a_app.jsx::EXE1: startSetExpenses <1>]
 
    //  [S07251664|A01_DIrectory_01.txt::DRC1: startSetExpenses <1>^B]
+
+//  SEC_015 --- 158. Fetching Expenses: Part II 13:52
 
    //[ DEF1: MP_startSetExpenses <1>^B]
 export const MP_startSetExpenses = () => {
   return (dispatch) => {
-    return MP_database.ref('expenses').once('value').then((snapshot) => {
-      const expenses = [];
+    return MP_database.ref('expenses')
+                      .once('value')
+                      .then((snapshot) => {
+      const L_expenses = [];
 
       snapshot.forEach((childSnapshot) => {
-        expenses.push({
+        L_expenses.push ( {
           id: childSnapshot.key,
           ...childSnapshot.val()
-        });
-      });
+        } );
+      } );
 
-      dispatch(MP_setExpenses(expenses));
-    });
+      dispatch(MP_setExpenses(L_expenses));
+    }   );
   };
 };
 

@@ -50,7 +50,8 @@ import moment from 'moment';
 
 //  [S07251667|sec013a_L140_expenses_summary.jsx::EXE2: MP_SLCT_getVisibleExpenses <1>^B]
 
-//  [S07251669|sec011a_L099_RDCR_filters.jsx:: Apply Filters ref1;^B]
+//  INITIAL (default) state :>
+//      [S07251669|sec011a_L099_RDCR_filters.jsx:: Filters Initialized and Applied xrf1;^B]
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
 

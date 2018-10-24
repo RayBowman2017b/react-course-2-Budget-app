@@ -177,6 +177,7 @@ const L_store = createStore
 
 //  [S07251670|sec011a_L099_SLCT_expenses.jsx::DRC1: MP_SLCT_getVisibleExpenses <1>^B]
                                                  //[ MP_SLCT_getVisibleExpenses xrf-drc1;]
+                                                 //[ MP_SLCT_getVisibleExpenses xrf-drc2;]
     //  [S07251670|sec011a_L099_SLCT_expenses.jsx::P_expenses.filter drc1;^B]
 
 //  [S07251670|sec013a_L139_SLCT_total_expenses.jsx::DRC1: MP_selectExpensesTotal <1>^B]
@@ -205,8 +206,8 @@ const L_store = createStore
     //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_startEditExpense <1>^B]
                                                      //[ MP_startEditExpense xrf-drc1;]
                                                  //[ MP_expense_actions.ACT_XP_EDIT_EXPENSE xrf-drc1;^B]
-
-//  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: startSetExpenses <1>^B]
+    //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: startSetExpenses <1>^B]
+                                                 //[ MP_expense_actions.ACT_XP_SET_EXPENSE xrf-drc1;^B]
 
 ...................................................................................................
         [ EXPENSE REDUCER top-drc-1;^B]
@@ -228,6 +229,9 @@ const GC_expensesReducerDefaultState = [];
 //  [S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_EDIT_EXPENSE, drc1;^B]
                                                  //[ MP_expense_actions.ACT_XP_EDIT_EXPENSE xrf-drc1;]
 
+        case MP_expense_actions.ACT_XP_SET_EXPENSES:
+//  [S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_SET_EXPENSE, drc1;^B]
+                                                 //[ MP_expense_actions.ACT_XP_SET_EXPENSE xrf-drc1;]
 ...................................................................................................
         [ FILTER AND SORT ACTIONS top-drc-1;^B]
 ...................................................................................................
@@ -265,6 +269,11 @@ const GC_filtersReducerDefaultState =
         // endDate: undefined
         endDate: moment().endOf('month')
     };
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::Set Filter Elements drc1;^B]
+
+            //[ MP_SLCT_getVisibleExpenses xrf-drc2;]
+
 
 //  [S07251669|sec011a_L099_RDCR_filters.jsx::DRC1: MP_filtersReducer <1>^B]
     switch (P_action.type)

@@ -38,9 +38,9 @@ import MP_selectExpensesTotal from "../sec011a_L099_selectors/sec013a_L139_SLCT_
 //==========================================================================
 //==========================================================================
 
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expenses_summary <1>^B]
-
    //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::TPL1: SFC_expenses_summary <1>]
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expenses_summary <1>^B]
 
 //[ DEF1: SFC_expenses_summary <1>^B]
 const SFC_expenses_summary=({ total_expense_count, total_expense_amount }) => {

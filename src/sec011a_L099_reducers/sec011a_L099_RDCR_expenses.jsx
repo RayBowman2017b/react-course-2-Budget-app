@@ -69,8 +69,12 @@ export default (P_state = GC_expensesReducerDefaultState, P_action) =>
             }
                                );
             
+//  SEC_015 --- 157. Fetching Expenses: Part I 12:38
         case MP_expense_actions.ACT_XP_SET_EXPENSES:
+            //[S07251668|sec011a_L099_ACTN_expenses.jsx::type: MP_expense_actions.ACT_XP_SET_EXPENSE, ref1;^B]
+                      //[S07251664|A01_DIrectory_01.txt::type: MP_expense_actions.ACT_XP_SET_EXPENSE, drc1;^B]
             return P_action.expenses;
+
         default:
             return P_state;
     }

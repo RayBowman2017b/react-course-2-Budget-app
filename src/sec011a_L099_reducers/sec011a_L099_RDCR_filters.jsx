@@ -35,7 +35,8 @@ const moment = require ('moment');
 
 //  [S07251667|sec011a_L103_expense_list_filters.jsx:: Set Filter Elements ref1;^B]
 
-//  [S07251670|sec011a_L099_SLCT_expenses.jsx:: Apply Filters ref1;^B]
+//  [S07251670|sec011a_L099_SLCT_expenses.jsx:: Filters Initialized and Applied xrf1;^B]
+
 
 //  There is only one object of filter
 //  [S07251664|A01_DIrectory_01.txt::GC_filtersReducerDefaultState drc1;^B]
