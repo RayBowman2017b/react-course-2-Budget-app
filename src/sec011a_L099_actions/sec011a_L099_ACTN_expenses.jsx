@@ -157,7 +157,7 @@ export const MP_removeExpense = ( { id } = {} ) => (
 export const MP_startRemoveExpense = ({ id } = {}) => {
   return (dispatch) => {
     return MP_database.ref(`expenses/${id}`).remove().then(() => {
-      dispatch(removeExpense({ id }));
+      dispatch(MP_removeExpense({ id }));
     });
   };
 };
@@ -188,7 +188,7 @@ export const MP_editExpense = ( id, updates ) => (
 export const MP_startEditExpense = (id, updates) => {
   return (dispatch) => {
     return MP_database.ref(`expenses/${id}`).update(updates).then(() => {
-      dispatch(editExpense(id, updates));
+      dispatch(MP_editExpense(id, updates));
     });
   };
 };
@@ -235,7 +235,6 @@ export const MP_startSetExpenses = () => {
     }   );
   };
 };
-
 //=====================================================================
 //=====================================================================
 
