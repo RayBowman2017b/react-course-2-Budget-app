@@ -5,6 +5,66 @@ call heroku config:set FIREBASE_API_KEY=AIzaSyDso8xPTbJv5GoQQSrUyP7S5dxEJO9lrys
 
 https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpected-token
 
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+2018-10-24T01:38:39.891115+00:00 app[web.1]: ******** GC_active_app_file is ->sec012a_app.jsx
+2018-10-24T01:38:39.000000+00:00 app[api]: Build succeeded
+2018-10-24T01:38:40.630298+00:00 app[web.1]: ******** process.env.NODE_ENV = "test"
+2018-10-24T01:38:40.630609+00:00 app[web.1]: ******** process.env.FIREBASE_AUTH_DOMAIN = "react-2018-10-budget.firebaseapp.com"
+2018-10-24T01:38:40.630643+00:00 app[web.1]: ******** process.env.FIREBASE_DATABASE_URL = "https://react-2018-10-budget.firebaseio.com"
+2018-10-24T01:38:40.630720+00:00 app[web.1]: ******** process.env.FIREBASE_PROJECT_ID = "react-2018-10-budget"
+2018-10-24T01:38:40.630811+00:00 app[web.1]: ******** process.env.FIREBASE_STORAGE_BUCKET = "react-2018-10-budget.appspot.com"
+
+
+2018-10-24T01:38:40.652320+00:00 app[web.1]: env --- production
+2018-10-24T01:38:41.274486+00:00 app[web.1]: (node:21) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+2018-10-24T01:38:41.275152+00:00 app[web.1]: server is up --- port is 10316 --- port_set_from_env true
+2018-10-24T01:38:41.729688+00:00 heroku[web.1]: State changed from starting to up
+
+
+It looks like you're using the development build of the Firebase JS SDK.
+When deploying Firebase apps to production, it is advisable to only import
+the individual SDK components you intend to use.
+
+For the module builds, these are available in the following manner
+(replace <PACKAGE> with the name of a component - i.e. auth, database, etc):
+
+CommonJS Modules:
+const firebase = require('firebase/app');
+require('firebase/<PACKAGE>');
+
+ES Modules:
+import firebase from 'firebase/app';
+import 'firebase/<PACKAGE>';
+
+(anonymous) @ index.cjs.js:125
+u @ bootstrap:83
+11 @ Loadable_Handlers.jsx:26
+u @ bootstrap:83
+8 @ sec011a_L099_SLCT_expenses.jsx:87
+u @ bootstrap:83
+114 @ sec009a_app_router.jsx:157
+u @ bootstrap:83
+n @ bootstrap:45
+10 @ bootstrap:218
+(anonymous) @ bootstrap:218
+sec012a_app.jsx:16  sec012a_app.jsx is running!
+
+
+2018-10-24T01:23:47.974518+00:00 app[web.1]: (node:21) DeprecationWarning: Chunk.mapModules: Use Array.from(chunk.modulesIterable, fn) instead
+2018-10-24T01:24:10.682256+00:00 heroku[web.1]: Process running mem=755M(147.4%)
+2018-10-24T01:24:10.682491+00:00 heroku[web.1]: Error R14 (Memory quota exceeded)
+2018-10-24T01:24:30.674730+00:00 heroku[web.1]: Process running mem=722M(141.1%)
+2018-10-24T01:24:30.674730+00:00 heroku[web.1]: Error R14 (Memory quota exceeded)
+2018-10-24T01:24:50.605567+00:00 heroku[web.1]: Process running mem=727M(142.1%)
+2018-10-24T01:24:50.605891+00:00 heroku[web.1]: Error R14 (Memory quota exceeded)
+2018-10-24T01:25:07.053972+00:00 app[web.1]: [ 'asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  vendors~main.5ec80b91af5a28d9ec48.js (1.03 MiB)',
+2018-10-24T01:25:07.053992+00:00 app[web.1]: 'entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (1.06 MiB)\n      8.style.8eca9a7cd33a84be7165.css\n      vendors~main.5ec80b91af5a28d9ec48.js\n      style.665360dd11c180fd8b26.css\n      main.5ec80b91af5a28d9ec48.js\n' ]
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+
 React Uncaught SyntaxError: Unexpected token <
 
 I have this issue also when I deploy new version

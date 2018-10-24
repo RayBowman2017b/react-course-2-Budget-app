@@ -20,7 +20,12 @@ src\sec011a_L099_actions\sec011a_L099_ACTN_expenses.jsx
 
 //  SEC_014 --- 142. Getting Firebase 11:40
 //  dump all named exports within firebase and dump them onto a variable named 'firebase'.
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
+//  https://www.udemy.com/react-2nd-edition/learn/v4/questions/5393724
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+
 
 import MP_moment from 'moment';
 

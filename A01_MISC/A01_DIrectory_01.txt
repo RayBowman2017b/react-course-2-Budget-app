@@ -83,7 +83,8 @@ ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
 //  [S07251673|webpack.config.js::webpack.DefinePlugin drc1;^B]
 
 
-ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
+        [ TEST CONFIG xrf-drc-1;]
+
 
 //  [S07251667|sec011a_L105_expense_form.jsx::DRC1: XPNF_check_errors <1>^B]
 
@@ -150,8 +151,15 @@ const L_store = createStore
         [ TEST CONFIG top-drc-1;^B]
 ...................................................................................................
 
+  [ TEST CONFIG xrf-drc-1;^B]
+
+//  SEC_012 --- 119. Enzyme 21:53
+ONE WAY :> //  [S07251673|jest.config.json::"setupFiles"^B]
+enzyme-to-json (to get rid of the junk)
+ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
+
 //  ONE WAY :>  [S07251673|package.json::--config=jest.config.json^B]
-//  ONE WAY :>  [S07251673|jest.config.json::"setupFiles"^B]
+//  SEC_012 --- 119. Enzyme 21:53
 //  [S07251676|sec012a_setupTests.js::set up tests drc1;^B]
 
 ...................................................................................................

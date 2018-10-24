@@ -185,14 +185,23 @@ test ("should setup set expense action object with data", () => {
 
 test ("should fetch the expenses from firebase", (done) => {
     const L_store = GC_createMockStore ({});
-    L_store.dispatch( MP_startSetExpenses()).then ( () => {
-        const L_actions =  L_store.getActions();
-        expect(L_actions[0]).toEqual({
-            type: MP_expense_actions.ACT_XP_SET_EXPENSES,
-            expenses: MP_FXT_expenses
-        } );
-        done();
-    } );
+    L_store
+        .dispatch( MP_startSetExpenses())
+        .then ( () => {
+             const L_actions = L_store.getActions();
+             expect(L_actions[0]).toEqual({
+                 type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+                 expenses: MP_FXT_expenses
+             } );
+
+             return MP_database.ref(`expenses`)
+                               .once('value');
+         } )
+        .then ( (P_snapshot) => {
+             expect(P_snapshot.val()).toEqual(MP_FXT_expenses);
+             done();
+         } )
+        .catch ((err) => console.log(err));
 } );
 
 

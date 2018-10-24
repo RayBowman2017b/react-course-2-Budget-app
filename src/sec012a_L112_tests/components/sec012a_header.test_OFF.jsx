@@ -14,7 +14,14 @@ sec012a_header.test.jsx
 import React from 'react';
 
 //  SEC_012 --- 119. Enzyme 21:53
+//  THIS is no longer necessary as "enzyme-to-json/serializer" was added to
+//  "snapshotSerializers" in
+//  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\jest.config.json
 //  import ReactShallowRenderer from 'react-test-renderer/shallow';
+    //"snapshotSerializers": [
+    //    "enzyme-to-json/serializer"
+    //],
+
 import { shallow } from 'enzyme';
 
 //  import toJSON from 'enzyme-to-json';
@@ -40,7 +47,11 @@ describe ("COMPONENT TEST FOR HEADER", () =>  {
     } );
 
     it ('should render Header matching snapshot', () =>  {
-        const L_wrapper = shallow(<MP_header />)
+        const L_wrapper = shallow(<MP_header />);
+//  SEC_012 --- 119. Enzyme 21:53
+//  THIS toJSON(L_wrapper) is no longer necessary as "enzyme-to-json/serializer" was added to
+//  "snapshotSerializers" in
+//  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\jest.config.json
         //expect (toJSON(L_wrapper)).toMatchSnapshot();
         expect (L_wrapper).toMatchSnapshot();
     } );

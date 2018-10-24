@@ -268,35 +268,35 @@ const GF_map_state_to_props = (P_state) => {
 //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNLISTFLTR.GF_map_dispatch_to_props <1>^B]
 
        //[ DEF1: GF_map_dispatch_to_props <1>^B]
-const GF_map_dispatch_to_props = (dispatch, props) =>  {
+const GF_map_dispatch_to_props = (P_dispatch, P_props) =>  {
   return (
   {
     MDTP_setTextFilter: (P_TBX_filter_text) =>
     //[ this.props.MDTP_setTextFilter exe1;^B]
-       dispatch(MP_setTextFilter(P_TBX_filter_text)),
+       P_dispatch(MP_setTextFilter(P_TBX_filter_text)),
             //[ MP_setTextFilter import-01;^B]
     MDTP_sortBy: (P_sort_by_item) =>
     //[ MDTP_sortBy exe1;^B]
-      dispatch ( 
+      P_dispatch ( 
         P_sort_by_item === 'date' ? MP_sortByDate ()
                                 //[ MP_sortByDate import-01;]
           : P_sort_by_item === 'amount' ? MP_sortByAmount ()
                                       //[ MP_sortByAmount import-01;]
             : undefined
                ),
-    MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
+    MDTP_sortByDate: () => P_dispatch(MP_sortByDate ()),
     //[ this.props.MDTP_sortByDate exe1;^B]
                                 //[ MP_sortByDate import-02;]
-    MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
+    MDTP_sortByAmount: () => P_dispatch(MP_sortByAmount ()),
     //[ this.props.MDTP_sortByAmount exe1;^B]
                                   //[ MP_sortByAmount import-02;]
     MDTP_setStartDate: (P_start_date) =>
     //[ this.props.MDTP_setStartDate exe1;^B]
-      dispatch (MP_setStartDate(P_start_date) ),
+      P_dispatch (MP_setStartDate(P_start_date) ),
             //[ MP_setStartDate import-01;]
     MDTP_setEndDate: (P_end_date) =>
     //[ this.props.MDTP_setEndDate exe1;^B]
-      dispatch (MP_setEndDate(P_end_date) )
+      P_dispatch (MP_setEndDate(P_end_date) )
             //[ MP_setEndDate import-01;]
   }      );
 };

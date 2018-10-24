@@ -19,7 +19,7 @@
     "xxxbuild:prod": "cross-env NODE_ENV=production webpack -p --env=production --hot --inline",
     "xxxbuild:dev": "webpack",
     "xxxdev-server": "webpack-dev-server",
-    "build:dev": "webpack --env=development",
+    "build:dev": "cross-env NODE_ENV=production  webpack --env=development",
     "dev-server": "webpack-dev-server  --env=development --hot --inline",
     "xxxtest": "jest --config=jest.config.json",
     "xxx2test": "cross-env NODE_ENV=test webpack --config build/webpack.config.js",

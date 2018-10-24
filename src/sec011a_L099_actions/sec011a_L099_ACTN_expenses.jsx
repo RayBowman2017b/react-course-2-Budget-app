@@ -138,11 +138,6 @@ export const MP_addExpense = (expense) => (
 
 //  REMOVE_EXPENSE
 
-      //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startRemoveExpense import-1;^B]
-//  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startRemoveExpense <1>^B]
-
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startRemoveExpense <1>^B]
-
    //[ DEF1: MP_removeExpense <1>^B]
 export const MP_removeExpense = ( { id } = {} ) => (
         {
@@ -152,6 +147,11 @@ export const MP_removeExpense = ( { id } = {} ) => (
         }
                                    );
 //=====================================================================
+
+      //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startRemoveExpense import-1;^B]
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startRemoveExpense <1>^B]
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startRemoveExpense <1>^B]
 
    //[ DEF1: MP_startRemoveExpense <1>^B]
 export const MP_startRemoveExpense = ({ id } = {}) => {

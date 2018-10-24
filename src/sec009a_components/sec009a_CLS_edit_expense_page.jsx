@@ -117,7 +117,7 @@ export class CLS_edit_expense_page extends React.Component
     };
   //========================================================================
 
-    //[ ASN1: EDIT_XPP.onClickRemoveExpense <1>]
+    //  [ ASN1: EDIT_XPP.onClickRemoveExpense <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.onClickRemoveExpense <1>^B]
 
@@ -238,13 +238,13 @@ const GF_map_state_to_props = (state, props) =>  {
    //  [S07251664|A01_DIrectory_01.txt::DRC1: EDIT_XPP.GF_map_dispatch_to_props <1>]
 
 //[ DEF1: EDIT_XPP.GF_map_dispatch_to_props <1>^B]
-const GF_map_dispatch_to_props = (dispatch) =>  {
+const GF_map_dispatch_to_props = (P_dispatch) =>  {
   return (
   {
-    edit_expense: (id, expense) => dispatch(MP_startEditExpense(id, expense)),
+    edit_expense: (id, expense) => P_dispatch(MP_startEditExpense(id, expense)),
     //[ this.props.edit_expense ref1;^B]
                                         //[ MP_startEditExpense pp1;^B]
-    remove_expense: (expense_id_obj) => dispatch(MP_startRemoveExpense(expense_id_obj))
+    remove_expense: (expense_id_obj) => P_dispatch(MP_startRemoveExpense(expense_id_obj))
     //[ this.props.remove_expense ref1;^B]
                                              //[ MP_startRemoveExpense pp1;^B]
   }      );
