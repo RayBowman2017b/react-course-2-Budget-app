@@ -32,8 +32,7 @@ import thunk from "redux-thunk";
 import MP_database from '../../sec014a_firebase/sec014_L142_firebase.js';
 
 
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
 const GC_createMockStore = configureMockStore([thunk]);
@@ -43,22 +42,27 @@ describe ('EXPENSE ACTION TESTS', () => {
 
 //  SEC_015 --- 157. Fetching Expenses: Part I 12:38
 
-beforeEach( (done) => {
+    const GC_FXT_expenses = [];
 
-    //jest.setTimeout(10000);
-    jest.setTimeout(300000);
+    beforeEach( (done) => {
 
-      const L_expensesData = {};
+        //jest.setTimeout(10000);
+        jest.setTimeout(440000);
 
-      MP_FXT_expenses.forEach(({ id, description, note, amount, createdAt }) => {
-        L_expensesData[id] = { description, note, amount, createdAt };
-      });
+        const L_expensesData = {};
 
-      //  This will be called async :> MP_database.ref('expenses').set(L_expensesData)
-      //  Need to chain .then with a call to done so that the function will wait for
-      //  the return of data from Firebase :> .then(() => done());
-      MP_database.ref('expenses').set(L_expensesData).then(() => done());
-  }  );
+        GC_FXT_expenses.length = 0;
+
+        MP_FXT_expenses.forEach(({ id, description, note, amount, createdAt }) => {
+          L_expensesData[id] = { description, note, amount, createdAt };
+          GC_FXT_expenses.push(L_expensesData[id]);
+        });
+
+        //  This will be called async :> MP_database.ref('expenses').set(L_expensesData)
+        //  Need to chain .then with a call to done so that the function will wait for
+        //  the return of data from Firebase :> .then(() => done());
+        MP_database.ref('expenses').set(L_expensesData).then(() => done());
+    }  );
 
 
       test ('should setup remove expense action object', () => {
@@ -69,6 +73,27 @@ beforeEach( (done) => {
             id: '123abc'
         } );
     });
+
+
+//  SEC_015 --- 159. Remove Expense 12:03
+
+    test("should remove expense from firebase", (done) => {
+        const L_store = GC_createMockStore({});
+        const L_id = GC_FXT_expenses[1].id;
+        L_store.dispatch(MP_startRemoveExpense({L_id})).then(() => {
+            const L_actions = L_store.getActions();
+            expect(L_actions[0]).toEqual( {
+                type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
+                id: L_id
+            } );
+            return MP_database.ref(`expenses/${L_id}`).once('value');
+        } )
+        .then( (P_snapshot) => {
+            expect(P_snapshot.val()).toBeFalsy();
+            done();
+        } );
+    } );
+
 
     test ('should setup edit expense object', () => {
         const L_action = MP_editExpense ('123abc', { note: 'new note entered'} );
@@ -99,110 +124,108 @@ beforeEach( (done) => {
             //}
             expense: L_expense_data
         } );
-
     } );
 
+
+
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
-test('should add expense to database and store', async (done) => {
-    const L_store = GC_createMockStore ({});
-    const L_expense_data =
+    test('should add expense to database and store', async (done) => {
+        const L_store = GC_createMockStore ({});
+        const L_expense_data =
+            {
+                description: 'Mouse',
+                amount: 3000,
+                note: 'This one is better',
+                createdAt: 1000
+            };
+
+        L_store
+            .dispatch ( MP_startAddExpense (L_expense_data) )
+            .then ( () => {
+
+//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
+
+                const L_action = L_store.getActions ();
+                expect(L_action[0]).toEqual ( {
+                    type: MP_expense_actions.ACT_XP_ADD_EXPENSE,
+                    expense: {
+                        id: expect.any (String),
+                        ...L_expense_data
+                    }
+                } );
+
+                return MP_database.ref(`expenses/${L_action[0].expense.id}`)
+                                  .once('value');
+             } )
+            .then ( (P_snapshot) => {
+                 expect(P_snapshot.val()).toEqual(L_expense_data);
+                 done();
+             } );
+    } );
+
+    //  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
+    test('should add expense with defaults to database and store', (done) => {
+        const L_store = GC_createMockStore ({});
+        const L_expense_data =
         {
-            description: 'Mouse',
-            amount: 3000,
-            note: 'This one is better',
-            createdAt: 1000
+            description: '',
+            amount: 0,
+            note: '',
+            createdAt: 0
         };
 
-    L_store
-        .dispatch ( MP_startAddExpense (L_expense_data) )
-        .then ( () => {
-        //expect(1).toBe(1);
-
-//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
-
-            const L_action = L_store.getActions ();
-            expect(L_action[0]).toEqual ( {
-                type: MP_expense_actions.ACT_XP_ADD_EXPENSE,
-                expense: {
-                    id: expect.any (String),
-                    ...L_expense_data
-                }
-            } );
-            return MP_database.ref(`expenses/${L_action[0].expense.id}`)
-                              .once('value');
-         } )
-        .then ( (P_snapshot) => {
-             expect(P_snapshot.val()).toEqual(L_expense_data);
-             done();
-         } )
-        .catch ((err) => console.log(err));
-} );
-
-//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
-test('should add expense with defaults to database and store', (done) => {
-    const L_store = GC_createMockStore ({});
-    const L_expense_data =
-    {
-        description: '',
-        amount: 0,
-        note: '',
-        createdAt: 0
-    };
-
-    //L_store.dispatch (MP_startAddExpense (L_expense_data))
-    L_store
-        .dispatch (MP_startAddExpense ({}))
-        .then ( () => {
-            const L_action = L_store.getActions ();
-            expect(L_action[0]).toEqual ( {
-                type: MP_expense_actions.ACT_XP_ADD_EXPENSE,
-                expense: {
-                    id: expect.any (String),
-                    ...L_expense_data
-                }
-            } );
-            return MP_database.ref(`expenses/${L_action[0].expense.id}`)
-                              .once('value');
-         } )
-        .then ( (P_snapshot) => {
-             expect(P_snapshot.val()).toEqual(L_expense_data);
-             done();
-         } )
-        .catch ((err) => console.log(err));
-} );
+        //L_store.dispatch (MP_startAddExpense (L_expense_data))
+        L_store
+            .dispatch (MP_startAddExpense ({}))
+            .then ( () => {
+                const L_action = L_store.getActions ();
+                expect(L_action[0]).toEqual ( {
+                    type: MP_expense_actions.ACT_XP_ADD_EXPENSE,
+                    expense: {
+                        id: expect.any (String),
+                        ...L_expense_data
+                    }
+                } );
+                return MP_database.ref(`expenses/${L_action[0].expense.id}`)
+                                  .once('value');
+             } )
+            .then ( (P_snapshot) => {
+                 expect(P_snapshot.val()).toEqual(L_expense_data);
+                 done();
+             } );
+    } );
 
 //  SEC_015 --- 157. Fetching Expenses: Part I 12:38
 
-test ("should setup set expense action object with data", () => {
-    const L_action = MP_setExpenses (MP_FXT_expenses);
-    expect(L_action).toEqual( {
-        type: MP_expense_actions.ACT_XP_SET_EXPENSES,
-        expenses: MP_FXT_expenses
+    test ("should setup set expense action object with data", () => {
+        const L_action = MP_setExpenses (MP_FXT_expenses);
+        expect(L_action).toEqual( {
+            type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+            expenses: MP_FXT_expenses
+        } );
     } );
-} );
 
 //  SEC_015 --- 158. Fetching Expenses: Part II 13:52
 
-test ("should fetch the expenses from firebase", (done) => {
-    const L_store = GC_createMockStore ({});
-    L_store
-        .dispatch( MP_startSetExpenses())
-        .then ( () => {
-             const L_actions = L_store.getActions();
-             expect(L_actions[0]).toEqual({
-                 type: MP_expense_actions.ACT_XP_SET_EXPENSES,
-                 expenses: MP_FXT_expenses
-             } );
+    test ("should fetch the expenses from firebase", (done) => {
+        const L_store = GC_createMockStore ({});
+        L_store
+            .dispatch( MP_startSetExpenses())
+            .then ( () => {
+                 const L_actions = L_store.getActions();
+                 expect(L_actions[0]).toEqual({
+                     type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+                     expenses: MP_FXT_expenses
+                 } );
 
-             return MP_database.ref(`expenses`)
-                               .once('value');
-         } )
-        .then ( (P_snapshot) => {
-             expect(P_snapshot.val()).toEqual(MP_FXT_expenses);
-             done();
-         } )
-        .catch ((err) => console.log(err));
-} );
+                 return MP_database.ref(`expenses`)
+                                   .once('value');
+             } )
+            .then ( (P_snapshot) => {
+                 expect(P_snapshot.val().filter ((val) => !!val)).toEqual(GC_FXT_expenses);
+                 done();
+             } );
+    } );
 
 
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59

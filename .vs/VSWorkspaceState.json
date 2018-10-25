@@ -6,11 +6,11 @@
     "\\A01_Upper_Level_Files",
     "\\src",
     "\\src\\sec009a_components",
-    "\\src\\sec011a_L099_actions",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\components",
-    "\\src\\sec012a_L112_tests\\reducers"
+    "\\src\\sec012a_L112_tests\\actions",
+    "\\src\\sec012a_L112_tests\\fixtures",
+    "\\zzz_private"
   ],
-  "SelectedNode": "\\src\\sec012a_L112_tests\\components\\sec012a_header.test_OFF.jsx",
+  "SelectedNode": "\\webpack.config.js",
   "PreviewInSolutionExplorer": false
 }

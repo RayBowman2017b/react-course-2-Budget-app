@@ -185,7 +185,8 @@ GC_store.dispatch(MP_startSetExpenses())
           ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
                       //[ GC_provider_for_router exe1;^B]
                      }
-              );
+              )
+        .catch ((err) => console.log (` ******** ERROR in app.jsx :: ${err}`) );
 
 //=====================================================================
 //=====================================================================

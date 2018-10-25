@@ -86,6 +86,8 @@ export const xxxMP_addExpense = (
 
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
 
+   //  [ EXE1: MP_addExpense <1>]
+
    //[ DEF1: MP_addExpense <1>^B]
 export const MP_addExpense = (expense) => (
         {
@@ -127,9 +129,13 @@ export const MP_addExpense = (expense) => (
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
       //  return the promise
 
-      return MP_database.ref('expenses').push(L_expense).then ( (ref) =>
+      return MP_database
+               .ref('expenses')
+               .push(L_expense)
+               .then ( (ref) =>
       {
           P_dispatch ( MP_addExpense ( { id: ref.key, ...L_expense } ) );
+             //[ EXE1: MP_addExpense <1>^B]
       } );
     };
   }
@@ -137,6 +143,8 @@ export const MP_addExpense = (expense) => (
 //=====================================================================
 
 //  REMOVE_EXPENSE
+
+   //  [ EXE1: MP_removeExpense <1>]
 
    //[ DEF1: MP_removeExpense <1>^B]
 export const MP_removeExpense = ( { id } = {} ) => (
@@ -156,15 +164,21 @@ export const MP_removeExpense = ( { id } = {} ) => (
    //[ DEF1: MP_startRemoveExpense <1>^B]
 export const MP_startRemoveExpense = ({ id } = {}) => {
   return (dispatch) => {
-    return MP_database.ref(`expenses/${id}`).remove().then(() => {
-      dispatch(MP_removeExpense({ id }));
-    });
+    return MP_database
+             .ref(`expenses/${id}`)
+             .remove()
+             .then(() => {
+                  dispatch(MP_removeExpense({ id }));
+                 //[ EXE1: MP_removeExpense <1>^B]
+    } ).catch ((err) => console.log("   *** something went wrong in MP_startRemoveExpense", err));
   };
 };
 
 //=====================================================================
 
 //  EDIT_EXPENSE
+
+   //  [ EXE1: MP_editExpense <1>]
 
    //[ DEF1: MP_editExpense <1>^B]
 export const MP_editExpense = ( id, updates ) => (
@@ -187,9 +201,14 @@ export const MP_editExpense = ( id, updates ) => (
    //[ DEF1: MP_startEditExpense <1>^B]
 export const MP_startEditExpense = (id, updates) => {
   return (dispatch) => {
-    return MP_database.ref(`expenses/${id}`).update(updates).then(() => {
-      dispatch(MP_editExpense(id, updates));
-    });
+    return MP_database
+             .ref(`expenses/${id}`)
+             .update(updates)
+             .then( () => {
+                  dispatch(MP_editExpense(id, updates));
+                 //[ EXE1: MP_editExpense <1>^B]
+              } )
+             .catch ((err) => console.log("   *** something went wrong in MP_startEditExpense", err));
   };
 };
 
@@ -199,6 +218,8 @@ export const MP_startEditExpense = (id, updates) => {
 // SET_EXPENSES
 
 //  SEC_015 --- 157. Fetching Expenses: Part I 12:38
+
+   //  [ EXE1: MP_setExpenses <1>]
 
    //[ DEF1: MP_setExpenses <1>^B]
 export const MP_setExpenses = (expenses) =>
@@ -219,20 +240,22 @@ export const MP_setExpenses = (expenses) =>
    //[ DEF1: MP_startSetExpenses <1>^B]
 export const MP_startSetExpenses = () => {
   return (dispatch) => {
-    return MP_database.ref('expenses')
-                      .once('value')
-                      .then((snapshot) => {
-      const L_expenses = [];
+    return MP_database
+             .ref('expenses')
+             .once('value')
+             .then((snapshot) => {
+                  const L_expenses = [];
 
-      snapshot.forEach((childSnapshot) => {
-        L_expenses.push ( {
-          id: childSnapshot.key,
-          ...childSnapshot.val()
-        } );
-      } );
+                  snapshot.forEach((childSnapshot) => {
+                    L_expenses.push ( {
+                      id: childSnapshot.key,
+                      ...childSnapshot.val()
+                    } );
+                  } );
 
-      dispatch(MP_setExpenses(L_expenses));
-    }   );
+                  dispatch(MP_setExpenses(L_expenses));
+                 //[ EXE1: MP_setExpenses <1>^B]
+              } );
   };
 };
 //=====================================================================
