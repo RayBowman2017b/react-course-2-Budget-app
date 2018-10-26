@@ -140,13 +140,17 @@ export class CLS_edit_expense_page extends React.Component
     //[ DEF1: CLS_edit_expense_page.render <1>^B]
     render ()
     {
-        const L_descrptn = this.props.match.params.description;
+        //const L_descrptn = this.props.match.params.description;
+        const L_descrptn = this.props.expense_description;
 //    <div>Editing the expense with an id of {this.props.match.params.id}.</div>
 //    <div>Editing the expense with an id of {this.props.expense.id}.</div>
     return (
   <span>
     <br/>
-    <div>Editing the expense with an id of {this.props.match.params.id}.</div>
+                {/*
+    //<div>Editing the expense with an id of {this.props.match.params.id}.</div>
+                  */}
+    <div>Editing the expense with an id of {this.props.expense_id}.</div>
     {L_descrptn && <div>Editing the expense with a description of {L_descrptn}.</div>}
     <br/>
     <CLS_expense_form
@@ -217,8 +221,33 @@ const match_props = (P_expense, P_props) =>  {
 
 //[ DEF1: EDIT_XPP.GF_map_state_to_props <1>^B]
 const GF_map_state_to_props = (state, props) =>  {
+      let L_id, L_description;
+
+    //this.props.match.params.id
+
+      if ( ! props.match )  {
+          L_id = props.expense.id;
+          L_description = props.expense.description;
+      }
+      else
+      if ( ! props.match.params )  {
+          L_id = props.expense.id;
+          L_description = props.expense.description;
+      }
+      else
+      if ( ! props.match.params.id )  {
+          L_id = props.expense.id;
+          L_description = props.expense.description;
+      }
+      else  {
+          L_id = props.match.params.id;
+          L_description = props.match.params.description;
+      }
+
       return (
       {
+          expense_id: L_id,
+          expense_description: L_description,
           expense: state.expenses.find (
           //[ this.props.expense pp1;^B]
 //  SEC_009 --- 81. Query Strings and URL Parameters 9:10
@@ -243,10 +272,10 @@ const GF_map_dispatch_to_props = (P_dispatch) =>  {
   {
     edit_expense: (id, expense) => P_dispatch(MP_startEditExpense(id, expense)),
     //[ this.props.edit_expense ref1;^B]
-                                        //[ MP_startEditExpense pp1;^B]
+                                          //[ MP_startEditExpense pp1;^B]
     remove_expense: (expense_id_obj) => P_dispatch(MP_startRemoveExpense(expense_id_obj))
     //[ this.props.remove_expense ref1;^B]
-                                             //[ MP_startRemoveExpense pp1;^B]
+                                               //[ MP_startRemoveExpense pp1;^B]
   }      );
 };
 //export default connect() (GC_add_expense_page);
