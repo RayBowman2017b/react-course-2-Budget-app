@@ -56,13 +56,13 @@ describe ('EXPENSE ACTION TESTS', () => {
         MP_FXT_expenses.forEach(({ id, description, note, amount, createdAt }) => {
           L_expensesData[id] = { description, note, amount, createdAt };
           GC_FXT_expenses.push(L_expensesData[id]);
-        });
+        } );
 
         //  This will be called async :> MP_database.ref('expenses').set(L_expensesData)
         //  Need to chain .then with a call to done so that the function will wait for
         //  the return of data from Firebase :> .then(() => done());
         MP_database.ref('expenses').set(L_expensesData).then(() => done());
-    }  );
+    } );
 
 
       test ('should setup remove expense action object', () => {
@@ -72,7 +72,7 @@ describe ('EXPENSE ACTION TESTS', () => {
             type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
             id: '123abc'
         } );
-    });
+    } );
 
 
 //  SEC_015 --- 159. Remove Expense 12:03
@@ -112,7 +112,7 @@ describe ('EXPENSE ACTION TESTS', () => {
                .then(() => {
             const L_actions = L_store.getActions();
             expect(L_actions[0]).toEqual( {
-                type: MP_expense_actions.ACT_XP_UPDATE_EXPENSE,
+                type: MP_expense_actions.ACT_XP_EDIT_EXPENSE,
                 id: L_id,
                 updates: L_expense_update
             } );
@@ -184,7 +184,8 @@ describe ('EXPENSE ACTION TESTS', () => {
              } );
     } );
 
-    //  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
+//  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
+
     test('should add expense with defaults to database and store', (done) => {
         const L_store = GC_createMockStore ({});
         const L_expense_data =

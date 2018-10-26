@@ -2,6 +2,8 @@
 //  sec014_L144_promises.js
 //  node sec014_L144_promises.js
 
+//  SEC_014 --- 144. ES6 Promises 14:30
+
 ( function () {
 
 const promise = new Promise ( (resolve,reject) => {

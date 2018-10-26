@@ -42,7 +42,7 @@ import { MP_startEditExpense, MP_startRemoveExpense } from "../sec011a_L099_acti
 //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startEditExpense import-1;]
      //[ MP_startEditExpense pp1;]
                      //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startRemoveExpense import-1;]
-                     //[ MP_startRemoveExpense pp1;]
+                          //[ MP_startRemoveExpense pp1;]
 
 const xxxGC_edit_expense_page = (P_props) =>
 (
@@ -109,8 +109,8 @@ export class CLS_edit_expense_page extends React.Component
 
         //this.log_props(P_expense);
 
-        this.props.edit_expense (this.props.expense.id, P_expense);
-    //[ this.props.edit_expense ref1;]
+        this.props.start_edit_expense (this.props.expense.id, P_expense);
+    //[ this.props.start_edit_expense ref1;]
     //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startEditExpense <1>^B]
 
         this.props.history.push ('/');
@@ -126,8 +126,8 @@ export class CLS_edit_expense_page extends React.Component
 
         //this.props.dispatch ( MP_startRemoveExpense({ id: this.props.expense.id }) );
 
-        this.props.remove_expense ({ id: this.props.expense.id });
-    //[ this.props.remove_expense ref1;]
+        this.props.start_remove_expense ({ id: this.props.expense.id });
+    //[ this.props.start_remove_expense ref1;]
     //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startRemoveExpense <1>^B]
 
         this.props.history.push ('/');
@@ -221,42 +221,41 @@ const match_props = (P_expense, P_props) =>  {
 
 //[ DEF1: EDIT_XPP.GF_map_state_to_props <1>^B]
 const GF_map_state_to_props = (state, props) =>  {
+
       let L_id, L_description;
-
-    //this.props.match.params.id
-
-      if ( ! props.match )  {
-          L_id = props.expense.id;
-          L_description = props.expense.description;
-      }
-      else
-      if ( ! props.match.params )  {
-          L_id = props.expense.id;
-          L_description = props.expense.description;
-      }
-      else
-      if ( ! props.match.params.id )  {
-          L_id = props.expense.id;
-          L_description = props.expense.description;
-      }
-      else  {
-          L_id = props.match.params.id;
-          L_description = props.match.params.description;
-      }
-
-      return (
-      {
-          expense_id: L_id,
-          expense_description: L_description,
-          expense: state.expenses.find (
-          //[ this.props.expense pp1;^B]
+      const L_found_expense = state.expenses.find (
 //  SEC_009 --- 81. Query Strings and URL Parameters 9:10
 //  props.match.params.id is provided within the URL
             (P_expense) => P_expense.id === props.match.params.id
       //[S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} ref1;^B]
       //[S07251666|sec009a_app_router.jsx::P_expense.id === props.match.params.id ref1;^B]
         //[S07251664|A01_DIrectory_01.txt::P_expense.id === props.match.params.id drc1;^B]
-                   )
+                   );
+
+    //this.props.match.params.id
+
+      const LF_set_with_found_expense = () => {
+              L_id = L_found_expense.id;
+              L_description = L_found_expense.description;
+            };
+
+      if ( ! props.match )  LF_set_with_found_expense ();
+      else if ( ! props.match.params )  LF_set_with_found_expense ();
+      else if ( ! props.match.params.id )  LF_set_with_found_expense ();
+      else  {
+          L_id = props.match.params.id;
+
+          if ( ! props.match.params.description )
+                L_description = L_found_expense.description;
+          else  L_description = props.match.params.description;
+      }
+
+      return (
+      {
+          expense_id: L_id,
+          expense_description: L_description,
+          expense: L_found_expense
+          //[ this.props.expense pp1;^B]
       }      );
     };
 
@@ -270,12 +269,13 @@ const GF_map_state_to_props = (state, props) =>  {
 const GF_map_dispatch_to_props = (P_dispatch) =>  {
   return (
   {
-    edit_expense: (id, expense) => P_dispatch(MP_startEditExpense(id, expense)),
-    //[ this.props.edit_expense ref1;^B]
+    start_edit_expense: (id, expense) => P_dispatch(MP_startEditExpense(id, expense)),
+    //[ this.props.start_edit_expense ref1;^B]
                                           //[ MP_startEditExpense pp1;^B]
-    remove_expense: (expense_id_obj) => P_dispatch(MP_startRemoveExpense(expense_id_obj))
-    //[ this.props.remove_expense ref1;^B]
-                                               //[ MP_startRemoveExpense pp1;^B]
+    start_remove_expense: (expense_id_obj) =>
+    //[ this.props.start_remove_expense ref1;^B]
+        P_dispatch(MP_startRemoveExpense(expense_id_obj))
+               //[ MP_startRemoveExpense pp1;^B]
   }      );
 };
 //export default connect() (GC_add_expense_page);

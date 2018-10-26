@@ -30,6 +30,8 @@ import 'firebase/database';
 import MP_moment from 'moment';
 
 
+//  SEC_014 --- 142. Getting Firebase 11:40
+
   // Initialize Firebase
   //var config = {
   const config = {
@@ -56,6 +58,8 @@ import MP_moment from 'moment';
   export { firebase, MP_database as default };
 
 
+//===============================================================
+//===============================================================
 
   const GC_FB_database = MP_database;
 

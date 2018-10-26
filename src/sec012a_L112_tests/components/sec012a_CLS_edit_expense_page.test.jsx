@@ -30,24 +30,25 @@ describe ("COMPONENT TEST FOR EDIT EXPENSE PAGE - sec009a_CLS_edit_expense_page.
         }
         setup ()
         {
-            this.V_edit_expense = jest.fn();
-            this.V_remove_expense = jest.fn();
+            this.V_start_edit_expense = jest.fn();
+            this.V_start_remove_expense = jest.fn();
             this.V_history = { push: jest.fn() };
 
             this.V_wrapper = shallow (
                     <CLS_edit_expense_page
-                      edit_expense={this.V_edit_expense}
-                      remove_expense={this.V_remove_expense}
+                      start_edit_expense={this.V_start_edit_expense}
+                      start_remove_expense={this.V_start_remove_expense}
                       history={this.V_history}
                       expense={this.V_test_expense}
+                      //  THIS was my idea (not really used)
                       state_expenses={MP_FXT_expenses}
                     />);
         }
 
         get G_wrapper ()   { return this.V_wrapper; }
         get G_history ()   { return this.V_history; }
-        get G_edit_expense ()  { return this.V_edit_expense; }
-        get G_remove_expense ()  { return this.V_remove_expense; }
+        get G_start_edit_expense ()  { return this.V_start_edit_expense; }
+        get G_start_remove_expense ()  { return this.V_start_remove_expense; }
         get G_test_expense ()  { return this.V_test_expense; }
     }
 
@@ -65,7 +66,7 @@ describe ("COMPONENT TEST FOR EDIT EXPENSE PAGE - sec009a_CLS_edit_expense_page.
         GC_pram.G_wrapper.find('CLS_expense_form')
                          .prop('onExpenseSubmit')(GC_pram.G_test_expense);
         expect(GC_pram.G_history.push).toHaveBeenLastCalledWith('/');
-        expect(GC_pram.G_edit_expense).toHaveBeenLastCalledWith
+        expect(GC_pram.G_start_edit_expense).toHaveBeenLastCalledWith
                             (GC_pram.G_test_expense.id, GC_pram.G_test_expense);
     } );
 
@@ -74,7 +75,7 @@ describe ("COMPONENT TEST FOR EDIT EXPENSE PAGE - sec009a_CLS_edit_expense_page.
         GC_pram.G_wrapper.find('#BTN_remove_expense')
                          .simulate('click');
         expect(GC_pram.G_history.push).toHaveBeenLastCalledWith('/');
-        expect(GC_pram.G_remove_expense).toHaveBeenLastCalledWith(L_id_obj);
+        expect(GC_pram.G_start_remove_expense).toHaveBeenLastCalledWith(L_id_obj);
     } );
 
 } );

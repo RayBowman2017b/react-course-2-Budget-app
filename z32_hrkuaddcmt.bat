@@ -2,7 +2,7 @@
 @rem 
 git add .
 @rem  git commit -m "2018-10-16 23-30 SEC 014"
-git commit -m "2018-10-25 21-40 SEC 015 L159 Remove Expense"
+git commit -m "2018-10-26 16-40 SEC 015 L159 Remove Expense"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT TEST FOR ADD EXPENSE PAGE - sec009a_CLS_add_expense_page.jsx should render add_expense_page correctly 1`] = `
+<span>
+  <span>
+    This is from my add expense component.
+  </span>
+  <h1>
+    Add Expense
+  </h1>
+  <CLS_expense_form
+    buttonLabel="ADD EXPENSE"
+    onExpenseSubmit={[Function]}
+  />
+</span>
+`;

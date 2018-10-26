@@ -19,6 +19,11 @@
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_011_React_with_Redux\proj_02\Budget-app\src\sec011a_L099_actions\sec011a_L099_ACTN_expenses.jsx
 
+----------------------------------------------------------------------------
+NOTE: dispatch is passed in by the redux library
+----------------------------------------------------------------------------
+
+
 import { MP_expense_actions, MP_addExpense, MP_removeExpense, MP_editExpense }
 import { MP_expense_actions, MP_startAddExpense, MP_startRemoveExpense, MP_startEditExpense }
 from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
@@ -110,18 +115,15 @@ export const MP_addExpense = (expense) => (
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_startAddExpense <1>^B]
 
 
-     //[ DEF1: MP_addExpense <1>^B]
      //[ DEF1: MP_startAddExpense <1>^B]
   export const MP_startAddExpense = (P_expenseData = {}) =>
   {
-    return (P_dispatch) =>
-    {
-      const
-      {
-                description = '',
-                note = '',
-                amount = 0,
-                createdAt = 0
+    return (P_dispatch) => {
+      const {
+          description = '',
+          note = '',
+          amount = 0,
+          createdAt = 0
       } = P_expenseData;
 
       const L_expense = { description, note, amount, createdAt };
@@ -132,11 +134,11 @@ export const MP_addExpense = (expense) => (
       return MP_database
                .ref('expenses')
                .push(L_expense)
-               .then ( (ref) =>
-      {
+               .then ( (ref) => {
           P_dispatch ( MP_addExpense ( { id: ref.key, ...L_expense } ) );
              //[ EXE1: MP_addExpense <1>^B]
-      } ).catch ((err) => console.log
+      } )
+               .catch ((err) => console.log
                 ("   *** something went wrong in MP_startAddExpense", err));
     };
   }
@@ -148,14 +150,14 @@ export const MP_addExpense = (expense) => (
    //  [ EXE1: MP_removeExpense <1>]
 
    //[ DEF1: MP_removeExpense <1>^B]
-export const MP_removeExpense = ( { id } = {} ) => (
-        {
+export const MP_removeExpense = ( { id } = {} ) => ( {
             type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
 //[S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE, ref1;^B]
             id
-        }
-                                   );
+        } );
 //=====================================================================
+
+//  SEC_015 --- 159. Remove Expense 12:03
 
       //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startRemoveExpense import-1;^B]
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startRemoveExpense <1>^B]
@@ -171,11 +173,11 @@ export const MP_startRemoveExpense = ({ id } = {}) => {
              .then(() => {
                   dispatch(MP_removeExpense({ id }));
                  //[ EXE1: MP_removeExpense <1>^B]
-    } ).catch ((err) => console.log
+              } )
+             .catch ((err) => console.log
                 ("   *** something went wrong in MP_startRemoveExpense", err));
   };
 };
-
 //=====================================================================
 
 //  EDIT_EXPENSE
@@ -183,14 +185,12 @@ export const MP_startRemoveExpense = ({ id } = {}) => {
    //  [ EXE1: MP_editExpense <1>]
 
    //[ DEF1: MP_editExpense <1>^B]
-export const MP_editExpense = ( id, updates ) => (
-        {
+export const MP_editExpense = ( id, updates ) => ( {
             type: MP_expense_actions.ACT_XP_EDIT_EXPENSE,
 //[S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_EDIT_EXPENSE, ref1;^B]
             id,
             updates
-        }
-                                          );
+       } );
 //=====================================================================
 
       //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startEditExpense import-1;^B]
@@ -214,7 +214,6 @@ export const MP_startEditExpense = (id, updates) => {
                     ("   *** something went wrong in MP_startEditExpense", err));
   };
 };
-
 //=====================================================================
 //=====================================================================
 

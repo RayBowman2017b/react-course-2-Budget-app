@@ -89,6 +89,7 @@ if (process.env.NODE_ENV === "test")
 else if (process.env.NODE_ENV === "development")
   require('dotenv').config( { path: '.env.development' } );
 
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
 console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
 console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN = "${process.env.FIREBASE_AUTH_DOMAIN}"`);
 console.log (` ******** process.env.FIREBASE_DATABASE_URL = "${process.env.FIREBASE_DATABASE_URL}"`);
@@ -96,6 +97,7 @@ console.log (` ******** process.env.FIREBASE_PROJECT_ID = "${process.env.FIREBAS
 console.log (` ******** process.env.FIREBASE_STORAGE_BUCKET = "${process.env.FIREBASE_STORAGE_BUCKET}"`);
 console.log (` ******** process.env.FIREBASE_MESSAGING_SENDER_ID = "${process.env.FIREBASE_MESSAGING_SENDER_ID}"`);
 
+//  see LF_new_webpack_define_plugin below ...
 
 //  Turn these on as needed.
 //  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;

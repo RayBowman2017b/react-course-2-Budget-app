@@ -207,12 +207,14 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
 //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_expense_actions <1>^B]
     //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_startAddExpense <1>^B]
                                                      //[ MP_startAddExpense xrf-drc1;]
+                                                     //[ MP_startAddExpense data-xrf-drc2;]
                                                  //[ MP_expense_actions.ACT_XP_ADD_EXPENSE xrf-drc1;^B]
     //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_startRemoveExpense <1>^B]
                                                      //[ MP_startRemoveExpense xrf-drc1;]
                                                  //[ MP_expense_actions.ACT_XP_REMOVE_EXPENSE xrf-drc1;^B]
     //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: MP_startEditExpense <1>^B]
                                                      //[ MP_startEditExpense xrf-drc1;]
+                                                     //[ MP_startEditExpense data-xrf-drc2;]
                                                  //[ MP_expense_actions.ACT_XP_EDIT_EXPENSE xrf-drc1;^B]
     //  [S07251668|sec011a_L099_ACTN_expenses.jsx::DRC1: startSetExpenses <1>^B]
                                                  //[ MP_expense_actions.ACT_XP_SET_EXPENSE xrf-drc1;^B]
@@ -223,7 +225,14 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
 
 //  [S07251669|sec011a_L099_RDCR_expenses.jsx::GC_expensesReducerDefaultState drc1;^B]
 const GC_expensesReducerDefaultState = [];
-    //  [S07251667|sec011a_L105_expense_form.jsx::EXPENSE OBJECT CREATION drc1;^B]
+    //  [S07251667|sec011a_L105_expense_form.jsx::EXPENSE OBJECT CREATION drc1a;^B]
+    //  [S07251667|sec011a_L105_expense_form.jsx::EXPENSE OBJECT CREATION drc1b;^B]
+
+     +++ ACTIONS +++
+//[ MP_startAddExpense data-xrf-drc2;^B]
+//[ MP_startEditExpense data-xrf-drc2;^B]
+
+
 //  [S07251669|sec011a_L099_RDCR_expenses.jsx::MP_expensesReducer drc1;^B]
     switch (P_action.type)
     {

@@ -109,6 +109,8 @@ export default class CLS_expense_form extends React.Component
 
         //  values are passed in from the edit page.
         //  [S07251669|sec011a_L099_RDCR_expenses.jsx::EXPENSE OBJECT CREATION ref1;^B]
+                    //[S07251664|A01_DIrectory_01.txt::EXPENSE OBJECT CREATION drc1a;^B]
+                                                   //[ EXPENSE OBJECT CREATION xrf-drc1;]
 
         //  values sent to the REDUCER by the handler onExpenseSubmit :>
         //      [ this.state xrf1;]
@@ -241,7 +243,8 @@ export default class CLS_expense_form extends React.Component
 
 
         //  [S07251669|sec011a_L099_RDCR_expenses.jsx::EXPENSE OBJECT CREATION ref2;^B]
-                  //  [S07251664|A01_DIrectory_01.txt::EXPENSE OBJECT CREATION drc1;^B]
+                  //  [S07251664|A01_DIrectory_01.txt::EXPENSE OBJECT CREATION drc1b;^B]
+                                                   //[ EXPENSE OBJECT CREATION xrf-drc1;^B]
 
 
         //if ( ! L_descErrorMssg && ! L_amtErrorMssg )

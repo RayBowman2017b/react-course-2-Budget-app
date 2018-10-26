@@ -78,8 +78,8 @@ export class CLS_add_expense_page extends React.Component
 //  SEC_012 --- 124. Testing AddExpensePage 14:39
 //            props.dispatch ( MP_startAddExpense(P_expense) );
 
-            this.props.add_expense (P_expense);
-        //[ this.props.add_expense ref1;]
+            this.props.start_add_expense (P_expense);
+        //[ this.props.start_add_expense ref1;]
     //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: MP_startAddExpense <1>^B]
 
             this.props.history.push ('/');
@@ -139,8 +139,8 @@ const GC_add_expense_page = (props) => (
 const GF_map_dispatch_to_props = (P_dispatch) => ( {
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
     //add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
-    add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
-    //[ this.props.add_expense ref1;^B]
+    start_add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
+    //[ this.props.start_add_expense ref1;^B]
                                        //[ MP_startAddExpense pp1;^B]
 } );
 //export default connect() (GC_add_expense_page);

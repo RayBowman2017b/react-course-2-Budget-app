@@ -6,11 +6,12 @@
     "\\A01_Upper_Level_Files",
     "\\src",
     "\\src\\sec009a_components",
+    "\\src\\sec011a_L099_actions",
+    "\\src\\sec011a_L099_reducers",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\actions",
-    "\\src\\sec012a_L112_tests\\fixtures",
-    "\\zzz_private"
+    "\\src\\sec012a_L112_tests\\reducers",
+    "\\src\\sec014a_firebase"
   ],
-  "SelectedNode": "\\webpack.config.js",
+  "SelectedNode": "\\src\\sec012a_L112_tests\\actions\\sec012a_ACTN_expenses.test.jsx",
   "PreviewInSolutionExplorer": false
 }

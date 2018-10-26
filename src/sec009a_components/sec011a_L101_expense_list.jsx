@@ -82,8 +82,8 @@ export const SFC_expense_list = (P_props) => (
     //[ P_props.expenses exe1;]
     //[S07251670|sec011a_L099_SLCT_expenses.jsx::REF1: MP_SLCT_getVisibleExpenses <1>^B]
          //<div key={'div_' + P_expense.id} style={GC_div_style}>
-         <div key={'div_' + P_expense.id}>
-           <SFC_expense_list_item key={P_expense.id} {...P_expense} />
+          <div key={'div_' + P_expense.id}>
+            <SFC_expense_list_item key={P_expense.id} {...P_expense} />
     {/*
            //[S07251667|sec011a_L102_expense_list_item.jsx::EXE1: SFC_expense_list_item <1>^B]
     */}

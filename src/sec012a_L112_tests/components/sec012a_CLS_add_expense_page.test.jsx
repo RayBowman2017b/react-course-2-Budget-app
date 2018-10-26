@@ -26,18 +26,18 @@ describe ("COMPONENT TEST FOR ADD EXPENSE PAGE - sec009a_CLS_add_expense_page.js
         }
         setup ()
         {
-            this.V_add_expense = jest.fn();
+            this.V_start_add_expense = jest.fn();
             this.V_history = { push: jest.fn() };
             this.V_wrapper = shallow (
                     <CLS_add_expense_page
-                      add_expense={this.V_add_expense}
+                      start_add_expense={this.V_start_add_expense}
                       history={this.V_history}
                     />);
         }
 
         get G_wrapper ()   { return this.V_wrapper; }
         get G_history ()   { return this.V_history; }
-        get G_add_expense ()  { return this.V_add_expense; }
+        get G_start_add_expense ()  { return this.V_start_add_expense; }
         get G_test_expense ()  { return this.V_test_expense; }
     }
 
@@ -55,7 +55,7 @@ describe ("COMPONENT TEST FOR ADD EXPENSE PAGE - sec009a_CLS_add_expense_page.js
         GC_pram.G_wrapper.find('CLS_expense_form')
                          .prop('onExpenseSubmit')(GC_pram.G_test_expense);
         expect(GC_pram.G_history.push).toHaveBeenLastCalledWith('/');
-        expect(GC_pram.G_add_expense).toHaveBeenLastCalledWith(GC_pram.G_test_expense);
+        expect(GC_pram.G_start_add_expense).toHaveBeenLastCalledWith(GC_pram.G_test_expense);
     } );
 
 } );
