@@ -136,7 +136,8 @@ export const MP_addExpense = (expense) => (
       {
           P_dispatch ( MP_addExpense ( { id: ref.key, ...L_expense } ) );
              //[ EXE1: MP_addExpense <1>^B]
-      } );
+      } ).catch ((err) => console.log
+                ("   *** something went wrong in MP_startAddExpense", err));
     };
   }
 //=====================================================================
@@ -170,7 +171,8 @@ export const MP_startRemoveExpense = ({ id } = {}) => {
              .then(() => {
                   dispatch(MP_removeExpense({ id }));
                  //[ EXE1: MP_removeExpense <1>^B]
-    } ).catch ((err) => console.log("   *** something went wrong in MP_startRemoveExpense", err));
+    } ).catch ((err) => console.log
+                ("   *** something went wrong in MP_startRemoveExpense", err));
   };
 };
 
@@ -208,7 +210,8 @@ export const MP_startEditExpense = (id, updates) => {
                   dispatch(MP_editExpense(id, updates));
                  //[ EXE1: MP_editExpense <1>^B]
               } )
-             .catch ((err) => console.log("   *** something went wrong in MP_startEditExpense", err));
+             .catch ((err) => console.log
+                    ("   *** something went wrong in MP_startEditExpense", err));
   };
 };
 
@@ -255,7 +258,9 @@ export const MP_startSetExpenses = () => {
 
                   dispatch(MP_setExpenses(L_expenses));
                  //[ EXE1: MP_setExpenses <1>^B]
-              } );
+              } )
+             .catch ((err) => console.log
+                    ("   *** something went wrong in MP_startSetExpense", err));
   };
 };
 //=====================================================================

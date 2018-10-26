@@ -104,6 +104,27 @@ describe ('EXPENSE ACTION TESTS', () => {
         } );
     } );
 
+    test("should edit expense from firebase", (done) => {
+        const L_store = GC_createMockStore({});
+        const L_id = GC_FXT_expenses[1].id;
+        const L_expense_update = { amount: 230.32 };
+        L_store.dispatch(MP_startEditExpense(L_id, L_expense_update))
+               .then(() => {
+            const L_actions = L_store.getActions();
+            expect(L_actions[0]).toEqual( {
+                type: MP_expense_actions.ACT_XP_UPDATE_EXPENSE,
+                id: L_id,
+                updates: L_expense_update
+            } );
+            return MP_database.ref(`expenses/${L_id}`).once('value');
+        } )
+        .then( (P_snapshot) => {
+            expect(P_snapshot.val().amount).toEqual(L_expense_update.amount);
+            done();
+        } );
+    } );
+
+
     test ('should setup add expense action object with provided values', () => {
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
         //const L_expense_data =
