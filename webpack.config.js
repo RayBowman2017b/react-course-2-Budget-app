@@ -89,6 +89,13 @@ if (process.env.NODE_ENV === "test")
 else if (process.env.NODE_ENV === "development")
   require('dotenv').config( { path: '.env.development' } );
 
+const GF_env_is_test_or_development = () => {
+  return (
+             (process.env.NODE_ENV === "test")
+          || (process.env.NODE_ENV === "development")
+    );
+};
+
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
 console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
 console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN = "${process.env.FIREBASE_AUTH_DOMAIN}"`);
@@ -127,6 +134,7 @@ const GC_actual_path_public = () =>
 console.log ( ' --- GC_actual_path_public() is ', GC_actual_path_public());
 
 
+
 //  entry point -> output
 
 
@@ -145,7 +153,7 @@ const GC_path_favicon = GC_mod_path.join (__dirname, 'public','images');
             //[ GC_path_favicon a1;]
             //[ GC_path_favicon xxx]
 //const GC_path_favicon = "src/images";
-const GC_path_favicon_dest = (env === 'development') ?
+const GC_path_favicon_dest = (GF_env_is_test_or_development ()) ?
                              GC_mod_path.join (__dirname, 'images')
                            : GC_mod_path.join (__dirname, 'dist', 'images');
             //[ GC_path_favicon_dest a1;]
