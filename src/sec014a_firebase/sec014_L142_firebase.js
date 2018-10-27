@@ -12,7 +12,9 @@ src\sec011a_L099_actions\sec011a_L099_ACTN_expenses.jsx
 //  [S07251668|sec011a_L099_ACTN_expenses.jsx::sec014_L142_firebase import-1;^B]
 //  [S07251665|sec012a_app.jsx::sec014_L142_firebase import-2;^B]
 
-  export { firebase, MP_database as default };
+import { firebase, MP_google_auth_provider } from '../sec014a_firebase/sec014_L142_firebase.js';
+
+  export { firebase, MP_google_auth_provider, MP_database as default };
 
 //  SEC_014 --- 142. Getting Firebase 11:40
 
@@ -28,7 +30,6 @@ import 'firebase/database';
 
 
 import MP_moment from 'moment';
-
 
 //  SEC_014 --- 142. Getting Firebase 11:40
 
@@ -54,8 +55,12 @@ import MP_moment from 'moment';
 
   const MP_database = firebase.database();
 
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+const MP_google_auth_provider = new firebase.auth.GoogleAuthProvider();
+
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
-  export { firebase, MP_database as default };
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+  export { firebase, MP_google_auth_provider, MP_database as default };
 
 
 //===============================================================

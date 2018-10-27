@@ -25,7 +25,7 @@ import React from 'react';
 //  import { connect } from 'react-redux';
 
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
 //  import { MP_startRemoveExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
@@ -87,6 +87,10 @@ const GC_link_with_children = (P_props) =>
 );
 //    >{P_props.message}
 
+//==========================================================================
+//==========================================================================
+
+   //  [ END1: SFC_expense_list_item <1>]
 
 // SEC_011 --- 108. Wiring up Edit Expense 19:06
 //const SFC_expense_list_item = ({ dispatch, id, description, amount, createdAt }) => (
@@ -138,6 +142,9 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
 
     </span>
 );
+   //  [ END1: SFC_expense_list_item <1>^B]
+//==========================================================================
+//==========================================================================
 
 
 //export default SFC_expense_list_item;

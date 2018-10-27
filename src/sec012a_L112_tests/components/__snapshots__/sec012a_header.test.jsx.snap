@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT TEST FOR HEADER should render Header matching snapshot 1`] = `
+<header>
+  <h1>
+    Expensify
+  </h1>
+  <GF_link
+    message="HOME"
+    route="/"
+  />
+  <GF_link
+    message="Create Expense"
+    route="/create"
+  />
+  <GF_link
+    message="Edit"
+    route="/edit"
+  />
+  <button
+    id="BTN_logout"
+    onClick={[MockFunction]}
+  >
+    LOGOUT
+  </button>
+</header>
+`;

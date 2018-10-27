@@ -7,6 +7,7 @@ K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Bud
 
        //  [ DEF1: GC_app_router <1>]
 
+import { MP_history } from '../sec009a_routers/sec009a_app_router.jsx';
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_012_Testing_Your_Application\proj_02\Budget-app\src\sec009a_routers\
@@ -27,7 +28,6 @@ SEC_009_React_Router\proj_02\Budget-app\src\sec009a_routers\sec009a_app_router.j
 
 //  SEC_009 --- 80. Organizing Our Routes 12:30
 
-
  */
 
 //  ================================================================
@@ -47,7 +47,12 @@ import React from 'react';
 
 //  BrowserRouter will be used only once
 //  Route will be used for each path
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+//  SEC_016 --- 164. Redirecting Login or Logout 12:48
+//import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+
+//  SEC_016 --- 164. Redirecting Login or Logout 12:48
+import createHistory from 'history/createBrowserHistory'
 
 import Loadable from 'react-loadable';
 
@@ -55,6 +60,14 @@ import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx
      //[ MP_common_loading_handler grp-1;]
      //[ MP_common_loading_handler xxx]
                        //[S07251674|Loadable_Handlers.jsx::Loadable_Handlers import-1;^B]
+
+//  ================================================================
+
+//  SEC_016 --- 164. Redirecting Login or Logout 12:48
+export const MP_history = createHistory();
+
+//  ================================================================
+
 
 //#########################################################
 
@@ -80,6 +93,15 @@ import  SFC_not_found_page  from  "../sec009a_components/sec009a_SFC_not_found_p
             //[ MP_common_loading_handler ]
 
 /*************************************************************/
+
+//  import MP_SFC_login_page from '../../sec009a_components/sec016a_L162_login_page.jsx';
+
+
+const SFC_login_page = Loadable({
+  loader: () => import('../sec009a_components/sec016a_L162_login_page.jsx'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
 const SFC_header = Loadable({
   loader: () => import('../sec009a_components/sec009a_SFC_header.jsx'),
   loading: MP_common_loading_handler,
@@ -137,13 +159,25 @@ const SFC_not_found_page = Loadable({
 
        //[ DEF1: GC_app_router <1>^B]
 const GC_app_router = () => (
+  <div>
+ {/*
+    //  SEC_016 --- 164. Redirecting Login or Logout 12:48
+    SWITCHING BACK from BrowserRouter to Router, and including history
     <BrowserRouter>
-  <span>
+   */}
+    <Router history={MP_history}>
+  <div>
     <SFC_header />
     {/* //  [S07251667|sec009a_SFC_header.jsx::SFC_header tpl1;^B] */}
 
     <Switch>
-        <Route path="/" component={SFC_expense_dashboard_page} exact={true} />
+ {/*  */}
+ {/* //  SEC_016 --- 162. Login Page and Google Authentication 19:26 */}
+
+ {/*         <Route path="/" component={SFC_expense_dashboard_page} exact={true} /> */}
+        <Route path="/" component={SFC_login_page} exact={true} />
+ {/* [S07251667|sec016a_L162_login_page.jsx::SFC_login_page rtr1;^B]  */}
+        <Route path="/dashboard" component={SFC_expense_dashboard_page} exact={true} />
  {/* [S07251667|sec009a_SFC_expense_dashboard_page.jsx::GC_expense_dashboard_page rtr1;^B] */}
          <Route path="/create" component={CLS_add_expense_page}  />
  {/* [S07251667|sec009a_CLS_add_expense_page.jsx::CLS_add_expense_page rtr1;^B] */}
@@ -157,8 +191,13 @@ const GC_app_router = () => (
         <Route component={SFC_not_found_page}  />
  {/* [S07251667|sec009a_SFC_not_found_page.jsx::GC_not_found_page rtr1;^B] */}
     </Switch>
-  </span>
+  </div>
+ {/*
+    //  SEC_016 --- 164. Redirecting Login or Logout 12:48
     </BrowserRouter>
+   */}
+    </Router>
+  </div>
   );
 
 export default GC_app_router;

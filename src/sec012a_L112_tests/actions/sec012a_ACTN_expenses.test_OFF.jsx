@@ -104,6 +104,8 @@ describe ('EXPENSE ACTION TESTS', () => {
         } );
     } );
 
+//  SEC_015 --- 160. Update Expense 10:31
+
     test("should edit expense from firebase", (done) => {
         const L_store = GC_createMockStore({});
         const L_id = GC_FXT_expenses[1].id;

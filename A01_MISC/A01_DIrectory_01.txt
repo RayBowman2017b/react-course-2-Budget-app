@@ -19,10 +19,12 @@
         [ TEST CONFIG top-drc-1;]
 
         [ APP ROUTER top-drc-1;]
+            header
 
         [ SELECTORS top-drc-1;]
 
 
+        [ LOGIN PAGE top-drc-1;]
         [ EXPENSE DASHBOARD PAGE top-drc-1;]
 
         [ EXPENSE ACTIONS top-drc-1;]
@@ -189,6 +191,17 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
     //  [S07251670|sec011a_L099_SLCT_expenses.jsx::P_expenses.filter drc1;^B]
 
 //  [S07251670|sec013a_L139_SLCT_total_expenses.jsx::DRC1: MP_selectExpensesTotal <1>^B]
+
+...................................................................................................
+
+...................................................................................................
+        [ LOGIN PAGE top-drc-1;^B]
+...................................................................................................
+
+//  [S07251667|sec016a_L162_login_page.jsx::DRC1: SFC_login_page <1>^B]
+
+...................................................................................................
+
 
 ...................................................................................................
         [ EXPENSE DASHBOARD PAGE top-drc-1;^B]

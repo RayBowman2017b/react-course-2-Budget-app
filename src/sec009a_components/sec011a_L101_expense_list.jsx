@@ -53,9 +53,14 @@ const GC_div_style =
 let cnt = 0;
 //    <div>{"filter text > " + P_props.filters.text}</div>
 
+//==========================================================================
+//==========================================================================
+
    //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::TPL1: SFC_expense_list <1>^B]
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expense_list <1>^B]
+
+   //  [ END1: SFC_expense_list <1>]
 
    //[ DEF1: SFC_expense_list <1>^B]
 export const SFC_expense_list = (P_props) => (
@@ -94,6 +99,10 @@ export const SFC_expense_list = (P_props) => (
   }
 </span>
     );
+   //  [ END1: SFC_expense_list <1>^B]
+//==========================================================================
+//==========================================================================
+
 
 /***********************************************************************
 const xxx_GF_map_state_to_props = (P_state) =>  {

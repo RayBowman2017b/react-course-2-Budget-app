@@ -22,7 +22,9 @@ import ReactDOM from 'react-dom';
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 import { Provider } from 'react-redux';
 
-import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
+//  SEC_016 --- 164. Redirecting Login or Logout 12:48
+// import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
+import SFC_app_router, { MP_history } from './sec009a_routers/sec009a_app_router.jsx';
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
 
@@ -53,9 +55,17 @@ import { MP_startAddExpense, MP_startSetExpenses }
 from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
      //[S07251668|sec011a_L099_ACTN_expenses.jsx::REF2: MP_expense_actions <1>^B]
 
-import MP_database from './sec014a_firebase/sec014_L142_firebase.js';
+//=====================================================================
+
+//  SEC_014 --- 142. Getting Firebase 11:40
+
+//  import  './sec014a_firebase/sec014_L142_firebase.js';
+
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+import { firebase, MP_database } from './sec014a_firebase/sec014_L142_firebase.js';
       //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-2;^B]
 
+//=====================================================================
 
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
             //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-3x;^B]
@@ -64,13 +74,6 @@ import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_e
             //[ MP_getVisibleExpenses ref1;]
             //[ MP_getVisibleExpenses xxx]
 
-//=====================================================================
-
-//  SEC_014 --- 142. Getting Firebase 11:40
-
-import  './sec014a_firebase/sec014_L142_firebase.js';
-
-//=====================================================================
 
 const GC_store = MP_configure_store ();
   //[ GC_store a1;]
@@ -154,12 +157,26 @@ const GC_provider_for_router = (
 
 //=====================================================================
 
-//  SEC_004 --- 27. Nesting Components 5:43
-
 //  sec011_app_01
 const GC_appRoot_01 = document.getElementById('sec011_app_01');
 //[S07251665|index_template.html::getElementById('sec011_app_01'); ref1;^B]
          //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
+
+const GC_render_CTRL = {
+  has_rendered: false,
+  render_app ()
+  {
+    if ( ! this.has_rendered )  {
+          ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
+                      //[ GC_provider_for_router exe1;^B]
+          this.has_rendered = true;
+    }
+  }
+};
+
+//=====================================================================
+
+//  SEC_004 --- 27. Nesting Components 5:43
 
 //  [S07251664|A01_DIrectory_01.txt::ReactDOM.render GC_provider_for_router^B]
 
@@ -175,19 +192,37 @@ const GC_appRoot_01 = document.getElementById('sec011_app_01');
 //ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
 
-//GC_store.dispatch(startSetExpenses()).then(() => {
-//  ReactDOM.render(jsx, document.getElementById('app'));
-GC_store.dispatch(MP_startSetExpenses())
-//[ GC_store a1;^B]
-              //[ MP_startSetExpenses exe1;^B]
-  //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
-        .then ( () => {
-          ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
-                      //[ GC_provider_for_router exe1;^B]
-                     }
-              )
-        .catch ((err) => console.log (` ******** ERROR in app.jsx :: ${err}`) );
+//=====================================================================
+
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+//  SEC_016 --- 164. Redirecting Login or Logout 12:48
+
+firebase.auth().onAuthStateChanged ( (P_user) => {
+  if (P_user) {
+    console.log("log in", P_user);
+
+    //GC_store.dispatch(startSetExpenses()).then(() => {
+    //  ReactDOM.render(jsx, document.getElementById('app'));
+    GC_store.dispatch(MP_startSetExpenses())
+    //[ GC_store a1;^B]
+                  //[ MP_startSetExpenses exe1;^B]
+      //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
+            .then ( () => {
+              GC_render_CTRL.render_app ();
+                         }
+                  )
+            .catch ((err) => console.log
+                       (` ******** ERROR in app.jsx :: ${err}`) );
+
+    if (MP_history.location.pathName === '/')
+      MP_history.push('/dashboard');
+
+  } else {
+    console.log("log out", P_user);
+    GC_render_CTRL.render_app ();
+    MP_history.push('/');
+  }
+} );
 
 //=====================================================================
 //=====================================================================
-

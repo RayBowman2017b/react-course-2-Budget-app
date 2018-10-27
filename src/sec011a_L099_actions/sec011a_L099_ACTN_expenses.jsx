@@ -48,11 +48,11 @@ import MP_database from '../sec014a_firebase/sec014_L142_firebase.js';
        //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-1;^B]
 
 
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_expense_actions <1>^B]
-
    //  [S07251665|sec012a_app.jsx::REF2: MP_expense_actions <1>^B]
 
    //  [S07251669|sec011a_L099_RDCR_expenses.jsx::REF1: MP_expense_actions <1>^B]
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_expense_actions <1>^B]
 
    //[ DEF1: MP_expense_actions <1>^B]
 export const MP_expense_actions =
@@ -192,6 +192,8 @@ export const MP_editExpense = ( id, updates ) => ( {
             updates
        } );
 //=====================================================================
+
+//  SEC_015 --- 160. Update Expense 10:31
 
       //  [S07251667|sec009a_CLS_edit_expense_page.jsx::MP_startEditExpense import-1;^B]
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::EXE1: MP_startEditExpense <1>^B]

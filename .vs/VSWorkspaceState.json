@@ -9,9 +9,8 @@
     "\\src\\sec011a_L099_actions",
     "\\src\\sec011a_L099_reducers",
     "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\reducers",
-    "\\src\\sec014a_firebase"
+    "\\src\\sec012a_L112_tests\\reducers"
   ],
-  "SelectedNode": "\\src\\sec012a_L112_tests\\actions\\sec012a_ACTN_expenses.test.jsx",
+  "SelectedNode": "\\src\\sec009a_components\\sec009a_SFC_header.jsx",
   "PreviewInSolutionExplorer": false
 }

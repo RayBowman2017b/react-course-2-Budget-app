@@ -131,6 +131,7 @@ console.log ( ' --- GC_actual_path_public() is ', GC_actual_path_public());
 
 
        //    [ EXE1: GC_actual_path_dist <1>]
+       //    [ EXE2: GC_actual_path_dist <1>]
 
 //[ DEF1: GC_actual_path_dist <1>^B]
 const GC_actual_path_dist = () =>
@@ -141,8 +142,14 @@ console.log ( ' --- GC_actual_path_dist () is ', GC_actual_path_dist());
 
 
 const GC_path_favicon = GC_mod_path.join (__dirname, 'public','images');
+            //[ GC_path_favicon a1;]
+            //[ GC_path_favicon xxx]
 //const GC_path_favicon = "src/images";
-const GC_path_favicon_dest = GC_mod_path.join (__dirname, 'images');
+const GC_path_favicon_dest = (env === 'development') ?
+                             GC_mod_path.join (__dirname, 'images')
+                           : GC_mod_path.join (__dirname, 'dist', 'images');
+            //[ GC_path_favicon_dest a1;]
+            //[ GC_path_favicon_dest xxx]
 //const GC_path_favicon_dest = "images";
 console.log ( ' --- GC_path_favicon is ', GC_path_favicon);
 
@@ -205,6 +212,8 @@ function GC_build_config (env)  {
         return new CopyWebpackPlugin (
                 //[ {from:'src/images', to:'images'} ], { copyUnmodified: true }
                 [ {from: GC_path_favicon, to: GC_path_favicon_dest} ],
+                     //[ GC_path_favicon a1;^B]
+                                          //[ GC_path_favicon_dest a1;^B]
                 { copyUnmodified: true }
             );
     }
@@ -308,7 +317,8 @@ function GC_build_config (env)  {
             // Ignore all locale files of moment.js
             new GC_webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
-            new CleanWebpackPlugin(GC_actual_path_dist ('K:/'), {} ),
+            new CleanWebpackPlugin(GC_actual_path_dist (), {} ),
+                         //[ EXE1: GC_actual_path_dist <1>^B]
             new MiniCssExtractPlugin({
                 filename: 'style.[contenthash].css',
             }),
@@ -338,7 +348,7 @@ function GC_build_config (env)  {
         L_config_obj.devtool = 'source-map';
         L_config_obj.mode = "production";
         L_config_obj.output.path = GC_actual_path_dist ();
-                         //[ EXE1: GC_actual_path_dist <1>^B]
+                         //[ EXE2: GC_actual_path_dist <1>^B]
 
         L_config_obj.optimization.splitChunks =
         {

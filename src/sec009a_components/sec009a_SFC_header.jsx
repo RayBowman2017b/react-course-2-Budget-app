@@ -17,6 +17,10 @@ import React from 'react';
 
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
+//  SEC_016 --- 163. Logging Out 11:05
+import { connect } from 'react-redux';
+import { MP_start_logout } from '../sec011a_L099_actions/sec016a_L162_auth.jsx';
+
 
 const GF_link=(P_props) =>
     (
@@ -34,13 +38,18 @@ const GF_link=(P_props) =>
 
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_header <1>]
 
-const GC_header = () =>
+export const SFC_header = (props) =>
 (
 <header>
   <h1>Expensify</h1>
   <GF_link route="/" message="HOME" />
   <GF_link route="/create" message="Create Expense" />
   <GF_link route="/edit" message="Edit" />
+  {/*  */}
+  {/* //  SEC_016 --- 163. Logging Out 11:05  */}
+  <button id='BTN_logout' onClick={props.BTN_CLK_start_logout}>
+    LOGOUT
+  </button>
 </header>
 );
 
@@ -48,4 +57,10 @@ const GC_header = () =>
 //  SEC_012 --- 118. Snapshot Testing 12:13
 //  <GF_link route="/help" message="Help" />
 
-export default GC_header;
+//  SEC_016 --- 163. Logging Out 11:05
+
+const GF_map_dispatch_to_props = (P_dispatch) => ( {
+  BTN_CLK_start_logout: () => P_dispatch(MP_start_logout())
+} );
+
+export default connect(undefined, GF_map_dispatch_to_props) (SFC_header);
