@@ -22,7 +22,7 @@ import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
 
-import { MP_start_login } from '../sec011a_L099_actions/sec016a_L162_auth.jsx';
+import { MP_start_login } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
 
 const GC_button_style =
 { padding: 0.2 + "rem", margin: 1 + "rem", float: "left", clear:"left" };
@@ -58,7 +58,7 @@ const GC_link_with_children = (P_props) =>
 
 //  [ EXE1: SFC_login_page <1>^B]
 
-    //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_login_page <1>^B]
+//  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_login_page <1>^B]
 
        //[ DEF1: SFC_login_page <1>^B]
 export const SFC_login_page = (P_props) => (
@@ -75,8 +75,12 @@ export const SFC_login_page = (P_props) => (
       id="TXBX_password"
       style={GC_testbox01_style}
     />
+    {/*  */}
+    {/* //  SEC_016 --- 162. Login Page and Google Authentication 19:26 */}
     <button id='BTN_login' onClick={P_props.BTN_CLK_start_login} style={GC_button_style}>
-    login
+    {/* [ P_props.BTN_CLK_start_login exe1;] */}
+    {/* [S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_login <1>^B] */}
+    LOGIN
     </button>
     <GC_link_with_children route={"/dashboard/"}>
     {/*  //[ EXE1: GC_link_with_children <1>^B]
@@ -96,6 +100,8 @@ export const SFC_login_page = (P_props) => (
 
 const GF_map_dispatch_to_props = (P_dispatch) => ( {
     BTN_CLK_start_login: (P_login_obj) => P_dispatch(MP_start_login())
+//[ P_props.BTN_CLK_start_login exe1;^B]
+      //[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_start_login <1>^B]
 } );
 
 //export default connect(GF_map_state_to_props, GF_map_dispatch_to_props) (SFC_login_page);

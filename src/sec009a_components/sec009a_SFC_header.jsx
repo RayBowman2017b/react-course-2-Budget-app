@@ -1,5 +1,5 @@
 
-/*
+/***************************************************************************
 
   sec009a_SFC_header.jsx
 
@@ -11,7 +11,7 @@ SEC_009_React_Router\proj_02\Budget-app\src\sec009a_components\sec009a_SFC_heade
 
 import MP_header from '../../sec009a_components/sec009a_SFC_header.jsx';
 
-*/
+ ***************************************************************************/
 
 import React from 'react';
 
@@ -19,7 +19,8 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 //  SEC_016 --- 163. Logging Out 11:05
 import { connect } from 'react-redux';
-import { MP_start_logout } from '../sec011a_L099_actions/sec016a_L162_auth.jsx';
+import { MP_start_logout } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
+                //[S07251668|sec016a_L162_ACTN_auth.jsx::sec016a_L162_ACTN_auth import-2;^B]
 
 
 const GF_link=(P_props) =>
@@ -48,6 +49,8 @@ export const SFC_header = (props) =>
   {/*  */}
   {/* //  SEC_016 --- 163. Logging Out 11:05  */}
   <button id='BTN_logout' onClick={props.BTN_CLK_start_logout}>
+                           {/* //[ props.BTN_CLK_start_logout exe1;] */}
+  {/*[S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_logout <1>^B]  */}
     LOGOUT
   </button>
 </header>
@@ -61,6 +64,8 @@ export const SFC_header = (props) =>
 
 const GF_map_dispatch_to_props = (P_dispatch) => ( {
   BTN_CLK_start_logout: () => P_dispatch(MP_start_logout())
+//[ props.BTN_CLK_start_logout exe1;^B]
+//[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_start_logout <1>^B]
 } );
 
 export default connect(undefined, GF_map_dispatch_to_props) (SFC_header);

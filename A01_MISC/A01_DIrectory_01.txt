@@ -33,6 +33,8 @@
         [ FILTER AND SORT ACTIONS top-drc-1;]
         [ FILTER AND SORT REDUCER top-drc-1;]
             GC_filtersReducerDefaultState
+        [ AUTH ACTIONS top-drc-1;]
+        [ AUTH REDUCER top-drc-1;]
 
         [ EXPENSE LIST SUMMARY top-drc-1;]
 
@@ -331,6 +333,21 @@ const GC_filtersReducerDefaultState =
         default:
             return P_state;
     }
+
+
+
+...................................................................................................
+        [ AUTH ACTIONS top-drc-1;^B]
+...................................................................................................
+
+
+//  [S07251668|sec016a_L162_ACTN_auth.jsx::MP_auth_actions drc1;^B]
+
+...................................................................................................
+        [ AUTH REDUCER top-drc-1;^B]
+...................................................................................................
+
+//  [S07251669|sec016a_L165_RDCR_auth.jsx::DRC1: MP_authReducer <1>^B]
 
 
 ...................................................................................................

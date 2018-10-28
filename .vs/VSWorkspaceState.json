@@ -6,11 +6,11 @@
     "\\A01_Upper_Level_Files",
     "\\src",
     "\\src\\sec009a_components",
+    "\\src\\sec009a_routers",
     "\\src\\sec011a_L099_actions",
-    "\\src\\sec011a_L099_reducers",
-    "\\src\\sec012a_L112_tests",
-    "\\src\\sec012a_L112_tests\\reducers"
+    "\\src\\sec011a_L099_store",
+    "\\src\\sec014a_firebase"
   ],
-  "SelectedNode": "\\src\\sec009a_components\\sec009a_SFC_header.jsx",
+  "SelectedNode": "\\src\\sec011a_L099_store\\sec011a_L099_STR_configure_store.jsx",
   "PreviewInSolutionExplorer": false
 }

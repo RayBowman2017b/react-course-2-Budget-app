@@ -13,6 +13,7 @@ src\sec011a_L099_actions\sec011a_L099_ACTN_expenses.jsx
 //  [S07251665|sec012a_app.jsx::sec014_L142_firebase import-2;^B]
 
 import { firebase, MP_google_auth_provider } from '../sec014a_firebase/sec014_L142_firebase.js';
+//[S07251668|sec016a_L162_ACTN_auth.jsx::sec014_L142_firebase import-3;^B]
 
   export { firebase, MP_google_auth_provider, MP_database as default };
 
@@ -62,6 +63,9 @@ const MP_google_auth_provider = new firebase.auth.GoogleAuthProvider();
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
   export { firebase, MP_google_auth_provider, MP_database as default };
 
+
+
+//  EVERYTHING has been deactivated below this point.
 
 //===============================================================
 //===============================================================

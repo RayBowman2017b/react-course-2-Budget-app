@@ -7,6 +7,7 @@ K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_011_React_with_Redux\proj_02\Budget-app\src\sec011a_L099_store\sec011a_L099_STR_configure_store.jsx
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
+                       //[S07251665|sec012a_app.jsx::sec011a_L099_STR_configure_store import-1;^B]
 
 //  SEC_011 --- 99. Organizing Redux 14:50
 
@@ -23,6 +24,10 @@ import MP_expensesReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_expen
 
 import MP_filtersReducer from "../sec011a_L099_reducers/sec011a_L099_RDCR_filters.jsx";
             //[S07251669|sec011a_L099_RDCR_filters.jsx::sec011a_L099_RDCR_filters import-1;^B]
+
+//  SEC_016 --- 165. The Auth Reducer 15:49
+import MP_authReducer from "../sec011a_L099_reducers/sec016a_L165_RDCR_auth.jsx";
+            //[S07251669|sec016a_L165_RDCR_auth.jsx::sec016a_L165_RDCR_auth import-1;^B]
 
 //=====================================================================
 
@@ -54,10 +59,12 @@ const L_store = createStore
             {
                 expenses: MP_expensesReducer,
 //[S07251669|sec011a_L099_RDCR_expenses.jsx::combineReducers expenses: MP_expensesReducer^B]
-                filters: MP_filtersReducer
+                filters: MP_filtersReducer,
 //[S07251669|sec011a_L099_RDCR_filters.jsx::combineReducers filters: MP_filtersReducer^B]
+//  SEC_016 --- 165. The Auth Reducer 15:49
+                auth: MP_authReducer
+//[S07251669|sec016a_L165_RDCR_auth.jsx::combineReducers auth: MP_authReducer^B]
             }
-
                             ),
 
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49

@@ -25,8 +25,10 @@ import { Provider } from 'react-redux';
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
 // import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
 import SFC_app_router, { MP_history } from './sec009a_routers/sec009a_app_router.jsx';
+                         //[S07251666|sec009a_app_router.jsx::sec009a_app_router import-1;^B]
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
+//[S07251671|sec011a_L099_STR_configure_store.jsx::sec011a_L099_STR_configure_store import-1;^B]
 
 import MP_moment from 'moment';
 
@@ -67,6 +69,12 @@ import { firebase, MP_database } from './sec014a_firebase/sec014_L142_firebase.j
 
 //=====================================================================
 
+//  SEC_016 --- 165. The Auth Reducer 15:49
+import { MP_login, MP_logout } from './sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
+                   //[S07251668|sec016a_L162_ACTN_auth.jsx::sec016a_L162_ACTN_auth import-1;^B]
+
+//=====================================================================
+
 //  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
             //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-3x;^B]
 import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
@@ -77,7 +85,6 @@ import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_e
 
 const GC_store = MP_configure_store ();
   //[ GC_store a1;]
-  //[ GC_store xxx]
 //[S07251671|sec011a_L099_STR_configure_store.jsx::EXE1: MP_configure_store <1>^B]
                       //[S07251664|A01_DIrectory_01.txt::MP_configure_store drc1;^B]
 
@@ -201,6 +208,10 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
   if (P_user) {
     console.log("log in", P_user);
 
+//  SEC_016 --- 165. The Auth Reducer 15:49
+    GC_store.dispatch(MP_login(P_user.uid));
+    //[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_login <1>^B]
+
     //GC_store.dispatch(startSetExpenses()).then(() => {
     //  ReactDOM.render(jsx, document.getElementById('app'));
     GC_store.dispatch(MP_startSetExpenses())
@@ -209,16 +220,24 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
       //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
             .then ( () => {
               GC_render_CTRL.render_app ();
-                         }
+                          }
                   )
             .catch ((err) => console.log
                        (` ******** ERROR in app.jsx :: ${err}`) );
 
-    if (MP_history.location.pathName === '/')
+    console.log("MP_history.location.pathname", MP_history.location.pathname);
+    console.log("MP_history.location", MP_history.location);
+    if (MP_history.location.pathname === '/')
       MP_history.push('/dashboard');
+    //[S07251666|sec009a_app_router.jsx::MP_history ref1;^B]
 
   } else {
     console.log("log out", P_user);
+
+//  SEC_016 --- 165. The Auth Reducer 15:49
+    GC_store.dispatch(MP_logout());
+//[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_logout <1>^B]
+
     GC_render_CTRL.render_app ();
     MP_history.push('/');
   }
