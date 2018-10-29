@@ -72,6 +72,11 @@ import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_s
                     //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-2;^B]
 
 
+//##########################################################################
+//##########################################################################
+
+   //  [ END1: CLS_expense_list_filters <1>]
+
 //  SEC_011 --- 110. Filtering by Dates 19:44
 //const SFC_expense_list_filters = (P_props) => (
 
@@ -79,14 +84,16 @@ import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_s
 
        //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_expense_list_filters <1>^B]
 
+       //  connect(GF_map_state_to_props, GF_map_dispatch_to_props)
        //  [ CLS_expense_list_filters pp1;]
-       //  [ CLS_expense_list_filters xxx]
 
-   //  [ END1: CLS_expense_list_filters <1>]
+       //  [ CLS_expense_list_filters xxx]
 
    //[ CLS1: CLS_expense_list_filters <1>^B]
 export class CLS_expense_list_filters extends React.Component
 {
+       //  [ CNS1: CLS_expense_list_filters.constructor <1>]
+
        //  [ DEF1: onExpenseDatesChange <1>]
        //  [ DEF1: onExpenseFocusChange <1>]
        //  [ DEF1: TXBX_filters_change <1>]
@@ -105,6 +112,7 @@ export class CLS_expense_list_filters extends React.Component
     };
     //======================================================================
 
+    //[ CNS1: CLS_expense_list_filters.constructor <1>^B]
     constructor(P_props)
     {
         super (P_props);
@@ -216,6 +224,7 @@ export class CLS_expense_list_filters extends React.Component
 {/*  */}
 
 
+{/* [S07251664|A01_DIrectory_01.txt::CLS_expense_list_filters <DateRangePicker> drc1;^B] */}
 
 <DateRangePicker
   startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
@@ -246,8 +255,8 @@ export class CLS_expense_list_filters extends React.Component
     //======================================================================
 }
    //  [ END1: CLS_expense_list_filters <1>^B]
-//#######################################################################################
-//#######################################################################################
+//##########################################################################
+//##########################################################################
 
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNLISTFLTR.GF_map_state_to_props <1>^B]
@@ -286,18 +295,18 @@ const GF_map_dispatch_to_props = (P_dispatch, P_props) =>  {
                ),
     MDTP_sortByDate: () => P_dispatch(MP_sortByDate ()),
     //[ this.props.MDTP_sortByDate exe1;^B]
-                                //[ MP_sortByDate import-02;]
+                                  //[ MP_sortByDate import-02;]
     MDTP_sortByAmount: () => P_dispatch(MP_sortByAmount ()),
     //[ this.props.MDTP_sortByAmount exe1;^B]
-                                  //[ MP_sortByAmount import-02;]
+                                    //[ MP_sortByAmount import-02;]
     MDTP_setStartDate: (P_start_date) =>
     //[ this.props.MDTP_setStartDate exe1;^B]
       P_dispatch (MP_setStartDate(P_start_date) ),
-            //[ MP_setStartDate import-01;]
+              //[ MP_setStartDate import-01;]
     MDTP_setEndDate: (P_end_date) =>
     //[ this.props.MDTP_setEndDate exe1;^B]
       P_dispatch (MP_setEndDate(P_end_date) )
-            //[ MP_setEndDate import-01;]
+              //[ MP_setEndDate import-01;]
   }      );
 };
 

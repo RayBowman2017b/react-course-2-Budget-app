@@ -27,10 +27,14 @@ import { MP_auth_actions } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.
 export default (P_state = {}, P_action) => {
     switch (P_action.type) {
         case (MP_auth_actions.ACT_AUTH_login):
+        //[S07251668|sec016a_L162_ACTN_auth.jsx::MP_auth_actions.ACT_AUTH_login ref1;^B]
+              //[S07251664|A01_DIrectory_01.txt::MP_auth_actions.ACT_AUTH_login drc1;^B]
             return {
                 uid: P_action.uid
             };
         case (MP_auth_actions.ACT_AUTH_logout):
+        //[S07251668|sec016a_L162_ACTN_auth.jsx::MP_auth_actions.ACT_AUTH_logout ref1;^B]
+              //[S07251664|A01_DIrectory_01.txt::MP_auth_actions.ACT_AUTH_logout drc1;^B]
             return {};
         default: return P_state;
     };

@@ -66,12 +66,18 @@ import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx
 
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
 export const MP_history = createHistory();
+         //[ MP_history ref2;]
 //[S07251665|sec012a_app.jsx::MP_history ref1;^B]
 
 //  ================================================================
 
 //  SEC_016 --- 166. Private Only Routes 13:04
 import MP_SFC_private_route from './sec016a_L166_private_app_router.jsx';
+
+//  ================================================================
+
+//  SEC_016 --- 167. Public Only Routes 5:29
+import MP_SFC_public_route from './sec016a_L167_public_app_router.jsx';
 
 //#########################################################
 
@@ -175,6 +181,7 @@ const GC_app_router = () => (
     <BrowserRouter>
    */}
     <Router history={MP_history}>
+             {/* //[ MP_history ref2;^B] */}
   <div>
  {/*
 //  SEC_016 --- 166. Private Only Routes 13:04
@@ -188,9 +195,12 @@ K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\sec009a_routers\sec016a_
  {/*  */}
  {/* //  SEC_016 --- 162. Login Page and Google Authentication 19:26 */}
 
+ {/* //  SEC_016 --- 167. Public Only Routes 5:29 */}
  {/*         <Route path="/" component={SFC_expense_dashboard_page} exact={true} /> */}
-        <Route path="/" component={SFC_login_page} exact={true} />
+        <MP_SFC_public_route path="/" component={SFC_login_page} exact={true} />
  {/* [S07251667|sec016a_L162_login_page.jsx::SFC_login_page rtr1;^B]  */}
+
+ {/* //  SEC_016 --- 166. Private Only Routes 13:04 */}
         <MP_SFC_private_route path="/dashboard" component={SFC_expense_dashboard_page} exact={true} />
  {/* [S07251667|sec009a_SFC_expense_dashboard_page.jsx::GC_expense_dashboard_page rtr1;^B] */}
         <MP_SFC_private_route path="/create" component={CLS_add_expense_page}  />

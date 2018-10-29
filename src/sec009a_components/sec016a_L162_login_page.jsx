@@ -83,8 +83,7 @@ export const SFC_login_page = (P_props) => (
     LOGIN
     </button>
     <GC_link_with_children route={"/dashboard/"}>
-    {/*  //[ EXE1: GC_link_with_children <1>^B]
-      */}
+    {/*  //[ EXE1: GC_link_with_children <1>^B] */}
           <h3>{'TO > dashboard'}</h3>
     </GC_link_with_children>
   </div>

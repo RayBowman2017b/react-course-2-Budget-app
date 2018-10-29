@@ -57,7 +57,7 @@ import MP_moment from 'moment';
   const MP_database = firebase.database();
 
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
-const MP_google_auth_provider = new firebase.auth.GoogleAuthProvider();
+  const MP_google_auth_provider = new firebase.auth.GoogleAuthProvider();
 
 //  SEC_015 --- 152. Asynchronous Redux Actions 18:49
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26

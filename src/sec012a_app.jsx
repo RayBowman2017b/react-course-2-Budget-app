@@ -21,6 +21,7 @@ import ReactDOM from 'react-dom';
 
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 import { Provider } from 'react-redux';
+import MP_moment from 'moment';
 
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
 // import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
@@ -29,8 +30,6 @@ import SFC_app_router, { MP_history } from './sec009a_routers/sec009a_app_router
 
 import MP_configure_store from "./sec011a_L099_store/sec011a_L099_STR_configure_store.jsx";
 //[S07251671|sec011a_L099_STR_configure_store.jsx::sec011a_L099_STR_configure_store import-1;^B]
-
-import MP_moment from 'moment';
 
 
 //  SEC_008 --- 66. Reset That $#!* 4:58
@@ -170,7 +169,12 @@ const GC_appRoot_01 = document.getElementById('sec011_app_01');
          //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
 
 const GC_render_CTRL = {
+
   has_rendered: false,
+
+   //  [ EXE1a: render_app <1>]
+   //  [ EXE1b: render_app <1>]
+
   render_app ()
   {
     if ( ! this.has_rendered )  {
@@ -180,7 +184,6 @@ const GC_render_CTRL = {
     }
   }
 };
-
 //=====================================================================
 
 //  SEC_004 --- 27. Nesting Components 5:43
@@ -220,13 +223,14 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
       //[S07251668|sec011a_L099_ACTN_expenses.jsx::EXE1: startSetExpenses <1>^B]
             .then ( () => {
               GC_render_CTRL.render_app ();
+                  //[ EXE1a: render_app <1>^B]
                           }
                   )
             .catch ((err) => console.log
                        (` ******** ERROR in app.jsx :: ${err}`) );
 
-    console.log("MP_history.location.pathname", MP_history.location.pathname);
-    console.log("MP_history.location", MP_history.location);
+    //console.log("MP_history.location.pathname", MP_history.location.pathname);
+    //console.log("MP_history.location", MP_history.location);
     if (MP_history.location.pathname === '/')
       MP_history.push('/dashboard');
     //[S07251666|sec009a_app_router.jsx::MP_history ref1;^B]
@@ -239,6 +243,8 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
 //[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_logout <1>^B]
 
     GC_render_CTRL.render_app ();
+        //[ EXE1b: render_app <1>^B]
+
     MP_history.push('/');
   }
 } );

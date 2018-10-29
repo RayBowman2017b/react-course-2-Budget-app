@@ -48,6 +48,7 @@ export const MP_auth_actions =
    //[ DEF1: MP_login <1>^B]
 export const MP_login = (P_uid) => ({
     type: MP_auth_actions.ACT_AUTH_login,
+    //[S07251669|sec016a_L165_RDCR_auth.jsx::MP_auth_actions.ACT_AUTH_login ref1;^B]
     uid: P_uid
 });
 
@@ -69,6 +70,7 @@ export const MP_start_login = () => {
    //[ DEF1: MP_logout <1>^B]
 export const MP_logout = () => ({
     type: MP_auth_actions.ACT_AUTH_logout
+    //[S07251669|sec016a_L165_RDCR_auth.jsx::MP_auth_actions.ACT_AUTH_logout ref1;^B]
 });
 
 //  SEC_016 --- 163. Logging Out 11:05

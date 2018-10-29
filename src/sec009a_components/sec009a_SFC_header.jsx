@@ -43,7 +43,9 @@ export const SFC_header = (props) =>
 (
 <header>
   <h1>Expensify</h1>
-  <GF_link route="/" message="HOME" />
+  {/* //  SEC_016 --- 167. Public Only Routes 5:29 */}
+  {/*   <GF_link route="/" message="HOME" /> */}
+  <GF_link route="/dashboard" message="Dashboard" />
   <GF_link route="/create" message="Create Expense" />
   <GF_link route="/edit" message="Edit" />
   {/*  */}

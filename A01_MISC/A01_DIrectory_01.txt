@@ -94,7 +94,13 @@ ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
 
 //[ id: uuid(), xrf-drc1;]
 
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::CLS_expense_list_filters <DateRangePicker> drc1;^B]
+//  [S07251667|sec011a_L105_expense_form.jsx::CLS_expense_form <SingleDatePicker> drc1;^B]
+
+
 //  [S07251667|sec011a_L102_expense_list_item.jsx::numeral(amount / 100).format drc1;^B]
+
 //  [S07251667|sec011a_L102_expense_list_item.jsx::moment(createdAt).format drc1;^B]
 
 
@@ -349,6 +355,8 @@ const GC_filtersReducerDefaultState =
 
 //  [S07251669|sec016a_L165_RDCR_auth.jsx::DRC1: MP_authReducer <1>^B]
 
+//  [S07251669|sec016a_L165_RDCR_auth.jsx::MP_auth_actions.ACT_AUTH_login drc1;^B]
+//  [S07251669|sec016a_L165_RDCR_auth.jsx::MP_auth_actions.ACT_AUTH_logout drc1;^B]
 
 ...................................................................................................
         [ EXPENSE LIST SUMMARY top-drc-1;^B]
