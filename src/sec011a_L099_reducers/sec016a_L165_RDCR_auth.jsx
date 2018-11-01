@@ -32,10 +32,13 @@ export default (P_state = {}, P_action) => {
             return {
                 uid: P_action.uid
             };
+        //[S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer ref4a;^B]
+
         case (MP_auth_actions.ACT_AUTH_logout):
         //[S07251668|sec016a_L162_ACTN_auth.jsx::MP_auth_actions.ACT_AUTH_logout ref1;^B]
               //[S07251664|A01_DIrectory_01.txt::MP_auth_actions.ACT_AUTH_logout drc1;^B]
             return {};
+        //[S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer ref4b;^B]
         default: return P_state;
     };
 };

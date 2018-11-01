@@ -4,13 +4,13 @@
     "\\A01_Course_Notes",
     "\\A01_MISC",
     "\\A01_Upper_Level_Files",
+    "\\A02_sec013_135_server",
     "\\src",
     "\\src\\sec009a_components",
     "\\src\\sec009a_routers",
     "\\src\\sec011a_L099_actions",
-    "\\src\\sec011a_L099_store",
-    "\\src\\sec014a_firebase"
+    "\\src\\sec011a_L099_store"
   ],
-  "SelectedNode": "\\src\\sec011a_L099_store\\sec011a_L099_STR_configure_store.jsx",
+  "SelectedNode": "\\A02_sec013_135_server\\server_135.js",
   "PreviewInSolutionExplorer": false
 }

@@ -44,6 +44,12 @@ describe ('EXPENSE ACTION TESTS', () => {
 
     const GC_FXT_expenses = [];
 
+//  SEC_016 --- 168. Private Firebase Data 18:33
+    const GC_fake_uid = "this_is_a_fake_uid";
+    const GC_fake_auth_obj = { auth: { uid: GC_fake_uid } };
+    const GC_user_expenses_ref = `users/${GC_fake_uid}/expenses`;
+
+
     beforeEach( (done) => {
 
         //jest.setTimeout(10000);
@@ -61,7 +67,9 @@ describe ('EXPENSE ACTION TESTS', () => {
         //  This will be called async :> MP_database.ref('expenses').set(L_expensesData)
         //  Need to chain .then with a call to done so that the function will wait for
         //  the return of data from Firebase :> .then(() => done());
-        MP_database.ref('expenses').set(L_expensesData).then(() => done());
+//  SEC_016 --- 168. Private Firebase Data 18:33
+          //MP_database.ref('expenses').set(L_expensesData).then(() => done());
+          MP_database.ref(GC_user_expenses_ref).set(L_expensesData).then(() => done());
     } );
 
 
@@ -78,15 +86,21 @@ describe ('EXPENSE ACTION TESTS', () => {
 //  SEC_015 --- 159. Remove Expense 12:03
 
     test("should remove expense from firebase", (done) => {
-        const L_store = GC_createMockStore({});
-        const L_id = GC_FXT_expenses[1].id;
-        L_store.dispatch(MP_startRemoveExpense({L_id})).then(() => {
+//  SEC_016 --- 168. Private Firebase Data 18:33
+        //const L_store = GC_createMockStore({});
+        const L_store = GC_createMockStore(GC_fake_auth_obj);
+        const L_expense_id = GC_FXT_expenses[1].id;
+        L_store.dispatch(MP_startRemoveExpense({L_expense_id})).then(() => {
             const L_actions = L_store.getActions();
             expect(L_actions[0]).toEqual( {
                 type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
-                id: L_id
+                id: L_expense_id
             } );
-            return MP_database.ref(`expenses/${L_id}`).once('value');
+//  SEC_016 --- 168. Private Firebase Data 18:33
+            //return MP_database.ref(`expenses/${L_expense_id}`).once('value');
+            return MP_database
+                     .ref(`${GC_user_expenses_ref}/${L_expense_id}`)
+                     .once('value');
         } )
         .then( (P_snapshot) => {
             expect(P_snapshot.val()).toBeFalsy();
@@ -107,18 +121,23 @@ describe ('EXPENSE ACTION TESTS', () => {
 //  SEC_015 --- 160. Update Expense 10:31
 
     test("should edit expense from firebase", (done) => {
-        const L_store = GC_createMockStore({});
-        const L_id = GC_FXT_expenses[1].id;
+//  SEC_016 --- 168. Private Firebase Data 18:33
+        //const L_store = GC_createMockStore({});
+        const L_store = GC_createMockStore(GC_fake_auth_obj);
+        const L_expense_id = GC_FXT_expenses[1].id;
         const L_expense_update = { amount: 230.32 };
-        L_store.dispatch(MP_startEditExpense(L_id, L_expense_update))
+        L_store.dispatch(MP_startEditExpense(L_expense_id, L_expense_update))
                .then(() => {
             const L_actions = L_store.getActions();
             expect(L_actions[0]).toEqual( {
                 type: MP_expense_actions.ACT_XP_EDIT_EXPENSE,
-                id: L_id,
+                id: L_expense_id,
                 updates: L_expense_update
             } );
-            return MP_database.ref(`expenses/${L_id}`).once('value');
+//  SEC_016 --- 168. Private Firebase Data 18:33
+            //return MP_database.ref(`expenses/${L_expense_id}`).once('value');
+            return MP_database.ref(`${GC_user_expenses_ref}/${L_expense_id}`)
+                              .once('value');
         } )
         .then( (P_snapshot) => {
             expect(P_snapshot.val().amount).toEqual(L_expense_update.amount);
@@ -153,7 +172,9 @@ describe ('EXPENSE ACTION TESTS', () => {
 
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
     test('should add expense to database and store', async (done) => {
-        const L_store = GC_createMockStore ({});
+//  SEC_016 --- 168. Private Firebase Data 18:33
+        //const L_store = GC_createMockStore({});
+        const L_store = GC_createMockStore(GC_fake_auth_obj);
         const L_expense_data =
             {
                 description: 'Mouse',
@@ -177,8 +198,13 @@ describe ('EXPENSE ACTION TESTS', () => {
                     }
                 } );
 
-                return MP_database.ref(`expenses/${L_action[0].expense.id}`)
-                                  .once('value');
+//  SEC_016 --- 168. Private Firebase Data 18:33
+            // return MP_database
+            //          .ref(`${GC_user_expenses_ref}/${L_expense_id}`)
+            //          .once('value');
+                return MP_database
+                         .ref(`${GC_user_expenses_ref}/${L_action[0].expense.id}`)
+                         .once('value');
              } )
             .then ( (P_snapshot) => {
                  expect(P_snapshot.val()).toEqual(L_expense_data);
@@ -189,7 +215,9 @@ describe ('EXPENSE ACTION TESTS', () => {
 //  SEC_015 --- 154. Testing Async Redux Actions: Part II 12:12
 
     test('should add expense with defaults to database and store', (done) => {
-        const L_store = GC_createMockStore ({});
+//  SEC_016 --- 168. Private Firebase Data 18:33
+        //const L_store = GC_createMockStore({});
+        const L_store = GC_createMockStore(GC_fake_auth_obj);
         const L_expense_data =
         {
             description: '',
@@ -210,8 +238,13 @@ describe ('EXPENSE ACTION TESTS', () => {
                         ...L_expense_data
                     }
                 } );
-                return MP_database.ref(`expenses/${L_action[0].expense.id}`)
-                                  .once('value');
+
+//  SEC_016 --- 168. Private Firebase Data 18:33
+                // return MP_database.ref(`expenses/${L_action[0].expense.id}`)
+                //                   .once('value');
+                return MP_database
+                         .ref(`${GC_user_expenses_ref}/${L_action[0].expense.id}`)
+                         .once('value');
              } )
             .then ( (P_snapshot) => {
                  expect(P_snapshot.val()).toEqual(L_expense_data);
@@ -232,7 +265,9 @@ describe ('EXPENSE ACTION TESTS', () => {
 //  SEC_015 --- 158. Fetching Expenses: Part II 13:52
 
     test ("should fetch the expenses from firebase", (done) => {
-        const L_store = GC_createMockStore ({});
+//  SEC_016 --- 168. Private Firebase Data 18:33
+        //const L_store = GC_createMockStore({});
+        const L_store = GC_createMockStore(GC_fake_auth_obj);
         L_store
             .dispatch( MP_startSetExpenses())
             .then ( () => {
@@ -242,11 +277,16 @@ describe ('EXPENSE ACTION TESTS', () => {
                      expenses: MP_FXT_expenses
                  } );
 
-                 return MP_database.ref(`expenses`)
-                                   .once('value');
+//  SEC_016 --- 168. Private Firebase Data 18:33
+                 // return MP_database.ref(`expenses`)
+                 //                   .once('value');
+                 return MP_database
+                         .ref(`${GC_user_expenses_ref}`)
+                         .once('value');
              } )
             .then ( (P_snapshot) => {
-                 expect(P_snapshot.val().filter ((val) => !!val)).toEqual(GC_FXT_expenses);
+                 expect(P_snapshot.val().filter ((val) => !!val))
+                                        .toEqual(GC_FXT_expenses);
                  done();
              } );
     } );

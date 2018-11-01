@@ -18,13 +18,16 @@
         [ DATE PICKERS top-drc-1;]
         [ TEST CONFIG top-drc-1;]
 
-        [ APP ROUTER top-drc-1;]
+        [ APP  ROUTER top-drc-1;]
+        [ PRIVATE APP ROUTER top-drc-1;]
             header
+        [ PUBLIC APP ROUTER top-drc-1;]
 
         [ SELECTORS top-drc-1;]
 
 
         [ LOGIN PAGE top-drc-1;]
+        [ HEADER top-drc-1;]
         [ EXPENSE DASHBOARD PAGE top-drc-1;]
 
         [ EXPENSE ACTIONS top-drc-1;]
@@ -72,7 +75,7 @@
 
 
      //[ GC_provider_for_router ref-drc-1;]
-            [ APP ROUTER called-by-1;]
+            [ APP  ROUTER called-by-1;]
 
 ...................................................................................................
         [ POINTS OF INTEREST top-drc-1;^B]
@@ -121,12 +124,13 @@ const L_store = createStore
             combineReducers (
             {
                 expenses: MP_expensesReducer,
-                filters: MP_filtersReducer
+                filters: MP_filtersReducer,
+                auth: MP_authReducer
             }
 
-//  [S07251665|sec012a_app.jsx::sec012a_app GC_store.subscribe drc1;^B]
-//  [S07251665|sec012a_app.jsx::MP_getVisibleExpenses drc1;^B]
-//  [S07251665|sec012a_app.jsx::add mock data to GC_store drc1;^B]
+//  [S07251674|seed_database.jsx:: Add mock data to GC_store drc1;^B]
+//  [S07251674|seed_database.jsx::sec012a_app GC_store.subscribe drc1;^B]
+//  [S07251674|seed_database.jsx::MP_getVisibleExpenses drc1;^B]
 
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 //  [S07251665|sec012a_app.jsx::ReactDOM.render GC_provider_for_router^B]
@@ -173,13 +177,11 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
 //  [S07251676|sec012a_setupTests.js::set up tests drc1;^B]
 
 ...................................................................................................
-        [ APP ROUTER top-drc-1;^B]
-            [ APP ROUTER called-by-1;^B]  GC_provider_for_router
+        [ APP  ROUTER top-drc-1;^B]
+            [ APP  ROUTER called-by-1;^B]  GC_provider_for_router
 ...................................................................................................
 
 //  [S07251666|sec009a_app_router.jsx::DRC1: GC_app_router <1>^B]
-                                 CALLS :>
-        //  [S07251667|sec009a_SFC_header.jsx::DRC1: MP_header <1>^B]
                                  CALLS :> [ EXPENSE DASHBOARD PAGE called-by-1;]
                                  CALLS :> [ ADD EXPENSE PAGE called-by-1;]
                                  CALLS :> [ EDIT EXPENSE PAGE called-by-1;]
@@ -187,6 +189,23 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
         //  [S07251667|sec009a_SFC_help_page.jsx::DRC1: GC_help_page <1>^B]
                                  CALLS :>
         //  [S07251667|sec009a_SFC_not_found_page.jsx::DRC1: GC_not_found_page <1>^B]
+
+
+...................................................................................................
+        [ PRIVATE APP ROUTER top-drc-1;^B]
+...................................................................................................
+
+
+//  [S07251666|sec016a_L166_private_app_router.jsx::DRC1: MP_SFC_private_route <1>^B]
+                                 CALLS :> [ HEADER called-by-1;]
+
+
+...................................................................................................
+        [ PUBLIC APP ROUTER top-drc-1;^B]
+...................................................................................................
+
+
+   //  [S07251666|sec016a_L167_public_app_router.jsx::DRC1: MP_SFC_public_route <1>^B]
 
 
 ...................................................................................................
@@ -207,9 +226,19 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
 ...................................................................................................
 
 //  [S07251667|sec016a_L162_login_page.jsx::DRC1: SFC_login_page <1>^B]
+//  [S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer drc1;^B]
 
 ...................................................................................................
 
+
+...................................................................................................
+        [ HEADER top-drc-1;^B]
+            [ HEADER called-by-1;]  PRIVATE APP ROUTER
+...................................................................................................
+
+        //  [S07251667|sec009a_SFC_header.jsx::DRC1: MP_header <1>^B]
+
+                //[S07251667|sec009a_SFC_header.jsx::auth: MP_authReducer drc2;^B]
 
 ...................................................................................................
         [ EXPENSE DASHBOARD PAGE top-drc-1;^B]

@@ -35,7 +35,8 @@ const GF_link=(P_props) =>
   </button>
 );
 
-   //  [S07251666|sec009a_app_router.jsx::SFC_header tpl1;^B]
+   //  [S07251666|sec009a_app_router.jsx::SFC_header tpl1x;^B]
+   //  [S07251666|sec016a_L166_private_app_router.jsx::SFC_header tpl2;^B]
 
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_header <1>]
 
@@ -53,6 +54,8 @@ export const SFC_header = (props) =>
   <button id='BTN_logout' onClick={props.BTN_CLK_start_logout}>
                            {/* //[ props.BTN_CLK_start_logout exe1;] */}
   {/*[S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_logout <1>^B]  */}
+  {/* [S07251664|A01_DIrectory_01.txt::auth: MP_authReducer drc2;^B] */}
+  {/*  */}
     LOGOUT
   </button>
 </header>
@@ -68,6 +71,7 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
   BTN_CLK_start_logout: () => P_dispatch(MP_start_logout())
 //[ props.BTN_CLK_start_logout exe1;^B]
 //[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_start_logout <1>^B]
+//[S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer ref3;^B]
 } );
 
 export default connect(undefined, GF_map_dispatch_to_props) (SFC_header);

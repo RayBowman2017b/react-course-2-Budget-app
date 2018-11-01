@@ -37,6 +37,13 @@ from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 import { MP_startSetExpenses }
 from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
+//[S07251671|sec011a_L099_STR_configure_store.jsx::P_fn_get_state().auth.uid ref1;^B]
+                                               //[ P_fn_get_state().auth.uid top1;]
+                                               //[ P_fn_get_state().auth.uid top2;]
+                                               //[ P_fn_get_state().auth.uid top3;]
+                                               //[ P_fn_get_state().auth.uid top4;]
+
+
 //  SEC_011 --- 99. Organizing Redux 14:50
 
  */
@@ -118,7 +125,7 @@ export const MP_addExpense = (expense) => (
      //[ DEF1: MP_startAddExpense <1>^B]
   export const MP_startAddExpense = (P_expenseData = {}) =>
   {
-    return (P_dispatch) => {
+    return (P_dispatch, P_fn_get_state) => {
       const {
           description = '',
           note = '',
@@ -128,11 +135,15 @@ export const MP_addExpense = (expense) => (
 
       const L_expense = { description, note, amount, createdAt };
 
+      const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
+                            //[ P_fn_get_state().auth.uid top1;^B]
+
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
       //  return the promise
 
       return MP_database
-               .ref('expenses')
+               //.ref('expenses')
+               .ref(L_DB_ref)
                .push(L_expense)
                .then ( (ref) => {
           P_dispatch ( MP_addExpense ( { id: ref.key, ...L_expense } ) );
@@ -166,9 +177,12 @@ export const MP_removeExpense = ( { id } = {} ) => ( {
 
    //[ DEF1: MP_startRemoveExpense <1>^B]
 export const MP_startRemoveExpense = ({ id } = {}) => {
-  return (dispatch) => {
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
+                          //[ P_fn_get_state().auth.uid top2;^B]
     return MP_database
-             .ref(`expenses/${id}`)
+             //.ref(`expenses/${id}`)
+             .ref(L_DB_ref)
              .remove()
              .then(() => {
                   dispatch(MP_removeExpense({ id }));
@@ -204,9 +218,12 @@ export const MP_editExpense = ( id, updates ) => ( {
 
    //[ DEF1: MP_startEditExpense <1>^B]
 export const MP_startEditExpense = (id, updates) => {
-  return (dispatch) => {
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
+                          //[ P_fn_get_state().auth.uid top3;^B]
     return MP_database
-             .ref(`expenses/${id}`)
+             //.ref(`expenses/${id}`)
+             .ref(L_DB_ref)
              .update(updates)
              .then( () => {
                   dispatch(MP_editExpense(id, updates));
@@ -243,9 +260,12 @@ export const MP_setExpenses = (expenses) =>
 
    //[ DEF1: MP_startSetExpenses <1>^B]
 export const MP_startSetExpenses = () => {
-  return (dispatch) => {
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
+                          //[ P_fn_get_state().auth.uid top4;^B]
     return MP_database
-             .ref('expenses')
+             //.ref('expenses')
+             .ref(L_DB_ref)
              .once('value')
              .then((snapshot) => {
                   const L_expenses = [];

@@ -3,6 +3,8 @@
 
 sec016a_L167_public_app_router.jsx
 
+       //  [ DEF1: MP_SFC_public_route <1>]
+
 K:\A01_Udemy\C023_Complete_React_Web_Dev\
 Budget-app\src\sec009a_routers\sec016a_L167_public_app_router.jsx
 
@@ -57,6 +59,10 @@ class CLS_public_route_error_boundary extends React.Component {
   }
 }
 
+
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SFC_public_route <1>^B]
+
+   //[ DEF1: MP_SFC_public_route <1>^B]
 export const MP_SFC_public_route = ( {
     isAuthenticated,
     component: P_Component,
@@ -78,6 +84,7 @@ export const MP_SFC_public_route = ( {
 
 const GF_map_state_to_props = (P_state) => ( {
     isAuthenticated: !! P_state.auth.uid
+    //[S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer ref2;^B]
 } );
 
 export default connect (GF_map_state_to_props) (MP_SFC_public_route);

@@ -2,7 +2,7 @@
 @rem 
 git add .
 @rem  git commit -m "2018-10-16 23-30 SEC 014"
-git commit -m "2018-10-27 15-40 SEC 015 L164 favicon"
+git commit -m "2018-10-31 20-40 SEC 016 L169"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

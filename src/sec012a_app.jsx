@@ -13,15 +13,11 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec012a_app.jsx
 
  */
 
-console.log (" sec012a_app.jsx is running!");
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 //  SEC_011 --- 101. Connecting Store and Component with React-Redux 15:40
 import { Provider } from 'react-redux';
-import MP_moment from 'moment';
 
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
 // import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
@@ -48,7 +44,7 @@ import 'react-dates/initialize';
 
 //  SEC_015 --- 158. Fetching Expenses: Part II 13:52
 
-import { MP_startAddExpense, MP_startSetExpenses }
+import {  MP_startSetExpenses }
 //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startAddExpense import-2;^B]
      //[ MP_startAddExpense exe1;]
 //[S07251668|sec011a_L099_ACTN_expenses.jsx::MP_startSetExpense import-2;^B]
@@ -63,7 +59,7 @@ from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 //  import  './sec014a_firebase/sec014_L142_firebase.js';
 
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
-import { firebase, MP_database } from './sec014a_firebase/sec014_L142_firebase.js';
+import { firebase } from './sec014a_firebase/sec014_L142_firebase.js';
       //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-2;^B]
 
 //=====================================================================
@@ -74,60 +70,14 @@ import { MP_login, MP_logout } from './sec011a_L099_actions/sec016a_L162_ACTN_au
 
 //=====================================================================
 
-//  import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  } from "./sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
-            //[S07251668|sec011a_L099_ACTN_filters.jsx::sec011a_L099_ACTN_filters import-3x;^B]
-import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
-              //  [S07251670|sec011a_L099_SLCT_expenses.jsx::sec011a_L099_SLCT_expenses import-3;^B]
-            //[ MP_getVisibleExpenses ref1;]
-            //[ MP_getVisibleExpenses xxx]
-
-
 const GC_store = MP_configure_store ();
   //[ GC_store a1;]
 //[S07251671|sec011a_L099_STR_configure_store.jsx::EXE1: MP_configure_store <1>^B]
                       //[S07251664|A01_DIrectory_01.txt::MP_configure_store drc1;^B]
 
-   //  [S07251664|A01_DIrectory_01.txt::sec012a_app GC_store.subscribe drc1;^B]
 
    //  [S07251672|SEC_013.txt::SEC 013  L 131 notes-01;]
    //  code to create test data removed
-
-
-
-if (false)
-            //[ if (false)  :end1;]
-{
-
-const L_august_01_2018 = 1533142800000;
-const L_august_03_2018 = 1533315600000;
-const L_sept_04_2018 = 1536080400000;
-const GC_time_01 = MP_moment.utc().valueOf();
-const GC_time_02 = MP_moment.utc().add(3, 'days').valueOf();
-const GC_time_03 = MP_moment.utc().add(33, 'days').valueOf();
-
-
-   //  [S07251669|sec011a_L099_RDCR_filters.jsx::Add Mock Data to GC_store ref1;^B]
-            //  [S07251664|A01_DIrectory_01.txt::add mock data to GC_store drc1;^B]
-
-MP_database.ref('expenses').remove();
-GC_store.dispatch ( MP_startAddExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
-GC_store.dispatch ( MP_startAddExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
-GC_store.dispatch ( MP_startAddExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );
-                //[ MP_startAddExpense exe1;^B]
-
-GC_store.subscribe ( () =>
-  {
-    const L_state = GC_store.getState ();
-    const L_visibleExpenses = MP_getVisibleExpenses (L_state.expenses, L_state.filters);
-                          //[ MP_getVisibleExpenses ref1;^B]
-    //[S07251664|A01_DIrectory_01.txt::MP_getVisibleExpenses drc1;^B]
-    //console.log (GC_store.getState());
-    console.log (L_visibleExpenses);
-  }                );
-
-}
-            //[ if (false)  :end1;^B]
-
 
 
 //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41
@@ -143,7 +93,7 @@ GC_store.subscribe ( () =>
 // 3000 );
 
 
-console.log ("  --- GC_store.getState()", GC_store.getState());
+//  console.log ("  --- GC_store.getState()", GC_store.getState());
 
 //=====================================================================
 
@@ -161,12 +111,11 @@ const GC_provider_for_router = (
     </Provider>
     );
 
-//=====================================================================
 
-//  sec011_app_01
-const GC_appRoot_01 = document.getElementById('sec011_app_01');
-//[S07251665|index_template.html::getElementById('sec011_app_01'); ref1;^B]
-         //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
+import { seed_DB } from "./Utilities_01/seed_database.jsx";
+        //[S07251674|seed_database.jsx::seed_database import-1;^B]
+
+//=====================================================================
 
 const GC_render_CTRL = {
 
@@ -175,10 +124,16 @@ const GC_render_CTRL = {
    //  [ EXE1a: render_app <1>]
    //  [ EXE1b: render_app <1>]
 
-  render_app ()
-  {
+  appRoot_01 : document.getElementById('sec011_app_01'),
+//[S07251665|index_template.html::getElementById('sec011_app_01'); ref1;^B]
+         //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
+
+  render_app_loading () {
+    ReactDOM.render(<p>Loading...</p>, this.appRoot_01);
+  },
+  render_app ()  {
     if ( ! this.has_rendered )  {
-          ReactDOM.render(GC_provider_for_router, GC_appRoot_01);
+          ReactDOM.render(GC_provider_for_router, this.appRoot_01);
                       //[ GC_provider_for_router exe1;^B]
           this.has_rendered = true;
     }
@@ -200,7 +155,11 @@ const GC_render_CTRL = {
 //  SEC_015 --- 158. Fetching Expenses: Part II 13:52
 
 //ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
-ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
+//ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
+GC_render_CTRL.render_app_loading ();
+
+
+console.log (" sec012a_app.jsx is running!");
 
 //=====================================================================
 
@@ -208,7 +167,9 @@ ReactDOM.render(<p>Loading...</p>, GC_appRoot_01);
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
 
 firebase.auth().onAuthStateChanged ( (P_user) => {
+
   if (P_user) {
+
     console.log("log in", P_user);
 
 //  SEC_016 --- 165. The Auth Reducer 15:49
@@ -224,6 +185,9 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
             .then ( () => {
               GC_render_CTRL.render_app ();
                   //[ EXE1a: render_app <1>^B]
+
+            //seed_DB (P_user, GC_store);
+            //[S07251674|seed_database.jsx::EXE1: seed_DB <1>^B]
                           }
                   )
             .catch ((err) => console.log

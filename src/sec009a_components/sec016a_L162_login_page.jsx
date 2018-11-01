@@ -23,6 +23,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { MP_start_login } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
+               //[S07251668|sec016a_L162_ACTN_auth.jsx::sec016a_L162_ACTN_auth import-4;^B]
 
 const GC_button_style =
 { padding: 0.2 + "rem", margin: 1 + "rem", float: "left", clear:"left" };
@@ -101,6 +102,7 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
     BTN_CLK_start_login: (P_login_obj) => P_dispatch(MP_start_login())
 //[ P_props.BTN_CLK_start_login exe1;^B]
       //[S07251668|sec016a_L162_ACTN_auth.jsx::EXE1: MP_start_login <1>^B]
+      //[S07251671|sec011a_L099_STR_configure_store.jsx::auth: MP_authReducer ref1;^B]
 } );
 
 //export default connect(GF_map_state_to_props, GF_map_dispatch_to_props) (SFC_login_page);

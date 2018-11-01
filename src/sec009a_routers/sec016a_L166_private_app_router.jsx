@@ -3,6 +3,8 @@
 
 sec016a_L166_private_app_router.jsx
 
+       //  [ DEF1: MP_SFC_private_route <1>]
+
 K:\A01_Udemy\C023_Complete_React_Web_Dev\
 Budget-app\src\sec009a_routers\sec016a_L166_private_app_router.jsx
 
@@ -35,6 +37,9 @@ import SFC_header from '../sec009a_components/sec009a_SFC_header.jsx';
 //   timeout: 3000, // 3 seconds
 // });
 
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SFC_private_route <1>^B]
+
+   //[ DEF1: MP_SFC_private_route <1>^B]
 export const MP_SFC_private_route = ( {
     isAuthenticated,
     component: P_Component,
@@ -44,6 +49,7 @@ export const MP_SFC_private_route = ( {
         isAuthenticated ? (
             <div>
                 <SFC_header />
+    {/* [S07251667|sec009a_SFC_header.jsx::SFC_header tpl2;^B] */}
                 <P_Component {...props} />
             </div>
         ) : (
