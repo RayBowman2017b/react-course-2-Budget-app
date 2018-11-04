@@ -7,6 +7,30 @@ https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpe
 
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+remote: npm ERR! A complete log of this run can be found in:
+remote: npm ERR!     /tmp/npmcache.tP6Dg/_logs/2018-11-04T21_58_17_470Z-debug.log
+remote: npm ERR! code ELIFECYCLE
+remote: npm ERR! errno 2
+remote: npm ERR! Budget-app-01@1.0.0 heroku-postbuild: `npm run build:prod`
+remote: npm ERR! Exit status 2
+remote: npm ERR!
+remote: npm ERR! Failed at the Budget-app-01@1.0.0 heroku-postbuild script.
+remote: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+remote:
+remote: npm ERR! A complete log of this run can be found in:
+remote: npm ERR!     /tmp/npmcache.tP6Dg/_logs/2018-11-04T21_58_17_488Z-debug.log
+remote:
+remote: -----> Build failed
+r
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+ERROR in multi babel-polyfill Module not found: Error: Can't resolve 'babel-polyfill'
+
+ERROR in multi babel-polyfill ./src/sec012a_app.jsx
+remote:        Module not found: Error: Can't resolve 'babel-polyfill' in '/tmp/build_97adb9107ad04c2ea85befd5c40de083'
+remote:         @ multi babel-polyfill ./src/sec012a_app.jsx main[0]
+remote:        Child html-webpack-plugin for "index.html":
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 2018-10-24T01:38:39.891115+00:00 app[web.1]: ******** GC_active_app_file is ->sec012a_app.jsx
 2018-10-24T01:38:39.000000+00:00 app[api]: Build succeeded
