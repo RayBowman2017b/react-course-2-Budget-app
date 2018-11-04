@@ -130,9 +130,9 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
     <div>
       {/*  */}
       {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
-      <h3 className="list-item__title">{`TO > ${description}`}</h3>
+      <h3 className="list-item__title hover_title">{`TO > ${description}`}</h3>
       {/* [S07251678|_list.scss::.list-item__title css1;^B] */}
-      <span className="list-item__sub-title"
+      <span className="list-item__sub-title hover_title"
       //[S07251678|_list.scss::.list-item__sub-title css1;^B]
       >{moment(createdAt).format ("MMMM Do, YYYY")}</span>
     </div>
@@ -141,7 +141,7 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
         <p style={GC_message_style}>
       */}
     {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
-    <h3 className="list-item__data">{numeral(amount / 100).format("$0,0.00")}</h3>
+    <h3 className="list-item__data hover_title">{numeral(amount / 100).format("$0,0.00")}</h3>
     {/*
          //[S07251678|_list.scss::.list-item__data css1;^B]
          //[S07251664|A01_DIrectory_01.txt::numeral(amount / 100).format drc1;^B]

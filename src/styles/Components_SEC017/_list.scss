@@ -62,7 +62,9 @@ Budget-app\src\styles\Components_SEC017\_list.scss
         //  Alternatively, could change the background color to blue,
         //  leaving the text color white.
         background-color: blue;
-        color: green;
+    }
+    &:hover .hover_title {
+        color: white;
     }
 
     @media (min-width: $desktop-breakpoint) {
