@@ -1,4 +1,5 @@
 
+
 /***************************************************************************
 
 sec011a_L102_expense_list_item.jsx
@@ -25,7 +26,8 @@ import React from 'react';
 //  import { connect } from 'react-redux';
 
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //  SEC_011 --- 108. Wiring up Edit Expense 19:06
 //  import { MP_startRemoveExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
@@ -100,9 +102,8 @@ const GC_link_with_children = (P_props) =>
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expense_list_item <1>^B]
 
-   //[ DEF1: SFC_expense_list_item <1>^B]
-export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
-    <span>
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+//export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
     {/*
 //  SEC_009 --- 81. Query Strings and URL Parameters 9:10
 //  props.match.params.id is provided within the URL
@@ -112,36 +113,53 @@ export const SFC_expense_list_item = ({ id, description, amount, createdAt }) =>
       <GC_link_with_children route={"/edit/" + id}>
       <GC_link_with_children route={"/edit/" + id + "/" + description}>
     */}
-      <GC_link_with_children route={"/edit/" + id}>
-    {/*  //[ EXE1: GC_link_with_children <1>^B]
+
+   //[ DEF1: SFC_expense_list_item <1>^B]
+export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
+
+  <Link className="list-item" to={"/edit/" + id}>
+  {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
+    {/*
+         //[S07251678|_list.scss::.list-item css1;^B]
+         //[ EXE1: GC_link_with_children <1>^B]
+         //[S07251667|sec009a_CLS_edit_expense_page.jsx::CLS_edit_expense_page evt1;^B]
          //[S07251667|sec009a_CLS_edit_expense_page.jsx::route={"/edit/" + id} ref1;^B]
                     //[S07251666|sec009a_app_router.jsx::route={"/edit/" + id} ref2;^B]
                       //[S07251664|A01_DIrectory_01.txt::route={"/edit/" + id} drc1;^B]
       */}
-          <h3>{`TO > ${description}`}</h3>
-      </GC_link_with_children>
-  {/*  SEC_013 --- 138. New Feature Workflow 12:32
-      <p> {amount} - {createdAt}</p>
-    */}
-      <p style={GC_message_style}>
-        {numeral(amount / 100).format("$0,0.00")} --- {moment(createdAt).format ("MMMM Do, YYYY")}
-  {/*
-       //[S07251664|A01_DIrectory_01.txt::numeral(amount / 100).format drc1;^B]
-       //[S07251664|A01_DIrectory_01.txt::moment(createdAt).format drc1;^B]
-    */}
-      </p>
+    <div>
+      {/*  */}
+      {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
+      <h3 className="list-item__title">{`TO > ${description}`}</h3>
+      {/* [S07251678|_list.scss::.list-item__title css1;^B] */}
+      <span className="list-item__sub-title"
+      //[S07251678|_list.scss::.list-item__sub-title css1;^B]
+      >{moment(createdAt).format ("MMMM Do, YYYY")}</span>
+    </div>
+    {/*  SEC_013 --- 138. New Feature Workflow 12:32
+        <p> {amount} - {createdAt}</p>
+        <p style={GC_message_style}>
+      */}
+    {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
+    <h3 className="list-item__data">{numeral(amount / 100).format("$0,0.00")}</h3>
+    {/*
+         //[S07251678|_list.scss::.list-item__data css1;^B]
+         //[S07251664|A01_DIrectory_01.txt::numeral(amount / 100).format drc1;^B]
+         //[S07251664|A01_DIrectory_01.txt::moment(createdAt).format drc1;^B]
+        </p>
+      */}
+  </Link>
+);
 
 
-  {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
+  /*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
       MOVED from here to sec009a_CLS_edit_expense_page.jsx
 
       <button onClick={ (e) => { dispatch ( MP_startRemoveExpense({id}) ) } }
       >REMOVE
       </button>
-    */}
+    */
 
-    </span>
-);
    //  [ END1: SFC_expense_list_item <1>^B]
 //==========================================================================
 //==========================================================================

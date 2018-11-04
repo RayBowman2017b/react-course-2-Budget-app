@@ -14,7 +14,7 @@ SEC_008_Styling_React\proj_01\Indecision-app\src\styles\components\_container.sc
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_008_Styling_React\proj_01\Indecision-app\src\styles\styles.scss
 
-@import './components/container';
+@import './components_SEC008/container';
 
 
 top and bottom set to zero, left and right to auto

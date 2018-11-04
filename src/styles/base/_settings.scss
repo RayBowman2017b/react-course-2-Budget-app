@@ -3,13 +3,18 @@
 
 _settings.scss
 
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\base\_settings.scss
+
+
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
 SEC_008_Styling_React\proj_01\Indecision-app\src\styles\base\_settings.scss
 
 
 //  SEC_008 --- 67. Theming with Variables 14:18
 
-.header
+header
 {
     background: #20222b;
 
@@ -27,6 +32,22 @@ $purple: #8357c5;
 $blue: #3c4251;
 $light-blue: #464b5e;
 */
+
+// Colors
+//  SEC_017 --- 171. Styling Login Page 13:45
+$dark-grey: #333333;
+$std-grey: #666;
+
+$font-size-small: 1.4rem;
+
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+$off-white: #f7f7f7;
+
+//  SEC_017 --- 172. Styling Buttons 15:35
+$std-blue: #1c88bf;
+$dark-blue: #364051;
+$font-size-large: 1.8rem;
+
 
 $xl-size: 4.8rem;
 $l-size: 3.2rem;

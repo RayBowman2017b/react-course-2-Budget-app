@@ -64,6 +64,7 @@ export const MP_login = (P_uid) => ({
 export const MP_start_login = () => {
     return () => {
         return firebase.auth().signInWithPopup(MP_google_auth_provider);
+        //[S07251665|sec012a_app.jsx::onAuthStateChanged signInWithPopup xrf1;^B]
     };
 };
 
@@ -89,5 +90,6 @@ export const MP_logout = () => ({
 export const MP_start_logout = () => {
     return () => {
         return firebase.auth().signOut();
+        //[S07251665|sec012a_app.jsx::onAuthStateChanged signOut xrf1;^B]
     };
 };

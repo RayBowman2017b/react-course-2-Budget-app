@@ -1,5 +1,6 @@
 
 /*
+
 _base.scss
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
@@ -17,41 +18,59 @@ body
     background: $dark-blue;
  */
 
+//  Universal selector
+//  DEFAULT:  box-sizing: content-box;
+
+* {
+    box-sizing: border-box;
+}
+
 
 html
 {
     font-size: 62.5%;
 }
 
-body
-{
-    background: white;
+body {
+    /*
+//  SEC_017 --- 171. Styling Login Page 13:45
+    background-color: white;
+    background-color: #666666;
+    border: solid;
+     */
+
+    background-color: $dark-grey;
+
     font-family: Helvetica, Arial, sans-serif;
     font-size: $m-size;
+
+    /*
+//  SEC_017 --- 171. Styling Login Page 13:45
+ */
+    line-height: 1.6;
 }
 
-h1
-{
+
+/*
+h1 {
     font-size: 2.2rem;
 }
+*/
 
 
 /*
 //  SEC_008 --- 68. Big Button & Options List 15:24
  */
 
-button
-{
+button {
     cursor: pointer;
 }
 
-button:disabled
-{
+button:disabled {
     cursor: default;
 }
 
 
-.is-active
-{
+.is-active {
     font-weight: bold;
 }

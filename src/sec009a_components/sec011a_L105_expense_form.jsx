@@ -1,4 +1,5 @@
 
+
 /*
 
 sec011a_L105_expense_form.jsx
@@ -71,6 +72,9 @@ const now = moment();
 // console.log (now.format("MMM Do, YYYY"));
 
 
+   //  [ END1: CLS_expense_form <1>]
+
+
 //  [S07251667|sec009a_CLS_add_expense_page.jsx::TPL1: CLS_expense_form <1>^B]
 //  [S07251667|sec009a_CLS_edit_expense_page.jsx::TPL2: CLS_expense_form <1>^B]
 
@@ -128,7 +132,6 @@ export default class CLS_expense_form extends React.Component
             error_conditions: {
         //[ error_conditions a1;]
         //[ error_conditions a2;]
-        //[ error_conditions xxx]
                 description_mssg: <div></div>,
                 amount_mssg: <div></div>,
             }
@@ -183,6 +186,8 @@ export default class CLS_expense_form extends React.Component
     //======================================================================
     //======================================================================
 
+    //  [ END1: XPNF_check_errors <1>]
+
        //    [ EXE1: XPNF_check_errors <1>]
 
     //  [S07251664|A01_DIrectory_01.txt::DRC1: XPNF_check_errors <1>^B]
@@ -191,11 +196,20 @@ export default class CLS_expense_form extends React.Component
     XPNF_check_errors ()
     {
         const description_mssg = ( ! this.state.description ) ?
-            <div>{'   *** Please provide description'}</div> : <div></div>;
+                <p className="expense-form__error">
+                {/*  */}
+                {/* [S07251678|_form.scss::expense-form__error css1a;^B] */}
+                  {'   *** Please provide description'}
+                </p>
+                : <div></div>;
         const amount_mssg = ( ! this.state.amount ) ?
-            <div>{'   *** Please provide amount'}</div> : <div></div>;
+                <o className="expense-form__error">
+                {/* [S07251678|_form.scss::expense-form__error css1b;^B] */}
+                  {'   *** Please provide amount'}
+                </o>
+                : <div></div>;
     
-        this.setState((prevState) =>
+        this.setState ( (prevState) =>
             ( {
                 ...prevState,
                 error_conditions:
@@ -211,9 +225,9 @@ export default class CLS_expense_form extends React.Component
     
         return ( this.state.description && this.state.amount );
     }
+    //  [ END1: XPNF_check_errors <1>^B]
     //======================================================================
     //======================================================================
-
 
     //  [ END1: onExpenseSubmit <1>]
 
@@ -272,6 +286,7 @@ export default class CLS_expense_form extends React.Component
     //======================================================================
     //======================================================================
 
+   //  [ END1: CLS_expense_form.render <1>]
 
 //  SEC_011 --- 106. Setting up a Date Picker 21:34
 
@@ -284,81 +299,96 @@ export default class CLS_expense_form extends React.Component
                 //amount_mssg: '',
 
 
-       //  [ END1: CLS_expense_form.render <1>]
 
        //[ DEF1: CLS_expense_form.render <1>^B]
     render () {
         return (
-                <span>
+          <form action=""
+            className="expense-form"
+            //[S07251678|_form.scss::expense-form css1;^B]
+            onSubmit={this.onExpenseSubmit}>
+          {/*//[ expense form :end1;]*/}
+          {/*//[ expense form action :submit1;]*/}
+                            {/*//[ EVT1: onExpenseSubmit <1>^B]*/}
 
-                    {/*
-                    {
-                       this.state.descriptionError &&
-                         <span>{this.state.descriptionError}</span>
-                    }
-                    {
-                       this.state.amountError &&
-                         <span>{this.state.amountError}</span>
-                    }
-                    */}
-                    {  this.state.error_conditions.description_mssg }
-                    {  this.state.error_conditions.amount_mssg }
-                    {/*//       [ error_conditions a2;^B]*/}
+            {/*
+            {
+               this.state.descriptionError &&
+                 <span>{this.state.descriptionError}</span>
+            }
+            {
+               this.state.amountError &&
+                 <span>{this.state.amountError}</span>
+            }
+            */}
+            {  this.state.error_conditions.description_mssg }
+            {  this.state.error_conditions.amount_mssg }
+            {/*//       [ error_conditions a2;^B]*/}
 
-                    {/*//[ expense form :end1;]*/}
-                    <span>Expense Form</span>
-                    <form action="" onSubmit={this.onExpenseSubmit}>
-                    {/*//[ expense form action :submit1;]*/}
-                                      {/*//[ EVT1: onExpenseSubmit <1>^B]*/}
+            {/* <div>Expense Form</div> */}
+              <div>Expense Form</div>
 
-                      <input
-                        autoFocus
-                        type="text"
-                        placeholder="Description"
-                        id="Description"
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                      />
-                          {/*//[ EVT1: onDescriptionChange <1>^B]*/}
+              <input
+                id="Description"
+                type="text"
+                placeholder="Description"
+                autoFocus
+                //  SEC_017 --- 175. Styling Inputs 11:30
+                className="text-input"
+                //[S07251678|_inputs.scss::.text-input css2a;^B]
+                value={this.state.description}
+                onChange={this.onDescriptionChange}
+              />
+                  {/*//[ EVT1: onDescriptionChange <1>^B]*/}
 
-                      <input
-                        type="text"
-                        placeholder="Amount"
-                        id="Amount"
-                        value={this.state.amount}
-                        onChange={this.onAmountChange}
-                      />
-                          {/*//[ EVT1: onAmountChange <1>^B]*/}
+              <input
+                id="Amount"
+                type="text"
+                placeholder="Amount"
+                //  SEC_017 --- 175. Styling Inputs 11:30
+                className="text-input"
+                //[S07251678|_inputs.scss::.text-input css2b;^B]
+                value={this.state.amount}
+                onChange={this.onAmountChange}
+              />
+                  {/*//[ EVT1: onAmountChange <1>^B]*/}
 
-              {/* [S07251664|A01_DIrectory_01.txt::CLS_expense_form <SingleDatePicker> drc1;^B] */}
-                      <SingleDatePicker
-                        date={this.state.createdAt}
-                        onDateChange={this.onDateChange}
-                        focused={this.state.calenderFocused}
-                        onFocusChange={this.onFocusChange}
-                        id="createdAt_DatePicker"
-                        readOnly={true}
-                        numberOfMonths={1}
-                        isOutsideRange={ () => false }
-                      />
-                      {/*//[ EVT1: onDateChange <1>^B]*/}
-                      {/*//[ EVT1: onFocusChange <1>^B]*/}
+      {/* [S07251664|A01_DIrectory_01.txt::CLS_expense_form <SingleDatePicker> drc1;^B] */}
+              <SingleDatePicker
+                date={this.state.createdAt}
+                onDateChange={this.onDateChange}
+                focused={this.state.calenderFocused}
+                onFocusChange={this.onFocusChange}
+                id="createdAt_DatePicker"
+                readOnly={true}
+                numberOfMonths={1}
+                isOutsideRange={ () => false }
+              />
+              {/*//[ EVT1: onDateChange <1>^B]*/}
+              {/*//[ EVT1: onFocusChange <1>^B]*/}
 
-                      <textarea placeholder="Add a note for your expense (optional)"
-                        id="Note"
-                        value={this.state.note}
-                        onChange={this.onNoteChange}
-                      >
-                          {/*//[ EVT1: onNoteChange <1>^B]*/}
-                      </textarea>
-                      <button>
-                    {/*//[ expense form action :submit1;^B]*/}
-                        {this.state.buttonLabel}
-                      </button>
-                    </form>
-                    {/*//[ expense form :end1;^B]*/}
-                </span>
+              <textarea placeholder="Add a note for your expense (optional)"
+                id="Note"
+                //  SEC_017 --- 175. Styling Inputs 11:30
+                className="textarea"
+                //[S07251678|_inputs.scss::.textarea css1;^B]
+                value={this.state.note}
+                onChange={this.onNoteChange}
+                     //[ EVT1: onNoteChange <1>^B]
+              >
+              </textarea>
+              <div>
+                <button className="login-button">
+              {/* [ expense form action :submit1;^B] */}
+              {/* [S07251678|_buttons.scss::.login-button css4;^B] */}
+                  {this.state.buttonLabel}
+                </button>
+              </div>
+          {/*//[ expense form :end1;^B]*/}
+          </form>
         );
     };
-       //  [ END1: CLS_expense_form.render <1>^B]
+   //  [ END1: CLS_expense_form.render <1>^B]
+
 }
+   //  [ END1: CLS_expense_form <1>^B]

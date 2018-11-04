@@ -11,7 +11,7 @@
 
     props.filters
         GF_map_state_to_props :>
-            //[ this.props.filters i1;]
+            //[ filters: P_state.filters ref1;]
             //[ this.props.filters a1;]
             //[ this.props.filters a2;]
             //[ this.props.filters a3;]
@@ -190,35 +190,64 @@ export class CLS_expense_list_filters extends React.Component
     };
     //======================================================================
 
+    //  [ END1: CLS_expense_list_filters.render <1>]
+
        //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::CLS_expense_list_filters.render tpl1;^B]
 
        //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_expense_list_filters.render <1>^B]
 
-    //  [ END1: CLS_expense_list_filters.render <1>]
+
+//  SEC_017 --- 174. Styling List Filters 10:05
+//  className="xxx" added.
+
 
        //[ DEF1: CLS_expense_list_filters.render <1>^B]
     render () {
-      return (
-        <span id="DIV_main">
-   {/*[ <div id="DIV_main"> end1;]*/}
-            <input  type="text"
-                    id="TBX_filters"
-                    value={this.props.filters.text}
-                       //[ this.props.filters a1;^B]
-                    onChange={this.TXBX_filters_change}
-                         //[ EVT1: TXBX_filters_change <1>^B]
-            />
 
-{/*  //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41  */}
-            <select id="SELECT_date_amount"
-              value={this.props.filters.sortBy}
-                 //[ this.props.filters a2;^B]
-              onChange={this.SLCT_sort_item_change}
-                   //[ EVT1: SLCT_sort_item_change <1>^B]
-            >
-              <option value="date">Date</option>
-              <option value="amount">Amount</option>
-            </select>
+      return (
+
+        <div id="DIV_main" className="content-container">
+   {/* //[S07251678|_content-container.scss::.content-container css1;^B] */}
+   {/*[ <div id="DIV_main"> end1;]*/}
+   {/*  */}
+   {/* <div className="filter-input-group"> */}
+          <div className="filter-input-group">
+   {/* //[S07251678|_input-group.scss::.filter-input-group css1;^B] */}
+            <div className="filter-input-group__item">
+   {/* //[S07251678|_input-group.scss::.filter-input-group__item css1a;^B] */}
+   {/* //  SEC_017 --- 175. Styling Inputs 11:30 */}
+              <input  type="text"
+                      id="TBX_filters"
+                      className="text-input"
+                      placeholder="Search Expenses"
+                      value={this.props.filters.text}
+                         //[ this.props.filters a1;^B]
+                      onChange={this.TXBX_filters_change}
+                           //[ EVT1: TXBX_filters_change <1>^B]
+              />
+              {/*  [S07251678|_inputs.scss::.text-input css1;^B] */}
+            </div>
+
+            <div className="filter-input-group__item">
+       {/* //[S07251678|_input-group.scss::.filter-input-group__item css1b;^B] */}
+  {/*  //  SEC_011 --- 104. Dropdown for Picking SortBy 8:41  */}
+   {/* //  SEC_017 --- 175. Styling Inputs 11:30 */}
+              <select id="SELECT_date_amount"
+                className="select"
+              //[S07251678|_inputs.scss::.select css1;^B]
+                value={this.props.filters.sortBy}
+                   //[ this.props.filters a2;^B]
+                onChange={this.SLCT_sort_item_change}
+                     //[ EVT1: SLCT_sort_item_change <1>^B]
+              >
+                <option value="date">Date</option>
+                <option value="amount">Amount</option>
+              </select>
+              
+            </div>
+
+            <div className="filter-input-group__item">
+            {/* //[S07251678|_input-group.scss::.filter-input-group__item css1c;^B] */}
 
 {/*  //  SEC_011 --- 110. Filtering by Dates 19:44  */}
 {/*  */}
@@ -245,8 +274,10 @@ export class CLS_expense_list_filters extends React.Component
   isOutsideRange={ () => false }
 />
 
+            </div>
+          </div>
    {/*[ <div id="DIV_main"> end1;^B]*/}
-        </span>
+        </div>
       );
 
     };
@@ -265,7 +296,7 @@ export class CLS_expense_list_filters extends React.Component
 const GF_map_state_to_props = (P_state) => {
     return {
         filters: P_state.filters
-        //[ this.props.filters i1;^B]
+    //[ filters: P_state.filters ref1;^B]
     };
 };
 

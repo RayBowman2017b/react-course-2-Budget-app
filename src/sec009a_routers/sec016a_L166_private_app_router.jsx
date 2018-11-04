@@ -37,6 +37,9 @@ import SFC_header from '../sec009a_components/sec009a_SFC_header.jsx';
 //   timeout: 3000, // 3 seconds
 // });
 
+
+   //  [S07251666|sec009a_app_router.jsx::RTR1: MP_SFC_private_route <1>^B]
+
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SFC_private_route <1>^B]
 
    //[ DEF1: MP_SFC_private_route <1>^B]
@@ -49,15 +52,20 @@ export const MP_SFC_private_route = ( {
         isAuthenticated ? (
             <div>
                 <SFC_header />
-    {/* [S07251667|sec009a_SFC_header.jsx::SFC_header tpl2;^B] */}
+    {/*  */}
+    {/* [S07251667|sec009a_SFC_header.jsx::SFC_header rtr2;^B] */}
                 <P_Component {...props} />
             </div>
         ) : (
-            <Redirect to="/" />
+            <div>
+                <Redirect to="/" />
+    {/* //[S07251667|sec016a_L162_login_page.jsx::SFC_login_page rtr2;^B] */}
+            </div>
         )
         ) }
     />
 );
+
 
 const GF_map_state_to_props = (P_state) => ( {
     isAuthenticated: !! P_state.auth.uid

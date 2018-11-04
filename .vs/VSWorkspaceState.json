@@ -7,10 +7,10 @@
     "\\A02_sec013_135_server",
     "\\src",
     "\\src\\sec009a_components",
-    "\\src\\sec009a_routers",
-    "\\src\\sec011a_L099_actions",
-    "\\src\\sec011a_L099_store"
+    "\\src\\styles",
+    "\\src\\styles\\base",
+    "\\src\\styles\\Components_SEC017"
   ],
-  "SelectedNode": "\\A02_sec013_135_server\\server_135.js",
+  "SelectedNode": "\\src\\styles\\Components_SEC017\\_list.scss",
   "PreviewInSolutionExplorer": false
 }

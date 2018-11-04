@@ -22,6 +22,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 import numeral from 'numeral';
 
 import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
@@ -49,13 +51,28 @@ const SFC_expenses_summary=({ total_expense_count, total_expense_amount }) => {
     const total_expense_amount_formatted = numeral(total_expense_amount / 100).format("$0,0.00");
 
     return (
-        <span>
-          {
-            total_expense_count === 0 ? (
-                <h1>No Expenses Selected</h1>
-            ) : <h1>Viewing {total_expense_count} {expense_word} totalling {total_expense_amount_formatted}</h1>
-          }
-        </span>
+        <div className="primary-page-header">
+       {/* //[S07251678|_page-header.scss::.primary-page-header css1;^B] */}
+          <div className="content-container">
+            {
+              total_expense_count === 0 ? (
+                  <h1>No Expenses Selected</h1>
+              ) : <h1 className="primary-page-header__title">
+              {/* //[S07251678|_page-header.scss::.primary-page-header__title css1;^B] */}
+                      Viewing <span>{total_expense_count} {expense_word} </span>
+                      totalling <span>{total_expense_amount_formatted}</span></h1>
+            }
+              <div className="primary-page-header__actions">
+              {/* //[S07251678|_page-header.scss::.primary-page-header__actions css1;^B] */}
+              {/*  */}
+              {/* <Link className="login-button" to="/create" message="Add Expense" /> */}
+                  <Link className="login-button" to="/create">Add Expense</Link>
+              {/* //[S07251678|_buttons.scss::.login-button css3;^B] */}
+              {/* [S07251667|sec009a_CLS_add_expense_page.jsx::CLS_add_expense_page evt1;^B] */}
+
+              </div>
+          </div>
+        </div>
     )
 };
 //                                 {/*//[ P_props.total_expense_amount exe1;]*/}

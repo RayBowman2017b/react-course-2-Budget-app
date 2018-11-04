@@ -1,0 +1,46 @@
+
+/*
+
+_input-group.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_input-group.scss
+
+
+//  SEC_017 --- 174. Styling List Filters 10:05
+
+
+*/
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.filter-input-group css1;^B]
+
+.filter-input-group {
+
+    display: flex;
+    margin-bottom: $m-size;
+    flex-direction: column;
+
+    @media (min-width: $desktop-breakpoint) {
+        display: flex;
+        margin-bottom: $l-size;
+        flex-direction: row;
+    }
+}
+
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.filter-input-group__item css1a^B]
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.filter-input-group__item css1b^B]
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.filter-input-group__item css1c^B]
+;
+
+.filter-input-group__item {
+
+    margin-bottom: $s-size;
+
+    @media (min-width: $desktop-breakpoint) {
+        margin-right: $s-size;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}

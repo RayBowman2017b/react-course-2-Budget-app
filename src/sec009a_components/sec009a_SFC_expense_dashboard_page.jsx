@@ -27,30 +27,31 @@ import SFC_expenses_summary from './sec013a_L140_expenses_summary.jsx';
 
 const GC_style={
     padding: 1 + "rem",
+    backgroundColor: "lightBlue"
     };
 
     //  [S07251666|sec009a_app_router.jsx::GC_expense_dashboard_page rtr1;^B]
 
+    //  [S07251666|sec016a_L167_public_app_router.jsx::GC_expense_dashboard_page rtr2;^B]
+
     //  [S07251664|A01_DIrectory_01.txt::DRC1: GC_expense_dashboard_page <1>^B]
+
+    //<div style={GC_style}>Ralph's Crappy Webpage.</div>
 
 const GC_expense_dashboard_page = () =>
 (
-  <span>
-    <span style={GC_style}>Ralph's Crappy Webpage.</span>
-    <div  style={GC_style}>{ moment().format('LLLL') }</div>
+  <div>
+    {/*  */}
+    <div style={GC_style}>{ moment().format('LLLL') }</div>
+    {/* [S07251664|A01_DIrectory_01.txt::moment().format('LLLL') drc1;^B] */}
     <SFC_expenses_summary />
-    {/*
-      //  [S07251667|sec013a_L140_expenses_summary.jsx::TPL1: SFC_expenses_summary <1>^B]
-      */}
+    {/* [S07251667|sec013a_L140_expenses_summary.jsx::TPL1: SFC_expenses_summary <1>^B] */}
     <CLS_expense_list_filters />
-    {/*
-       //  [S07251667|sec011a_L103_expense_list_filters.jsx::TPL1: CLS_expense_list_filters <1>^B]
-       //  [S07251667|sec011a_L103_expense_list_filters.jsx::CLS_expense_list_filters.render tpl1;^B]
-      */}
-
+    {/* [S07251667|sec011a_L103_expense_list_filters.jsx::TPL1: CLS_expense_list_filters <1>^B] */}
+    {/* [S07251667|sec011a_L103_expense_list_filters.jsx::CLS_expense_list_filters.render tpl1;^B] */}
     <SFC_expense_list />
-    {/*  [S07251667|sec011a_L101_expense_list.jsx::TPL1: SFC_expense_list <1>^B] */}
-  </span>
+    {/* [S07251667|sec011a_L101_expense_list.jsx::TPL1: SFC_expense_list <1>^B] */}
+  </div>
 );
 
 export default GC_expense_dashboard_page;

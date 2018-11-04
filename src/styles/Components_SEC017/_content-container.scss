@@ -1,0 +1,52 @@
+
+/*
+
+_content-container.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_content-container.scss
+
+
+//  SEC_017 --- 172. Styling Buttons 15:35
+
+
+*/
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.content-container css1;^B]
+
+//  [S07251667|sec009a_SFC_header.jsx::.content-container css2;^B]
+
+//  [S07251667|sec009a_CLS_add_expense_page.jsx::.content-container css3a;^B]
+//  [S07251667|sec009a_CLS_add_expense_page.jsx::.content-container css3b;^B]
+
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.content-container css4a;^B]
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.content-container css4b;^B]
+
+
+//  [S07251667|sec011a_L101_expense_list.jsx::.content-container css5;^B]
+
+.content-container {
+
+    /*
+        Center the element when the display expands to over 80rem.
+    */
+    margin: 0 auto;
+
+    border: solid;
+
+    /*
+        https://www.w3schools.com/css/css_padding.asp
+
+        If the padding property has two values:
+
+        padding: 25px 50px;
+        top and bottom paddings are 25px
+        right and left paddings are 50px
+
+        top and bottom paddings are 0
+        right and left paddings are $m-size
+    */
+    padding: 0 $m-size;
+
+    max-width: 80rem;
+}

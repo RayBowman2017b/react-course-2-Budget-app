@@ -5,6 +5,8 @@
 
 //  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\proj_02\Budget-app\webpack.config.js
 
+//  [S07251664|A01_DIrectory_01.txt::webpack.config.js drc1;^B]
+
    //  [ DEF1: GC_actual_path_public <1>]
    //  [ DEF1: GC_actual_path_dist <1>]
 
@@ -14,6 +16,8 @@
    //    [ if (env === 'production') top1;]
    //    [ if (env === 'development') top1;]
 
+/* eslint-disable no-console */
+/* eslint-disable no-unexpected-multiline */
 
 //  const GC_src_dir = "src";
   const GC_src_dir = "src";
@@ -58,6 +62,7 @@
 //  sec010b_L88_destructuring.jsx
 console.log (' ******** GC_active_app_file is ->' + GC_active_app_file);
 
+/*
 
 //const GC_active_project_path = "\\react-course-proj-01\\Indecision-app-01";
 //const GC_active_project_path = "/react-course-proj-01/Indecision-app-01";
@@ -70,6 +75,8 @@ const GC_active_project_path =
       [   "proj_02", "Budget-app", "zzz_playground" ];
       //  "K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\SEC_010_Redux\proj_02\Budget-app\zzz_playground"
 //console.log (' ******** GC_active_project_path is -> ', GC_active_project_path);
+
+ */
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -162,7 +169,7 @@ const GC_path_favicon_dest = (GF_env_is_test_or_development ()) ?
 console.log ( ' --- GC_path_favicon is ', GC_path_favicon);
 
 
-const GC_actual_path_styles = GC_mod_path.join (__dirname, GC_src_dir, 'styles');
+//const GC_actual_path_styles = GC_mod_path.join (__dirname, GC_src_dir, 'styles');
                                                        //[ GC_src_dir ref1;^B]
 
 const GC_actual_source_JSX = GC_mod_path.join
@@ -307,9 +314,20 @@ function GC_build_config (env)  {
                     ]
                 },
                 {
-                   test: /\.(jpg|jpeg|gif|png|ico)$/,
-                   exclude: /node_modules/,
-                   loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+                    test: /\.(jpg|jpeg|gif|png|ico)$/,
+                    exclude: /node_modules/,
+                    //  loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+                    use: [
+                        {
+                            loader:'file-loader',
+                            options: {
+                                //name:"img/[path][name].[ext]"
+                                name:"[path][name].[ext]",
+                                //context:"./public/images"
+                                context:"./"
+                            }
+                        }
+                    ]
                 }
             ]
         },

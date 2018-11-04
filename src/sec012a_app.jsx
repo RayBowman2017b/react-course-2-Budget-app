@@ -60,7 +60,7 @@ from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
 import { firebase } from './sec014a_firebase/sec014_L142_firebase.js';
-      //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-2;^B]
+       //[S07251677|sec014_L142_firebase.js::sec014_L142_firebase import-2;^B]
 
 //=====================================================================
 
@@ -121,16 +121,19 @@ const GC_render_CTRL = {
 
   has_rendered: false,
 
-   //  [ EXE1a: render_app <1>]
-   //  [ EXE1b: render_app <1>]
-
   appRoot_01 : document.getElementById('sec011_app_01'),
 //[S07251665|index_template.html::getElementById('sec011_app_01'); ref1;^B]
          //[S07251663|index.html::getElementById('sec011_app_01'); ref2;^B]
 
+       //    [ EXE1: render_app_loading <1>]
+
   render_app_loading () {
     ReactDOM.render(<p>Loading...</p>, this.appRoot_01);
   },
+
+   //  [ EXE1a: render_app <1>]
+   //  [ EXE1b: render_app <1>]
+
   render_app ()  {
     if ( ! this.has_rendered )  {
           ReactDOM.render(GC_provider_for_router, this.appRoot_01);
@@ -165,6 +168,11 @@ console.log (" sec012a_app.jsx is running!");
 
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
+
+//  [S07251668|sec016a_L162_ACTN_auth.jsx::onAuthStateChanged signInWithPopup xrf1;^B]
+//  [S07251668|sec016a_L162_ACTN_auth.jsx::onAuthStateChanged signOut xrf1;^B]
+
+//  [S07251664|A01_DIrectory_01.txt::firebase.auth().onAuthStateChanged drc1;^B]
 
 firebase.auth().onAuthStateChanged ( (P_user) => {
 

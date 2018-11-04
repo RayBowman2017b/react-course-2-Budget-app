@@ -125,6 +125,7 @@ export const MP_addExpense = (expense) => (
      //[ DEF1: MP_startAddExpense <1>^B]
   export const MP_startAddExpense = (P_expenseData = {}) =>
   {
+//  SEC_016 --- 168. Private Firebase Data 18:33
     return (P_dispatch, P_fn_get_state) => {
       const {
           description = '',
@@ -135,6 +136,7 @@ export const MP_addExpense = (expense) => (
 
       const L_expense = { description, note, amount, createdAt };
 
+//  SEC_016 --- 168. Private Firebase Data 18:33
       const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
                             //[ P_fn_get_state().auth.uid top1;^B]
 
@@ -177,6 +179,7 @@ export const MP_removeExpense = ( { id } = {} ) => ( {
 
    //[ DEF1: MP_startRemoveExpense <1>^B]
 export const MP_startRemoveExpense = ({ id } = {}) => {
+//  SEC_016 --- 168. Private Firebase Data 18:33
   return (dispatch, P_fn_get_state) => {
     const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
                           //[ P_fn_get_state().auth.uid top2;^B]
@@ -218,6 +221,7 @@ export const MP_editExpense = ( id, updates ) => ( {
 
    //[ DEF1: MP_startEditExpense <1>^B]
 export const MP_startEditExpense = (id, updates) => {
+//  SEC_016 --- 168. Private Firebase Data 18:33
   return (dispatch, P_fn_get_state) => {
     const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
                           //[ P_fn_get_state().auth.uid top3;^B]
@@ -260,6 +264,7 @@ export const MP_setExpenses = (expenses) =>
 
    //[ DEF1: MP_startSetExpenses <1>^B]
 export const MP_startSetExpenses = () => {
+//  SEC_016 --- 168. Private Firebase Data 18:33
   return (dispatch, P_fn_get_state) => {
     const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
                           //[ P_fn_get_state().auth.uid top4;^B]

@@ -29,6 +29,16 @@ SEC_009_React_Router\proj_02\Budget-app\src\sec009a_routers\sec009a_app_router.j
 
 //  SEC_009 --- 80. Organizing Our Routes 12:30
 
+//  [S07251666|sec016a_L167_public_app_router.jsx::RTR1: MP_SFC_public_route <1>^B]
+                                                     //[ MP_SFC_public_route top1;]
+
+//  [S07251666|sec016a_L166_private_app_router.jsx::RTR1: MP_SFC_private_route <1>^B]
+                                                      //[ MP_SFC_private_route top1a;]
+                                                      //[ MP_SFC_private_route top1b;]
+                                                      //[ MP_SFC_private_route top1c;]
+                                                      //[ MP_SFC_private_route xxx^B]
+
+
  ***************************************************************************/
 
 //  ================================================================
@@ -180,8 +190,8 @@ const GC_app_router = () => (
     SWITCHING BACK from BrowserRouter to Router, and including history
     <BrowserRouter>
    */}
-    <Router history={MP_history}>
-             {/* //[ MP_history ref2;^B] */}
+  <Router history={MP_history}>
+           {/* //[ MP_history ref2;^B] */}
   <div>
  {/*
 //  SEC_016 --- 166. Private Only Routes 13:04
@@ -198,14 +208,18 @@ K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\sec009a_routers\sec016a_
  {/* //  SEC_016 --- 167. Public Only Routes 5:29 */}
  {/*         <Route path="/" component={SFC_expense_dashboard_page} exact={true} /> */}
         <MP_SFC_public_route path="/" component={SFC_login_page} exact={true} />
- {/* [S07251667|sec016a_L162_login_page.jsx::SFC_login_page rtr1;^B]  */}
+ {/* //[ MP_SFC_public_route top1;^B] */}
+ {/*     [S07251667|sec016a_L162_login_page.jsx::SFC_login_page rtr1;^B]  */}
 
  {/* //  SEC_016 --- 166. Private Only Routes 13:04 */}
         <MP_SFC_private_route path="/dashboard" component={SFC_expense_dashboard_page} exact={true} />
+ {/* //[ MP_SFC_private_route top1a;^B] */}
  {/* [S07251667|sec009a_SFC_expense_dashboard_page.jsx::GC_expense_dashboard_page rtr1;^B] */}
         <MP_SFC_private_route path="/create" component={CLS_add_expense_page}  />
+ {/* //[ MP_SFC_private_route top1b;^B] */}
  {/* [S07251667|sec009a_CLS_add_expense_page.jsx::CLS_add_expense_page rtr1;^B] */}
         <MP_SFC_private_route path="/edit/:id/:description?" component={CLS_edit_expense_page}  />
+ {/* //[ MP_SFC_private_route top1c;^B] */}
  {/* [S07251667|sec009a_CLS_edit_expense_page.jsx::CLS_edit_expense_page rtr1;^B]
      [S07251667|sec009a_CLS_edit_expense_page.jsx::P_expense.id === props.match.params.id ref1;^B]
      [S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} ref2;^B]

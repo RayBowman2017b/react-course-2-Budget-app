@@ -15,7 +15,9 @@ import MP_header from '../../sec009a_components/sec009a_SFC_header.jsx';
 
 import React from 'react';
 
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+/* //  SEC_017 --- 172. Styling Buttons 15:35 */
+//import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //  SEC_016 --- 163. Logging Out 11:05
 import { connect } from 'react-redux';
@@ -36,29 +38,49 @@ const GF_link=(P_props) =>
 );
 
    //  [S07251666|sec009a_app_router.jsx::SFC_header tpl1x;^B]
-   //  [S07251666|sec016a_L166_private_app_router.jsx::SFC_header tpl2;^B]
+   //  [S07251666|sec016a_L166_private_app_router.jsx::SFC_header rtr2;^B]
 
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_header <1>]
 
 export const SFC_header = (props) =>
 (
-<header>
-  <h1>Expensify</h1>
-  {/* //  SEC_016 --- 167. Public Only Routes 5:29 */}
-  {/*   <GF_link route="/" message="HOME" /> */}
-  <GF_link route="/dashboard" message="Dashboard" />
-  <GF_link route="/create" message="Create Expense" />
-  <GF_link route="/edit" message="Edit" />
-  {/*  */}
-  {/* //  SEC_016 --- 163. Logging Out 11:05  */}
-  <button id='BTN_logout' onClick={props.BTN_CLK_start_logout}>
-                           {/* //[ props.BTN_CLK_start_logout exe1;] */}
-  {/*[S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_logout <1>^B]  */}
-  {/* [S07251664|A01_DIrectory_01.txt::auth: MP_authReducer drc2;^B] */}
-  {/*  */}
-    LOGOUT
-  </button>
-</header>
+    <header className="primary-header">
+          {/* //[S07251678|_header.scss::.primary-header css1;^B] */}
+      <div className="content-container">
+          {/* //[S07251678|_content-container.scss::.content-container css2;^B] */}
+        <div className="primary-header__content">
+          {/* //[S07251678|_header.scss::.primary-header__content css1;^B] */}
+          {/* //  SEC_017 --- 172. Styling Buttons 15:35 */}
+          {/*   <h1>Expensify</h1> */}
+          {/* //  SEC_016 --- 167. Public Only Routes 5:29 */}
+          {/*   <GF_link route="/" message="HOME" /> */}
+          {/*   <GF_link route="/dashboard" message="Dashboard" /> */}
+  
+          <Link className="primary-header__title" to="/dashboard">
+          {/* //[S07251678|_header.scss::.primary-header__title css1;^B] */}
+            <h1>Expensify</h1>
+          </Link>
+  
+          {/*  */}
+          {/* <GF_link route="/create" message="Create Expense" /> */}
+          {/* This was only needed as an example for the routing section. */}
+          {/*   <GF_link route="/edit" message="Edit" /> */}
+          {/*  */}
+          {/* //  SEC_016 --- 163. Logging Out 11:05  */}
+          <button id='BTN_logout'
+                  className="login-button button--link"
+                  onClick={props.BTN_CLK_start_logout}>
+              {/* //[S07251678|_buttons.scss::.login-button css1;^B] */}
+              {/* //[S07251678|_buttons.scss::.button--link css1;^B] */}
+                                   {/* //[ props.BTN_CLK_start_logout exe1;] */}
+          {/*[S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_logout <1>^B]  */}
+          {/* [S07251664|A01_DIrectory_01.txt::auth: MP_authReducer drc2;^B] */}
+          {/*  */}
+            LOGOUT
+          </button>
+        </div>
+      </div>
+    </header>
 );
 
 

@@ -37,6 +37,8 @@ const GC_testbox01_style =
 
 //[ EXE1: GC_link_with_children <1>]
 
+//  [S07251664|A01_DIrectory_01.txt::DRC1: GC_link_with_children <1>]
+
 const GC_link_with_children = (P_props) =>
 (
     <button style={GC_button_style}>
@@ -57,13 +59,22 @@ const GC_link_with_children = (P_props) =>
 
 //  [S07251666|sec009a_app_router.jsx::SFC_login_page rtr1;^B]
 
-//  [ EXE1: SFC_login_page <1>^B]
+//  [S07251666|sec016a_L166_private_app_router.jsx::SFC_login_page rtr2;^B]
 
 //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_login_page <1>^B]
 
+//  SEC_017 --- 171. Styling Login Page 13:45
+// <div>
+
        //[ DEF1: SFC_login_page <1>^B]
 export const SFC_login_page = (P_props) => (
-  <div>
+  <div className="box-layout">
+  //[S07251678|_box-layout.scss::.box-layout css1;^B]
+<div className="box-layout__box">
+  //[S07251678|_box-layout.scss::.box-layout__box css1;^B]
+  <h1 className="box-layout__title">Expensify</h1>
+  //[S07251678|_box-layout.scss::.box-layout__title css1;^B]
+  <p>It's time to get your expenses under control.</p>
     <input
       type="text"
       placeholder="USERNAME"
@@ -78,15 +89,22 @@ export const SFC_login_page = (P_props) => (
     />
     {/*  */}
     {/* //  SEC_016 --- 162. Login Page and Google Authentication 19:26 */}
-    <button id='BTN_login' onClick={P_props.BTN_CLK_start_login} style={GC_button_style}>
+    {/*  */}
+    {/* <button id='BTN_login' onClick={P_props.BTN_CLK_start_login} style={GC_button_style}> */}
+    <button id='BTN_login' className="login-button"
+         //[S07251678|_buttons.scss::.login-button css2;^B]
+            onClick={P_props.BTN_CLK_start_login}>
     {/* [ P_props.BTN_CLK_start_login exe1;] */}
     {/* [S07251668|sec016a_L162_ACTN_auth.jsx::REF1: MP_start_login <1>^B] */}
-    LOGIN
+      Login with Google
     </button>
+    {/*
     <GC_link_with_children route={"/dashboard/"}>
-    {/*  //[ EXE1: GC_link_with_children <1>^B] */}
+    *  //[ EXE1: GC_link_with_children <1>^B] *
           <h3>{'TO > dashboard'}</h3>
     </GC_link_with_children>
+      */}
+</div>
   </div>
 );
 
@@ -106,6 +124,4 @@ const GF_map_dispatch_to_props = (P_dispatch) => ( {
 } );
 
 //export default connect(GF_map_state_to_props, GF_map_dispatch_to_props) (SFC_login_page);
-//export default connect(undefined, undefined) (SFC_login_page);
 export default connect(undefined, GF_map_dispatch_to_props) (SFC_login_page);
-//export default SFC_login_page;

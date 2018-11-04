@@ -58,6 +58,8 @@ const xxxGC_edit_expense_page = (P_props) =>
 
 //  [S07251666|sec009a_app_router.jsx::CLS_edit_expense_page rtr1;^B]
 
+//  [S07251667|sec011a_L102_expense_list_item.jsx::CLS_edit_expense_page evt1;]
+
 //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_edit_expense_page <1>]
 
 //  [ CLS_edit_expense_page oo1;]
@@ -142,10 +144,76 @@ export class CLS_edit_expense_page extends React.Component
     render ()
     {
         //const L_descrptn = this.props.match.params.description;
+        const L_expense_id
+                = <h1 className="primary-page-header__title">
+          {/* [S07251678|_page-header.scss::.primary-page-header__title css3a;^B] */}
+                    Editing the expense with an id of {this.props.expense_id}.
+                  </h1>;
         const L_descrptn = this.props.expense_description;
+        const L_get_descrptn
+                = L_descrptn
+                     &&  <h1 className="primary-page-header__title">
+          {/* [S07251678|_page-header.scss::.primary-page-header__title css3b;^B] */}
+                           Editing the expense with a description of {L_descrptn}.</h1>;
+
 //    <div>Editing the expense with an id of {this.props.match.params.id}.</div>
 //    <div>Editing the expense with an id of {this.props.expense.id}.</div>
     return (
+  <div>
+      {/*  //  SEC_017 --- 176. Styling Expense Form 13:19 */}
+      <div className="primary-page-header">
+      {/* [S07251678|_page-header.scss::.primary-page-header css3;^B] */}
+        <div className="content-container">
+        {/* [S07251678|_content-container.scss::.content-container css4a;^B] */}
+            {L_expense_id}
+            {L_get_descrptn}
+        </div>
+      </div>
+      <div className="content-container">
+      {/* [S07251678|_content-container.scss::.content-container css4b;^B] */}
+        <CLS_expense_form
+        //[S07251667|sec011a_L105_expense_form.jsx::TPL2: CLS_expense_form <1>^B]
+            expense={this.props.expense}
+                 //[ this.props.expense pp1;]
+            onExpenseSubmit={this.onExpenseSubmit}
+                        //[ ASN1: onExpenseSubmit <1>^B]
+            buttonLabel={'EDIT EXPENSE'}
+        />
+  {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
+        MOVED to here from  sec011a_L102_expense_list_item.jsx */}
+        <button
+          id='BTN_remove_expense'
+//  SEC_017 --- 176. Styling Expense Form 13:19
+          className="remove-button"
+          //[S07251678|_buttons.scss::.remove-button css1;^B]
+          onClick={this.onClickRemoveExpense}
+     //[ ASN1: EDIT_XPP.onClickRemoveExpense <1>^B]
+        >REMOVE EXPENSE</button>
+
+      </div>
+                {/*  */}
+  </div>
+           );
+    }
+
+
+  //========================================================================
+  //========================================================================
+
+    xxxxxxxxxxrender ()
+    {
+        //const L_descrptn = this.props.match.params.description;
+        const L_descrptn = this.props.expense_description;
+        const LF_get_descrptn = () =>
+            L_descrptn
+             &&  <h1 className="primary-page-header__title">
+                   Editing the expense with a description of {L_descrptn}.</h1>;
+
+//    <div>Editing the expense with an id of {this.props.match.params.id}.</div>
+//    <div>Editing the expense with an id of {this.props.expense.id}.</div>
+    return (
+
+
   <span>
     <br/>
                 {/*
@@ -159,17 +227,12 @@ export class CLS_edit_expense_page extends React.Component
         onExpenseSubmit={this.onExpenseSubmit}
         buttonLabel={'EDIT EXPENSE'}
     />
-                {/*
-    [S07251667|sec011a_L105_expense_form.jsx::TPL2: CLS_expense_form <1>^B]
-                //[ this.props.expense pp1;]
-                //[ ASN1: onExpenseSubmit <1>^B]
-                  */}
+    {/*  */}
 
   {/*  //  SEC_011 --- 108. Wiring up Edit Expense 19:06 
         MOVED to here from  sec011a_L102_expense_list_item.jsx */}
       <button id='BTN_remove_expense' onClick={this.onClickRemoveExpense}
       >REMOVE</button>
-                             {/* //[ ASN1: EDIT_XPP.onClickRemoveExpense <1>^B] */}
 
   </span>
            );
@@ -231,7 +294,7 @@ const GF_map_state_to_props = (state, props) =>  {
       //[S07251667|sec011a_L102_expense_list_item.jsx::route={"/edit/" + id} ref1;^B]
       //[S07251666|sec009a_app_router.jsx::P_expense.id === props.match.params.id ref1;^B]
         //[S07251664|A01_DIrectory_01.txt::P_expense.id === props.match.params.id drc1;^B]
-                   );
+            );
 
     //this.props.match.params.id
 

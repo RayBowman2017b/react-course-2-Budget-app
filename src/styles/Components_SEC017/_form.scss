@@ -1,0 +1,38 @@
+
+/*
+
+_form.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_form.scss
+
+//  SEC_017 --- 176. Styling Expense Form 13:19
+
+*/
+
+
+//  [S07251667|sec011a_L105_expense_form.jsx::expense-form css1;^B]
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+
+    //  target all children.
+    > * {
+        margin-bottom: $m-size;
+        border: solid;
+    }
+}
+
+
+//  [S07251667|sec011a_L105_expense_form.jsx::expense-form__error css1a;^B]
+//  [S07251667|sec011a_L105_expense_form.jsx::expense-form__error css1b;^B]
+
+.expense-form__error {
+    margin: 0 0 $m-size 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: $m-size;
+    margin-left: 0;
+    font-style: italic;
+}

@@ -83,6 +83,9 @@
 ...................................................................................................
 
 
+//  [S07251673|webpack.config.js::webpack.config.js drc1;^B]
+
+
     //[ setting environment variables top-drc-1;^B]
 ONE WAY :> //  [S07251673|.env.test::FIREBASE_API_KEY^B]
 ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
@@ -92,6 +95,7 @@ ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
 
         [ TEST CONFIG xrf-drc-1;]
 
+//  [S07251665|sec012a_app.jsx::firebase.auth().onAuthStateChanged drc1;^B]
 
 //  [S07251667|sec011a_L105_expense_form.jsx::DRC1: XPNF_check_errors <1>^B]
 
@@ -105,11 +109,14 @@ ONE WAY :> //  [S07251673|.env.development::FIREBASE_API_KEY^B]
 //  [S07251667|sec011a_L102_expense_list_item.jsx::numeral(amount / 100).format drc1;^B]
 
 //  [S07251667|sec011a_L102_expense_list_item.jsx::moment(createdAt).format drc1;^B]
+                                               //[ moment().format('LLLL') xrf-drc1;]
 
 
 //  [S07251674|Loadable_Handlers.jsx::DRC1: MP_common_loading_handler <1>^B]
 
 //  [S07251675|server_135.js::GC_app.listen drc1;^B]
+
+//  [S07251667|sec016a_L162_login_page.jsx::DRC1: GC_link_with_children <1>^B]
 
 ...................................................................................................
         [ STORE FOR REDUCERS top-drc-1;^B]
@@ -249,6 +256,9 @@ ONE WAY :> //  [S07251673|jest.config.json::"snapshotSerializers"^B]
                                               CALLS :> [ EXPENSE LIST SUMMARY called-by-1;]
                                               CALLS :> [ EXPENSE LIST FILTERS called-by-1;]
                                               CALLS :> [ EXPENSE LIST called-by-1;]
+
+//  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::moment().format('LLLL') drc1;^B]
+                                                   //[ moment().format('LLLL') xrf-drc1;^B]
 
 ...................................................................................................
         [ EXPENSE ACTIONS top-drc-1;^B]

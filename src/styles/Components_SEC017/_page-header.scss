@@ -1,0 +1,64 @@
+
+/*
+
+_page-header.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_page-header.scss
+
+
+//  SEC_017 --- 173. Styling Summary Area 12:20
+
+
+*/
+
+
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::.primary-page-header css1;^B]
+
+//  [S07251667|sec009a_CLS_add_expense_page.jsx::.primary-page-header css2;^B]
+
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.primary-page-header css3;^B]
+
+.primary-page-header {
+
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+    //background-color: #f7f7f7;
+    background-color: $off-white;
+
+    margin-bottom: $l-size;
+
+    /*
+        top and bottom paddings are $m-size
+        right and left paddings are 0
+    */
+    padding: $l-size 0;
+}
+
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::.primary-page-header__title css1;^B]
+//  [S07251667|sec009a_CLS_add_expense_page.jsx::.primary-page-header__title css2;^B]
+
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.primary-page-header__title css3a;^B]
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.primary-page-header__title css3b;^B]
+
+.primary-page-header__title {
+
+    font-weight: 300;
+
+    margin: 0;
+
+    span {
+        /*  700 = BOLD */
+        font-weight: 700;
+    }
+}
+
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::.primary-page-header__actions css1;^B]
+
+.primary-page-header__actions {
+
+    margin-top: $m-size;
+}
+

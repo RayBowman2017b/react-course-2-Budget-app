@@ -1,0 +1,40 @@
+
+/*
+
+_inputs.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_inputs.scss
+
+
+//  SEC_017 --- 175. Styling Inputs 11:30
+
+*/
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.text-input css1;^B]
+
+//  [S07251667|sec011a_L105_expense_form.jsx::.text-input css2a;^B]
+//  [S07251667|sec011a_L105_expense_form.jsx::.text-input css2b;^B]
+
+.text-input {
+    border: 1px solid #cacccd;
+    height: 50px;
+    font-size: $font-size-large;
+    font-weight: 300;
+    padding: $s-size;
+}
+
+
+//  [S07251667|sec011a_L103_expense_list_filters.jsx::.select css1;^B]
+
+.select {
+    @extend .text-input;
+}
+
+
+//  [S07251667|sec011a_L105_expense_form.jsx::.textarea css1;^B]
+
+.textarea {
+    @extend .text-input;
+    height: 10rem;
+}

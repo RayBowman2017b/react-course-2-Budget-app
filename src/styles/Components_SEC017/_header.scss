@@ -1,0 +1,64 @@
+
+/*
+
+_header.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_header.scss
+
+//  SEC_017 --- 172. Styling Buttons 15:35
+
+*/
+
+//  [S07251667|sec009a_SFC_header.jsx::.primary-header css1;^B]
+
+.primary-header {
+    background-color: $dark-blue;
+}
+
+
+
+//  [S07251667|sec009a_SFC_header.jsx::.primary-header__title css1;^B]
+
+.primary-header__title {
+    color: white;
+    text-decoration: none;
+    h1: {
+        margin: 0;
+    }
+}
+
+
+//  [S07251667|sec009a_SFC_header.jsx::.primary-header__content css1;^B]
+
+.primary-header__content {
+
+    align-items: center;
+
+/*
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+display
+This defines a flex container; inline or block depending on the given value.
+ It enables a flex context for all its direct children.
+
+.container {
+  display: flex; /  * or inline-flex *  /
+}
+Note that CSS columns have no effect on a flex container.
+
+*/
+    display: flex;
+
+/*
+    Distribute the space between the titrle and the "expensify" button.
+*/
+    justify-content: space-between;
+
+/*
+        top and bottom paddings are $s-size
+        right and left paddings are 0
+ */
+    padding: $s-size 0;
+}

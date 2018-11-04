@@ -58,19 +58,29 @@ let cnt = 0;
 
    //  [S07251667|sec009a_SFC_expense_dashboard_page.jsx::TPL1: SFC_expense_list <1>^B]
 
-//  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expense_list <1>^B]
+   //  [S07251664|A01_DIrectory_01.txt::DRC1: SFC_expense_list <1>^B]
 
    //  [ END1: SFC_expense_list <1>]
 
    //[ DEF1: SFC_expense_list <1>^B]
 export const SFC_expense_list = (P_props) => (
-<span>
-  <h1>Expense List</h1>
+<div className="content-container">
+    {/* [S07251678|_content-container.scss::.content-container css5;^B] */}
     {/*
+  <h1>Expense List</h1>
        P_props.expenses.map ( (P_expense) => (
           <div key={cnt++}>{P_expense.description}</div>
                             )                )
     */}
+
+    <div className="list-header">
+    {/* [S07251678|_list.scss::.list-header css1;^B] */}
+        <div className="show-for-mobile">Expenses</div>
+        <div className="show-for-desktop">Expense</div>
+        <div className="show-for-desktop">Amount</div>
+    </div>
+
+    {/*  */}
     {/*
 
 //  SEC_011 --- 103. Controlled Inputs for Filters 14:21
@@ -79,25 +89,33 @@ export const SFC_expense_list = (P_props) => (
           <div key={cnt++}><SFC_expense_list_item expense_item={P_expense}/></div>
                             )                )
     */}
-  {
-    P_props.expenses.length === 0 ? (
-        <p>No Expenses</p>
-    ) : (
-        P_props.expenses.map ( (P_expense) => (
-    //[ P_props.expenses exe1;]
-    //[S07251670|sec011a_L099_SLCT_expenses.jsx::REF1: MP_SLCT_getVisibleExpenses <1>^B]
-         //<div key={'div_' + P_expense.id} style={GC_div_style}>
-          <div key={'div_' + P_expense.id}>
-            <SFC_expense_list_item key={P_expense.id} {...P_expense} />
-    {/*
-           //[S07251667|sec011a_L102_expense_list_item.jsx::EXE1: SFC_expense_list_item <1>^B]
-    */}
-         </div>
-                                              )
-                             )
-    )
-  }
-</span>
+  {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
+  <div className="list-body">
+  {/* [S07251678|_list.scss::.list-body css1;^B] */}
+    {
+      P_props.expenses.length === 0 ? (
+          <div className="list-item--message">
+          {/* //  SEC_017 --- 177. Styling Expenses List: Part II 13:03 */}
+              {/* [S07251678|_list.scss::.list-item--message css1;^B] */}
+              <span>No Expenses</span>
+          </div>
+      ) : (
+          P_props.expenses.map ( (P_expense) => (
+            <div key={'div_' + P_expense.id}>
+      {/*
+      //[ P_props.expenses exe1;]
+      //[S07251670|sec011a_L099_SLCT_expenses.jsx::REF1: MP_SLCT_getVisibleExpenses <1>^B]
+           //<div key={'div_' + P_expense.id} style={GC_div_style}>
+        */}
+              <SFC_expense_list_item key={P_expense.id} {...P_expense} />
+      {/* [S07251667|sec011a_L102_expense_list_item.jsx::EXE1: SFC_expense_list_item <1>^B] */}
+           </div>
+                                                )
+                               )
+      )
+    }
+  </div>
+</div>
     );
    //  [ END1: SFC_expense_list <1>^B]
 //==========================================================================

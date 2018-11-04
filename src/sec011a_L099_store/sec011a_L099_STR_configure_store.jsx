@@ -65,15 +65,15 @@ const L_store = createStore
 
 //  SEC_016 --- 165. The Auth Reducer 15:49
                 auth: MP_authReducer
-//[S07251669|sec016a_L165_RDCR_auth.jsx::combineReducers auth: MP_authReducer^B]
                //[S07251667|sec016a_L162_login_page.jsx::auth: MP_authReducer ref1;^B]
                     //[S07251667|sec009a_SFC_header.jsx::auth: MP_authReducer ref3;^B]
         //[S07251666|sec016a_L167_public_app_router.jsx::auth: MP_authReducer ref2;^B]
                 //[S07251668|sec016a_L162_ACTN_auth.jsx::MP_login auth ref1;^B]
                 //[S07251668|sec016a_L162_ACTN_auth.jsx::MP_logout auth ref1;^B]
+            //[S07251668|sec011a_L099_ACTN_expenses.jsx::P_fn_get_state().auth.uid ref1;^B]
+//[S07251669|sec016a_L165_RDCR_auth.jsx::combineReducers auth: MP_authReducer^B]
                 //[S07251669|sec016a_L165_RDCR_auth.jsx::auth: MP_authReducer ref4a;^B]
                 //[S07251669|sec016a_L165_RDCR_auth.jsx::auth: MP_authReducer ref4b;^B]
-            //[S07251668|sec011a_L099_ACTN_expenses.jsx::P_fn_get_state().auth.uid ref1;^B]
                          //[S07251674|seed_database.jsx::users/${P_user.uid} ref1;^B]
                       //[S07251664|A01_DIrectory_01.txt::auth: MP_authReducer drc1;^B]
             }

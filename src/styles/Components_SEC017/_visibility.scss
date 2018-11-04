@@ -1,0 +1,26 @@
+
+/*
+
+_visibility.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_visibility.scss
+
+
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+
+
+*/
+
+.show-for-mobile {
+    @media (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+
+.show-for-desktop {
+    @media (max-width: $desktop-breakpoint - .01rem) {
+        display: none;
+    }
+}

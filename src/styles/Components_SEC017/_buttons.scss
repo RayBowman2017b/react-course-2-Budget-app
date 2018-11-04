@@ -1,0 +1,51 @@
+
+/*
+
+_buttons.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_buttons.scss
+
+
+//  SEC_017 --- 172. Styling Buttons 15:35
+
+*/
+
+//  [S07251667|sec009a_SFC_header.jsx::.login-button css1;^B]
+
+//  [S07251667|sec016a_L162_login_page.jsx::.login-button css2;^B]
+
+//  [S07251667|sec013a_L140_expenses_summary.jsx::.login-button css3;^B]
+
+//  [S07251667|sec011a_L105_expense_form.jsx::.login-button css4;^B]
+
+.login-button {
+    background-color: $std-blue;
+    border: none;
+    color: white;
+    font-size: $font-size-large;
+    font-weight: 300;
+    padding: $s-size;
+
+    /* //  SEC_017 --- 173. Styling Summary Area 12:20  */
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1;
+}
+
+
+//  [S07251667|sec009a_SFC_header.jsx::.button--link css1;^B]
+
+.button--link {
+    background: none;
+}
+
+//  [S07251667|sec009a_CLS_edit_expense_page.jsx::.remove-button css1;^B]
+
+//  SEC_017 --- 176. Styling Expense Form 13:19
+
+.remove-button {
+    @extend .login-button;
+    background-color: $dark-grey;
+    color: red;
+}

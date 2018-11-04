@@ -60,6 +60,8 @@ class CLS_public_route_error_boundary extends React.Component {
 }
 
 
+   //  [S07251666|sec009a_app_router.jsx::RTR1: MP_SFC_public_route <1>^B]
+
    //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_SFC_public_route <1>^B]
 
    //[ DEF1: MP_SFC_public_route <1>^B]
@@ -72,6 +74,8 @@ export const MP_SFC_public_route = ( {
         isAuthenticated ? (
             <CLS_public_route_error_boundary>
                 <Redirect to="/dashboard" />
+                {/*  */}
+    {/* [S07251667|sec009a_SFC_expense_dashboard_page.jsx::GC_expense_dashboard_page rtr2;^B] */}
             </CLS_public_route_error_boundary>
         ) : (
             <CLS_public_route_error_boundary>

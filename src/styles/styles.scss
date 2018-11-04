@@ -32,8 +32,64 @@ $brand-color: blue;
 @import './base/base';
 
 
+/*
+//  SEC_017 --- 171. Styling Login Page 13:45
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_box-layout.scss
+*/
+@import './Components_SEC017/box-layout';
+
 
 /*
+//  SEC_017 --- 172. Styling Buttons 15:35
+*/
+@import './Components_SEC017/buttons';
+@import './Components_SEC017/header';
+@import './Components_SEC017/content-container';
+
+
+//  SEC_017 --- 173. Styling Summary Area 12:20
+@import './Components_SEC017/page-header';
+
+
+//  SEC_017 --- 174. Styling List Filters 10:05
+@import './Components_SEC017/input-group';
+
+
+//  SEC_017 --- 175. Styling Inputs 11:30
+@import './Components_SEC017/inputs';
+
+
+//  SEC_017 --- 176. Styling Expense Form 13:19
+@import './Components_SEC017/form';
+
+
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+@import './Components_SEC017/visibility';
+@import './Components_SEC017/list';
+
+
+/*  ------------------------------------------------
+/*  ------------------------------------------------
+
+    This is for the indicision app
+
+@import './components_SEC008/modal';
+
+@import './components_SEC008/add-option';
+@import './components_SEC008/option';
+
+
+@import './components_SEC008/modal';
+
+@import './components_SEC008/add-option';
+@import './components_SEC008/option';
+
+@import './components_SEC008/widget';
+@import './components_SEC008/button';
+@import './components_SEC008/container';
+@import './components_SEC008/header';
+
 
 //  SEC_009 --- 76. Setting Up Budget App 6:54
 
@@ -41,7 +97,7 @@ $brand-color: blue;
 
 //  SEC_008 --- 71. Styling React-Modal 18:00
 
-@import './components/modal';
+@import './components_SEC008/modal';
 
 
 
@@ -52,9 +108,8 @@ SEC_008_Styling_React\proj_01\Indecision-app\src\styles\components\_add-option.s
 
 *  /
 
-@import './components/add-option';
-@import './components/option';
-
+@import './components_SEC008/add-option';
+@import './components_SEC008/option';
 
 /  *
 //  SEC_008 --- 69. Styling the Options List 14:13

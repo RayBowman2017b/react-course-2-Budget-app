@@ -1,4 +1,5 @@
 
+
 /***************************************************************************
 
   sec009a_CLS_add_expense_page.jsx
@@ -42,8 +43,11 @@ import { MP_startAddExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_ex
 
    //  [S07251666|sec009a_app_router.jsx::CLS_add_expense_page rtr1;]
 
+   //  [S07251667|sec013a_L140_expenses_summary.jsx::CLS_add_expense_page evt1;^B]
+
    //  [S07251664|A01_DIrectory_01.txt::DRC1: CLS_add_expense_page <1>^B]
    //  [ CLS_add_expense_page pp1;]
+
 
    //  [ CLS_add_expense_page xxx]
 
@@ -93,16 +97,27 @@ export class CLS_add_expense_page extends React.Component
        //[ DEF1: CLS_add_expense_page.render <1>^B]
   render ()  {
     return (
-  <span>
-      <span>This is from my add expense component.</span>
-      <h1>Add Expense</h1>
-      <CLS_expense_form
-        onExpenseSubmit={this.onExpenseSubmit}
-        buttonLabel={'ADD EXPENSE'}
-      />
-      {/* [S07251667|sec011a_L105_expense_form.jsx::TPL1: CLS_expense_form <1>^B] */}
-                {/* //[ ASN1: onExpenseSubmit <1>^B] */}
-  </span>
+  <div>
+      {/*  //  SEC_017 --- 176. Styling Expense Form 13:19 */}
+      <div className="primary-page-header">
+      {/* [S07251678|_page-header.scss::.primary-page-header css2;^B] */}
+        <div className="content-container">
+        {/* [S07251678|_content-container.scss::.content-container css3a;^B] */}
+          <h1 className="primary-page-header__title">Add Expense</h1>
+          {/* [S07251678|_page-header.scss::.primary-page-header__title css2;^B] */}
+        </div>
+      </div>
+      <div className="content-container">
+      {/* [S07251678|_content-container.scss::.content-container css3b;^B] */}
+        <CLS_expense_form
+         //[S07251667|sec011a_L105_expense_form.jsx::TPL1: CLS_expense_form <1>^B]
+          onExpenseSubmit={this.onExpenseSubmit}
+                      //[ ASN1: onExpenseSubmit <1>^B]
+          buttonLabel={'ADD EXPENSE'}
+        />
+      </div>
+                {/*  */}
+  </div>
       );
     }
 

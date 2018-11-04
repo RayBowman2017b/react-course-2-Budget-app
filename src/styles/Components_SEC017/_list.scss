@@ -1,0 +1,137 @@
+
+/*
+
+_list.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_list.scss
+
+
+//  SEC_017 --- 177. Styling Expenses List: Part I 13:03
+
+
+*/
+
+
+//  [S07251667|sec011a_L101_expense_list.jsx::.list-header css1;^B]
+
+.list-header {
+    background-color: $off-white;
+    border: 1px solid darken ($off-white, 7%);
+    color: $std-grey;
+    display: flex;
+    justify-content: space-between;
+
+    //   top-bottom  left-right
+    padding: $s-size $m-size;
+}
+
+//  [S07251667|sec011a_L101_expense_list.jsx::.list-body css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-body {
+    margin-bottom: $m-size;
+    @media (min-width: $desktop-breakpoint) {
+        margin-bottom: $l-size;
+    }
+}
+
+
+//  [S07251667|sec011a_L102_expense_list_item.jsx::.list-item css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-item {
+    //border: 1px solid darken($off-white, 7%);
+    border: 1px solid darken($off-white, 22%);
+    border-top: none;
+    color: $dark-grey;
+    display: flex;
+    // top-to-bottom, rather than left-to-right.
+    flex-direction: column;
+    padding: $s-size;
+    text-decoration: none;
+    transition: background .3s ease;
+    background-color: white;
+    background-color: darken(green, 11%);
+    //  &:hover is the same as this:
+    //  .list-item:hover
+    &:hover {
+        background-color: $off-white;
+        //  Alternatively, could change the background color to blue,
+        //  leaving the text color white.
+        background-color: blue;
+        color: green;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $m-size;
+    }
+}
+
+
+//  [S07251667|sec011a_L101_expense_list.jsx::.list-item--message css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-item--message {
+    align-items: center;
+    color: $std-grey;
+    justify-content: center;
+    padding: $m-size;
+    &:hover {
+        background-color: none;
+    }
+}
+
+
+//  [S07251667|sec011a_L102_expense_list_item.jsx::.list-item__title css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-item__title {
+    margin: 0;
+    word-break: break-all;
+    color: white;
+
+    &:hover {
+        //background-color: $off-white;
+        color: black;
+    }
+}
+
+//  [S07251667|sec011a_L102_expense_list_item.jsx::.list-item__sub-title css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-item__sub-title {
+    color: $std-grey;
+    color: white;
+    font-size: $font-size-small;
+
+    &:hover {
+        color: black;
+    }
+}
+
+//  [S07251667|sec011a_L102_expense_list_item.jsx::.list-item__data css1;^B]
+
+//  SEC_017 --- 177. Styling Expenses List: Part II 13:03
+
+.list-item__data {
+    margin: $s-size 0 0 0;
+    color: white;
+
+    &:hover {
+        color: black;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+        margin: 0;
+        padding-left: $s-size;
+    }
+}
