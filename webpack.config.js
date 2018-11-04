@@ -261,7 +261,9 @@ function GC_build_config (env)  {
 
     let L_config_obj = {
 
-        entry: GC_actual_source_JSX,
+//  SEC_017 --- 180. Babel Polyfill 4:55
+//        entry: GC_actual_source_JSX,
+        entry: [ 'babel-polyfill', GC_actual_source_JSX ],
            //[ GC_actual_source_JSX ref1;^B]
         // entry:
         // {

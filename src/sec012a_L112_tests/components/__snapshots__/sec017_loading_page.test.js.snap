@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT TEST FOR LOADING PAGE - sec017_L179_loading_page.jsx should correctly render sec017_L179_loading_page.jsx 1`] = `
+<div
+  className="loader"
+>
+  <img
+    className="loader__image"
+    src="./images/loader.gif"
+  />
+</div>
+`;

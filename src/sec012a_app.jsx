@@ -13,6 +13,7 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec012a_app.jsx
 
  */
 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -67,6 +68,11 @@ import { firebase } from './sec014a_firebase/sec014_L142_firebase.js';
 //  SEC_016 --- 165. The Auth Reducer 15:49
 import { MP_login, MP_logout } from './sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
                    //[S07251668|sec016a_L162_ACTN_auth.jsx::sec016a_L162_ACTN_auth import-1;^B]
+
+//=====================================================================
+
+//  SEC_017 --- 179. Adding Loader 9:26
+import MP_SFC_loading_page from "./sec009a_components/sec017_L179_loading_page.jsx";
 
 //=====================================================================
 
@@ -127,8 +133,12 @@ const GC_render_CTRL = {
 
        //    [ EXE1: render_app_loading <1>]
 
+//  SEC_017 --- 179. Adding Loader 9:26
+  // render_app_loading () {
+  //   ReactDOM.render(<p>Loading...</p>, this.appRoot_01);
+  // },
   render_app_loading () {
-    ReactDOM.render(<p>Loading...</p>, this.appRoot_01);
+    ReactDOM.render(<MP_SFC_loading_page />, this.appRoot_01);
   },
 
    //  [ EXE1a: render_app <1>]
@@ -164,7 +174,10 @@ GC_render_CTRL.render_app_loading ();
 
 console.log (" sec012a_app.jsx is running!");
 
+//    setTimeout (() => {}, 24000);
+
 //=====================================================================
+
 
 //  SEC_016 --- 162. Login Page and Google Authentication 19:26
 //  SEC_016 --- 164. Redirecting Login or Logout 12:48
@@ -220,6 +233,7 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
     MP_history.push('/');
   }
 } );
+
 
 //=====================================================================
 //=====================================================================

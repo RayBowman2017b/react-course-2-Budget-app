@@ -1,0 +1,27 @@
+
+/*
+
+_loader.scss
+
+K:\A01_Udemy\C023_Complete_React_Web_Dev\
+Budget-app\src\styles\Components_SEC017\_loader.scss
+
+
+//  SEC_017 --- 179. Adding Loader 9:26
+
+
+*/
+
+
+.loader {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.loader__image {
+    height: 6rem;
+    width: 6rem;
+}
