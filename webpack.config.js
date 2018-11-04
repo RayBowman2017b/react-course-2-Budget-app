@@ -87,7 +87,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 //  SEC_017 --- 180. Babel Polyfill 4:55
-import "@babel/polyfill";
+//import "@babel/polyfill";
 
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
 const webpack = require('webpack');

@@ -14,6 +14,9 @@ SEC_011_React_with_Redux\proj_02\Budget-app\src\sec012a_app.jsx
  */
 
 
+//  SEC_017 --- 180. Babel Polyfill 4:55
+import "@babel/polyfill";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
