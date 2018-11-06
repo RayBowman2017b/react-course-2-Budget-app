@@ -78,6 +78,13 @@ const GC_active_project_path =
 
  */
 
+  
+//  SEC_017 --- 180. Babel Polyfill 4:55
+//import "@babel/polyfill";
+//const polyfill = require ("@babel/polyfill");
+//require ("@babel/polyfill");
+require ("@babel/polyfill");
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require('webpack-md5-hash');
@@ -85,11 +92,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
-//  SEC_017 --- 180. Babel Polyfill 4:55
-//import "@babel/polyfill";
-//const polyfill = require ("@babel/polyfill");
-require ("@babel/polyfill");
 
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
 const webpack = require('webpack');
@@ -269,7 +271,8 @@ function GC_build_config (env)  {
 
 //  SEC_017 --- 180. Babel Polyfill 4:55
 //        entry: GC_actual_source_JSX,
-        entry: [ 'babel-polyfill', GC_actual_source_JSX ],
+        entry: [ '@babel/polyfill', GC_actual_source_JSX ],
+//        entry: [ polyfill, GC_actual_source_JSX ],
            //[ GC_actual_source_JSX ref1;^B]
         // entry:
         // {

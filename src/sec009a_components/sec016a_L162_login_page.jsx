@@ -69,11 +69,12 @@ const GC_link_with_children = (P_props) =>
        //[ DEF1: SFC_login_page <1>^B]
 export const SFC_login_page = (P_props) => (
   <div className="box-layout">
-  //[S07251678|_box-layout.scss::.box-layout css1;^B]
+  {/*  //[S07251678|_box-layout.scss::.box-layout css1;^B]  */}
+  {/*  */}
 <div className="box-layout__box">
-  //[S07251678|_box-layout.scss::.box-layout__box css1;^B]
+  {/* //[S07251678|_box-layout.scss::.box-layout__box css1;^B] */}
   <h1 className="box-layout__title">Expensify</h1>
-  //[S07251678|_box-layout.scss::.box-layout__title css1;^B]
+  {/* //[S07251678|_box-layout.scss::.box-layout__title css1;^B] */}
   <p>It's time to get your expenses under control.</p>
     <input
       type="text"

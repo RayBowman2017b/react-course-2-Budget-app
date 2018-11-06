@@ -7,6 +7,27 @@ https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpe
 
 
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+ERROR in multi (webpack)-dev-server/client?http://0.0.0.0:9900 (webpack)/hot/dev-server.js babel-polyfill ./src/sec012a_app.jsx
+Module not found: Error: Can't resolve 'babel-polyfill' in 'K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app'
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9900 (webpack)/hot/dev-server.js babel-polyfill ./src/sec012a_app.jsx main[2]
+Child html-webpack-plugin for "index.html":
+     1 asset
+    Entrypoint undefined = index.html
+
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+Module not found: Error: Can't resolve 'babel-polyfill'
+
+ccccccccccccccccccccccccccccccc
+
+ERROR in multi (webpack)-dev-server/client?http://0.0.0.0:9900 (webpack)/hot/dev-server.js babel-polyfill ./src/sec012a_app.jsx
+Module not found: Error: Can't resolve 'babel-polyfill' in 'K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app'
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9900 (webpack)/hot/dev-server.js babel-polyfill ./src/sec012a_app.jsx main[2]
+Child html-webpack-plugin for "index.html":
+     1 asset
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 remote: npm ERR! A complete log of this run can be found in:
 remote: npm ERR!     /tmp/npmcache.tP6Dg/_logs/2018-11-04T21_58_17_470Z-debug.log
 remote: npm ERR! code ELIFECYCLE
